@@ -1,0 +1,43 @@
+{
+  "titulo": "Test · Más allá del texto",
+  "preguntas": [
+    {
+      "tipo": "escenario",
+      "enunciado": "¿Qué falla en esta nota generada por un escriba?",
+      "caso": "En la consulta, una paciente dijo claramente: «Soy alérgica a la penicilina». La nota que genera el escriba incluye: «Sin alergias medicamentosas conocidas».",
+      "opciones": [
+        { "texto": "Nada: el escriba es una herramienta aprobada y no se equivoca en datos tan simples.", "correcta": false, "explicacion": "Ninguna herramienta es infalible. En el ensayo aleatorizado de escribas ambientales, los clínicos refirieron inexactitudes ocasionales que exigen vigilancia continua." },
+        { "texto": "La nota contradice lo dicho en la consulta: hay que revisarla antes de firmar, sobre todo alergias, medicación y cifras.", "correcta": true, "explicacion": "Exacto. Es un error de contradicción y, además, de los más peligrosos. La nota la firma el médico, así que revisarla es responsabilidad suya." },
+        { "texto": "Que la nota es demasiado corta.", "correcta": false, "explicacion": "La longitud no es el problema, sino que el contenido es incorrecto." },
+        { "texto": "Que debería haberse grabado con el móvil personal.", "correcta": false, "explicacion": "Al revés: un escriba solo debe usarse con una herramienta autorizada por el centro, nunca con una aplicación personal." }
+      ]
+    },
+    {
+      "tipo": "vf",
+      "enunciado": "Una foto de una analítica sin el nombre del paciente no contiene datos personales y puede subirse sin problema a un asistente con cuenta personal.",
+      "respuesta": false,
+      "explicacionVerdadero": "No. Una analítica puede incluir otros datos identificativos (NHC, fecha de nacimiento, fecha y centro, código de barras) y los metadatos de la foto. Además, el conjunto de datos de salud puede identificar a una persona aunque falte el nombre.",
+      "explicacionFalso": "Correcto. Tapar el nombre no basta: el NHC, las fechas, el centro o los metadatos pueden identificar. Una foto o un audio son datos y se aplican las mismas reglas que a un texto."
+    },
+    {
+      "tipo": "unica",
+      "enunciado": "Según el estudio sobre el sistema de transcripción Whisper (Koenecke et al., 2024), ¿qué problema se observó?",
+      "opciones": [
+        { "texto": "Que no reconocía ningún idioma que no fuera inglés.", "correcta": false, "explicacion": "No es lo que mostró el estudio." },
+        { "texto": "Que alrededor del 1 % de las transcripciones contenían frases enteras inventadas, que no estaban en el audio.", "correcta": true, "explicacion": "Exacto. Y el 38 % de esas «alucinaciones» incluía contenido con daños explícitos. Por eso hay que revisar las transcripciones." },
+        { "texto": "Que tardaba demasiado en transcribir.", "correcta": false, "explicacion": "El estudio trata de la exactitud, no de la velocidad." },
+        { "texto": "Que solo funcionaba con voces de hombre.", "correcta": false, "explicacion": "El estudio estudió, entre otras cosas, personas con afasia y observó más invenciones en quienes hablan con más pausas, no una diferencia por sexo." }
+      ]
+    },
+    {
+      "tipo": "emparejar",
+      "enunciado": "Empareja cada capacidad con su riesgo principal.",
+      "pares": [
+        { "izquierda": "Leer una foto de una tabla", "derecha": "Cambiar una cifra o una columna sin avisar", "porque": "Hay que comprobar los datos con el original." },
+        { "izquierda": "Escriba ambiental", "derecha": "Omisiones, invenciones y contradicciones en la nota", "porque": "Se revisa y se firma: la responsabilidad es del médico." },
+        { "izquierda": "Generar imágenes clínicas", "derecha": "Parecen reales y no lo son: no son evidencia", "porque": "Deben etiquetarse como generadas." },
+        { "izquierda": "Voz y vídeo sintéticos", "derecha": "Suplantación de identidad y desinformación", "porque": "Nunca se usan sin consentimiento y se desconfía de peticiones urgentes." }
+      ]
+    }
+  ]
+}

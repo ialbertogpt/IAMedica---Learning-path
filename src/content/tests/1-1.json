@@ -1,0 +1,43 @@
+{
+  "titulo": "Test · ¿Qué es la IA?",
+  "preguntas": [
+    {
+      "tipo": "escenario",
+      "enunciado": "¿Qué falla en esta afirmación comercial?",
+      "caso": "El folleto de un monitor de constantes dice: «Nuestro sistema con inteligencia artificial avisa cuando la saturación de oxígeno baja del 90 %». Al preguntar, el comercial confirma que el umbral lo fija el usuario.",
+      "opciones": [
+        { "texto": "Nada: cualquier aviso automático es inteligencia artificial.", "correcta": false, "explicacion": "Automatizar no es lo mismo que IA. Un aviso con un umbral fijo existe desde hace décadas." },
+        { "texto": "Es un automatismo con un umbral configurable: no aprende de datos, así que llamarlo «IA» es sobre todo una etiqueta de marketing.", "correcta": true, "explicacion": "Exacto. Nadie ha entrenado nada: es una regla («si SpO₂ < 90, avisa»). Es útil, pero conviene preguntar qué hay de verdad detrás de la etiqueta." },
+        { "texto": "Que no menciona el aprendizaje profundo.", "correcta": false, "explicacion": "No hace falta que sea aprendizaje profundo para ser IA. El problema es que ni siquiera hay aprendizaje: solo un umbral." },
+        { "texto": "Que debería avisar a un número distinto.", "correcta": false, "explicacion": "El valor del umbral es una decisión clínica y no es lo que está en cuestión aquí." }
+      ]
+    },
+    {
+      "tipo": "vf",
+      "enunciado": "La IA generativa y la inteligencia artificial son exactamente lo mismo.",
+      "respuesta": false,
+      "explicacionVerdadero": "No. La IA generativa es solo una parte: la que crea contenido nuevo (texto, imágenes, audio). Una gran parte de la IA médica actual, como la que lee imágenes o ECG, no es generativa: clasifica o predice.",
+      "explicacionFalso": "Correcto. La IA generativa es una rama dentro del aprendizaje profundo, que a su vez está dentro del aprendizaje automático, y este dentro de la IA. Muchos sistemas médicos clasifican o predicen y no generan nada."
+    },
+    {
+      "tipo": "emparejar",
+      "enunciado": "Empareja cada término con su descripción.",
+      "pares": [
+        { "izquierda": "Inteligencia artificial", "derecha": "Paraguas: programas que hacen tareas «inteligentes», con reglas o aprendiendo", "porque": "Es el concepto más amplio, y por eso la palabra se usa tanto." },
+        { "izquierda": "Aprendizaje automático", "derecha": "Descubre patrones a partir de ejemplos en lugar de seguir reglas escritas a mano", "porque": "Es la «residencia» del programa: aprende viendo casos." },
+        { "izquierda": "Aprendizaje profundo", "derecha": "Aprendizaje automático con redes neuronales de muchas capas", "porque": "Es el que ha revolucionado la imagen, la voz y el lenguaje." },
+        { "izquierda": "IA generativa", "derecha": "Aprendizaje profundo que crea contenido nuevo, como texto o imágenes", "porque": "Ahí viven ChatGPT, Claude o Gemini." }
+      ]
+    },
+    {
+      "tipo": "unica",
+      "enunciado": "¿Cuál es la diferencia esencial entre un sistema de reglas y uno que aprende de datos?",
+      "opciones": [
+        { "texto": "El de reglas es siempre menos fiable.", "correcta": false, "explicacion": "No necesariamente: un sistema de reglas bien hecho es predecible y auditable. El problema es que es rígido y costoso de mantener." },
+        { "texto": "En el de reglas, el conocimiento lo escribe una persona; en el que aprende, el programa lo extrae de los ejemplos.", "correcta": true, "explicacion": "Correcto. Esa es la clave. Por eso un modelo que aprende depende de la calidad y la variedad de los datos con los que se entrenó." },
+        { "texto": "El que aprende no necesita datos.", "correcta": false, "explicacion": "Justo al revés: necesita muchos, y de calidad. Si no ha visto a cierto tipo de pacientes, fallará con ellos." },
+        { "texto": "El de reglas no puede usarse en medicina.", "correcta": false, "explicacion": "Se usa mucho: alarmas, escalas, algoritmos de ayuda a la decisión… Muchos son de reglas." }
+      ]
+    }
+  ]
+}

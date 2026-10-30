@@ -1,0 +1,20 @@
+{
+  "titulo": "¿Modelo rápido, de razonamiento o agente?",
+  "instrucciones": "Para cada tarea, elige el tipo de ayuda que más te conviene.",
+  "categorias": [
+    { "id": "rapido", "nombre": "Modelo rápido", "descripcion": "responde enseguida: bueno para redactar, reformular, traducir o generar ideas" },
+    { "id": "razonamiento", "nombre": "Modelo de razonamiento", "descripcion": "piensa por pasos antes de responder: mejor en cálculos y problemas complejos" },
+    { "id": "agente", "nombre": "Agente", "descripcion": "encadena varias acciones por su cuenta, con tu supervisión" }
+  ],
+  "items": [
+    { "texto": "Reformular un correo para que suene más cordial.", "categoria": "rapido", "explicacion": "Es una tarea de redacción sencilla: un modelo rápido basta. Si esperas, no ganas nada." },
+    { "texto": "Calcular el valor predictivo positivo a partir de una tabla 2×2 y mostrar cada paso.", "categoria": "razonamiento", "explicacion": "Es un problema numérico de varios pasos, donde pensar por pasos reduce los errores. Aun así, comprueba el resultado." },
+    { "texto": "Cada semana, revisar mis alertas de PubMed, quedarse con lo relevante para geriatría y prepararme un resumen.", "categoria": "agente", "explicacion": "Son muchas acciones encadenadas y recurrentes. Un agente puede hacerlas, pero supervisa sus criterios de relevancia, como harías con un residente." },
+    { "texto": "Traducir un resumen de un artículo al inglés.", "categoria": "rapido", "explicacion": "Tarea de lenguaje sin razonamiento complejo: un modelo rápido es suficiente. Revisa los términos técnicos." },
+    { "texto": "Proponer un diagnóstico diferencial razonado en un caso sintético con datos contradictorios.", "categoria": "razonamiento", "explicacion": "Integrar datos que no encajan es donde ayuda razonar paso a paso. Y la decisión es tuya." },
+    { "texto": "Buscar en una veintena de webs las condiciones de varios programas de estadística y preparar una tabla comparativa.", "categoria": "agente", "explicacion": "Es un encargo largo de varias acciones (buscar, leer, comparar, tabular): terreno de los agentes. Revisa cada dato de la tabla." },
+    { "texto": "Sugerir diez títulos para una charla sobre caídas.", "categoria": "rapido", "explicacion": "Generar ideas no requiere razonar a fondo: gana la rapidez." },
+    { "texto": "Comprobar si los números de las tablas de un manuscrito coinciden con los del texto.", "categoria": "razonamiento", "explicacion": "Exige cotejar y calcular con cuidado: un modelo de razonamiento suele equivocarse menos, aunque no es infalible." }
+  ],
+  "cierre": "Muchos asistentes deciden por ti cuándo «pensar más» o cuándo actuar como agente. Saber qué necesitas te ayuda a pedirlo («razona paso a paso», «hazlo en varios pasos y enséñame cada uno») y a saber qué comprobar."
+}

@@ -11,6 +11,7 @@ const VERBOS = [
   'Calcular', 'Localizar', 'Usar', 'Utilizar', 'Comprobar', 'Verificar', 'Redactar', 'Comparar', 'Elegir', 'Decidir', 'Clasificar',
   'Detectar', 'Evaluar', 'Valorar', 'Situar', 'Configurar', 'Anonimizar', 'Presentar', 'Pedir', 'Organizar', 'Generar', 'Crear',
   'Preparar', 'Planificar', 'Integrar', 'Proponer', 'Priorizar', 'Formular', 'Ejecutar', 'Gestionar', 'Estructurar', 'Obtener',
+  'Mejorar', 'Analizar', 'Resolver', 'Revisar', 'Ajustar', 'Extraer', 'Adaptar', 'Citar', 'Documentar', 'Leer', 'Buscar', 'Escribir', 'Mostrar', 'Diseñar', 'Delegar', 'Reproducir', 'Seleccionar', 'Argumentar', 'Resumir', 'Traducir', 'Conocer', 'Entender', 'Emplear', 'Interpretar', 'Cuantificar', 'Corregir', 'Justificar', 'Presentar', 'Programar', 'Reconocer',
 ];
 const verboObservable = new RegExp(`^(${VERBOS.join('|')})\\b`);
 const fecha = z.string().regex(/^\d{4}-\d{2}-\d{2}$/, 'Usa el formato AAAA-MM-DD');

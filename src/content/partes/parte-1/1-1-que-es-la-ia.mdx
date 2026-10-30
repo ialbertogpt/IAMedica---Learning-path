@@ -1,0 +1,136 @@
+---
+id: "1-1"
+titulo: ¿Qué es la IA (y qué no es)?
+parte: 1
+minutos: 45
+objetivos:
+  - Distinguir entre IA, aprendizaje automático, aprendizaje profundo e IA generativa
+  - Clasificar ejemplos cotidianos y clínicos como IA o no IA, y justificar la respuesta
+  - Explicar la diferencia entre un sistema de reglas y uno que aprende de datos
+gancho: "Tu móvil se desbloquea al mirarlo. El electrocardiógrafo imprime «probable fibrilación auricular». El corrector cambia «disnea» por «Disney». ¿Cuáles de esas tres cosas son inteligencia artificial? La respuesta es menos obvia de lo que parece, y entenderla te servirá para no dejarte deslumbrar por la etiqueta «con IA»."
+recursos:
+  - v-derivando-ia
+  - v-dotcsv-ml-mapa
+paraSaberMas:
+  - r-elementsofai-es
+  - v-mantaras-cara-oculta
+test: "1-1"
+fechaRevision: "2026-10-30"
+fuentes:
+  - texto: "Universidad de Helsinki y MinnaLearn. Elements of AI (versión en español), consultado el 29/10/2026"
+    url: https://www.elementsofai.com/es
+  - texto: "Yu VL, et al. Antimicrobial selection by a computer. A blinded evaluation by infectious diseases experts. JAMA 1979;242:1279-82 (ejemplo de sistema de reglas)"
+    pmid: "480542"
+---
+
+<Sesion n={1} titulo="Reglas frente a aprendizaje" minutos={22}>
+
+### Dos formas de que una máquina «sepa» algo
+
+La expresión <T id="ia">inteligencia artificial</T> es muy amplia. Para orientarte, piensa en dos maneras de que un programa sepa hacer algo:
+
+**1. Porque alguien le ha escrito las reglas.** Un experto traduce su conocimiento a instrucciones («si la frecuencia cardiaca supera 120, avisa»). Es la <T id="ia-clasica">IA clásica</T>.
+
+<Analogia>
+Es **un protocolo en diagrama de flujo**: claro, predecible y fácil de auditar. Pero solo sabe lo que su autor le ha escrito, y hay que actualizarlo a mano cada vez que cambia la evidencia.
+</Analogia>
+
+**2. Porque ha aprendido de ejemplos.** Se le muestran miles de casos con su resultado y el programa descubre por sí mismo qué patrones los distinguen. Es el <T id="aprendizaje-automatico">aprendizaje automático</T>.
+
+<Analogia>
+Es **la residencia**: nadie le da al residente una lista de reglas para reconocer una neumonía en una radiografía. Aprende viendo miles de casos, hasta que sus ojos «saben» qué buscar.
+</Analogia>
+
+### Una definición práctica
+
+Una definición útil: la IA son **programas que realizan tareas que asociamos a la inteligencia humana**, como reconocer imágenes, entender o producir lenguaje, predecir o recomendar. Por eso incluye tanto los sistemas de reglas como los que aprenden.
+
+El problema es que «con IA» se ha convertido en **una etiqueta de marketing**. Para no dejarte engañar, hazte dos preguntas:
+
+- ¿Hace algo más que **una fórmula o un <T id="umbral">umbral</T> fijo**?
+- Si aprende, ¿**de qué datos** y con qué pacientes?
+
+### Ahora, tú
+
+<Clasificador datos="1-1-es-ia" />
+
+### En vídeo
+
+<Video id="v-derivando-ia" nota="cómo explica el matemático Eduardo Sáenz de Cabezón la diferencia entre programar reglas y dejar que la máquina aprenda." />
+
+</Sesion>
+
+<Sesion n={2} titulo="Las muñecas rusas de la IA" minutos={23}>
+
+### Cuatro términos que se mezclan
+
+Oirás hablar de IA, <T id="aprendizaje-automatico">aprendizaje automático</T>, <T id="aprendizaje-profundo">aprendizaje profundo</T> e <T id="ia-generativa">IA generativa</T> como si fueran sinónimos. No lo son: cada término está **dentro del anterior**, como unas muñecas rusas.
+
+<Munecas />
+
+### ¿Cómo aprende una máquina?
+
+Un <T id="modelo">modelo</T> puede aprender de tres formas principales:
+
+- **Supervisado:** con ejemplos que ya llevan la respuesta correcta. Es el más usado en medicina. Por ejemplo, retinografías con el diagnóstico de los oftalmólogos.
+- **No supervisado:** sin respuestas previas; busca grupos o patrones. Por ejemplo, descubrir tipos de pacientes parecidos.
+- **Por refuerzo:** aprende probando y recibiendo recompensas, como un jugador de ajedrez. Es la base de parte del <T id="entrenamiento">entrenamiento</T> de los asistentes actuales.
+
+Todo ello se verá con más detalle en el subcapítulo 1.3.
+
+### Qué es y qué no es la IA
+
+La IA **no es un colega que entiende**. Es un conjunto de técnicas que detectan patrones en datos y, con ellos, predicen, clasifican o generan. Puede hacerlo muy bien, a veces mejor que una persona en una tarea concreta. Pero:
+
+- **Solo sabe lo que ha visto.** Si no hubo pacientes de 90 años en sus datos, fallará con ellos.
+- **No tiene criterio clínico ni responsabilidad.** Sugiere; decide el médico.
+- **Puede equivocarse con total seguridad.** Lo verás en el 1.5.
+
+<PruebaloTu minutos={5}>
+Pide a tu asistente que te explique la diferencia entre un sistema de reglas y uno que aprende, con un ejemplo de tu especialidad. Después, contrasta la respuesta con lo que has visto en esta sesión: ¿pone las cosas en el mismo lugar? ¿Mezcla «IA» con «aprendizaje profundo»?
+
+<Plantilla id="p-1-1-reglas-aprende" />
+</PruebaloTu>
+
+### En vídeo
+
+<Video id="v-dotcsv-ml-mapa" nota="cómo se relacionan el aprendizaje automático y el aprendizaje profundo. Es de 2017, pero el esquema sigue siendo válido." />
+
+<OjoCon>
+- **«Algoritmo» no significa «inteligente».** Un algoritmo es una receta; la IA que aprende es solo una familia de algoritmos.
+- **«IA» y «ChatGPT» no son sinónimos.** La IA que más impacto clínico tiene hoy (imagen, ECG) no es generativa.
+- **Que algo sea «explicable» o no** depende del tipo: las reglas se auditan fácilmente; las redes profundas son a menudo <T id="caja-negra">cajas negras</T>.
+- **Los productos «con IA» pueden llevar solo reglas.** Pregunta cómo funcionan y con qué datos.
+</OjoCon>
+
+<Resumen>
+- La **IA** es un paraguas que incluye sistemas de **reglas** (escritas por expertos) y sistemas que **aprenden de datos**.
+- **Aprendizaje automático ⊂ IA; aprendizaje profundo ⊂ aprendizaje automático; IA generativa ⊂ aprendizaje profundo.**
+- Aprender de datos es como **la residencia**: se descubren patrones viendo casos; las reglas son como **un protocolo**.
+- «Con IA» es a menudo una etiqueta: pregunta **qué hace, de qué datos aprende y con qué pacientes**.
+- La IA **no entiende ni responde de las decisiones**: la responsabilidad clínica es tuya.
+</Resumen>
+
+<Ficha titulo="¿Qué es la IA?: lo esencial">
+**Cuatro términos**
+- IA: programas que hacen tareas «inteligentes».
+- Aprendizaje automático: aprende de ejemplos.
+- Aprendizaje profundo: redes neuronales de muchas capas.
+- IA generativa: crea texto, imagen o audio (<T id="llm">LLM</T>).
+
+**Reglas frente a aprendizaje**
+- Reglas = protocolo en diagrama de flujo.
+- Aprendizaje = residencia: ver miles de casos.
+
+**Ante un producto «con IA», pregunta**
+- ¿Aprende de datos o aplica reglas?
+- ¿Con qué datos y pacientes se entrenó?
+- ¿Se ha validado en una población como la mía?
+
+**Recuerda**
+- La IA no entiende ni responde: decides tú.
+</Ficha>
+
+<TestFinal id="1-1" />
+
+</Sesion>

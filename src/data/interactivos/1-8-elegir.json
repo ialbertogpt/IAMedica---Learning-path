@@ -1,0 +1,70 @@
+{
+  "titulo": "¿Qué herramienta me conviene?",
+  "instrucciones": "Responde a unas pocas preguntas y obtén una orientación, no una marca. Está pensada para tu uso personal, con tus cuentas y dispositivos.",
+  "inicio": "datos",
+  "nodos": {
+    "datos": {
+      "tipo": "pregunta",
+      "texto": "¿Vas a introducir datos de pacientes?",
+      "ayuda": "Cualquier dato que pueda identificar a una persona: nombre, NHC, DNI/CIP, fechas exactas, o una combinación que lo permita.",
+      "opciones": [
+        { "texto": "Sí, o no estoy seguro", "siguiente": "r-pacientes" },
+        { "texto": "No, uso solo textos públicos o casos inventados", "siguiente": "tarea" }
+      ]
+    },
+    "r-pacientes": {
+      "tipo": "resultado",
+      "titulo": "Con una cuenta personal, no",
+      "detalle": "Ningún asistente de uso general con cuenta personal es apto para datos identificables de pacientes. Solo lo sería una herramienta contratada y autorizada por tu centro, con contrato de encargo de tratamiento. Si tienes dudas, consulta la política de tu centro y a su delegado de protección de datos.",
+      "ojo": "Desactivar el uso de tus conversaciones para entrenar no hace segura una herramienta. Anonimiza antes (lo verás en 3.0).",
+      "fuente": "Manual de Buenas Prácticas para la IA en Medicina (OMC, 2026) y RGPD; se verá en 2.3 y 3.0."
+    },
+    "tarea": {
+      "tipo": "pregunta",
+      "texto": "¿Qué quieres hacer?",
+      "opciones": [
+        { "texto": "Redactar, resumir o traducir un texto", "siguiente": "r-redactar" },
+        { "texto": "Resolver un problema complejo (cálculos, razonamiento)", "siguiente": "r-razonar" },
+        { "texto": "Buscar bibliografía", "siguiente": "r-biblio" },
+        { "texto": "Estudiar un documento o una guía que tengo", "siguiente": "r-estudiar" },
+        { "texto": "Consultar una duda clínica con evidencia", "siguiente": "r-clinica" }
+      ]
+    },
+    "r-redactar": {
+      "tipo": "resultado",
+      "titulo": "Un asistente general con un modelo rápido",
+      "detalle": "Cualquiera de los grandes asistentes sirve, y el plan gratuito suele bastar. Elige por comodidad (el que ya usas), por idioma y por cómo gestiona tus datos. Dale contexto y formato, y revisa lo que escribe.",
+      "ojo": "Si es un documento con información sensible del trabajo, no lo subas.",
+      "fuente": "Se amplía en 1.6 (prompting)."
+    },
+    "r-razonar": {
+      "tipo": "resultado",
+      "titulo": "Un modelo de razonamiento («pensar más»)",
+      "detalle": "Si tu asistente ofrece un modo de razonamiento, úsalo para problemas de varios pasos y pide que muestre el cálculo. Tarda más, pero se equivoca menos. Después, comprueba el resultado con una calculadora o con una fuente.",
+      "ojo": "Puede razonar con elegancia a partir de un dato falso: verifica los datos de partida.",
+      "fuente": "Se verá en 1.5 y 3.2."
+    },
+    "r-biblio": {
+      "tipo": "resultado",
+      "titulo": "PubMed como base y la IA como ayudante",
+      "detalle": "PubMed sigue siendo la base. Usa la IA para convertir tu pregunta en una estrategia de búsqueda y para resumir lo que encuentres, y comprueba siempre cada referencia por su PMID o DOI.",
+      "ojo": "Las referencias inventadas son el error más peligroso de los asistentes.",
+      "fuente": "Se desarrolla en el taller 3.3."
+    },
+    "r-estudiar": {
+      "tipo": "resultado",
+      "titulo": "Una herramienta que responda con tus documentos y cite la página",
+      "detalle": "Busca una herramienta en la que subas tu documento y que responda basándose en él, con la cita exacta (como Gemini Notebook, antes NotebookLM, o un proyecto de un asistente). Es más fiable que preguntar sin el documento.",
+      "ojo": "Comprueba las citas y no subas material con datos de pacientes.",
+      "fuente": "Se desarrolla en el taller 3.7."
+    },
+    "r-clinica": {
+      "tipo": "resultado",
+      "titulo": "Una fuente clínica curada; la IA, como apoyo",
+      "detalle": "Para una duda clínica, parte de una fuente de referencia (guías, UpToDate o similar si tienes acceso, la ficha técnica en CIMA para fármacos). Usa un asistente para organizar, explicar o preparar preguntas, no como fuente final. Algunas herramientas médicas con IA no están disponibles en España: comprueba antes de contar con ellas.",
+      "ojo": "La decisión clínica es tuya y las dosis se verifican en la ficha técnica.",
+      "fuente": "Se desarrolla en los talleres 3.1 y 3.2."
+    }
+  },
+  "nota": "Orientación general a fecha de octubre de 2026. El directorio de herramientas tiene más detalle."
+}

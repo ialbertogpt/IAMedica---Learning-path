@@ -1,0 +1,17 @@
+{
+  "titulo": "¿Qué falla en estos modelos?",
+  "instrucciones": "Cada caso describe un modelo con un problema. Clasifícalo: ¿es un problema de sesgo (los datos o la variable elegida), de sobreajuste (memoriza en vez de generalizar), o de falta de validación externa?",
+  "categorias": [
+    { "id": "sesgo", "nombre": "Sesgo en los datos o en la variable" },
+    { "id": "sobreajuste", "nombre": "Sobreajuste" },
+    { "id": "externa", "nombre": "Falta de validación externa" }
+  ],
+  "items": [
+    { "texto": "Un modelo para predecir caídas se entrenó con pacientes de 60 a 80 años. Se despliega en una residencia donde casi todos tienen 90 o más.", "categoria": "sesgo", "explicacion": "Los muy mayores casi no estaban en los datos: como el ensayo clínico que excluyó a los mayores de 75. El modelo no ha «visto» a esos pacientes." },
+    { "texto": "Un algoritmo aprende a predecir qué pacientes necesitarán más cuidados, pero usa el coste sanitario como sustituto de la gravedad. Los pacientes con menos acceso a la atención gastan menos, así que el modelo los infravalora.", "categoria": "sesgo", "explicacion": "Es el caso de Obermeyer et al. (Science, 2019): una variable «conveniente» (el coste) que no mide lo que se pretende (la enfermedad) introduce un sesgo grave." },
+    { "texto": "Un modelo acierta el 99 % en los pacientes con los que se entrenó, pero solo el 70 % en pacientes nuevos del mismo hospital.", "categoria": "sobreajuste", "explicacion": "Ha memorizado los casos de entrenamiento, incluido su ruido. Es el residente que memoriza las preguntas del examen." },
+    { "texto": "Un modelo de alerta de sepsis se implanta en cientos de hospitales sin haberse probado fuera del centro que lo desarrolló. Al validarlo en otro hospital, su rendimiento es peor del esperado.", "categoria": "externa", "explicacion": "Es el caso del Epic Sepsis Model (Wong et al., 2021): AUC de 0,63 en la validación externa. Siempre hay que probar un modelo en otra población antes de fiarse." },
+    { "texto": "Un modelo de dermatología funciona muy bien con las imágenes de su hospital, pero falla con las de otro centro con otra cámara y otro tipo de pacientes.", "categoria": "externa", "explicacion": "El rendimiento en la población de origen no garantiza el de otra distinta. Por eso se pide validación externa, igual que se valida una escala en otra población." }
+  ],
+  "cierre": "Los tres problemas se parecen en algo: el modelo parece excelente en las pruebas de quien lo desarrolló. Por eso se exigen datos de otra población y se desconfía de las cifras en el propio conjunto de entrenamiento."
+}

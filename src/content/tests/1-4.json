@@ -1,0 +1,43 @@
+{
+  "titulo": "Test · Redes neuronales",
+  "preguntas": [
+    {
+      "tipo": "emparejar",
+      "enunciado": "Empareja cada parte con su equivalente clínico.",
+      "pares": [
+        { "izquierda": "Dato de entrada", "derecha": "Un dato del paciente: edad, Barthel, convivencia…", "porque": "Es lo que alimenta la neurona." },
+        { "izquierda": "Peso", "derecha": "Cuánta importancia das a ese dato en tu decisión", "porque": "Los pesos son lo que la red aprende durante el entrenamiento." },
+        { "izquierda": "Suma y activación", "derecha": "La decisión final: ingreso o alta", "porque": "La neurona combina los datos ponderados y decide cuánto «se activa»." },
+        { "izquierda": "Capas", "derecha": "Un comité de especialistas en cadena", "porque": "Cada capa combina lo detectado por la anterior en algo más complejo." }
+      ]
+    },
+    {
+      "tipo": "vf",
+      "enunciado": "En una red neuronal, un programador escribe qué debe detectar cada capa (bordes, formas, lesiones).",
+      "respuesta": false,
+      "explicacionVerdadero": "No. Nadie programa lo que detecta cada capa: lo descubre la red durante el entrenamiento, ajustando sus pesos para acertar con los ejemplos.",
+      "explicacionFalso": "Correcto. La red descubre sola qué detectar en cada capa. Es una gran ventaja y, a la vez, la razón de que sea una caja negra."
+    },
+    {
+      "tipo": "escenario",
+      "enunciado": "¿Qué le ha pasado a esta red?",
+      "caso": "Una red de dermatología puntúa como «sospechoso de melanoma» muchos nevus benignos cuando el dermatólogo los ha marcado con un rotulador violeta, algo que no ocurría con las imágenes sin marcar.",
+      "opciones": [
+        { "texto": "Es un fallo del rotulador, no de la red.", "correcta": false, "explicacion": "La marca es inocua. El fallo es que la red ha asociado la marca con la enfermedad." },
+        { "texto": "Ha aprendido un atajo: en sus datos de entrenamiento las marcas se asociaban a los melanomas, y las usa como pista.", "correcta": true, "explicacion": "Exacto. Es el caso de Winkler et al. (2019): la especificidad cayó del 84,1 % al 45,8 % con las marcas. Acertar por la razón equivocada es el riesgo de las cajas negras." },
+        { "texto": "La red tiene demasiadas pocas capas.", "correcta": false, "explicacion": "No es una cuestión de número de capas, sino de qué ha aprendido a partir de sus datos." },
+        { "texto": "Se debe a que la red no sabe de dermatología.", "correcta": false, "explicacion": "La red no «sabe» dermatología: ha aprendido patrones. El problema es que uno de ellos no tiene sentido clínico." }
+      ]
+    },
+    {
+      "tipo": "unica",
+      "enunciado": "¿Por qué la imagen médica fue la primera gran aplicación del aprendizaje profundo?",
+      "opciones": [
+        { "texto": "Porque las imágenes no necesitan diagnóstico de referencia.", "correcta": false, "explicacion": "Al contrario: se necesitan diagnósticos de referencia para etiquetar los ejemplos con los que aprende la red." },
+        { "texto": "Porque había muchos datos etiquetados, el problema consistía en reconocer patrones y el resultado era verificable.", "correcta": true, "explicacion": "Son los tres factores: datos, patrones visuales y un diagnóstico con el que comparar." },
+        { "texto": "Porque los radiólogos pidieron que se les sustituyera.", "correcta": false, "explicacion": "No es la razón. La IA de imagen se desarrolla como ayuda; el papel final del clínico sigue siendo clave." },
+        { "texto": "Porque las imágenes pesan poco y se procesan fácilmente.", "correcta": false, "explicacion": "Al contrario: las imágenes médicas son pesadas. Su procesamiento se hizo viable gracias a las tarjetas gráficas." }
+      ]
+    }
+  ]
+}

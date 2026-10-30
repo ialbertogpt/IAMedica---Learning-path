@@ -1,0 +1,16 @@
+{
+  "titulo": "¿En qué se fija la red?",
+  "instrucciones": "Cada caso describe en qué parece fijarse una red neuronal. ¿Es una razón clínica válida o un atajo engañoso?",
+  "categorias": [
+    { "id": "valida", "nombre": "Razón clínica válida" },
+    { "id": "atajo", "nombre": "Atajo engañoso" }
+  ],
+  "items": [
+    { "texto": "Una red que detecta retinopatía diabética se fija en microaneurismas y exudados de la retina.", "categoria": "valida", "explicacion": "Son los signos que busca un oftalmólogo. Que la red se fije en lo mismo que un clínico es buena señal." },
+    { "texto": "Una red de dermatología puntúa como «melanoma» las lesiones marcadas con rotulador violeta, aunque sean nevus benignos.", "categoria": "atajo", "explicacion": "Es el caso de Winkler et al. (2019): con marcas de rotulador, la especificidad cayó del 84,1 % al 45,8 %. Es probable que en el entrenamiento hubiera más marcas entre los melanomas y que la red aprendiera «marca = melanoma»." },
+    { "texto": "Una red que detecta neumonía en radiografías de tórax se fija en rasgos propios del hospital de origen, y no solo en la enfermedad.", "categoria": "atajo", "explicacion": "Zech et al. (2018) mostraron que un modelo de neumonía no rendía igual en radiografías de otros hospitales: captaba rasgos propios de cada centro, no solo la enfermedad." },
+    { "texto": "Un modelo que estima la edad a partir de una radiografía de mano se fija en el grado de fusión de las epífisis.", "categoria": "valida", "explicacion": "Es un rasgo biológico que usa cualquier radiólogo para estimar la edad ósea." },
+    { "texto": "Imagina un modelo de ECG para detectar disfunción ventricular que aprende que los pacientes con un marcapasos concreto tienen más disfunción.", "categoria": "atajo", "explicacion": "Es un caso hipotético: si el dispositivo se asocia a la enfermedad en los datos de entrenamiento, el modelo puede usarlo como atajo y fallar en pacientes sin él. Por eso se exige validar en poblaciones distintas." }
+  ],
+  "cierre": "Una red puede acertar por la razón equivocada. Mientras los datos de prueba tengan los mismos atajos que los de entrenamiento, no lo notarás: hasta que lo uses en otro hospital. Por eso importan las validaciones externas y las técnicas que muestran en qué se fija el modelo."
+}

@@ -1,0 +1,24 @@
+---
+// Infografía: las capas de una red neuronal como un «comité de especialistas» (ejemplo: fondo de ojo).
+import Icono from '../ui/Icono.astro';
+const capas = [
+  { n: 'Entrada', d: 'Los píxeles de la imagen del fondo de ojo.', icono: 'image' },
+  { n: 'Capas iniciales', d: 'Detectan bordes y manchas: cambios de luz y de color.', icono: 'texture' },
+  { n: 'Capas intermedias', d: 'Combinan bordes en formas: vasos, el disco óptico, la mácula.', icono: 'hub' },
+  { n: 'Capas finales', d: 'Combinan formas en patrones: microaneurismas, exudados, hemorragias.', icono: 'search_check' },
+  { n: 'Salida', d: '«Probable retinopatía que requiere derivación»: una probabilidad.', icono: 'task_alt' },
+];
+---
+<section class="interactivo" aria-labelledby="capas-t">
+  <h3 id="capas-t" class="interactivo-titulo"><Icono nombre="hub" tam={20} />Capas: un comité de especialistas en cadena</h3>
+  <ol class="list-none m-0 p-0 grid gap-2 md:grid-cols-5">
+    {capas.map((c, i) => (
+      <li class="rounded-xl border border-borde p-3 grid gap-1.5 content-start">
+        <span class="size-9 rounded-[9px] grid place-items-center text-l1" style="background: color-mix(in oklch, var(--l1) 12%, var(--superficie))"><Icono nombre={c.icono} tam={22} /></span>
+        <p class="m-0 font-semibold">{i + 1}. {c.n}</p>
+        <p class="m-0 text-base">{c.d}</p>
+      </li>
+    ))}
+  </ol>
+  <p class="interactivo-nota">Esquema simplificado. Nadie programa qué debe detectar cada capa: lo descubre la red durante el entrenamiento, ajustando millones de pesos. Por eso funciona tan bien… y por eso a veces cuesta explicar en qué se fija.</p>
+</section>

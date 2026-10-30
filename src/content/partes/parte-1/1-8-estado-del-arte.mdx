@@ -1,0 +1,168 @@
+---
+id: "1-8"
+titulo: El estado del arte hoy
+parte: 1
+minutos: 75
+objetivos:
+  - Identificar a los principales actores del ecosistema y la diferencia entre modelos abiertos y cerrados
+  - Distinguir entre modelos rápidos, modelos de razonamiento y agentes, y cuándo conviene cada uno
+  - Valorar con escepticismo los rankings y los exámenes superados por la IA
+  - Elegir un asistente según la tarea, la privacidad, el idioma y el coste
+gancho: "Cada semana alguien anuncia «el modelo más potente del mundo». A fecha de octubre de 2026, las tres grandes familias occidentales han renovado sus modelos en las últimas semanas. ¿Cómo eliges sin volverte loco? Spoiler: lo importante no es la marca del momento, sino saber qué tipo de ayuda necesitas y qué comprobar."
+recursos:
+  - v-nabani-agentes
+  - a-bean-2026
+  - a-kung-2023
+paraSaberMas:
+  - v-santana-afi
+test: "1-8"
+fechaRevision: "2026-10-31"
+aFecha: octubre de 2026
+fuentes:
+  - texto: "Anthropic. Sala de prensa (anthropic.com/news): Claude Opus 5.5 (22/09/2026), Sonnet 5.5 (28/09/2026) y Haiku 5.5 (07/10/2026); consultada el 31/10/2026"
+    url: https://www.anthropic.com/news
+  - texto: "Google AI for Developers. Long context (Gemini API), consultado el 30/10/2026"
+    url: https://ai.google.dev/gemini-api/docs/long-context
+  - texto: "OpenAI. Anuncios de GPT-6 (openai.com). La web bloquea las comprobaciones automáticas: confirmado por resultados de búsqueda el 31/10/2026"
+    url: https://openai.com/news/
+  - texto: "Bean AM, et al. Reliability of LLMs as medical assistants for the general public: a randomized preregistered study. Nat Med 2026"
+    pmid: "41663592"
+    doi: 10.1038/s41591-025-04074-y
+  - texto: "Kung TH, et al. Performance of ChatGPT on USMLE. PLOS Digit Health 2023;2:e0000198"
+    pmid: "36812645"
+    doi: 10.1371/journal.pdig.0000198
+  - texto: "DeepSeek-AI. DeepSeek-R1 incentivizes reasoning in LLMs through reinforcement learning. Nature 2025"
+    pmid: "40962978"
+    doi: 10.1038/s41586-025-09422-z
+---
+
+<Sesion n={1} titulo="Mapa del ecosistema" minutos={20}>
+
+### Una foto, con fecha
+
+Esta sesión es una **fotografía a fecha de octubre de 2026**. Cambia cada pocas semanas, así que no la memorices: aprende a leerla. Estos son los jugadores principales:
+
+- **Empresas con asistentes generales de <T id="modelo">modelo</T> cerrado:** OpenAI (ChatGPT), Anthropic (Claude), Google (Gemini), Microsoft (Copilot) y la europea Mistral.
+- **Modelos abiertos:** familias como DeepSeek, Llama o Mistral, cuyos «pesos» se pueden descargar y ejecutar en un equipo propio.
+- **Herramientas médicas con IA:** como UpToDate Expert AI, que se apoyan en contenido clínico curado.
+
+Los datos que siguen están tomados de las páginas de cada empresa y fechados.
+
+<Explorador datos="1-8-ecosistema" />
+
+### Abierto y cerrado
+
+Un <T id="modelo-abierto">modelo abierto</T> publica sus pesos: puedes descargarlo y ejecutarlo en tu ordenador, y lo que escribes no sale de él. Uno cerrado solo se usa a través del servicio de su empresa. Ni lo uno ni lo otro es mejor en sí: depende de qué necesitas (potencia, privacidad, coste, comodidad).
+
+<Analogia>
+Es la diferencia entre **una guía clínica de acceso libre y un software de pago con licencia**: lo primero se puede consultar y adaptar; lo segundo ofrece más comodidad y soporte, pero lo usas en sus condiciones.
+</Analogia>
+
+</Sesion>
+
+<Sesion n={2} titulo="Razonamiento y agentes" minutos={20}>
+
+### Tres tipos de ayuda
+
+Ya conoces los tres del subcapítulo 1.5. Ahora, cómo elegir entre ellos:
+
+- **Modelos rápidos:** responden al momento. Son los mejores para redactar, reformular, traducir o generar ideas.
+- **<T id="modelo-razonamiento">Modelos de razonamiento</T>:** piensan por pasos antes de responder. Rinden mejor en cálculos y problemas de varios pasos, pero tardan más.
+- **<T id="agente">Agentes</T>:** encadenan varias acciones por su cuenta (buscar, leer, usar herramientas, redactar). Útiles para encargos largos, con supervisión.
+
+<Analogia>
+Piensa en **pedir el diagnóstico más probable frente a pedir un diferencial razonado**. En el primer caso quieres rapidez; en el segundo, que piense en voz alta. Un agente es **el residente al que encargas una tarea de varios pasos** y cuyo trabajo supervisas.
+</Analogia>
+
+<Clasificador datos="1-8-tipo-modelo" />
+
+### En vídeo
+
+<Video id="v-nabani-agentes" nota="qué es un agente de IA y en qué se diferencia de un chatbot. Es de 2024: el concepto sigue vigente, aunque los productos han avanzado." />
+
+</Sesion>
+
+<Sesion n={3} titulo="Rankings y exámenes, con lupa" minutos={18}>
+
+### «Aprueba el MIR»
+
+Una noticia recurrente: «la IA aprueba un examen médico». Es cierto. En 2023, un estudio mostró que ChatGPT alcanzaba o se acercaba al aprobado en los tres exámenes USMLE (Kung et al.), sin <T id="entrenamiento">entrenamiento</T> específico. Los modelos actuales lo hacen con más holgura. Pero **aprobar un examen no equivale a ejercer**:
+
+- Un examen tiene **preguntas cerradas y bien formuladas**. Un paciente cuenta su historia de forma desordenada.
+- Un examen premia **acertar la opción correcta**, no decidir con incertidumbre ni asumir las consecuencias.
+- Quien responde al examen **es el propio modelo**, no una persona que debe saber qué preguntarle.
+
+### Una prueba con personas
+
+Un estudio publicado en *Nature Medicine* en 2026 lo mide. Con 1.298 participantes, se pidió a personas del público que, ante diez escenarios médicos, identificaran la afección y decidieran qué hacer, con ayuda de un modelo de lenguaje o con la fuente que quisieran (grupo control). Los modelos solos acertaban la afección en el 94,9 % de los casos. Pero las personas que los usaban la identificaban en menos del 34,5 % de los casos, **no mejor que el grupo control**.
+
+La conclusión de los autores: las pruebas estándar de conocimiento médico **no predicen** los fallos que aparecen cuando una persona interactúa con el modelo. Recomiendan probar con usuarios reales antes de desplegar estas herramientas.
+
+<Analogia>
+Es el **MIR frente a la consulta**: la nota del examen no garantiza que alguien sepa llevar la entrevista, integrar datos incompletos y comunicarse con el paciente.
+</Analogia>
+
+### Cómo leer un ranking
+
+- **¿Quién lo ha hecho?** Si lo publica la empresa que vende el modelo, desconfía un poco.
+- **¿Qué mide?** Un <T id="benchmark">benchmark</T> mide la tarea del benchmark, no la tuya.
+- **¿Con qué fecha?** Los modelos cambian cada pocas semanas.
+- **¿Hubo pacientes o usuarios reales?** Si no, es un examen, no una práctica.
+
+<PruebaloTu minutos={6}>
+Haz la **misma pregunta no clínica** (por ejemplo, «explícame qué es un agente de IA y dame un ejemplo de mi especialidad») en **dos asistentes distintos**. Compara la exactitud, el estilo, si citan fuentes y qué te gusta más. Anota cuál usarías para cada tarea.
+
+<Plantilla id="p-1-8-comparar-asistentes" />
+</PruebaloTu>
+
+</Sesion>
+
+<Sesion n={4} titulo="Elegir con criterio" minutos={17}>
+
+### Cuatro criterios para elegir
+
+Más que la marca, importan cuatro cosas:
+
+1. **La tarea.** Redactar, razonar, buscar, estudiar un documento… no necesitan lo mismo.
+2. **La privacidad.** ¿Dónde se procesan tus datos? ¿Se usan para entrenar? ¿Qué cuenta usas?
+3. **El idioma y la disponibilidad en España.** Algunas herramientas no están disponibles en la UE o son menos fiables en castellano.
+4. **El coste.** Casi todo tiene plan gratuito; el de pago solo compensa si llegas al límite. En 3.0 lo verás con precios verificados.
+
+<Arbol datos="1-8-elegir" />
+
+<OjoCon>
+- **La marca del momento caduca.** Esta fotografía tiene fecha; confirma modelos y planes en la web de cada empresa.
+- **«Mejor» depende de la tarea.** Un modelo puede ser el mejor en un ranking de programación y no el que más te convenga.
+- **Un benchmark no es tu práctica.** Probar tú, con tus tareas, vale más que cualquier lista.
+- **Gratis no significa apto para datos de pacientes.** Ninguno lo es con una cuenta personal.
+</OjoCon>
+
+<Resumen>
+- A fecha de octubre de 2026, **OpenAI, Anthropic y Google** acaban de renovar sus familias de modelos; existen también opciones europeas y **modelos abiertos**.
+- **Abierto** (descargable y ejecutable en tu equipo) y **cerrado** (a través del servicio de su empresa): ninguno es mejor en sí.
+- **Modelo rápido** para redactar; **de razonamiento** para cálculos y problemas complejos; **agente** para encargos largos y supervisados.
+- Aprobar un examen **no equivale a ejercer**: en un estudio de *Nature Medicine* (2026), los modelos acertaban solos, pero las personas que los usaban no mejoraban al grupo control.
+- Elige por **tarea, privacidad, idioma y coste**, y confirma modelos y planes en la web de cada empresa.
+</Resumen>
+
+<Ficha titulo="Estado del arte: cómo orientarte">
+**Tres tipos de ayuda**
+- Rápido: redactar, traducir, ideas.
+- Razonamiento: cálculos y casos complejos.
+- Agente: encargos largos, con supervisión.
+
+**Cuatro criterios**
+- Tarea · privacidad · idioma y disponibilidad · coste.
+
+**Rankings y exámenes**
+- Aprobar el MIR no es ejercer.
+- ¿Quién lo mide, qué mide y cuándo?
+- Los modelos acertaban solos; las personas con ellos no mejoraban (Nature Med 2026).
+
+**Regla**
+- Ningún asistente con cuenta personal es apto para datos de pacientes.
+</Ficha>
+
+<TestFinal id="1-8" />
+
+</Sesion>

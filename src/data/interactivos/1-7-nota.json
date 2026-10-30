@@ -1,0 +1,23 @@
+{
+  "titulo": "Audita la nota: ¿qué ha escrito el escriba?",
+  "pregunta": "Transcripción de una consulta ficticia. Médico: «Buenos días, Rosa. ¿Cómo ha ido esta semana?». Paciente: «Pues con mareos otra vez, sobre todo al levantarme por la mañana. Llevo así unos cuatro días». Médico: «¿Se ha caído?». Paciente: «Una vez, el martes, pero sin golpearme». Médico: «¿Toma alguna medicación nueva?». Paciente: «Me cambiaron la pastilla de la tensión hace dos semanas, y sigo con la del sueño. Soy alérgica a la penicilina, ya lo sabe». Médico: «Vale. Le tomo la tensión: 128 sobre 74 sentada. Ahora de pie… 108 sobre 62. Hablamos de bajar la dosis de la pastilla nueva, ¿le parece bien?». Paciente: «Sí, lo que usted diga». Médico: «Nos vemos en dos semanas».",
+  "procedencia": "texto creado para este ejercicio, imitando una nota generada por un escriba ambiental; contiene 3 errores intencionados. Caso ficticio",
+  "instrucciones": "Compara la nota con la transcripción de arriba y toca las frases que no se corresponden con lo que se dijo.",
+  "hallazgo": "errores",
+  "parrafos": [
+    [
+      { "texto": "Paciente que acude por mareos al levantarse desde hace aproximadamente una semana.", "error": true, "explicacion": "La paciente dijo «unos cuatro días», no una semana. Un cambio pequeño de duración puede alterar la sospecha clínica." }
+    ],
+    [
+      { "texto": "Refiere una caída el martes, sin traumatismo.", "explicacion": "Correcto: «una vez, el martes, pero sin golpearme»." },
+      { "texto": "Cambio de antihipertensivo hace dos semanas; toma además un hipnótico.", "explicacion": "Correcto: se reconoce el cambio de «la pastilla de la tensión» y «la del sueño»." },
+      { "texto": "Sin alergias medicamentosas conocidas.", "error": true, "explicacion": "Contradice la transcripción: la paciente dijo ser alérgica a la penicilina. Es el error más peligroso, porque parece una nota normal." },
+      { "texto": "TA sentada 128/74 mmHg y de pie 108/62 mmHg.", "explicacion": "Correcto: coincide con las cifras que se dijeron." }
+    ],
+    [
+      { "texto": "Se acuerda reducir la dosis del antihipertensivo nuevo; revisión en dos semanas.", "explicacion": "Correcto: es lo que se habló al final de la consulta." },
+      { "texto": "Se solicita analítica con perfil tiroideo.", "error": true, "explicacion": "Invención: nadie la mencionó en la consulta. Es un ejemplo de lo que se llama «confabulación»: el sistema añade algo verosímil que no se dijo." }
+    ]
+  ],
+  "conclusion": "Detectar los tres errores no basta: también hay que preguntarse qué falta. Esta nota no recoge que la paciente aceptó el cambio con un «lo que usted diga», que puede ser deferencia y no una decisión compartida. Un escriba ahorra tiempo, pero la nota la firmas tú: revísala con atención sobre todo en alergias, medicación, cifras y decisiones."
+}

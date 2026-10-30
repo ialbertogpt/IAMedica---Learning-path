@@ -1,0 +1,43 @@
+{
+  "titulo": "Test · De Turing a hoy",
+  "preguntas": [
+    {
+      "tipo": "ordenar",
+      "enunciado": "Ordena estos hitos de más antiguo a más reciente.",
+      "pasos": [
+        { "texto": "Turing publica «Computing Machinery and Intelligence» (1950).", "porque": "Es el punto de partida de la pregunta «¿pueden pensar las máquinas?»." },
+        { "texto": "Evaluación a ciegas de MYCIN en JAMA (1979).", "porque": "Los sistemas expertos viven su auge en los años 70 y 80." },
+        { "texto": "AlexNet gana ImageNet y arranca el aprendizaje profundo (2012).", "porque": "El cambio de era: más datos, más cálculo y redes profundas." },
+        { "texto": "Se presenta el «transformer» (2017).", "porque": "Es la arquitectura que hará posibles los grandes modelos de lenguaje." },
+        { "texto": "Lanzamiento público de ChatGPT (2022).", "porque": "Lleva los modelos de lenguaje al gran público." }
+      ]
+    },
+    {
+      "tipo": "unica",
+      "enunciado": "¿Cuál fue, según lo que has visto, el principal obstáculo para que MYCIN se usara en la clínica?",
+      "opciones": [
+        { "texto": "Rendía peor que los especialistas en la evaluación a ciegas.", "correcta": false, "explicacion": "Al contrario: obtuvo un 65 % de aceptabilidad, similar o mejor que los cinco especialistas de la facultad (42,5–62,5 %)." },
+        { "texto": "Problemas de integración, responsabilidad y mantenimiento, más que de rendimiento.", "correcta": true, "explicacion": "Exacto: introducir datos a mano, la duda sobre quién responde y la necesidad de reescribir reglas a mano pesaron más que su capacidad." },
+        { "texto": "Que se basaba en aprendizaje profundo, que aún no existía.", "correcta": false, "explicacion": "MYCIN era un sistema de reglas, no de aprendizaje profundo. El aprendizaje profundo despega en 2012." },
+        { "texto": "Que solo servía para un hospital concreto.", "correcta": false, "explicacion": "No es lo que se señala en la literatura. Las razones principales son de integración, responsabilidad y mantenimiento." }
+      ]
+    },
+    {
+      "tipo": "vf",
+      "enunciado": "La historia de la IA ha sido una línea recta de mejoras continuas, sin épocas de desencanto.",
+      "respuesta": false,
+      "explicacionVerdadero": "No. Ha habido ciclos de entusiasmo y de desencanto, con épocas de menos inversión («inviernos de la IA»). Es un buen motivo para pedir evidencia ante las promesas actuales.",
+      "explicacionFalso": "Correcto. La IA ha vivido ciclos de entusiasmo y decepción. Conocerlos ayuda a mirar con criterio las promesas de hoy."
+    },
+    {
+      "tipo": "emparejar",
+      "enunciado": "Empareja cada hito con su descripción.",
+      "pares": [
+        { "izquierda": "ELIZA (1966)", "derecha": "Primer chatbot, con reglas de sustitución; se le atribuía comprensión", "porque": "Es el origen del «efecto ELIZA»." },
+        { "izquierda": "Gulshan et al. (2016)", "derecha": "Aprendizaje profundo en retinografías para detectar retinopatía diabética", "porque": "Abrió la IA de imagen médica." },
+        { "izquierda": "IDx-DR (2018)", "derecha": "Primer sistema de IA autorizado por la FDA para dar un resultado de forma autónoma", "porque": "Detecta retinopatía diabética en atención primaria sin interpretación del especialista." },
+        { "izquierda": "AlphaFold (2021)", "derecha": "Predicción de la estructura de proteínas, reconocida con el Nobel de Química en 2024", "porque": "La IA también acelera la ciencia básica y el descubrimiento de fármacos." }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+---
+import Icono from '../ui/Icono.astro';
+import Motor, { type DatosExplorador } from './motores/Explorador.tsx';
+import { cargarDatos } from '../../lib/interactivos';
+interface Props { datos: string }
+const d = cargarDatos<DatosExplorador>(Astro.props.datos);
+---
+<section class="interactivo" aria-label={d.titulo}>
+  <h3 class="interactivo-titulo"><Icono nombre="travel_explore" tam={20} />{d.titulo}</h3>
+  <Motor client:visible datos={d} />
+</section>

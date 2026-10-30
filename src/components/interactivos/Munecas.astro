@@ -1,0 +1,23 @@
+---
+// Infografía: IA ⊃ aprendizaje automático ⊃ aprendizaje profundo ⊃ IA generativa (muñecas rusas).
+import Icono from '../ui/Icono.astro';
+const capas = [
+  { n: 'Inteligencia artificial', d: 'Cualquier programa que hace algo que asociamos a la inteligencia. Incluye los sistemas de reglas.', c: 'var(--l0)', ej: 'Alarma de monitor con reglas · sistema experto MYCIN' },
+  { n: 'Aprendizaje automático', d: 'La IA que aprende patrones a partir de ejemplos, en lugar de seguir reglas escritas a mano.', c: 'var(--l1)', ej: 'Puntuación de riesgo de caídas entrenada con miles de historias' },
+  { n: 'Aprendizaje profundo', d: 'Aprendizaje automático con redes neuronales de muchas capas. Domina la imagen, la voz y el lenguaje.', c: 'var(--l3)', ej: 'Detector de retinopatía en fondo de ojo · desbloqueo facial' },
+  { n: 'IA generativa', d: 'Aprendizaje profundo que crea contenido nuevo: texto, imágenes, audio. Aquí están los LLM.', c: 'var(--l2)', ej: 'ChatGPT, Claude, Gemini · escribas ambientales' },
+];
+---
+<section class="interactivo" aria-labelledby="munecas-t">
+  <h3 id="munecas-t" class="interactivo-titulo"><Icono nombre="hub" tam={20} />Las muñecas rusas de la IA</h3>
+  <div class="grid gap-2.5" role="list">
+    {capas.map((c, i) => (
+      <div role="listitem" class="rounded-2xl border-2 p-3.5 grid gap-1" style={`border-color:${c.c}; margin-left:${i * 14}px; background: color-mix(in oklch, ${c.c} ${6 + i * 3}%, var(--superficie))`}>
+        <p class="m-0 font-semibold text-[17px]" style={`color:${c.c}`}>{i + 1}. {c.n}</p>
+        <p class="m-0 text-base">{c.d}</p>
+        <p class="m-0 text-sm tenue"><strong>Ejemplos:</strong> {c.ej}</p>
+      </div>
+    ))}
+  </div>
+  <p class="interactivo-nota">Cada capa está dentro de la anterior: todo el aprendizaje profundo es aprendizaje automático, y todo el aprendizaje automático es IA… pero no al revés.</p>
+</section>

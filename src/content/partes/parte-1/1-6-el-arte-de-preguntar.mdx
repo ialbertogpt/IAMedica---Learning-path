@@ -1,0 +1,190 @@
+---
+id: "1-6"
+titulo: El arte de preguntar (prompting)
+parte: 1
+minutos: 90
+objetivos:
+  - "Construir un prompt con cinco bloques: rol, contexto, tarea, formato y límites"
+  - Mejorar una respuesta en varias vueltas con correcciones concretas
+  - Aplicar técnicas útiles, como pedir pasos, pedir que pregunte lo que falta y exigir fuentes verificables
+  - Reconocer los prompts que inducen complacencia o que filtran datos sensibles
+gancho: "Dos médicos piden lo mismo: «resúmeme la guía de insuficiencia cardiaca». Uno recibe una página genérica. El otro, una tabla con los cambios respecto a la versión anterior y con las dosis remitidas a la ficha técnica. La diferencia no está en el modelo, sino en la petición: es la diferencia entre una interconsulta de una línea y una bien hecha."
+recursos:
+  - r-claude-prompting
+  - r-openai-prompting
+  - v-mitjana-prompts
+paraSaberMas: []
+test: "1-6"
+fechaRevision: "2026-10-31"
+aFecha: octubre de 2026
+fuentes:
+  - texto: "Anthropic. Prompt engineering overview (Claude Platform Docs), consultado el 29/10/2026"
+    url: https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/overview
+  - texto: "OpenAI. Prompt engineering (OpenAI API), consultado el 29/10/2026"
+    url: https://developers.openai.com/api/docs/guides/prompt-engineering
+  - texto: "Sharma M, et al. Towards Understanding Sycophancy in Language Models. 2023 (arXiv:2310.13548)"
+    url: https://arxiv.org/abs/2310.13548
+  - texto: "Nicolle LE, et al. Clinical Practice Guideline for the Management of Asymptomatic Bacteriuria: 2019 Update by the IDSA. Clin Infect Dis 2019;68:e83-e110"
+    pmid: "30895288"
+    doi: 10.1093/cid/ciy1121
+---
+
+<Sesion n={1} titulo="La hoja de interconsulta: cinco bloques" minutos={22}>
+
+### Un prompt es una interconsulta
+
+El <T id="prompt">prompt</T> es lo que le escribes al asistente. Lo que más mejora el resultado no es ningún truco, sino algo que ya haces bien: **escribir una buena hoja de interconsulta**. Quien te recibe necesita saber quién eres, qué sabes del caso, qué le preguntas exactamente y cómo quieres la respuesta.
+
+Con una IA sirven **cinco bloques**:
+
+| Bloque | Qué incluye | Ejemplo |
+|---|---|---|
+| **Rol** | Quién quieres que sea y para quién escribe | «Actúa como un geriatra que explica a residentes de primer año» |
+| **Contexto** | Los datos necesarios, sin identificar a nadie | «Sesión de 15 minutos; sin formación previa en geriatría» |
+| **Tarea** | Una petición concreta, con un verbo | «Explica qué es la <T id="deprescripcion">deprescripción</T> y propón 4 pasos» |
+| **Formato** | Cómo quieres recibirlo | «Máximo 250 palabras; lista numerada» |
+| **Límites** | Lo que no debe hacer | «No des dosis; no inventes referencias; avisa si dudas» |
+
+<Analogia>
+Una buena **hoja de interconsulta** tiene contexto, una pregunta concreta y dice qué esperas recibir. Un prompt de una línea es la interconsulta «valorar paciente»: te obliga a adivinar.
+</Analogia>
+
+### Constrúyelo tú
+
+Este constructor te deja rellenar los bloques, te avisa de lo que falta y detecta posibles datos que identifiquen a un paciente. Carga los tres ejemplos para ver cómo cambia el indicador.
+
+<ConstructorPrompt datos="1-6-constructor" />
+
+<Video id="v-mitjana-prompts" desde="0:55" hasta="5:12" nota="las tres primeras claves para escribir prompts. El vídeo tiene tono comercial y no es específico para médicos: quédate con las ideas." />
+
+</Sesion>
+
+<Sesion n={2} titulo="Antes y después" minutos={22}>
+
+### Mismo modelo, dos prompts
+
+Compara dos respuestas del mismo <T id="modelo">modelo</T> a la misma petición de fondo. La primera, con un prompt de una línea; la segunda, con los cinco bloques.
+
+<Comparador datos="1-6-antes-despues" />
+
+### Qué bloque falta
+
+Con un poco de práctica, **verás qué le falta a un prompt de un vistazo**. Prueba tú:
+
+<Clasificador datos="1-6-que-falta" />
+
+### Y si la respuesta no es buena
+
+Muchas veces la mejor respuesta llega en **la segunda o tercera vuelta**, igual que corriges a un residente. Corrige con precisión, no con un «hazlo mejor»:
+
+- «Acórtalo a 150 palabras.»
+- «Sustituye el ejemplo por uno de Atención Primaria.»
+- «Quita el tercer punto: ya lo sé. Desarrolla el cuarto.»
+- «Reescríbelo para un paciente, con frases cortas.»
+
+<PruebaloTu minutos={6}>
+Empieza una conversación con un asistente usando esta plantilla y, cuando te responda, **corrígelo dos veces** con peticiones concretas. Compara la respuesta final con la primera.
+
+<Plantilla id="p-1-6-iterar" />
+</PruebaloTu>
+
+</Sesion>
+
+<Sesion n={3} titulo="Técnicas que funcionan (y las que no)" minutos={23}>
+
+### Cuatro técnicas útiles
+
+**1. Pide que razone paso a paso.** En problemas de varios pasos («calcula…», «ordena…»), pedir el razonamiento mejora los resultados y te permite **revisarlo**.
+
+**2. Da un ejemplo.** Si quieres un estilo o un formato concretos, pega un ejemplo breve y pide «hazlo igual». Es la forma más rápida de que la respuesta se parezca a lo que imaginas.
+
+**3. Pide que te pregunte lo que le falta.** Muchas respuestas genéricas son consecuencia de que el modelo rellena huecos. Una frase lo cambia todo: «Antes de responder, hazme las preguntas que necesites (máximo 5)».
+
+**4. Exige fuentes verificables.** «Cita cada afirmación con su fuente (autor, año y PMID o DOI); si no puedes, dilo.» Y después **las compruebas**: pedirlas no garantiza que existan.
+
+Las guías oficiales de <a href="https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/overview" target="_blank" rel="noopener noreferrer">Anthropic</a> y de <a href="https://developers.openai.com/api/docs/guides/prompt-engineering" target="_blank" rel="noopener noreferrer">OpenAI</a>, escritas para desarrolladores y en inglés, insisten en lo mismo: instrucciones claras y directas, ejemplos y un formato explícito.
+
+<PruebaloTu minutos={5}>
+Elige una tarea real que tengas pendiente, sin datos de pacientes, y pide primero que **te pregunte lo que le falta**. Responde a sus preguntas. ¿La respuesta final es mejor que la que habrías obtenido a la primera?
+
+<Plantilla id="p-1-6-pregunta-lo-que-falta" />
+</PruebaloTu>
+
+### La trampa de la complacencia
+
+Hay algo que **no** debes hacer: presentar el caso con tu hipótesis. Los modelos entrenados con valoraciones humanas tienden a confirmarla (Sharma et al., 2023): es la <T id="complacencia">complacencia</T>.
+
+<Analogia>
+Es **el residente que te da la razón porque eres el adjunto**. Si le dices «yo creo que es una infección de orina, ¿no?», le cuesta llevarte la contraria. Si le presentas el caso sin opinar y le pides un diferencial, piensa de verdad.
+</Analogia>
+
+<Comparador datos="1-6-complacencia" />
+
+### Y lo que nunca va en un prompt
+
+Con una cuenta personal, **nunca pegues datos identificables de pacientes**: nombre, NHC, DNI o CIP, fechas exactas, direcciones. El constructor de la sesión 1 te avisa de los patrones más típicos. En 3.0 verás una checklist completa.
+
+</Sesion>
+
+<Sesion n={4} titulo="Tu primera plantilla personal y el test" minutos={23}>
+
+### De un prompt suelto a una plantilla
+
+Cuando un prompt te funciona, **guárdalo como plantilla**: lo mismo cada vez, con los datos variables entre corchetes. Es una de las mejores inversiones de tiempo de este curso. Estas tres te servirán desde el lunes:
+
+<PruebaloTu titulo="Plantilla 1 · Un correo difícil" minutos={4}>
+<Plantilla id="p-1-6-correo-dificil" />
+</PruebaloTu>
+
+<PruebaloTu titulo="Plantilla 2 · Resumir una guía pública" minutos={6}>
+Usa una guía o documento público (no un documento interno con información sensible). Después, **compara con el original** las cifras y las recomendaciones.
+
+<Plantilla id="p-1-6-resumen-guia" />
+</PruebaloTu>
+
+<PruebaloTu titulo="Plantilla 3 · Información para un paciente" minutos={5}>
+Sirve para la explicación de un diagnóstico o de un cambio de tratamiento, **sin ningún dato identificativo**. Revisa siempre que la respuesta dice justo lo que has decidido.
+
+<Plantilla id="p-1-6-info-paciente" />
+</PruebaloTu>
+
+Encontrarás todas en la **biblioteca de prompts**, filtradas por tarea.
+
+<OjoCon>
+- **Más largo no es mejor.** Un prompt claro de seis líneas supera a uno confuso de veinte.
+- **Pedir fuentes no garantiza que existan.** Compruebas siempre el PMID o el DOI.
+- **No des tu hipótesis ni tu respuesta deseada.** Presenta el caso de forma neutra.
+- **Una buena respuesta de hoy puede no repetirse mañana.** Las respuestas varían; guarda lo que te sirva.
+- **«Prompts mágicos» de redes sociales:** casi siempre son los mismos cinco bloques con otro nombre.
+</OjoCon>
+
+<Resumen>
+- Un prompt es **una hoja de interconsulta**: rol, contexto, tarea, formato y límites.
+- Lo que más mejora el resultado es **dar contexto y una petición concreta**, no usar trucos.
+- **Corrige con precisión** en varias vueltas y pide que te **pregunte lo que le falta**.
+- **Presenta los casos sin tu hipótesis**: los modelos tienden a darte la razón.
+- **Nunca datos identificables** en una cuenta personal, y **comprueba las fuentes** que cite.
+</Resumen>
+
+<Ficha titulo="El arte de preguntar: cinco bloques">
+**Rol** · quién eres y para quién escribes.
+**Contexto** · los datos necesarios, sin identificar a nadie.
+**Tarea** · una petición concreta, con verbo.
+**Formato** · tabla, lista, nº de palabras, idioma.
+**Límites** · no inventes; avisa si dudas; no des dosis.
+
+**Técnicas**
+- Pide paso a paso (y revisa el razonamiento).
+- Pega un ejemplo de lo que quieres.
+- «Hazme las preguntas que necesites antes de responder.»
+- Corrige con precisión en 2–3 vueltas.
+
+**Evita**
+- Dar tu hipótesis (complacencia).
+- Datos identificables.
+- Fiarte de las fuentes sin comprobarlas.
+</Ficha>
+
+<TestFinal id="1-6" />
+
+</Sesion>

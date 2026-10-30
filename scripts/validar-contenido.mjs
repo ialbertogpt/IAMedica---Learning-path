@@ -9,10 +9,11 @@ import { archivosMDX, leerMDX, componentes, sesionesDe, contarPalabras, leerJSON
 const COMPONENTES = new Set([
   'Sesion', 'T', 'OjoCon', 'Analogia', 'PruebaloTu', 'AvisoClinico', 'Caso', 'Desplegable', 'Plantilla', 'Video', 'Recurso', 'Resumen', 'Ficha', 'PasoTaller', 'TestFinal',
   'Clasificador', 'EncuentraError', 'Tokenizador', 'Minimodelo', 'VentanaContexto', 'CalculadoraRenal', 'TresAyudas', 'AnatomiaFicha',
+  'Explorador', 'Comparador', 'Arbol', 'Autoevaluacion', 'ModeloSintetico', 'Neurona', 'ConstructorPrompt', 'Planificador', 'Munecas', 'CapasRed',
 ]);
 // Elementos visuales propios (al menos uno por subcapítulo)
-const VISUALES = new Set(['Clasificador', 'EncuentraError', 'Tokenizador', 'Minimodelo', 'VentanaContexto', 'CalculadoraRenal', 'TresAyudas', 'AnatomiaFicha']);
-const CON_DATOS = new Set(['Clasificador', 'EncuentraError', 'Tokenizador', 'Minimodelo', 'VentanaContexto']);
+const VISUALES = new Set(['Clasificador', 'EncuentraError', 'Tokenizador', 'Minimodelo', 'VentanaContexto', 'CalculadoraRenal', 'TresAyudas', 'AnatomiaFicha', 'Explorador', 'Comparador', 'Arbol', 'Autoevaluacion', 'ModeloSintetico', 'Neurona', 'ConstructorPrompt', 'Planificador', 'Munecas', 'CapasRed']);
+const CON_DATOS = new Set(['Clasificador', 'EncuentraError', 'Tokenizador', 'Minimodelo', 'VentanaContexto', 'Explorador', 'Comparador', 'Arbol', 'Autoevaluacion', 'ConstructorPrompt']);
 const MIN_SESION = 15, MAX_SESION = 25, MAX_PALABRAS_BLOQUE = 150;
 
 const curso = leerJSON(join(DIR_DATOS, 'curso.json'));
@@ -59,6 +60,9 @@ for (const ruta of archivosMDX()) {
   if (!plan) { errores.push(`${donde}: el id «${fm.id}» no está en src/data/curso.json`); continue; }
   if (plan.slug !== slug) errores.push(`${donde}: según curso.json, el archivo debería ser src/content/partes/${plan.slug}.mdx`);
   if (plan.parte !== fm.parte) errores.push(`${donde}: «parte: ${fm.parte}» no coincide con curso.json (${plan.parte})`);
+
+  // Los objetivos deben ser cadenas (un «: » sin comillas en YAML los convierte en objetos)
+  (fm.objetivos ?? []).forEach((o, i) => { if (typeof o !== 'string') errores.push(`${donde}: el objetivo ${i + 1} no es texto: pon comillas si contiene «: » (YAML lo lee como un objeto)`); });
 
   // Frontmatter que referencia otros archivos
   (fm.recursos ?? []).forEach((id) => existeRecurso(id, `${donde} (frontmatter)`));

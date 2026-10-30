@@ -1,0 +1,54 @@
+{
+  "titulo": "Test · Cómo aprende una máquina",
+  "preguntas": [
+    {
+      "tipo": "unica",
+      "enunciado": "Un modelo tiene buena sensibilidad y buena especificidad. Lo despliegas en una población donde la enfermedad es muy rara. ¿Qué es lo más probable?",
+      "opciones": [
+        { "texto": "Que casi todos los positivos serán verdaderos positivos.", "correcta": false, "explicacion": "Al contrario: con una prevalencia baja, incluso una pequeña proporción de falsos positivos entre una enorme mayoría de sanos supera a los verdaderos positivos." },
+        { "texto": "Que el VPP será bajo: la mayoría de los positivos serán falsos positivos.", "correcta": true, "explicacion": "Exacto. Es lo mismo que sabes del cribado: el valor predictivo depende de la prevalencia. Lo has visto moviendo el deslizador del modelo de fragilidad." },
+        { "texto": "Que la sensibilidad y la especificidad se reducirán a la mitad.", "correcta": false, "explicacion": "La sensibilidad y la especificidad son propiedades de la prueba y del umbral; no dependen de la prevalencia. Lo que cambia es el valor predictivo." },
+        { "texto": "Que el modelo ya no necesitará umbral.", "correcta": false, "explicacion": "El umbral sigue siendo necesario para convertir la puntuación en una respuesta." }
+      ]
+    },
+    {
+      "tipo": "ordenar",
+      "enunciado": "Ordena el flujo correcto para crear y evaluar un modelo.",
+      "pasos": [
+        { "texto": "Reunir datos etiquetados y separarlos en entrenamiento, validación y prueba.", "porque": "Primero hay que apartar los casos que el modelo no debe ver durante el entrenamiento." },
+        { "texto": "Entrenar el modelo con los datos de entrenamiento.", "porque": "Es la «residencia»: aprende de los ejemplos." },
+        { "texto": "Ajustar y comparar variantes con los datos de validación.", "porque": "Se eligen la complejidad y el umbral sin tocar los datos de prueba." },
+        { "texto": "Evaluar una sola vez con los datos de prueba.", "porque": "La nota definitiva se calcula con casos que el modelo nunca ha visto." },
+        { "texto": "Comprobarlo con datos de otro hospital (validación externa).", "porque": "Demuestra que el modelo sirve fuera de donde nació." }
+      ]
+    },
+    {
+      "tipo": "emparejar",
+      "enunciado": "Empareja cada problema con su analogía médica.",
+      "pares": [
+        { "izquierda": "Sobreajuste", "derecha": "El residente que memoriza las preguntas del examen y falla con el paciente real", "porque": "Acierta con lo que ha memorizado y falla con casos nuevos." },
+        { "izquierda": "Sesgo en los datos", "derecha": "Un ensayo clínico que excluyó a los mayores de 75 años", "porque": "Lo que falta en los datos determina a quién sirve el modelo." },
+        { "izquierda": "Validación externa", "derecha": "Validar una escala en otra población antes de usarla", "porque": "Comprueba que funciona fuera del lugar donde se creó." },
+        { "izquierda": "Datos de entrenamiento", "derecha": "La casuística que ha visto el residente", "porque": "Es lo único que el modelo conoce del mundo." }
+      ]
+    },
+    {
+      "tipo": "escenario",
+      "enunciado": "¿Qué falla en este estudio?",
+      "caso": "Un equipo publica un modelo para predecir mortalidad al año en mayores ingresados. Informan de un AUC de 0,96, calculado sobre los mismos 2.000 pacientes con los que lo entrenaron. No hay validación en otro centro.",
+      "opciones": [
+        { "texto": "Nada: un AUC de 0,96 es excelente.", "correcta": false, "explicacion": "Un AUC tan alto en los datos de entrenamiento es sospechoso, no tranquilizador: el modelo puede haber memorizado los casos." },
+        { "texto": "El rendimiento se mide con los mismos datos del entrenamiento y no hay validación externa: probablemente sobreestime lo que logrará con pacientes nuevos.", "correcta": true, "explicacion": "Exacto. Hace falta evaluar con datos que el modelo no haya visto y, mejor, con otro centro. Es como medir el resultado de un residente con las preguntas que se aprendió." },
+        { "texto": "Que 2.000 pacientes son demasiados.", "correcta": false, "explicacion": "No es el problema. Más datos suele ser mejor; lo que importa es con qué datos se evalúa." },
+        { "texto": "Que la mortalidad no se puede predecir con IA.", "correcta": false, "explicacion": "Se puede intentar; lo que hay que cuidar es cómo se evalúa y se valida el modelo." }
+      ]
+    },
+    {
+      "tipo": "vf",
+      "enunciado": "Si un modelo tiene un AUC alto, sus probabilidades son siempre fiables y no hace falta comprobar nada más.",
+      "respuesta": false,
+      "explicacionVerdadero": "No. El AUC mide si el modelo ordena bien a los pacientes, no si la probabilidad que da es correcta. Hay que mirar también la calibración, el umbral y la población de validación.",
+      "explicacionFalso": "Correcto. Un modelo puede ordenar bien (AUC alto) y exagerar o infravalorar los riesgos. Lo verás en el subcapítulo 2.2, con la calibración."
+    }
+  ]
+}

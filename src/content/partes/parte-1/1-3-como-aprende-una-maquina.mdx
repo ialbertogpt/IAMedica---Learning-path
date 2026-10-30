@@ -1,0 +1,215 @@
+---
+id: "1-3"
+titulo: Cómo aprende una máquina
+parte: 1
+minutos: 120
+objetivos:
+  - Explicar con la analogía de la residencia cómo aprende un modelo a partir de ejemplos etiquetados
+  - Interpretar sensibilidad, especificidad, VPP, VPN y curva ROC en un modelo, y cómo cambian con el umbral y la prevalencia
+  - Reconocer el sobreajuste y justificar por qué se evalúa con datos que el modelo no ha visto
+  - Explicar por qué un modelo necesita validación externa y qué sesgos puede heredar de sus datos
+gancho: "Te ofrecen un modelo que predice qué pacientes de tu planta serán frágiles al alta, con «un 95 % de precisión». ¿Lo compras? Lo primero que sabes hacer, por tu formación, es preguntar por la sensibilidad, la especificidad y la prevalencia. En este subcapítulo vas a ver cómo esas mismas ideas, que ya manejas, sirven para evaluar cualquier modelo de IA."
+recursos:
+  - v-cuello-roc
+  - v-codbits-overfitting
+  - a-obermeyer-2019
+paraSaberMas:
+  - v-bioest-roc
+  - a-wong-2021
+  - r-elementsofai-es
+test: "1-3"
+fechaRevision: "2026-10-30"
+fuentes:
+  - texto: "Obermeyer Z, et al. Dissecting racial bias in an algorithm used to manage the health of populations. Science 2019;366:447-53"
+    pmid: "31649194"
+    doi: 10.1126/science.aax2342
+  - texto: "Wong A, et al. External Validation of a Widely Implemented Proprietary Sepsis Prediction Model in Hospitalized Patients. JAMA Intern Med 2021;181:1065-70"
+    pmid: "34152373"
+    doi: 10.1001/jamainternmed.2021.2626
+  - texto: "Collins GS, et al. TRIPOD+AI statement: updated guidance for reporting clinical prediction models that use regression or machine learning methods. BMJ 2024"
+    pmid: "38626948"
+    doi: 10.1136/bmj-2023-078378
+---
+
+<Sesion n={1} titulo="Aprender de ejemplos" minutos={20}>
+
+### El truco de la IA actual
+
+Casi toda la IA médica de hoy aprende de ejemplos. Se le muestran miles de casos con su respuesta correcta y el programa ajusta sus cálculos internos hasta acertar. Es el <T id="aprendizaje-supervisado">aprendizaje supervisado</T>.
+
+<Analogia>
+Es **la residencia**: el residente ve miles de casos, se equivoca, recibe corrección y, poco a poco, sus ojos «saben» qué buscar. El programa hace lo mismo, a una velocidad y con una paciencia que ninguna persona tiene.
+</Analogia>
+
+Cada pieza tiene su equivalente clínico:
+
+| En IA | En tu práctica |
+|---|---|
+| **Datos de <T id="entrenamiento">entrenamiento</T>** | La casuística que ha visto el residente |
+| **Variables** (edad, Barthel, analítica…) | Los datos que recoges del paciente |
+| **Etiqueta** (frágil o no frágil) | El diagnóstico o el resultado que quieres predecir |
+| **Entrenamiento** | La residencia |
+| **<T id="modelo">Modelo</T>** | El especialista ya formado |
+
+### Qué sale del modelo
+
+El modelo no responde «sí» o «no». Calcula una **puntuación** (a veces, una probabilidad): cuánto se parece este paciente a los que eran frágiles. Para convertirla en una respuesta hay que fijar un <T id="umbral">umbral</T>: por encima, «frágil»; por debajo, «no frágil».
+
+Elegir el umbral es una decisión clínica, no técnica. Como en cualquier escala de cribado: un umbral bajo detecta más casos, pero da más falsas alarmas; uno alto alarma menos, pero deja escapar a algunos.
+
+</Sesion>
+
+<Sesion n={2} titulo="Del dato a la predicción: el umbral" minutos={20}>
+
+### Un modelo sencillo, a mano
+
+Un modelo es, en esencia, **una forma de combinar datos para obtener una puntuación**. Prueba con una neurona artificial muy simple: un modelo que decide «ingreso o alta» a partir de tres datos. Tú fijas la importancia (el «peso») de cada dato.
+
+<Neurona />
+
+### Lo que has visto
+
+La <T id="neurona-artificial">neurona artificial</T> suma los datos multiplicados por sus pesos y pasa el resultado por una curva en S para convertirlo en una probabilidad. En un modelo real, **nadie fija los pesos**: los ajusta el propio programa durante el entrenamiento, probando millones de combinaciones hasta que sus predicciones coinciden con las etiquetas.
+
+Eso es **aprender**. Y por eso la calidad de los ejemplos importa tanto como la del programa.
+
+<PruebaloTu minutos={5}>
+Pídele a tu asistente que te explique, con un ejemplo de geriatría, la diferencia entre **sensibilidad** y **valor predictivo positivo**. Después comprueba si su explicación coincide con lo que sabes. ¿Ha mezclado los dos conceptos?
+
+<Plantilla id="p-1-3-explicar-metricas" />
+</PruebaloTu>
+
+</Sesion>
+
+<Sesion n={3} titulo="Evaluar como un clínico" minutos={20}>
+
+### Las mismas ideas que ya manejas
+
+Para evaluar un modelo se usan las métricas de siempre. Si das el umbral y la <T id="prevalencia">prevalencia</T>, tienes todo lo necesario:
+
+- <T id="sensibilidad">Sensibilidad</T>: de los frágiles, ¿a cuántos detecta?
+- <T id="especificidad">Especificidad</T>: de los no frágiles, ¿a cuántos descarta?
+- <T id="vpp">Valor predictivo positivo (VPP)</T>: de los que marca como frágiles, ¿cuántos lo son de verdad?
+- <T id="curva-roc">Curva ROC y AUC</T>: ¿cuánto separa el modelo a unos de otros, con todos los umbrales a la vez?
+
+Juega con el modelo del ejercicio. Mueve el **umbral** y mira cómo se mueven la sensibilidad y la especificidad en sentido contrario. Después baja la **prevalencia** y observa qué le pasa al VPP.
+
+<ModeloSintetico modo="umbral" titulo="Entrena y evalúa tu modelo de fragilidad" nota="Pacientes ficticios. Es una simulación con dos distribuciones normales, con matemáticas reales: no representa un modelo concreto." />
+
+### Dos lecciones que se te quedarán
+
+1. **Con una prevalencia baja, un VPP bajo es normal**, incluso en un modelo con buena sensibilidad y especificidad. Es lo mismo que sabes del cribado: la mayoría de los positivos serán falsos positivos si la enfermedad es rara. «95 % de precisión» no dice nada sin la prevalencia.
+2. **Un modelo no tiene un único rendimiento.** Depende del umbral y de la población. Por eso la curva ROC muestra todos los umbrales, y por eso hay que pedir el AUC **y** el punto de operación.
+
+<Video id="v-cuello-roc" nota="cómo se construye la curva ROC punto por punto. Conecta con lo que ya sabes de las pruebas diagnósticas." />
+
+</Sesion>
+
+<Sesion n={4} titulo="El residente que memoriza el examen: el sobreajuste" minutos={20}>
+
+### Un modelo demasiado aplicado
+
+Un modelo puede aprender tan bien los casos de entrenamiento que **memorice también su ruido**: las rarezas, los errores y las casualidades. Entonces acierta casi todo con esos casos y falla con los nuevos. Es el <T id="sobreajuste">sobreajuste</T>.
+
+<Analogia>
+Es **el residente que memoriza las preguntas del examen**: saca un sobresaliente en el simulacro, pero con el paciente real, que nunca se parece exactamente al caso del libro, se pierde.
+</Analogia>
+
+La solución es evaluar siempre con casos que el modelo **no ha visto**. Por eso los datos se dividen en tres grupos:
+
+- **Entrenamiento:** de aquí aprende el modelo.
+- **Validación:** para ajustar y comparar variantes.
+- **Prueba:** se guardan sin tocar hasta el final, para la nota definitiva.
+
+### Compruébalo tú
+
+Esta simulación tiene 12 pacientes de entrenamiento y 200 pacientes nuevos. Aumenta la complejidad del modelo y mira cómo evolucionan los dos errores.
+
+<ModeloSintetico modo="sobreajuste" titulo="Demo de sobreajuste" nota="El patrón real es una curva suave; los 12 puntos tienen ruido. Con más complejidad, el modelo se pega a esos puntos y se aleja de la realidad." />
+
+<Video id="v-codbits-overfitting" nota="una explicación visual del infraajuste y el sobreajuste con redes neuronales, que complementa la simulación." />
+
+<OjoCon titulo="Ojo con el 95 % de precisión">
+Cuando alguien te dé una cifra de rendimiento, pregunta: **¿con qué datos se ha calculado?** Si es con los mismos con los que se entrenó el modelo, no vale. Una cifra sobre datos que el modelo ya ha visto es como la nota del simulacro de un examen cuyas preguntas el residente se sabía de memoria.
+</OjoCon>
+
+</Sesion>
+
+<Sesion n={5} titulo="Datos, sesgos y validación externa" minutos={20}>
+
+### Lo que un modelo no ha visto, no lo sabe
+
+Un modelo solo conoce el mundo que aparece en sus datos. Si en esos datos faltan ciertos pacientes, el modelo funcionará peor con ellos. Es el <T id="sesgo">sesgo</T>.
+
+<Analogia>
+Es **un ensayo clínico que excluyó a los mayores de 75 años**: sus conclusiones se aplican mal a ellos. Con un modelo pasa igual: lo que se ve en el entrenamiento determina a quién sirve.
+</Analogia>
+
+El sesgo no siempre viene de que falten personas. A veces, de **la variable que se elige para predecir**. En un estudio publicado en *Science* en 2019, un algoritmo comercial usado en EE. UU. para identificar a pacientes con necesidades complejas predecía el **coste sanitario**, no la enfermedad. Como los pacientes negros tenían menos acceso a la atención y generaban menos gasto, el algoritmo los consideraba menos enfermos: a igual puntuación de riesgo, estaban considerablemente más enfermos. Corregirlo habría aumentado del 17,7 % al 46,5 % el porcentaje de pacientes negros que recibían ayuda adicional.
+
+### Validación externa
+
+Un modelo que funciona en el hospital donde se creó puede fallar en otro. Hay que comprobarlo con datos de otra población: es la <T id="validacion-externa">validación externa</T>.
+
+<Analogia>
+Es **validar una escala en otra población antes de usarla** en la tuya. No basta con que funcione donde la crearon.
+</Analogia>
+
+Un ejemplo real: el modelo de alerta de sepsis de Epic estaba implantado en cientos de hospitales de EE. UU. Cuando un grupo de la Universidad de Michigan lo validó con 38.455 ingresos, obtuvo un AUC de 0,63. El modelo identificó solo 183 de los 2.552 pacientes con sepsis, y generó alertas en el 18 % de todos los ingresados.
+
+<Clasificador datos="1-3-sesgo" />
+
+</Sesion>
+
+<Sesion n={6} titulo="Tu ficha de bolsillo y el test" minutos={20}>
+
+### Si te presentan un modelo
+
+Con lo que has visto, ya tienes las preguntas de un comité de evaluación:
+
+1. ¿Qué **predice exactamente** y con qué variable? (¿es la enfermedad o un sustituto?)
+2. ¿Con qué **pacientes se entrenó**? ¿Se parecen a los míos (edad, comorbilidad, centro)?
+3. ¿Cuáles son su **sensibilidad, especificidad, VPP y AUC** y con qué **prevalencia**?
+4. ¿Se ha probado con **datos que no vio** y, mejor aún, en **otro hospital**?
+5. ¿Cuál es el **umbral**? ¿Quién lo decide y con qué criterio?
+
+Las guías de publicación, como TRIPOD+AI, piden que un estudio informe de todo esto. Las verás en el subcapítulo 2.2.
+
+<OjoCon>
+- **Una sola cifra no basta.** Pide sensibilidad, especificidad, VPP y la prevalencia a la que se refiere.
+- **El AUC no dice si las probabilidades son fiables.** Eso es la calibración, que verás en 2.2.
+- **Los resultados del propio equipo desarrollador** suelen ser más optimistas que los de una validación independiente.
+- **Un modelo no es neutral:** hereda los sesgos de sus datos y de la variable que se eligió.
+</OjoCon>
+
+<Resumen>
+- Un modelo **aprende de ejemplos**, como un residente: calcula una puntuación y, con un **umbral**, da una respuesta.
+- Se evalúa con lo que ya sabes: **sensibilidad, especificidad, VPP y curva ROC**. El VPP depende de la **prevalencia**.
+- El **sobreajuste** es memorizar el entrenamiento: por eso se evalúa con **datos que el modelo no ha visto**.
+- El **sesgo** nace de lo que falta en los datos o de una variable mal elegida (Obermeyer, 2019).
+- Un modelo necesita **validación externa**, igual que una escala validada en otra población.
+</Resumen>
+
+<Ficha titulo="Cómo aprende y cómo se evalúa un modelo">
+**Aprender**
+- <T id="datos-entrenamiento">Datos de entrenamiento</T> = casuística.
+- Entrenar = residencia.
+- El modelo da una puntuación; el umbral la convierte en sí o no.
+
+**Evaluar**
+- Sensibilidad, especificidad, VPP, VPN, AUC.
+- El VPP depende de la prevalencia.
+- Pide siempre la prevalencia y el umbral.
+
+**Tres trampas**
+- Sobreajuste: cifras calculadas con datos de entrenamiento.
+- Sesgo: pacientes que faltan o variable mal elegida.
+- Sin validación externa: funciona solo en su centro.
+
+**Pregunta siempre**
+- ¿Qué predice, con qué datos y en qué población se ha validado?
+</Ficha>
+
+<TestFinal id="1-3" />
+
+</Sesion>

@@ -1,0 +1,154 @@
+---
+id: "0-0"
+titulo: Bienvenida
+parte: 0
+minutos: 45
+objetivos:
+  - Configurar una cuenta en un asistente de IA y revisar sus ajustes de privacidad
+  - Obtener un primer resultado útil y no clínico en menos de diez minutos
+  - Planificar tu ritmo de estudio semanal y registrar tu punto de partida
+gancho: "No necesitas saber programar ni haber leído nada sobre IA. En diez minutos vas a conseguir que un asistente te ahorre un rato real: un correo difícil escrito y un documento público resumido. Y vas a aprender, ya desde el primer día, el hábito que más importa: comprobarlo todo."
+recursos:
+  - r-aemps-notas
+  - r-elementsofai-es
+test: "0-0"
+fechaRevision: "2026-10-30"
+aFecha: octubre de 2026
+fuentes:
+  - texto: "AEMPS. Notas informativas (documentos públicos usados como material de práctica), consultado el 30/10/2026"
+    url: https://www.aemps.gob.es/comunicacion/notas-informativas/
+  - texto: "Universidad de Helsinki y MinnaLearn. Elements of AI (versión en español), consultado el 29/10/2026"
+    url: https://www.elementsofai.com/es
+---
+
+<Sesion n={1} titulo="Cómo funciona el curso y tu punto de partida" minutos={20}>
+
+### El recorrido
+
+El curso es un **itinerario** con tres líneas, como un plano de metro:
+
+- **Línea 1 · Fundamentos:** qué es la IA, cómo aprende y cómo «piensa» un asistente como ChatGPT o Claude.
+- **Línea 2 · IA en medicina:** dónde se usa ya, cómo leer un estudio con ojo crítico, ética, regulación y geriatría.
+- **Línea 3 · Caja de herramientas:** talleres prácticos para tu día a día: casos clínicos, fármacos, bibliografía, estadística, artículos y presentaciones.
+
+Tienes un **orden recomendado**, pero puedes ir a cualquier estación. Si te saltas un requisito, te avisamos, sin bloquearte. Y si tienes prisa, la **ruta exprés** del itinerario te lleva a los talleres en unas 7 horas.
+
+### Cómo es cada sesión
+
+Cada subcapítulo se divide en **sesiones de 15–25 minutos**, pensadas para un hueco entre dos tareas. Verás siempre lo mismo:
+
+- Texto breve, con una analogía médica por cada concepto clave.
+- Un **interactivo** propio: algo que tocas, mueves o intentas resolver.
+- Un **vídeo o lectura** verificados, con el motivo por el que merece la pena.
+- **«Pruébalo tú»:** una práctica guiada con una plantilla que copias con un botón.
+- **«Ojo con…»:** los errores típicos y los límites.
+- Un **test sin nota**: puedes repetirlo cuando quieras y cada respuesta te explica por qué.
+
+Al terminar una sesión, pulsa **«Marcar como hecha y continuar»**. Así el itinerario sabe dónde lo dejaste.
+
+### Tres reglas de juego
+
+<AvisoClinico titulo="Antes de empezar">
+1. **Todos los casos, pacientes y datos del curso son ficticios**, y se indica cada vez.
+2. **Nunca introduzcas datos que identifiquen a un paciente** en una IA con tu cuenta personal.
+3. **Lo que diga una IA se verifica.** La responsabilidad de cada decisión clínica es tuya.
+</AvisoClinico>
+
+Estás estudiando en casa y con tus propios dispositivos. Eso es una ventaja: puedes practicar sin mezclar nada con tu trabajo.
+
+### Tu punto de partida
+
+Antes de empezar, valora con sinceridad cuánta confianza tienes hoy en cada afirmación. **No puntúa**: se guarda en este dispositivo y, cuando termines el curso, la compararás con la que hagas entonces. Te llevará unos 8 minutos.
+
+<Autoevaluacion datos="0-0-autoevaluacion-inicial" />
+
+### Tu ritmo
+
+La regularidad pesa más que la duración. Elige cuántas sesiones puedes hacer a la semana:
+
+<Planificador />
+
+</Sesion>
+
+<Sesion n={2} titulo="Tu primer éxito en 10 minutos" minutos={25}>
+
+### Paso 1 · Elige un asistente y abre una cuenta
+
+Un **asistente de IA** (o <T id="chatbot">chatbot</T>) es una aplicación con la que conversas por escrito. Detrás hay un <T id="modelo">modelo</T> de lenguaje, que conocerás en el subcapítulo 1.5. Para empezar vale cualquiera de los grandes: **ChatGPT, Claude, Gemini o Microsoft Copilot**. A fecha de octubre de 2026, los cuatro ofrecen un plan gratuito con registro y límites de uso. Las condiciones cambian a menudo.
+
+Si no tienes preferencia, elige el que ya uses para otras cosas (por ejemplo, el de tu correo o tu móvil). Abrirás una cuenta personal con tu correo.
+
+### Paso 2 · Antes de escribir nada: la privacidad
+
+Casi todos los asistentes guardan tus conversaciones y, por defecto, **pueden usarlas para mejorar sus modelos**. Tu primer gesto de seguridad, antes de escribir nada, es revisarlo:
+
+1. Entra en **Ajustes** (a veces «Configuración» o tu foto de perfil).
+2. Busca la sección de **Privacidad** o **Controles de datos**.
+3. Localiza la opción que permite usar tus conversaciones para **entrenar o mejorar el modelo** y desactívala si puedes. Los nombres cambian de un asistente a otro y en algunos planes no se puede desactivar del todo.
+4. Mira si hay un modo de **chat temporal** o sin historial.
+
+Desactivar esa opción **no hace que sea seguro pegar datos de pacientes**: solo reduce lo que la empresa conserva para entrenar. En el subcapítulo 3.0 lo verás a fondo.
+
+### Paso 3 · Un correo complicado
+
+Pruébalo con algo real y sin ningún dato de pacientes. La clave está en dar contexto y decir qué esperas, como en una buena hoja de interconsulta.
+
+<PruebaloTu minutos={4}>
+Copia la plantilla, rellena lo que va entre corchetes con una situación tuya (un correo a un compañero, a tu jefatura, a un proveedor…) y envíala.
+
+<Plantilla id="p-0-correo" />
+
+Léelo con ojo crítico: ¿suena a ti?, ¿hay algo que no habrías dicho?, ¿falta algún dato?
+</PruebaloTu>
+
+### Paso 4 · Resumir un documento público
+
+Ahora, la prueba de fuego: pídele que resuma un texto que **tú puedes comprobar**. Las <a href="https://www.aemps.gob.es/comunicacion/notas-informativas/" target="_blank" rel="noopener noreferrer">notas informativas de la AEMPS</a> son públicas, cortas y claras.
+
+<PruebaloTu minutos={6}>
+1. Abre una nota informativa reciente de la AEMPS y copia su texto.
+2. Pégalo en la plantilla y envíala.
+3. **Compáralo con el original:** ¿ha omitido algo importante?, ¿ha cambiado una cifra o una fecha?, ¿ha añadido algo que no dice el documento?
+
+<Plantilla id="p-0-resumen-publico" />
+</PruebaloTu>
+
+Es probable que el resumen sea muy bueno. Pero **este ejercicio no consiste en que la IA acierte, sino en que adquieras el hábito de comprobar**. Lo practicarás en todo el curso.
+
+<OjoCon>
+- **No pegues datos de pacientes** ni documentos del trabajo con información sensible. Para practicar, usa solo textos públicos o inventados.
+- **Una respuesta bien escrita no es una respuesta verdadera.** Los asistentes redactan con seguridad aunque se equivoquen: lo verás en el subcapítulo 1.5, sobre la <T id="confabulacion">confabulación</T>.
+- **Los límites del plan gratuito** (número de mensajes, modelos disponibles) cambian a menudo. No te frustres si un día te pide esperar.
+- **La suscripción de pago no es necesaria para el curso.** En el subcapítulo 3.0 verás cuándo puede compensar.
+</OjoCon>
+
+<Resumen>
+- El curso es un **itinerario** en tres líneas con sesiones de 15–25 minutos; puedes ir en el orden que prefieras.
+- **Todo es ficticio y nada identifica a pacientes.** La responsabilidad clínica es siempre tuya.
+- Primer gesto con cualquier asistente: **revisar la privacidad** y desactivar el uso de tus conversaciones para entrenar, si es posible.
+- Un buen mensaje lleva **contexto, una petición concreta y el formato que esperas**.
+- Y un buen hábito: **comparar siempre la respuesta con la fuente**.
+</Resumen>
+
+<Ficha titulo="Tu primer día con un asistente de IA">
+**Antes de escribir**
+- Cuenta personal, no la del trabajo.
+- Ajustes → Privacidad → desactiva el uso para entrenar (si puedes).
+- Considera el chat temporal.
+
+**Un buen primer mensaje**
+- Contexto: quién eres y qué necesitas.
+- Petición concreta: «resume», «redacta», «compara»…
+- Formato: nº de líneas, tono, idioma.
+
+**Nunca**
+- Nombres, NHC, DNI/CIP, fechas exactas ni datos que identifiquen a un paciente.
+
+**Siempre**
+- Compara con el original.
+- Lo que parece muy seguro, se comprueba.
+</Ficha>
+
+<TestFinal id="0-0" />
+
+</Sesion>

@@ -1,43 +1,564 @@
 [
-  { "id": "ia", "termino": "Inteligencia artificial (IA)", "definicion": "Programas que hacen tareas que asociamos a la inteligencia humana: reconocer imágenes, entender y escribir textos, predecir o recomendar.", "analogia": "Como «medicina»: un paraguas enorme que agrupa técnicas muy distintas.", "ver": ["aprendizaje-automatico", "ia-generativa"] },
-  { "id": "aprendizaje-automatico", "termino": "Aprendizaje automático (machine learning)", "definicion": "Forma de hacer IA en la que el programa no sigue reglas escritas a mano, sino que aprende patrones a partir de muchos ejemplos.", "analogia": "La residencia: se aprende viendo miles de casos, no memorizando un protocolo.", "ver": ["modelo", "entrenamiento"] },
-  { "id": "ia-generativa", "termino": "IA generativa", "definicion": "IA que crea contenido nuevo (texto, imágenes, audio, vídeo) en lugar de solo clasificar o predecir.", "analogia": "La diferencia entre el residente que clasifica un ECG y el que redacta el informe.", "ver": ["llm"] },
-  { "id": "modelo", "termino": "Modelo", "definicion": "El resultado del entrenamiento: un programa con millones de números ajustados que, ante una entrada, produce una salida (una predicción, un texto…).", "analogia": "El especialista ya formado, con todo lo que aprendió en la residencia.", "ver": ["entrenamiento", "parametro"] },
-  { "id": "entrenamiento", "termino": "Entrenamiento", "definicion": "Proceso en el que el modelo ajusta sus parámetros a partir de ejemplos hasta que sus predicciones mejoran.", "analogia": "La residencia: aprender viendo miles de casos y corrigiendo errores.", "ver": ["datos-entrenamiento", "preentrenamiento"] },
-  { "id": "datos-entrenamiento", "termino": "Datos de entrenamiento", "definicion": "El conjunto de ejemplos con el que se entrena un modelo. Lo que no aparece en ellos, el modelo no lo conoce bien.", "analogia": "La casuística que ha visto el residente: si nunca vio pacientes de 90 años, flojeará con ellos.", "ver": ["sesgo"] },
-  { "id": "parametro", "termino": "Parámetro", "definicion": "Cada uno de los números internos que el modelo ajusta durante el entrenamiento. Los LLM actuales tienen miles de millones.", "analogia": "Las innumerables conexiones que se refuerzan en tu cerebro con la experiencia clínica.", "ver": ["modelo"] },
-  { "id": "red-neuronal", "termino": "Red neuronal", "definicion": "Tipo de modelo formado por capas de unidades simples conectadas entre sí; cada capa transforma la información y se la pasa a la siguiente.", "analogia": "Un comité de especialistas en cadena: cada uno aporta su lectura y pasa el caso al siguiente.", "ver": ["transformer"] },
-  { "id": "sesgo", "termino": "Sesgo (del modelo)", "definicion": "Error sistemático: el modelo funciona peor o de forma injusta con ciertos grupos, a menudo porque estaban poco representados en los datos.", "analogia": "Un ensayo clínico que excluyó a los mayores de 75 años: sus conclusiones no se aplican bien a ellos.", "ver": ["datos-entrenamiento"] },
-  { "id": "llm", "termino": "LLM (modelo extenso de lenguaje)", "definicion": "Modelo de IA entrenado con enormes cantidades de texto para predecir la siguiente pieza de texto. Es el motor de ChatGPT, Claude, Gemini y similares.", "analogia": "Alguien que ha leído una biblioteca entera y escribe con soltura, pero no consulta ningún libro al contestarte.", "ver": ["token", "preentrenamiento", "chatbot"] },
-  { "id": "chatbot", "termino": "Chatbot o asistente conversacional", "definicion": "Aplicación con la que conversas por escrito o por voz; por debajo suele haber un LLM.", "analogia": "La ventanilla de consulta: lo que ves; el LLM es el especialista que hay detrás.", "ver": ["llm"] },
-  { "id": "token", "termino": "Token", "definicion": "Cada trozo en que se divide el texto para que el modelo lo procese: una palabra corta, parte de una palabra, un número o un signo.", "analogia": "Como las sílabas al dictar: el modelo no lee palabras enteras, sino piezas.", "ver": ["tokenizador", "ventana-contexto"] },
-  { "id": "tokenizador", "termino": "Tokenizador", "definicion": "La herramienta que trocea el texto en tokens. Cada familia de modelos usa el suyo.", "analogia": "El sistema de abreviaturas de cada hospital: el texto es el mismo, los trozos cambian.", "ver": ["token"] },
-  { "id": "preentrenamiento", "termino": "Preentrenamiento", "definicion": "Primera fase del entrenamiento de un LLM: aprende a predecir la siguiente palabra leyendo cantidades enormes de texto.", "analogia": "La carrera de Medicina: una base amplia y general, todavía sin especializar.", "ver": ["ajuste-fino"] },
-  { "id": "ajuste-fino", "termino": "Ajuste fino (fine-tuning)", "definicion": "Entrenamiento adicional de un modelo ya entrenado, con ejemplos más concretos, para que se comporte de una forma determinada o domine un tema.", "analogia": "Hacer la especialidad después del grado.", "ver": ["preentrenamiento", "rlhf"] },
-  { "id": "rlhf", "termino": "Aprendizaje por refuerzo con retroalimentación humana (RLHF)", "definicion": "Técnica de ajuste en la que personas valoran las respuestas del modelo y este aprende a dar las que reciben mejor valoración.", "analogia": "Las sesiones de feedback del tutor: aprendes qué respuestas gustan… aunque no siempre sean las más exactas.", "ver": ["complacencia", "ajuste-fino"] },
-  { "id": "complacencia", "termino": "Complacencia (sycophancy)", "definicion": "Tendencia del modelo a darte la razón o a confirmar lo que sugieres, aunque no sea correcto.", "analogia": "El residente que te da la razón porque eres el adjunto.", "ver": ["rlhf"] },
-  { "id": "ventana-contexto", "termino": "Ventana de contexto", "definicion": "La cantidad máxima de texto (en tokens) que el modelo puede tener en cuenta a la vez: tu conversación, documentos y sus propias respuestas.", "analogia": "Lo que recuerdas de la consulta en curso y olvidas en la siguiente.", "ver": ["token"] },
-  { "id": "temperatura", "termino": "Temperatura", "definicion": "Ajuste que controla cuánto se arriesga el modelo al elegir la siguiente palabra: baja, respuestas previsibles; alta, más variadas y más propensas a errores.", "analogia": "Pedir el diagnóstico más probable frente a pedir un diferencial creativo.", "ver": ["llm"] },
-  { "id": "confabulacion", "termino": "Confabulación (alucinación)", "definicion": "Respuesta fluida y segura, pero falsa: un dato, una cita o una referencia que el modelo genera sin que exista.", "analogia": "La confabulación del paciente con Korsakoff: rellena huecos con relatos convincentes.", "ver": ["rag"] },
-  { "id": "rag", "termino": "Búsqueda con fuentes (RAG)", "definicion": "Técnica en la que, antes de responder, el sistema busca en documentos o en internet y basa la respuesta en lo encontrado, idealmente citándolo.", "analogia": "Consultar la guía clínica antes de contestar a la interconsulta.", "ver": ["confabulacion"] },
-  { "id": "modelo-razonamiento", "termino": "Modelo de razonamiento", "definicion": "LLM entrenado para «pensar» por pasos antes de responder. Suele acertar más en problemas complejos, a cambio de tardar más.", "analogia": "Pensar el diagnóstico diferencial en voz alta antes de decidir.", "ver": ["llm", "agente"] },
-  { "id": "agente", "termino": "Agente de IA", "definicion": "Sistema basado en un LLM que encadena varios pasos por su cuenta (buscar, leer, usar herramientas, redactar) para completar un encargo.", "analogia": "Un residente al que encargas una tarea de varios pasos y cuyo trabajo supervisas.", "ver": ["modelo-razonamiento"] },
-  { "id": "transformer", "termino": "Transformer", "definicion": "La arquitectura de red neuronal, presentada en 2017, en la que se basan casi todos los LLM actuales.", "analogia": "Como el fonendoscopio: un diseño concreto que se convirtió en el estándar.", "ver": ["atencion", "red-neuronal"] },
-  { "id": "atencion", "termino": "Atención (mecanismo de)", "definicion": "Parte del transformer que permite a cada palabra «fijarse» en las demás palabras relevantes del texto para interpretarla.", "analogia": "Al leer «tensión 90/60 tras la furosemida», relacionas la cifra con el fármaco, no con la frase anterior.", "ver": ["transformer"] },
-  { "id": "prompt", "termino": "Prompt", "definicion": "El texto con el que le pides algo a un modelo de IA: la pregunta más el contexto, las instrucciones y el formato que esperas.", "analogia": "Una buena hoja de interconsulta: contexto, pregunta concreta y qué esperas recibir.", "ver": ["ventana-contexto"] },
-  { "id": "anonimizar", "termino": "Anonimizar", "definicion": "Eliminar o transformar los datos de forma que ya no se pueda identificar a la persona, ni directa ni indirectamente.", "analogia": "Presentar un caso en un congreso sin nombre, sin fechas exactas y sin detalles que lo delaten.", "ver": ["seudonimizar"] },
-  { "id": "seudonimizar", "termino": "Seudonimizar", "definicion": "Sustituir los identificadores por un código. Si alguien conserva la clave para reidentificar, sigue siendo un dato personal según el RGPD.", "analogia": "Cambiar el nombre por el número de cama: quien tenga la lista sabe quién es.", "ver": ["anonimizar"] },
-  { "id": "ficha-tecnica", "termino": "Ficha técnica", "definicion": "Documento oficial y autorizado de cada medicamento (posología, contraindicaciones, interacciones…). En España se consulta gratis en CIMA.", "analogia": "La guía de referencia que manda cuando hay dudas: lo que diga la IA se comprueba aquí.", "ver": ["cima"] },
-  { "id": "cima", "termino": "CIMA", "definicion": "Centro de Información de Medicamentos de la AEMPS: web y app oficiales y gratuitas con las fichas técnicas y prospectos autorizados en España.", "analogia": "El vademécum oficial, siempre actualizado.", "ver": ["ficha-tecnica"] },
-  { "id": "aclaramiento-creatinina", "termino": "Aclaramiento de creatinina (CrCl)", "definicion": "Estimación de la función renal en ml/min. Muchas fichas técnicas expresan sus ajustes de dosis con esta medida, a menudo calculada con Cockcroft-Gault.", "analogia": "Una de las dos «reglas» con que se mide el riñón: hay que usar la misma que usa la ficha.", "ver": ["cockcroft-gault", "fg-estimado"] },
-  { "id": "cockcroft-gault", "termino": "Fórmula de Cockcroft-Gault", "definicion": "Fórmula de 1976 que estima el aclaramiento de creatinina a partir de la edad, el peso, el sexo y la creatinina sérica.", "analogia": "La fórmula «de toda la vida» que incluye el peso: en pacientes mayores y delgados suele dar valores más bajos que el FG.", "ver": ["aclaramiento-creatinina"] },
-  { "id": "fg-estimado", "termino": "Filtrado glomerular estimado (FGe)", "definicion": "Estimación de la función renal en ml/min/1,73 m², normalmente con la ecuación CKD-EPI, que es la que suele informar el laboratorio.", "analogia": "La otra «regla» del riñón, ajustada a una superficie corporal estándar.", "ver": ["aclaramiento-creatinina"] },
-  { "id": "polifarmacia", "termino": "Polifarmacia", "definicion": "Uso simultáneo de varios fármacos. La definición más usada es tomar 5 o más al día. Aumenta el riesgo de interacciones y de efectos adversos.", "analogia": "Una orquesta con demasiados músicos sin director: alguno acabará desafinando.", "ver": ["deprescripcion"] },
-  { "id": "prescripcion-inapropiada", "termino": "Prescripción potencialmente inapropiada", "definicion": "Fármaco cuyo riesgo probablemente supera su beneficio en una persona concreta, o fármaco indicado que falta.", "analogia": "Un tratamiento que tenía sentido hace años y nadie ha vuelto a revisar.", "ver": ["stopp-start", "criterios-beers"] },
-  { "id": "stopp-start", "termino": "Criterios STOPP/START", "definicion": "Listas europeas de fármacos potencialmente inapropiados (STOPP) y de omisiones de tratamientos indicados (START) en personas mayores. Versión 3, 2023.", "analogia": "Un checklist de quirófano, pero para revisar la medicación.", "ver": ["criterios-beers", "less-chron"] },
-  { "id": "criterios-beers", "termino": "Criterios de Beers", "definicion": "Lista de la Sociedad Americana de Geriatría con medicamentos que conviene evitar o usar con precaución en mayores. Última actualización, 2023.", "analogia": "El equivalente estadounidense de STOPP: se solapan, pero no son idénticos.", "ver": ["stopp-start"] },
-  { "id": "less-chron", "termino": "Criterios LESS-CHRON", "definicion": "Criterios españoles para deprescribir en pacientes crónicos con multimorbilidad, centrados en cuándo retirar fármacos que ya no aportan beneficio.", "analogia": "La revisión de «¿esto sigue haciendo falta?» que se hace al alta.", "ver": ["deprescripcion"] },
-  { "id": "deprescripcion", "termino": "Deprescripción", "definicion": "Proceso planificado y supervisado de reducir o retirar fármacos cuyo riesgo supera al beneficio, de acuerdo con el paciente.", "analogia": "Destetar con cuidado, no suspender de golpe.", "ver": ["polifarmacia", "stopp-start"] },
-  { "id": "carga-anticolinergica", "termino": "Carga anticolinérgica", "definicion": "Suma de los efectos anticolinérgicos de todos los fármacos de un paciente. En mayores se asocia a confusión, estreñimiento, retención urinaria y caídas.", "analogia": "Muchas gotas pequeñas que acaban llenando el vaso.", "ver": ["polifarmacia"] },
-  { "id": "interaccion", "termino": "Interacción farmacológica", "definicion": "Cuando un fármaco modifica el efecto o los niveles de otro, por ejemplo al competir por la misma vía de eliminación.", "analogia": "Dos coches por el mismo carril: uno frena al otro.", "ver": ["polifarmacia"] }
+  {
+    "id": "ia",
+    "termino": "Inteligencia artificial (IA)",
+    "definicion": "Programas que hacen tareas que asociamos a la inteligencia humana: reconocer imágenes, entender y escribir textos, predecir o recomendar.",
+    "analogia": "Como «medicina»: un paraguas enorme que agrupa técnicas muy distintas.",
+    "ver": [
+      "aprendizaje-automatico",
+      "ia-generativa"
+    ]
+  },
+  {
+    "id": "aprendizaje-automatico",
+    "termino": "Aprendizaje automático (machine learning)",
+    "definicion": "Forma de hacer IA en la que el programa no sigue reglas escritas a mano, sino que aprende patrones a partir de muchos ejemplos.",
+    "analogia": "La residencia: se aprende viendo miles de casos, no memorizando un protocolo.",
+    "ver": [
+      "modelo",
+      "entrenamiento"
+    ]
+  },
+  {
+    "id": "ia-generativa",
+    "termino": "IA generativa",
+    "definicion": "IA que crea contenido nuevo (texto, imágenes, audio, vídeo) en lugar de solo clasificar o predecir.",
+    "analogia": "La diferencia entre el residente que clasifica un ECG y el que redacta el informe.",
+    "ver": [
+      "llm"
+    ]
+  },
+  {
+    "id": "modelo",
+    "termino": "Modelo",
+    "definicion": "El resultado del entrenamiento: un programa con millones de números ajustados que, ante una entrada, produce una salida (una predicción, un texto…).",
+    "analogia": "El especialista ya formado, con todo lo que aprendió en la residencia.",
+    "ver": [
+      "entrenamiento",
+      "parametro"
+    ]
+  },
+  {
+    "id": "entrenamiento",
+    "termino": "Entrenamiento",
+    "definicion": "Proceso en el que el modelo ajusta sus parámetros a partir de ejemplos hasta que sus predicciones mejoran.",
+    "analogia": "La residencia: aprender viendo miles de casos y corrigiendo errores.",
+    "ver": [
+      "datos-entrenamiento",
+      "preentrenamiento"
+    ]
+  },
+  {
+    "id": "datos-entrenamiento",
+    "termino": "Datos de entrenamiento",
+    "definicion": "El conjunto de ejemplos con el que se entrena un modelo. Lo que no aparece en ellos, el modelo no lo conoce bien.",
+    "analogia": "La casuística que ha visto el residente: si nunca vio pacientes de 90 años, flojeará con ellos.",
+    "ver": [
+      "sesgo"
+    ]
+  },
+  {
+    "id": "parametro",
+    "termino": "Parámetro",
+    "definicion": "Cada uno de los números internos que el modelo ajusta durante el entrenamiento. Los LLM actuales tienen miles de millones.",
+    "analogia": "Las innumerables conexiones que se refuerzan en tu cerebro con la experiencia clínica.",
+    "ver": [
+      "modelo"
+    ]
+  },
+  {
+    "id": "red-neuronal",
+    "termino": "Red neuronal",
+    "definicion": "Tipo de modelo formado por capas de unidades simples conectadas entre sí; cada capa transforma la información y se la pasa a la siguiente.",
+    "analogia": "Un comité de especialistas en cadena: cada uno aporta su lectura y pasa el caso al siguiente.",
+    "ver": [
+      "transformer"
+    ]
+  },
+  {
+    "id": "sesgo",
+    "termino": "Sesgo (del modelo)",
+    "definicion": "Error sistemático: el modelo funciona peor o de forma injusta con ciertos grupos, a menudo porque estaban poco representados en los datos.",
+    "analogia": "Un ensayo clínico que excluyó a los mayores de 75 años: sus conclusiones no se aplican bien a ellos.",
+    "ver": [
+      "datos-entrenamiento"
+    ]
+  },
+  {
+    "id": "llm",
+    "termino": "LLM (modelo extenso de lenguaje)",
+    "definicion": "Modelo de IA entrenado con enormes cantidades de texto para predecir la siguiente pieza de texto. Es el motor de ChatGPT, Claude, Gemini y similares.",
+    "analogia": "Alguien que ha leído una biblioteca entera y escribe con soltura, pero no consulta ningún libro al contestarte.",
+    "ver": [
+      "token",
+      "preentrenamiento",
+      "chatbot"
+    ]
+  },
+  {
+    "id": "chatbot",
+    "termino": "Chatbot o asistente conversacional",
+    "definicion": "Aplicación con la que conversas por escrito o por voz; por debajo suele haber un LLM.",
+    "analogia": "La ventanilla de consulta: lo que ves; el LLM es el especialista que hay detrás.",
+    "ver": [
+      "llm"
+    ]
+  },
+  {
+    "id": "token",
+    "termino": "Token",
+    "definicion": "Cada trozo en que se divide el texto para que el modelo lo procese: una palabra corta, parte de una palabra, un número o un signo.",
+    "analogia": "Como las sílabas al dictar: el modelo no lee palabras enteras, sino piezas.",
+    "ver": [
+      "tokenizador",
+      "ventana-contexto"
+    ]
+  },
+  {
+    "id": "tokenizador",
+    "termino": "Tokenizador",
+    "definicion": "La herramienta que trocea el texto en tokens. Cada familia de modelos usa el suyo.",
+    "analogia": "El sistema de abreviaturas de cada hospital: el texto es el mismo, los trozos cambian.",
+    "ver": [
+      "token"
+    ]
+  },
+  {
+    "id": "preentrenamiento",
+    "termino": "Preentrenamiento",
+    "definicion": "Primera fase del entrenamiento de un LLM: aprende a predecir la siguiente palabra leyendo cantidades enormes de texto.",
+    "analogia": "La carrera de Medicina: una base amplia y general, todavía sin especializar.",
+    "ver": [
+      "ajuste-fino"
+    ]
+  },
+  {
+    "id": "ajuste-fino",
+    "termino": "Ajuste fino (fine-tuning)",
+    "definicion": "Entrenamiento adicional de un modelo ya entrenado, con ejemplos más concretos, para que se comporte de una forma determinada o domine un tema.",
+    "analogia": "Hacer la especialidad después del grado.",
+    "ver": [
+      "preentrenamiento",
+      "rlhf"
+    ]
+  },
+  {
+    "id": "rlhf",
+    "termino": "Aprendizaje por refuerzo con retroalimentación humana (RLHF)",
+    "definicion": "Técnica de ajuste en la que personas valoran las respuestas del modelo y este aprende a dar las que reciben mejor valoración.",
+    "analogia": "Las sesiones de feedback del tutor: aprendes qué respuestas gustan… aunque no siempre sean las más exactas.",
+    "ver": [
+      "complacencia",
+      "ajuste-fino"
+    ]
+  },
+  {
+    "id": "complacencia",
+    "termino": "Complacencia (sycophancy)",
+    "definicion": "Tendencia del modelo a darte la razón o a confirmar lo que sugieres, aunque no sea correcto.",
+    "analogia": "El residente que te da la razón porque eres el adjunto.",
+    "ver": [
+      "rlhf"
+    ]
+  },
+  {
+    "id": "ventana-contexto",
+    "termino": "Ventana de contexto",
+    "definicion": "La cantidad máxima de texto (en tokens) que el modelo puede tener en cuenta a la vez: tu conversación, documentos y sus propias respuestas.",
+    "analogia": "Lo que recuerdas de la consulta en curso y olvidas en la siguiente.",
+    "ver": [
+      "token"
+    ]
+  },
+  {
+    "id": "temperatura",
+    "termino": "Temperatura",
+    "definicion": "Ajuste que controla cuánto se arriesga el modelo al elegir la siguiente palabra: baja, respuestas previsibles; alta, más variadas y más propensas a errores.",
+    "analogia": "Pedir el diagnóstico más probable frente a pedir un diferencial creativo.",
+    "ver": [
+      "llm"
+    ]
+  },
+  {
+    "id": "confabulacion",
+    "termino": "Confabulación (alucinación)",
+    "definicion": "Respuesta fluida y segura, pero falsa: un dato, una cita o una referencia que el modelo genera sin que exista.",
+    "analogia": "La confabulación del paciente con Korsakoff: rellena huecos con relatos convincentes.",
+    "ver": [
+      "rag"
+    ]
+  },
+  {
+    "id": "rag",
+    "termino": "Búsqueda con fuentes (RAG)",
+    "definicion": "Técnica en la que, antes de responder, el sistema busca en documentos o en internet y basa la respuesta en lo encontrado, idealmente citándolo.",
+    "analogia": "Consultar la guía clínica antes de contestar a la interconsulta.",
+    "ver": [
+      "confabulacion"
+    ]
+  },
+  {
+    "id": "modelo-razonamiento",
+    "termino": "Modelo de razonamiento",
+    "definicion": "LLM entrenado para «pensar» por pasos antes de responder. Suele acertar más en problemas complejos, a cambio de tardar más.",
+    "analogia": "Pensar el diagnóstico diferencial en voz alta antes de decidir.",
+    "ver": [
+      "llm",
+      "agente"
+    ]
+  },
+  {
+    "id": "agente",
+    "termino": "Agente de IA",
+    "definicion": "Sistema basado en un LLM que encadena varios pasos por su cuenta (buscar, leer, usar herramientas, redactar) para completar un encargo.",
+    "analogia": "Un residente al que encargas una tarea de varios pasos y cuyo trabajo supervisas.",
+    "ver": [
+      "modelo-razonamiento"
+    ]
+  },
+  {
+    "id": "transformer",
+    "termino": "Transformer",
+    "definicion": "La arquitectura de red neuronal, presentada en 2017, en la que se basan casi todos los LLM actuales.",
+    "analogia": "Como el fonendoscopio: un diseño concreto que se convirtió en el estándar.",
+    "ver": [
+      "atencion",
+      "red-neuronal"
+    ]
+  },
+  {
+    "id": "atencion",
+    "termino": "Atención (mecanismo de)",
+    "definicion": "Parte del transformer que permite a cada palabra «fijarse» en las demás palabras relevantes del texto para interpretarla.",
+    "analogia": "Al leer «tensión 90/60 tras la furosemida», relacionas la cifra con el fármaco, no con la frase anterior.",
+    "ver": [
+      "transformer"
+    ]
+  },
+  {
+    "id": "prompt",
+    "termino": "Prompt",
+    "definicion": "El texto con el que le pides algo a un modelo de IA: la pregunta más el contexto, las instrucciones y el formato que esperas.",
+    "analogia": "Una buena hoja de interconsulta: contexto, pregunta concreta y qué esperas recibir.",
+    "ver": [
+      "ventana-contexto"
+    ]
+  },
+  {
+    "id": "anonimizar",
+    "termino": "Anonimizar",
+    "definicion": "Eliminar o transformar los datos de forma que ya no se pueda identificar a la persona, ni directa ni indirectamente.",
+    "analogia": "Presentar un caso en un congreso sin nombre, sin fechas exactas y sin detalles que lo delaten.",
+    "ver": [
+      "seudonimizar"
+    ]
+  },
+  {
+    "id": "seudonimizar",
+    "termino": "Seudonimizar",
+    "definicion": "Sustituir los identificadores por un código. Si alguien conserva la clave para reidentificar, sigue siendo un dato personal según el RGPD.",
+    "analogia": "Cambiar el nombre por el número de cama: quien tenga la lista sabe quién es.",
+    "ver": [
+      "anonimizar"
+    ]
+  },
+  {
+    "id": "ficha-tecnica",
+    "termino": "Ficha técnica",
+    "definicion": "Documento oficial y autorizado de cada medicamento (posología, contraindicaciones, interacciones…). En España se consulta gratis en CIMA.",
+    "analogia": "La guía de referencia que manda cuando hay dudas: lo que diga la IA se comprueba aquí.",
+    "ver": [
+      "cima"
+    ]
+  },
+  {
+    "id": "cima",
+    "termino": "CIMA",
+    "definicion": "Centro de Información de Medicamentos de la AEMPS: web y app oficiales y gratuitas con las fichas técnicas y prospectos autorizados en España.",
+    "analogia": "El vademécum oficial, siempre actualizado.",
+    "ver": [
+      "ficha-tecnica"
+    ]
+  },
+  {
+    "id": "aclaramiento-creatinina",
+    "termino": "Aclaramiento de creatinina (CrCl)",
+    "definicion": "Estimación de la función renal en ml/min. Muchas fichas técnicas expresan sus ajustes de dosis con esta medida, a menudo calculada con Cockcroft-Gault.",
+    "analogia": "Una de las dos «reglas» con que se mide el riñón: hay que usar la misma que usa la ficha.",
+    "ver": [
+      "cockcroft-gault",
+      "fg-estimado"
+    ]
+  },
+  {
+    "id": "cockcroft-gault",
+    "termino": "Fórmula de Cockcroft-Gault",
+    "definicion": "Fórmula de 1976 que estima el aclaramiento de creatinina a partir de la edad, el peso, el sexo y la creatinina sérica.",
+    "analogia": "La fórmula «de toda la vida» que incluye el peso: en pacientes mayores y delgados suele dar valores más bajos que el FG.",
+    "ver": [
+      "aclaramiento-creatinina"
+    ]
+  },
+  {
+    "id": "fg-estimado",
+    "termino": "Filtrado glomerular estimado (FGe)",
+    "definicion": "Estimación de la función renal en ml/min/1,73 m², normalmente con la ecuación CKD-EPI, que es la que suele informar el laboratorio.",
+    "analogia": "La otra «regla» del riñón, ajustada a una superficie corporal estándar.",
+    "ver": [
+      "aclaramiento-creatinina"
+    ]
+  },
+  {
+    "id": "polifarmacia",
+    "termino": "Polifarmacia",
+    "definicion": "Uso simultáneo de varios fármacos. La definición más usada es tomar 5 o más al día. Aumenta el riesgo de interacciones y de efectos adversos.",
+    "analogia": "Una orquesta con demasiados músicos sin director: alguno acabará desafinando.",
+    "ver": [
+      "deprescripcion"
+    ]
+  },
+  {
+    "id": "prescripcion-inapropiada",
+    "termino": "Prescripción potencialmente inapropiada",
+    "definicion": "Fármaco cuyo riesgo probablemente supera su beneficio en una persona concreta, o fármaco indicado que falta.",
+    "analogia": "Un tratamiento que tenía sentido hace años y nadie ha vuelto a revisar.",
+    "ver": [
+      "stopp-start",
+      "criterios-beers"
+    ]
+  },
+  {
+    "id": "stopp-start",
+    "termino": "Criterios STOPP/START",
+    "definicion": "Listas europeas de fármacos potencialmente inapropiados (STOPP) y de omisiones de tratamientos indicados (START) en personas mayores. Versión 3, 2023.",
+    "analogia": "Un checklist de quirófano, pero para revisar la medicación.",
+    "ver": [
+      "criterios-beers",
+      "less-chron"
+    ]
+  },
+  {
+    "id": "criterios-beers",
+    "termino": "Criterios de Beers",
+    "definicion": "Lista de la Sociedad Americana de Geriatría con medicamentos que conviene evitar o usar con precaución en mayores. Última actualización, 2023.",
+    "analogia": "El equivalente estadounidense de STOPP: se solapan, pero no son idénticos.",
+    "ver": [
+      "stopp-start"
+    ]
+  },
+  {
+    "id": "less-chron",
+    "termino": "Criterios LESS-CHRON",
+    "definicion": "Criterios españoles para deprescribir en pacientes crónicos con multimorbilidad, centrados en cuándo retirar fármacos que ya no aportan beneficio.",
+    "analogia": "La revisión de «¿esto sigue haciendo falta?» que se hace al alta.",
+    "ver": [
+      "deprescripcion"
+    ]
+  },
+  {
+    "id": "deprescripcion",
+    "termino": "Deprescripción",
+    "definicion": "Proceso planificado y supervisado de reducir o retirar fármacos cuyo riesgo supera al beneficio, de acuerdo con el paciente.",
+    "analogia": "Destetar con cuidado, no suspender de golpe.",
+    "ver": [
+      "polifarmacia",
+      "stopp-start"
+    ]
+  },
+  {
+    "id": "carga-anticolinergica",
+    "termino": "Carga anticolinérgica",
+    "definicion": "Suma de los efectos anticolinérgicos de todos los fármacos de un paciente. En mayores se asocia a confusión, estreñimiento, retención urinaria y caídas.",
+    "analogia": "Muchas gotas pequeñas que acaban llenando el vaso.",
+    "ver": [
+      "polifarmacia"
+    ]
+  },
+  {
+    "id": "interaccion",
+    "termino": "Interacción farmacológica",
+    "definicion": "Cuando un fármaco modifica el efecto o los niveles de otro, por ejemplo al competir por la misma vía de eliminación.",
+    "analogia": "Dos coches por el mismo carril: uno frena al otro.",
+    "ver": [
+      "polifarmacia"
+    ]
+  },
+  {
+    "id": "sensibilidad",
+    "termino": "Sensibilidad",
+    "definicion": "Proporción de enfermos que la prueba (o el modelo) detecta: verdaderos positivos entre todos los que tienen la enfermedad.",
+    "analogia": "Una prueba de cribado sensible «no deja escapar» a casi nadie, como un residente muy cuidadoso que prefiere pasarse de alerta.",
+    "ver": [
+      "especificidad",
+      "vpp"
+    ]
+  },
+  {
+    "id": "especificidad",
+    "termino": "Especificidad",
+    "definicion": "Proporción de sanos que la prueba (o el modelo) identifica como sanos: verdaderos negativos entre todos los que no tienen la enfermedad.",
+    "analogia": "El residente que no alarma de más: no llama «grave» a quien no lo está.",
+    "ver": [
+      "sensibilidad",
+      "vpp"
+    ]
+  },
+  {
+    "id": "vpp",
+    "termino": "Valor predictivo positivo (VPP)",
+    "definicion": "Probabilidad de que alguien con un resultado positivo esté realmente enfermo. Depende de la sensibilidad, la especificidad y la prevalencia.",
+    "analogia": "Lo que de verdad te preocupa ante un positivo: «¿y ahora, cuántas probabilidades tiene de estar enfermo?»",
+    "ver": [
+      "prevalencia",
+      "sensibilidad"
+    ]
+  },
+  {
+    "id": "prevalencia",
+    "termino": "Prevalencia",
+    "definicion": "Proporción de personas con la enfermedad en la población que se estudia. Cambia el valor predictivo de una misma prueba.",
+    "analogia": "Una prueba que funciona bien en Cardiología puede rendir peor en Atención Primaria: cambia la proporción de enfermos.",
+    "ver": [
+      "vpp"
+    ]
+  },
+  {
+    "id": "curva-roc",
+    "termino": "Curva ROC y AUC",
+    "definicion": "Gráfico que cruza sensibilidad y 1 − especificidad para todos los umbrales posibles. El área bajo la curva (AUC) resume cuánto separa a enfermos de sanos: 0,5 es azar y 1 es perfecto.",
+    "analogia": "Todos los puntos de corte de una escala, vistos a la vez.",
+    "ver": [
+      "sensibilidad",
+      "especificidad",
+      "umbral"
+    ]
+  },
+  {
+    "id": "umbral",
+    "termino": "Umbral (punto de corte)",
+    "definicion": "Valor a partir del cual el modelo dice «positivo». Moverlo cambia la sensibilidad y la especificidad en sentido contrario.",
+    "analogia": "El punto de corte de una escala de cribado: más bajo detecta más, pero alarma más.",
+    "ver": [
+      "curva-roc"
+    ]
+  },
+  {
+    "id": "sobreajuste",
+    "termino": "Sobreajuste (overfitting)",
+    "definicion": "Cuando un modelo se ajusta tanto a los casos de entrenamiento (incluido su ruido) que falla con pacientes nuevos.",
+    "analogia": "El residente que memoriza las preguntas del examen y falla con el paciente real.",
+    "ver": [
+      "validacion-externa",
+      "datos-entrenamiento"
+    ]
+  },
+  {
+    "id": "validacion-externa",
+    "termino": "Validación externa",
+    "definicion": "Comprobar el modelo con datos de otra población u otro centro, distintos de los que se usaron para crearlo.",
+    "analogia": "Validar una escala en otra población antes de usarla en la tuya.",
+    "ver": [
+      "sobreajuste"
+    ]
+  },
+  {
+    "id": "aprendizaje-supervisado",
+    "termino": "Aprendizaje supervisado",
+    "definicion": "El modelo aprende de ejemplos que ya llevan la respuesta correcta («etiqueta»), por ejemplo radiografías con su diagnóstico.",
+    "analogia": "Aprender con un tutor que corrige cada caso.",
+    "ver": [
+      "aprendizaje-automatico"
+    ]
+  },
+  {
+    "id": "aprendizaje-no-supervisado",
+    "termino": "Aprendizaje no supervisado",
+    "definicion": "El modelo busca patrones o grupos en datos sin etiquetas, por ejemplo agrupar pacientes parecidos.",
+    "analogia": "Descubrir fenotipos de pacientes sin que nadie te diga qué buscar.",
+    "ver": [
+      "aprendizaje-supervisado"
+    ]
+  },
+  {
+    "id": "sistema-experto",
+    "termino": "Sistema experto",
+    "definicion": "Programa de IA clásica que aplica reglas escritas por expertos humanos (como MYCIN), sin aprender de datos.",
+    "analogia": "Un protocolo en diagrama de flujo, muy elaborado, que hay que actualizar a mano.",
+    "ver": [
+      "ia-clasica"
+    ]
+  },
+  {
+    "id": "ia-clasica",
+    "termino": "IA clásica (basada en reglas)",
+    "definicion": "IA que sigue reglas explícitas escritas por personas. Es transparente, pero rígida y costosa de mantener.",
+    "analogia": "El protocolo de un servicio: claro, pero no se adapta solo.",
+    "ver": [
+      "sistema-experto",
+      "aprendizaje-automatico"
+    ]
+  },
+  {
+    "id": "aprendizaje-profundo",
+    "termino": "Aprendizaje profundo (deep learning)",
+    "definicion": "Aprendizaje automático con redes neuronales de muchas capas. Está detrás del reconocimiento de imágenes y de los LLM.",
+    "analogia": "Un comité de especialistas en cadena, con muchos niveles.",
+    "ver": [
+      "red-neuronal"
+    ]
+  },
+  {
+    "id": "caja-negra",
+    "termino": "Caja negra",
+    "definicion": "Modelo cuyas decisiones no se pueden explicar fácilmente: sabemos qué entra y qué sale, pero no por qué.",
+    "analogia": "Un colega brillante que acierta el diagnóstico, pero que no sabe explicar en qué se ha fijado.",
+    "ver": [
+      "aprendizaje-profundo"
+    ]
+  },
+  {
+    "id": "multimodal",
+    "termino": "Modelo multimodal",
+    "definicion": "Modelo que procesa varios tipos de datos a la vez: texto, imagen, audio o vídeo.",
+    "analogia": "El clínico que integra la historia, la exploración y las pruebas, no solo una de ellas.",
+    "ver": [
+      "llm"
+    ]
+  },
+  {
+    "id": "escriba-ambiental",
+    "termino": "Escriba ambiental (con IA)",
+    "definicion": "Sistema que escucha la consulta, la transcribe y propone una nota clínica que el médico revisa y firma.",
+    "analogia": "Un residente que toma notas durante la consulta: es útil, pero firmas tú.",
+    "ver": [
+      "multimodal"
+    ]
+  },
+  {
+    "id": "modelo-abierto",
+    "termino": "Modelo abierto y modelo cerrado",
+    "definicion": "Un modelo abierto publica sus «pesos» y se puede descargar y ejecutar en tu equipo; uno cerrado solo se usa a través del servicio de su empresa.",
+    "analogia": "Una guía clínica de acceso libre frente a un software con licencia.",
+    "ver": [
+      "llm"
+    ]
+  },
+  {
+    "id": "benchmark",
+    "termino": "Benchmark (prueba de rendimiento)",
+    "definicion": "Conjunto de preguntas o tareas estándar para comparar modelos. Un buen resultado no garantiza un buen rendimiento en tu práctica.",
+    "analogia": "Sacar buena nota en el MIR no garantiza ser un buen clínico.",
+    "ver": [
+      "modelo"
+    ]
+  },
+  {
+    "id": "neurona-artificial",
+    "termino": "Neurona artificial",
+    "definicion": "Unidad sencilla que multiplica cada dato de entrada por un peso, suma y decide cuánto «se activa».",
+    "analogia": "Una decisión clínica ponderada: cada dato pesa más o menos.",
+    "ver": [
+      "red-neuronal"
+    ]
+  }
 ]

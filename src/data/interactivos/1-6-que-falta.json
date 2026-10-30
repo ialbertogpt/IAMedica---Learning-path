@@ -1,0 +1,19 @@
+{
+  "titulo": "¿Qué bloque le falta a este prompt?",
+  "instrucciones": "Cada prompt tiene cuatro de los cinco bloques. Elige el que falta.",
+  "categorias": [
+    { "id": "rol", "nombre": "Rol" },
+    { "id": "contexto", "nombre": "Contexto" },
+    { "id": "tarea", "nombre": "Tarea" },
+    { "id": "formato", "nombre": "Formato" },
+    { "id": "limites", "nombre": "Límites" }
+  ],
+  "items": [
+    { "texto": "«Actúa como un geriatra que enseña a residentes. Resume las ideas principales del documento. Máximo 5 puntos, en una lista. Si algo no figura en el texto, dilo.»", "categoria": "contexto", "explicacion": "Dice «el documento», pero no lo ha incluido. Sin contexto, la IA no tiene qué resumir… y puede inventarlo." },
+    { "texto": "«Actúa como un farmacéutico clínico. Tengo una lista de 12 fármacos de una paciente ficticia de 84 años con un filtrado de 28 ml/min. Preséntalo en una tabla y no inventes dosis: si dudas, dilo.»", "categoria": "tarea", "explicacion": "Hay rol, contexto, formato y límites, pero no se sabe qué debe hacer con la lista: ¿revisarla?, ¿ordenarla?, ¿buscar interacciones?" },
+    { "texto": "«Actúa como un geriatra. Tengo un caso ficticio de una mujer de 86 años con confusión aguda. Propón un diagnóstico diferencial razonado. No des dosis y avisa si no estás seguro.»", "categoria": "formato", "explicacion": "No dice cómo quiere la respuesta: ¿una tabla?, ¿una lista priorizada?, ¿cuántas líneas? Sin formato, la longitud y el orden los decide la IA." },
+    { "texto": "«Actúa como un bibliotecario médico. Quiero buscar bibliografía sobre ejercicio y caídas en mayores de 80 años. Propón una estrategia de búsqueda para PubMed en una tabla de tres columnas.»", "categoria": "limites", "explicacion": "Faltan los límites: sin pedírselo, puede inventar términos MeSH o referencias. Añade «no inventes referencias ni términos; si dudas, dilo»." },
+    { "texto": "«Estoy preparando una sesión de 20 minutos para residentes de primer año sobre deprescripción. Resume en una lista de 5 puntos los principios básicos. No des dosis y no inventes referencias.»", "categoria": "rol", "explicacion": "El rol orienta el tono y el nivel. Aquí se deduce algo del contexto, pero pedir «actúa como un geriatra con experiencia docente» afina el resultado." }
+  ],
+  "cierre": "En la práctica, un prompt puede tener más de un fallo; aquí hemos ido a por el más importante. Si te acostumbras a repasar los cinco bloques antes de enviar, esa revisión de diez segundos suele ahorrarte varias vueltas."
+}

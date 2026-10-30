@@ -1,0 +1,155 @@
+---
+id: "1-7"
+titulo: "Más allá del texto: imagen, voz y vídeo"
+parte: 1
+minutos: 60
+objetivos:
+  - Explicar qué significa que un modelo sea multimodal, con ejemplos clínicos
+  - "Describir el flujo de un escriba ambiental y sus riesgos: omisiones, invenciones, privacidad y consentimiento"
+  - Decidir cuándo es razonable usar la entrada por imagen o por voz y con qué datos
+gancho: "Una compañera ya no teclea durante la consulta: un «escriba» con IA escucha, transcribe y le propone la nota clínica. Termina antes y mira más al paciente. Pero en la nota del lunes figuraba «sin alergias conocidas» y la paciente había dicho que era alérgica a la penicilina. ¿Qué ha pasado, y cómo se evita?"
+recursos:
+  - v-redsanitaria-escriba
+  - a-scribes-nejmai-2025
+  - r-oms-lmm-2024
+paraSaberMas:
+  - a-whisper-2024
+test: "1-7"
+fechaRevision: "2026-10-31"
+aFecha: octubre de 2026
+fuentes:
+  - texto: "OMS. Ethics and governance of artificial intelligence for health: Guidance on large multi-modal models"
+    url: https://www.who.int/publications/i/item/9789240084759
+  - texto: "Ambient AI Scribes in Clinical Practice: A Randomized Trial. NEJM AI 2025 (UCLA)"
+    pmid: "41497288"
+    doi: 10.1056/aioa2501000
+  - texto: "Koenecke A, et al. Careless Whisper: Speech-to-Text Hallucination Harms. FAccT 2024 (arXiv:2402.08021)"
+    url: https://arxiv.org/abs/2402.08021
+---
+
+<Sesion n={1} titulo="Galería de capacidades multimodales" minutos={20}>
+
+### Qué quiere decir «multimodal»
+
+Los primeros asistentes solo entendían texto. Hoy muchos son <T id="multimodal">multimodales</T>: aceptan y producen **varios tipos de datos** (texto, imágenes, audio, vídeo). La OMS los define como modelos que «pueden aceptar uno o más tipos de datos de entrada y generar diversas salidas que no se limitan al tipo de datos de entrada».
+
+<Analogia>
+Es el **clínico que integra la historia, la exploración y las pruebas**, no solo una de ellas. Un <T id="modelo">modelo</T> multimodal puede, por ejemplo, leer una foto de una tabla y comentarla, o escuchar un audio y resumirlo.
+</Analogia>
+
+### Qué pueden hacer… y qué límite tiene cada cosa
+
+Recorre las ocho capacidades. Cada tarjeta incluye un uso razonable y un límite.
+
+<Explorador datos="1-7-galeria" />
+
+### Dos reglas para todo lo multimodal
+
+1. **Una foto o un audio son datos.** Una imagen puede contener nombre, cara, etiquetas con el NHC o metadatos. Un audio contiene la voz y todo lo que se diga. Aplica a las fotos y a los audios las mismas reglas que a un texto.
+2. **Más modalidades, más cosas que comprobar.** Que un modelo «vea» una imagen no significa que la interprete bien. Verifica cifras, columnas y detalles.
+
+<PruebaloTu minutos={5}>
+Haz una foto a una **tabla de una guía clínica pública** (sin ningún dato de pacientes) o captura una de un artículo abierto, y pídele a tu asistente que la transcriba. Después, **comprueba las cifras una a una** con el original.
+
+<Plantilla id="p-1-7-transcribir-tabla" />
+</PruebaloTu>
+
+</Sesion>
+
+<Sesion n={2} titulo="De la voz a la nota clínica" minutos={20}>
+
+### Cómo funciona un escriba ambiental
+
+Un <T id="escriba-ambiental">escriba ambiental</T> sigue tres pasos:
+
+1. **Escucha y transcribe** la consulta (reconocimiento de voz).
+2. **Resume y estructura** la transcripción en una nota (un modelo de lenguaje).
+3. **Te la presenta** para que la revises, la corrijas y la firmes.
+
+<Analogia>
+Es **un residente que toma notas durante la consulta**. Si es bueno, ganas tiempo y miras más al paciente. Pero la nota la firmas tú: y lo que no revises, lo has dado por bueno.
+</Analogia>
+
+### Lo que dice la evidencia
+
+En un ensayo aleatorizado con 238 médicos de consulta ambulatoria (NEJM AI, 2025), se comparó el uso de dos escribas con la atención habitual:
+
+- Con uno de ellos, el **tiempo de redacción** bajó un 9,5 %; con el otro, no hubo un cambio significativo.
+- Los indicadores de burnout, carga de trabajo y agotamiento **mejoraron con ambos**, pero los autores piden confirmarlo en ensayos más grandes y multicéntricos.
+- Los clínicos refirieron inexactitudes clínicamente significativas **«ocasionales»**, que exigen vigilancia continua.
+
+El mensaje es matizado: **ayudan, pero no son magia ni están libres de errores**.
+
+### Los riesgos
+
+- **Omisiones**: se pierde algo importante (una alergia, un síntoma negativo).
+- **Invenciones**: se añade algo que no se dijo. Un estudio sobre el sistema de transcripción Whisper (Koenecke, 2024) halló frases enteras inexistentes en alrededor del 1 % de las transcripciones, y el 38 % de ellas con contenido dañino.
+- **Contradicciones**: la nota dice lo contrario de lo hablado.
+- **Privacidad y consentimiento**: se graba la voz del paciente. En tu práctica, **solo con una herramienta contratada y autorizada por tu centro, con información previa al paciente**. Nunca con una aplicación personal.
+
+### Audita la nota
+
+Compara una nota generada con la transcripción de la consulta. Encuentra los errores.
+
+<EncuentraError datos="1-7-nota" />
+
+<Video id="v-redsanitaria-escriba" nota="una introducción en castellano a los escribas: cómo funcionan, privacidad y consejos. Es un canal pequeño: úsalo como primer contacto." />
+
+</Sesion>
+
+<Sesion n={3} titulo="Imágenes generadas, deepfakes y tu ficha" minutos={20}>
+
+### Imágenes sintéticas: útiles y engañosas
+
+Las IA que **generan imágenes** sirven para ilustrar una diapositiva o esquematizar una idea. Pero tienen un riesgo en medicina: una radiografía, una lesión cutánea o una gráfica «generadas» parecen reales y **no lo son**. No prueban nada, no deben presentarse como casos y menos aún mezclarse con datos reales.
+
+Con la **voz y el vídeo sintéticos** (los *deepfakes*) el riesgo es otro: la suplantación. Hay estafas y desinformación sanitaria con la voz o la imagen de profesionales. **Nunca uses la voz o la imagen de otra persona sin su consentimiento**, y desconfía de un audio o un vídeo «de un colega» que te pide algo urgente.
+
+### Cuándo tiene sentido usar imagen o voz
+
+| Situación | Razonable |
+|---|---|
+| Transcribir una tabla de una guía pública | Sí, comprobando las cifras |
+| Dictar una nota de trabajo propia, sin datos de pacientes | Sí, revisándola |
+| Describir una radiografía de un paciente con un asistente de consumo | **No**: dato sensible y herramienta no validada |
+| Escriba ambiental en consulta | **Solo** si el centro lo ha autorizado y se informa al paciente |
+| Ilustración genérica para una diapositiva | Sí, indicando que es generada |
+
+La guía de la OMS sobre modelos multimodales en salud insiste en estas ideas: valorar con cuidado los usos, garantizar la supervisión humana y proteger los datos.
+
+<OjoCon>
+- **«Lo vio y lo entendió» no es lo mismo.** Un asistente puede describir una imagen con seguridad y equivocarse.
+- **El audio es dato personal.** También los metadatos de una foto (lugar, fecha) pueden identificar.
+- **Las imágenes generadas no son evidencia.** Indícalo siempre que las uses.
+- **Un escriba no te quita la responsabilidad:** revisa alergias, medicación, cifras y decisiones.
+</OjoCon>
+
+<Resumen>
+- Un modelo **multimodal** procesa texto, imagen, audio y vídeo; cada modalidad añade usos y riesgos.
+- Un **escriba ambiental** ahorra tiempo y alivia la carga, pero comete **omisiones, invenciones y contradicciones**: la nota la firmas tú.
+- Los sistemas de voz a texto pueden **inventar frases** (alrededor del 1 % de las transcripciones en un estudio sobre Whisper).
+- **Fotos y audios son datos**: sin pacientes en cuentas personales y, en la práctica, solo con herramientas autorizadas por tu centro.
+- Las **imágenes y voces sintéticas** no son evidencia y permiten suplantar identidades.
+</Resumen>
+
+<Ficha titulo="IA multimodal: lo esencial">
+**Qué es**
+- Modelos que procesan varios tipos de datos: texto, imagen, voz, vídeo.
+
+**Usos razonables**
+- Transcribir tablas de documentos públicos (y comprobarlas).
+- Dictar notas propias sin datos de pacientes.
+- Escriba ambiental: solo con herramienta del centro e información al paciente.
+
+**Riesgos**
+- Omisiones, invenciones y contradicciones.
+- Fotos y audios con datos personales.
+- Imágenes y voces generadas: suplantación.
+
+**Revisa siempre**
+- Alergias, medicación, cifras y decisiones.
+</Ficha>
+
+<TestFinal id="1-7" />
+
+</Sesion>

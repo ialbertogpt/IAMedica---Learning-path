@@ -1,0 +1,21 @@
+{
+  "titulo": "Galería de capacidades multimodales",
+  "instrucciones": "Cada tarjeta resume una capacidad, un uso clínico razonable y su límite principal. Filtra por tipo de dato.",
+  "modo": "tarjetas",
+  "categorias": [
+    { "id": "imagen", "nombre": "Imagen y documentos" },
+    { "id": "voz", "nombre": "Voz" },
+    { "id": "generacion", "nombre": "Generar imágenes y vídeo" }
+  ],
+  "items": [
+    { "id": "leer-imagen", "titulo": "Leer una foto de una tabla, un informe o un gráfico", "categoria": "imagen", "detalle": "El asistente transcribe o resume lo que ve. Útil para pasar a texto una tabla de una guía pública o extraer los datos de un gráfico de un artículo. Límite: puede equivocarse con cifras, columnas o unidades; hay que comprobar cada dato con el original. Y la foto no debe contener datos de pacientes." },
+    { "id": "pdf", "titulo": "Leer y resumir documentos largos (PDF)", "categoria": "imagen", "detalle": "Resumir una guía clínica, extraer los criterios de inclusión de un ensayo, comparar dos documentos. Límite: puede omitir un apartado o inventar un dato que no está; pide siempre la página o el apartado donde aparece cada afirmación." },
+    { "id": "imagen-medica", "titulo": "Interpretar radiografías, ECG o imágenes de dermatología con un asistente generalista", "categoria": "imagen", "detalle": "Los asistentes de uso general pueden describir una imagen, pero no están pensados ni autorizados como productos sanitarios para diagnosticar, y su rendimiento es irregular. Distinto es un software específico, autorizado y validado en su indicación. Nunca subas imágenes de pacientes a un asistente con una cuenta personal." },
+    { "id": "dictado", "titulo": "Transcribir voz a texto (dictado)", "categoria": "voz", "detalle": "Convertir un audio en texto: dictar una nota, transcribir una clase. Límite: a veces los sistemas inventan frases que no se dijeron. Un estudio sobre Whisper encontró que alrededor del 1 % de las transcripciones tenían frases enteras inexistentes en el audio, y el 38 % de ellas con contenido dañino (Koenecke et al., 2024)." },
+    { "id": "escriba", "titulo": "Escribas ambientales: de la consulta a la nota clínica", "categoria": "voz", "detalle": "Escuchan la consulta, la transcriben y proponen una nota que revisas y firmas. En un ensayo aleatorizado con 238 médicos (NEJM AI, 2025), uno de los dos escribas probados redujo un 9,5 % el tiempo de redacción y el otro no logró una reducción significativa; ambos obtuvieron mejoras en burnout que requieren confirmación, y los clínicos refirieron inexactitudes ocasionales. Solo con herramientas autorizadas por tu centro y con información al paciente." },
+    { "id": "modo-voz", "titulo": "Conversar por voz con un asistente", "categoria": "voz", "detalle": "Útil para ensayar una presentación, practicar un caso ficticio o hacerle preguntas mientras vas en el coche. Límite: la voz se procesa en la nube y puede guardarse; evita datos de pacientes y revisa los ajustes de privacidad." },
+    { "id": "generar-imagen", "titulo": "Generar imágenes e ilustraciones", "categoria": "generacion", "detalle": "Crear una ilustración para una diapositiva o un esquema docente. Límite: las imágenes «clínicas» generadas parecen reales y no lo son: no sirven como evidencia, y no deben presentarse como casos reales. Cuida los derechos y el sesgo (p. ej., en la representación de pacientes mayores)." },
+    { "id": "deepfake", "titulo": "Voz y vídeo sintéticos (deepfakes)", "categoria": "generacion", "detalle": "Se pueden clonar voces o crear vídeos realistas de personas. Riesgo: suplantación y desinformación sanitaria, incluida la de profesionales. Nunca uses la imagen o la voz de una persona sin su consentimiento." }
+  ],
+  "nota": "Datos de los estudios: Koenecke et al., FAccT 2024 (arXiv:2402.08021); ensayo aleatorizado de escribas ambientales, NEJM AI 2025 (PMID 41497288). Capacidades y límites descritos a fecha de octubre de 2026."
+}

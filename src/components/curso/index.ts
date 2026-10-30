@@ -23,8 +23,19 @@ import VentanaContexto from '../interactivos/VentanaContexto.astro';
 import CalculadoraRenal from '../interactivos/CalculadoraRenal.astro';
 import TresAyudas from '../interactivos/TresAyudas.astro';
 import AnatomiaFicha from '../interactivos/AnatomiaFicha.astro';
+import Explorador from '../interactivos/Explorador.astro';
+import Comparador from '../interactivos/Comparador.astro';
+import Arbol from '../interactivos/Arbol.astro';
+import Autoevaluacion from '../interactivos/Autoevaluacion.astro';
+import ModeloSintetico from '../interactivos/ModeloSintetico.astro';
+import Neurona from '../interactivos/Neurona.astro';
+import ConstructorPrompt from '../interactivos/ConstructorPrompt.astro';
+import Planificador from '../interactivos/Planificador.astro';
+import Munecas from '../interactivos/Munecas.astro';
+import CapasRed from '../interactivos/CapasRed.astro';
 
 export const componentesMDX = {
   Sesion, T, OjoCon, Analogia, PruebaloTu, AvisoClinico, Caso, Desplegable, Plantilla, Video, Recurso, Resumen, Ficha, PasoTaller, TestFinal,
   Clasificador, EncuentraError, Tokenizador, Minimodelo, VentanaContexto, CalculadoraRenal, TresAyudas, AnatomiaFicha,
+  Explorador, Comparador, Arbol, Autoevaluacion, ModeloSintetico, Neurona, ConstructorPrompt, Planificador, Munecas, CapasRed,
 };

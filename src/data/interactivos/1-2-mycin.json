@@ -1,0 +1,19 @@
+{
+  "titulo": "¿Por qué MYCIN no llegó a la clínica?",
+  "instrucciones": "MYCIN funcionaba muy bien en la evaluación. Clasifica cada obstáculo según su tipo: ¿tenía que ver con el rendimiento clínico, con su integración en el trabajo diario, con la responsabilidad y la confianza, o con el mantenimiento del conocimiento?",
+  "categorias": [
+    { "id": "rendimiento", "nombre": "Rendimiento clínico" },
+    { "id": "integracion", "nombre": "Integración en el trabajo diario" },
+    { "id": "responsabilidad", "nombre": "Responsabilidad y confianza" },
+    { "id": "mantenimiento", "nombre": "Mantenimiento del conocimiento" }
+  ],
+  "items": [
+    { "texto": "En la evaluación a ciegas de 1979, sus recomendaciones obtuvieron una aceptabilidad del 65 %, similar a la de los especialistas.", "categoria": "rendimiento", "explicacion": "Este no fue el problema: el rendimiento era bueno. Es la primera lección: un sistema puede ser excelente y aun así no usarse." },
+    { "texto": "El médico debía responder a decenas de preguntas tecleando en un terminal, sin conexión con la historia clínica del paciente.", "categoria": "integracion", "explicacion": "Un sistema que obliga a introducir los datos a mano, aparte del flujo de trabajo, no se usa. Hoy se resuelve (en parte) conectando con la historia electrónica." },
+    { "texto": "Si el consejo era erróneo y el paciente sufría daño, no estaba claro quién respondía: el médico, el hospital o los autores.", "categoria": "responsabilidad", "explicacion": "Una cuestión que sigue sin resolverse del todo. El Manual de la OMC (2026) insiste: la responsabilidad de la decisión es del médico, y la supervisión humana no puede ser un trámite." },
+    { "texto": "Cada vez que cambiaba la evidencia sobre un antibiótico o aparecía una resistencia, un experto tenía que reescribir reglas a mano.", "categoria": "mantenimiento", "explicacion": "Los sistemas de reglas envejecen. Los modelos actuales se reentrenan o se conectan a fuentes actualizadas, pero también necesitan mantenimiento y vigilancia." },
+    { "texto": "El sistema consumía varios minutos de cada consulta, en una planta con prisas.", "categoria": "integracion", "explicacion": "El tiempo es un recurso crítico. Las herramientas de hoy que ahorran tiempo (como los escribas ambientales) lo tienen en cuenta desde el diseño." },
+    { "texto": "Muchos clínicos temían perder autonomía frente a una máquina que «decidía» el antibiótico.", "categoria": "responsabilidad", "explicacion": "La confianza se construye con transparencia y con un papel claro: apoyar la decisión, no sustituirla. Un principio vigente." }
+  ],
+  "cierre": "Mensaje para hoy: ante una herramienta de IA nueva, no basta preguntar «¿funciona?». También cuentan si se integra en tu trabajo, quién responde si falla y quién la mantiene al día."
+}

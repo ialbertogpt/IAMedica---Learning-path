@@ -1,0 +1,32 @@
+{
+  "titulo": "Test · Bienvenida",
+  "preguntas": [
+    {
+      "tipo": "unica",
+      "enunciado": "¿Cuál de estos datos nunca debes introducir en un asistente de IA con tu cuenta personal?",
+      "opciones": [
+        { "texto": "El texto de una nota informativa pública de la AEMPS.", "correcta": false, "explicacion": "Es un documento público: puedes usarlo para practicar con total tranquilidad, y además te permite comprobar el resultado." },
+        { "texto": "Un informe de alta con el nombre, el número de historia clínica y la fecha de nacimiento de un paciente.", "correcta": true, "explicacion": "Son datos de salud que identifican a una persona: están especialmente protegidos. Con una cuenta personal, no tienes control sobre qué se hace con ellos. Lo verás a fondo en 2.3 y 3.0." },
+        { "texto": "Una pregunta general sobre qué es el índice de Barthel.", "correcta": false, "explicacion": "Es una pregunta sin ningún dato de pacientes. Puedes hacerla (y comprobar la respuesta en una fuente fiable)." },
+        { "texto": "Un caso totalmente inventado por ti para practicar.", "correcta": false, "explicacion": "Un caso ficticio es justo lo que conviene para practicar. Asegúrate de que no se parezca a un paciente real que sea fácil de reconocer." }
+      ]
+    },
+    {
+      "tipo": "vf",
+      "enunciado": "Si un asistente de IA responde con un tono muy seguro y bien redactado, no hace falta comprobar lo que dice.",
+      "respuesta": false,
+      "explicacionVerdadero": "No. Los asistentes redactan con la misma seguridad cuando aciertan y cuando se inventan algo. El tono no te dice nada sobre si el dato es cierto: hay que comprobarlo en la fuente.",
+      "explicacionFalso": "Correcto. La fluidez y la seguridad no son indicios de exactitud: un asistente puede confabular con total aplomo. Por eso el hábito de comprobar es lo primero que se aprende."
+    },
+    {
+      "tipo": "ordenar",
+      "enunciado": "Ordena los pasos de tu primer éxito con un asistente de IA.",
+      "pasos": [
+        { "texto": "Abrir una cuenta personal en el asistente que prefieras.", "porque": "Primero necesitas la cuenta." },
+        { "texto": "Revisar los ajustes de privacidad y desactivar el uso de tus conversaciones para entrenar, si se puede.", "porque": "Va antes de escribir nada: lo que pegues después quedará bajo esos ajustes." },
+        { "texto": "Escribir un mensaje con contexto, una petición concreta y el formato que esperas.", "porque": "Una hoja de interconsulta bien hecha obtiene una mejor respuesta." },
+        { "texto": "Comparar la respuesta con el documento original y comprobar qué falta o qué se ha cambiado.", "porque": "Es el hábito que da seguridad: la IA ayuda, pero la verificación es tuya." }
+      ]
+    }
+  ]
+}

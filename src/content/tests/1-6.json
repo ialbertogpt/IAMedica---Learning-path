@@ -1,0 +1,55 @@
+{
+  "titulo": "Test · El arte de preguntar",
+  "preguntas": [
+    {
+      "tipo": "emparejar",
+      "enunciado": "Empareja cada bloque del prompt con la pregunta a la que responde.",
+      "pares": [
+        { "izquierda": "Rol", "derecha": "¿Quién quieres que sea la IA y para quién escribe?", "porque": "Orienta el tono y el nivel de la respuesta." },
+        { "izquierda": "Contexto", "derecha": "¿Qué datos necesita para responder bien?", "porque": "Sin contexto, la IA rellena los huecos por su cuenta." },
+        { "izquierda": "Tarea", "derecha": "¿Qué quieres exactamente que haga?", "porque": "Una petición concreta, con un verbo de acción." },
+        { "izquierda": "Formato", "derecha": "¿Cómo quieres recibir la respuesta?", "porque": "Tabla, lista, longitud, idioma, nivel." },
+        { "izquierda": "Límites", "derecha": "¿Qué no debe hacer?", "porque": "No inventar referencias, no dar dosis, avisar si duda." }
+      ]
+    },
+    {
+      "tipo": "escenario",
+      "enunciado": "¿Qué falla en este prompt?",
+      "caso": "«Mujer de 86 años con confusión de tres días. Creo que es una infección de orina, ¿verdad? Confírmame la pauta de antibiótico.»",
+      "opciones": [
+        { "texto": "Nada: es claro y concreto.", "correcta": false, "explicacion": "Es concreto, pero incluye tu hipótesis y pide que se confirme: invita a la complacencia, y además cierra el abanico antes de empezar." },
+        { "texto": "Presenta tu hipótesis y pide que la confirme, lo que invita a la complacencia; mejor un caso neutro y un diagnóstico diferencial razonado.", "correcta": true, "explicacion": "Exacto. Los modelos tienden a darte la razón. Pide qué datos apoyan y qué datos refutarían cada opción, y qué pruebas discriminan entre ellas." },
+        { "texto": "Que es demasiado corto: falta añadir el nombre del paciente.", "correcta": false, "explicacion": "Nunca añadas el nombre ni otros datos identificativos. Lo que falta es neutralidad." },
+        { "texto": "Que no incluye ningún rol.", "correcta": false, "explicacion": "El rol ayuda, pero no es el problema principal: el riesgo es la hipótesis incluida." }
+      ]
+    },
+    {
+      "tipo": "vf",
+      "enunciado": "Cuanto más largo y detallado es un prompt, mejores son siempre las respuestas.",
+      "respuesta": false,
+      "explicacionVerdadero": "No. La longitud no es lo que importa, sino la claridad: un prompt claro de pocas líneas con los cinco bloques supera a uno largo y confuso.",
+      "explicacionFalso": "Correcto. Más texto no es mejor: lo que cuenta es dar contexto relevante, una petición concreta y el formato. Un prompt largo y confuso puede empeorar el resultado."
+    },
+    {
+      "tipo": "unica",
+      "enunciado": "Quieres bibliografía sobre un tema. Añades «cita cada afirmación con autor, año y PMID». ¿Qué tienes que hacer después?",
+      "opciones": [
+        { "texto": "Nada: si da un PMID, es real.", "correcta": false, "explicacion": "Un asistente puede inventar PMIDs con mucha naturalidad. Los datos que parecen reales no lo son siempre." },
+        { "texto": "Comprobar en PubMed que cada PMID existe y que el artículo dice lo que se afirma.", "correcta": true, "explicacion": "Pedir fuentes ayuda a verificar, pero no garantiza que existan. La comprobación es siempre tuya." },
+        { "texto": "Pedirle que confirme que son reales.", "correcta": false, "explicacion": "La IA no puede comprobarlo de forma fiable; puede confirmarte con total seguridad algo que no existe." },
+        { "texto": "Repetir la pregunta hasta que los PMID coincidan.", "correcta": false, "explicacion": "Que dos respuestas coincidan no prueba que sean ciertas." }
+      ]
+    },
+    {
+      "tipo": "ordenar",
+      "enunciado": "Ordena los pasos para sacar partido a un asistente con una tarea nueva.",
+      "pasos": [
+        { "texto": "Escribir un prompt con los cinco bloques, sin datos identificativos.", "porque": "La hoja de interconsulta bien hecha es el punto de partida." },
+        { "texto": "Leer la respuesta y detectar qué falta o qué sobra.", "porque": "Primero se evalúa, antes de pedir cambios." },
+        { "texto": "Corregir con peticiones concretas (acórtalo, cambia el ejemplo…).", "porque": "Las correcciones precisas mejoran más que un «hazlo mejor»." },
+        { "texto": "Comprobar datos, cifras y fuentes con una fuente fiable.", "porque": "La verificación es siempre tuya." },
+        { "texto": "Guardar el prompt que ha funcionado como plantilla.", "porque": "Ahorra tiempo la próxima vez." }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "titulo": "Complacencia: el mismo caso, presentado de dos formas",
+  "instrucciones": "Mismo caso ficticio, dos formas de presentarlo. Antes de ver qué ha cambiado, léelas con calma y piensa cuál te daría una respuesta más útil.",
+  "pregunta": "¿Cuál de las dos respuestas te ayudaría más a no equivocarte con una paciente real?",
+  "versiones": [
+    {
+      "titulo": "Presentado con tu sospecha",
+      "entrada": "Mujer de 86 años con confusión de 3 días. Creo que es una infección de orina, ¿no?",
+      "etiquetaEntrada": "Prompt",
+      "respuesta": [
+        "Es una sospecha muy razonable: en personas mayores, la infección urinaria suele manifestarse con confusión y sin los síntomas clásicos. Te recomiendo pedir un sedimento y un urocultivo e iniciar tratamiento antibiótico empírico mientras llega el resultado."
+      ],
+      "procedencia": "texto creado para este ejercicio, que imita el patrón de complacencia descrito en la literatura (Sharma et al., 2023); no es una salida real de un modelo",
+      "observaciones": ["Confirma tu hipótesis sin cuestionarla.", "No considera otras causas de la confusión.", "Recomienda tratar antes de saber si hay una infección."]
+    },
+    {
+      "titulo": "Presentado de forma neutra",
+      "entrada": "Mujer de 86 años con confusión de 3 días. No consta fiebre. Dame un diagnóstico diferencial razonado: qué datos apoyan y cuáles refutarían cada opción, y qué pruebas discriminan entre ellas.",
+      "etiquetaEntrada": "Prompt",
+      "respuesta": [
+        "Una confusión de días en una persona mayor es, hasta que se demuestre lo contrario, un delirium, casi siempre de causa multifactorial. Para ordenarlo:\n• Fármacos: benzodiacepinas, anticolinérgicos, opioides, cambios recientes de medicación.\n• Infección: respiratoria, urinaria, de piel y partes blandas… La infección urinaria solo debería considerarse con síntomas locales o signos sistémicos: la bacteriuria asintomática es frecuente en mayores y no debe tratarse por sí sola.\n• Metabólicas: sodio, glucosa, calcio, función renal, hipoxia, deshidratación.\n• Retención urinaria y estreñimiento o fecaloma.\n• Neurológicas: ictus, hematoma subdural (sobre todo si hubo una caída).\n• Dolor no controlado y privación sensorial.",
+        "Pruebas que discriminan: constantes y exploración (incluida la neurológica), un test de cribado de delirium, glucemia, analítica básica con iones y función renal, valoración de retención urinaria y revisión de la medicación. El sedimento y el urocultivo, interpretados con cautela.",
+        "No incluyo dosis ni pautas. La decisión clínica depende de ti y de los datos que tienes de la paciente."
+      ],
+      "procedencia": "texto creado para este ejercicio, basado en la recomendación de la guía de la IDSA sobre bacteriuria asintomática (2019); no es una salida real de un modelo",
+      "observaciones": ["Abre el abanico en lugar de cerrarlo.", "Cuestiona la sospecha de infección de orina con una referencia.", "Propone pruebas que distinguen entre causas."]
+    }
+  ],
+  "conclusion": "Los modelos entrenados con valoraciones humanas tienden a darte la razón (Sharma et al., 2023). Para evitarlo: presenta los casos de forma neutra, pide diagnósticos diferenciales (qué apoya y qué refuta cada opción) y pregunta «¿qué datos cambiarían tu respuesta?». Lo practicarás a fondo en el taller 3.1."
+}

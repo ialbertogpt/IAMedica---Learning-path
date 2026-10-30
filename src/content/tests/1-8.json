@@ -1,0 +1,42 @@
+{
+  "titulo": "Test · El estado del arte",
+  "preguntas": [
+    {
+      "tipo": "emparejar",
+      "enunciado": "Empareja cada tarea con el tipo de ayuda que más le conviene.",
+      "pares": [
+        { "izquierda": "Reformular un correo", "derecha": "Modelo rápido", "porque": "Es redacción sencilla: no hace falta razonar a fondo." },
+        { "izquierda": "Calcular un VPP paso a paso", "derecha": "Modelo de razonamiento", "porque": "Es un problema de varios pasos; pensar por pasos reduce errores." },
+        { "izquierda": "Revisar cada semana tus alertas de PubMed y resumirlas", "derecha": "Agente", "porque": "Son acciones encadenadas y recurrentes, con tu supervisión." }
+      ]
+    },
+    {
+      "tipo": "vf",
+      "enunciado": "Si un modelo de lenguaje aprueba un examen de licencia médica, es seguro que ayudará a las personas a decidir mejor ante un problema de salud.",
+      "respuesta": false,
+      "explicacionVerdadero": "No. En un estudio de Nature Medicine (2026) con 1.298 participantes, los modelos solos identificaban la afección en el 94,9 % de los casos, pero las personas que los usaban lo hacían en menos del 34,5 %, no mejor que el grupo control.",
+      "explicacionFalso": "Correcto. Aprobar un examen no predice el rendimiento real cuando una persona interactúa con el modelo, como mostró el estudio de Nature Medicine (2026)."
+    },
+    {
+      "tipo": "unica",
+      "enunciado": "Ves un ranking que dice que un modelo es «el mejor del mundo». ¿Qué es lo más prudente?",
+      "opciones": [
+        { "texto": "Cambiarme enseguida a ese modelo.", "correcta": false, "explicacion": "Un ranking mide lo que mide: no tiene por qué reflejar tus tareas, y cambia a las pocas semanas." },
+        { "texto": "Preguntar quién lo ha hecho, qué mide, con qué fecha y si hay usuarios reales, y probarlo con mis propias tareas.", "correcta": true, "explicacion": "Es el criterio de quien lee un estudio: fuente, métrica, fecha y población. Y probar tú con tus tareas vale más que cualquier lista." },
+        { "texto": "Fiarme porque lo dice el fabricante.", "correcta": false, "explicacion": "Los rankings publicados por quien vende el modelo merecen una cautela extra." },
+        { "texto": "Ignorar toda la información sobre modelos.", "correcta": false, "explicacion": "No hace falta tanto: basta con leerla con criterio y comprobarla." }
+      ]
+    },
+    {
+      "tipo": "escenario",
+      "enunciado": "¿Qué falla en esta decisión?",
+      "caso": "Un colega te cuenta que, como el plan gratuito de un asistente es «muy potente» y ha desactivado el uso para entrenar, pega los informes de alta de sus pacientes sin nombre «para ahorrar tiempo».",
+      "opciones": [
+        { "texto": "Nada, porque ha quitado el nombre.", "correcta": false, "explicacion": "Quitar el nombre no basta: el NHC, las fechas o la combinación de datos pueden identificar. Y la cuenta personal no es el canal adecuado para datos de pacientes." },
+        { "texto": "Ningún asistente con cuenta personal es apto para datos de pacientes, aunque desactive el uso para entrenar; solo valdría una herramienta autorizada por el centro, o un texto bien anonimizado.", "correcta": true, "explicacion": "Exacto. Desactivar el entrenamiento reduce lo que la empresa conserva, pero no convierte la herramienta en segura para datos identificables. Lo verás a fondo en 2.3 y 3.0." },
+        { "texto": "Que el plan gratuito es demasiado potente.", "correcta": false, "explicacion": "La potencia no es el problema. El problema es la privacidad y la responsabilidad profesional." },
+        { "texto": "Que debería usar un modelo abierto de otra empresa en un servicio en la nube.", "correcta": false, "explicacion": "Cambiar de empresa no soluciona nada si los datos identificables salen de un entorno autorizado. Un modelo abierto en tu propio ordenador sí evitaría que salgan, pero sigue exigiendo un tratamiento acorde con la normativa." }
+      ]
+    }
+  ]
+}

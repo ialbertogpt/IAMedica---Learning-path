@@ -10,6 +10,8 @@ export interface DatosEncuentraError {
   instrucciones: string;
   parrafos: Bloque[][];
   conclusion: string;
+  /** Palabra para lo que hay que encontrar (por defecto «errores») */
+  hallazgo?: string;
 }
 
 export default function EncuentraError({ datos }: { datos: DatosEncuentraError }) {
@@ -69,7 +71,7 @@ export default function EncuentraError({ datos }: { datos: DatosEncuentraError }
       ) : (
         <div class="grid gap-2" aria-live="polite">
           <p class={`retro m-0 ${encontrados === errores.length && falsasAlarmas === 0 ? 'retro-ok' : 'retro-neutra'}`}>
-            Has encontrado <strong>{encontrados} de {errores.length}</strong> errores{falsasAlarmas ? ` y has marcado ${falsasAlarmas} frase(s) correcta(s)` : ''}.
+            Has encontrado <strong>{encontrados} de {errores.length}</strong> {datos.hallazgo ?? 'errores'}{falsasAlarmas ? ` y has marcado ${falsasAlarmas} fragmento(s) que no lo eran` : ''}.
           </p>
           {errores.map((b) => (
             <p key={b.clave} class={`retro m-0 ${marcadas.has(b.clave) ? 'retro-ok' : 'retro-mal'}`}>

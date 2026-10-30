@@ -1,0 +1,30 @@
+{
+  "titulo": "Constructor de prompts por bloques",
+  "ejemplos": [
+    {
+      "nombre": "Prompt flojo",
+      "bloques": { "tarea": "Háblame de la deprescripción." }
+    },
+    {
+      "nombre": "Prompt completo",
+      "bloques": {
+        "rol": "Actúa como un geriatra con experiencia docente que explica a residentes de primer año.",
+        "contexto": "Estoy preparando una sesión de 15 minutos sobre deprescripción para residentes de Medicina Interna. No tienen formación previa en geriatría. No incluyo datos de pacientes.",
+        "tarea": "Explica qué es la deprescripción y propón un esquema de 4 pasos para aplicarla en una consulta.",
+        "formato": "Máximo 250 palabras. Una lista numerada para los pasos y un ejemplo breve con un caso ficticio.",
+        "limites": "No des dosis concretas. Si no estás seguro de algo, dilo. No inventes referencias: si citas una fuente, indícala con claridad."
+      }
+    },
+    {
+      "nombre": "Con datos identificables (mira la alerta)",
+      "bloques": {
+        "rol": "Actúa como un geriatra.",
+        "contexto": "Don Manuel García López, DNI 12345678Z, nacido el 04/03/1938, NHC: 8832211, teléfono 612 345 678, ingresa por confusión.",
+        "tarea": "Resume el caso y propón un plan de actuación.",
+        "formato": "Una lista de 5 puntos.",
+        "limites": "No inventes datos."
+      }
+    }
+  ],
+  "nota": "Los datos del último ejemplo son inventados. Cualquier parecido con una persona real es casual."
+}

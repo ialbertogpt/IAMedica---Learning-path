@@ -1,0 +1,133 @@
+---
+id: "1-2"
+titulo: "De Turing a hoy: breve historia"
+parte: 1
+minutos: 45
+objetivos:
+  - Situar en una línea temporal los hitos clave de la IA y sus equivalentes en medicina
+  - Explicar por qué MYCIN, un sistema que rendía como los especialistas, no llegó a usarse en la clínica
+  - Reconocer los ciclos de entusiasmo y desencanto para valorar las promesas actuales con criterio
+gancho: "En los años 70, un programa de Stanford llamado MYCIN recomendaba antibióticos en infecciones graves. En una evaluación a ciegas, sus recomendaciones se consideraron aceptables más a menudo que las de varios especialistas. Y, sin embargo, nunca se usó con un paciente real. ¿Por qué? Entender este fracaso es la mejor forma de mirar con criterio las promesas de hoy."
+recursos:
+  - v-edteam-historia
+  - a-yu-1979
+  - a-shortliffe-2018
+paraSaberMas:
+  - v-dotcsv-pasado-presente
+test: "1-2"
+fechaRevision: "2026-10-30"
+aFecha: octubre de 2026
+fuentes:
+  - texto: "Yu VL, et al. Antimicrobial selection by a computer. A blinded evaluation by infectious diseases experts. JAMA 1979;242:1279-82"
+    pmid: "480542"
+  - texto: "Shortliffe EH, Sepúlveda MJ. Clinical Decision Support in the Era of Artificial Intelligence. JAMA 2018;320:2199-2200"
+    pmid: "30398550"
+  - texto: "Miller RA, Pople HE, Myers JD. Internist-1, an experimental computer-based diagnostic consultant for general internal medicine. N Engl J Med 1982;307"
+    pmid: "7048091"
+  - texto: "Gulshan V, et al. JAMA 2016;316:2402-10"
+    pmid: "27898976"
+  - texto: "Vaswani A, et al. Attention Is All You Need (arXiv:1706.03762)"
+    url: https://arxiv.org/abs/1706.03762
+  - texto: "Jumper J, et al. Highly accurate protein structure prediction with AlphaFold. Nature 2021;596:583-9"
+    pmid: "34265844"
+  - texto: "DeepSeek-AI. DeepSeek-R1 incentivizes reasoning in LLMs through reinforcement learning. Nature 2025"
+    pmid: "40962978"
+  - texto: "Turing AM. Computing Machinery and Intelligence. Mind 1950;59:433-60"
+  - texto: "Weizenbaum J. ELIZA. Commun ACM 1966;9:36-45"
+  - texto: "Comunicado de la FDA sobre IDx-DR (11/04/2018), recogido por la Academia Americana de Oftalmología (AAO)"
+    url: https://www.aao.org/education/headline/first-ai-screen-diabetic-retinopathy-approved-by-f
+---
+
+<Sesion n={1} titulo="Línea temporal: siete décadas en pocos minutos" minutos={22}>
+
+### Cuatro ideas para orientarte
+
+La IA no nació con ChatGPT. Lleva **más de 70 años** de historia, con auges y caídas. Recorre la línea temporal, con la medicina en paralelo. Te harán falta cuatro ideas:
+
+1. **Primero las ideas, después los sistemas.** En 1950, Turing ya se preguntaba si las máquinas podían pensar. La expresión «<T id="ia">inteligencia artificial</T>» nace en 1956.
+2. **Dos eras técnicas.** Las primeras décadas dominan las **reglas** escritas por expertos (los <T id="sistema-experto">sistemas expertos</T>). Desde 2012, domina el **<T id="aprendizaje-profundo">aprendizaje profundo</T>**.
+3. **El «invierno».** Tras promesas exageradas llegan épocas de desencanto y menos inversión.
+4. **La medicina siempre ha estado en el mapa.** MYCIN, INTERNIST, la retinopatía diabética, AlphaFold…
+
+<Explorador datos="1-2-linea" />
+
+### En vídeo
+
+<Video id="v-edteam-historia" desde="6:27" hasta="15:18" nota="la primera ola de la IA, el perceptrón, el primer chatbot, el «invierno de la IA» y Deep Blue. El canal es comercial: ignora los anuncios de cursos." />
+
+<Analogia>
+La historia de la IA se parece a **la historia de muchos tratamientos**: un entusiasmo inicial, la decepción cuando se enfrenta a la práctica real y, años después, una versión madura que sí funciona. La clave es saber en qué fase estás.
+</Analogia>
+
+</Sesion>
+
+<Sesion n={2} titulo="El caso MYCIN y las lecciones para hoy" minutos={23}>
+
+### Qué era MYCIN
+
+MYCIN fue un <T id="sistema-experto">sistema experto</T> desarrollado en Stanford en los años 70 para recomendar el tratamiento antibiótico de infecciones bacterianas graves. Hacía preguntas al médico, aplicaba cientos de reglas «si… entonces…» escritas por expertos en infecciosas y proponía un tratamiento, explicando su razonamiento.
+
+### Cómo se evaluó
+
+En 1979 se publicó una evaluación **a ciegas**. Ocho expertos en meningitis valoraron la elección de antimicrobianos de MYCIN y la de nueve prescriptores humanos en diez casos de meningitis. MYCIN obtuvo un **65 % de aceptabilidad**, frente al **42,5–62,5 %** de los cinco especialistas de la facultad. Además, nunca dejó sin cubrir un patógeno tratable.
+
+Aun así, **nunca se integró en la práctica diaria**. No fue por su rendimiento.
+
+### Las razones habituales
+
+Las explicaciones se discuten y no hay una sola. Las que más se señalan: el sistema obligaba a **introducir muchos datos a mano**, fuera del flujo de trabajo, no estaba claro **quién respondía** si fallaba, cada cambio en la evidencia exigía **reescribir reglas** y existía desconfianza hacia una máquina que «decidía». Clasifícalas tú:
+
+<Clasificador datos="1-2-mycin" />
+
+### Lo que sigue vigente
+
+Medio siglo después, **cuatro preguntas siguen siendo las mismas** ante cualquier herramienta de IA:
+
+1. ¿Funciona **en mis pacientes** y mejora lo que importa?
+2. ¿Se **integra** en mi trabajo sin añadir carga?
+3. ¿**Quién responde** si se equivoca?
+4. ¿**Quién la mantiene al día** cuando cambia la evidencia?
+
+Shortliffe, el creador de MYCIN, y su coautor lo plantean en un artículo de 2018: para que la IA llegue a la clínica no basta con que sea precisa. Debe resolver la integración, la confianza y la evidencia de su utilidad real.
+
+<PruebaloTu minutos={5}>
+Pide a tu asistente que te explique qué fue MYCIN. Después, comprueba en el resumen de Yu et al. (1979) tres datos: los casos evaluados, el porcentaje de aceptabilidad de MYCIN y el de los especialistas. ¿Los ha acertado?
+
+<Plantilla id="p-1-2-mycin" />
+</PruebaloTu>
+
+<OjoCon>
+- **«Funciona» no equivale a «se usará».** Un buen rendimiento es necesario, pero no suficiente.
+- **Los ciclos se repiten.** Hoy conviven expectativas muy altas con evidencia todavía escasa en muchos usos. Pide siempre estudios con pacientes reales.
+- **La historia de la IA es difícil de resumir sin simplificar.** Las fechas y atribuciones de esta línea temporal están comprobadas, pero muchas «primeras veces» tienen matices.
+</OjoCon>
+
+<Resumen>
+- La IA tiene **más de 70 años**: las ideas llegan en los años 50, los sistemas de **reglas** dominan hasta los 90 y el **aprendizaje profundo** despega en 2012.
+- **MYCIN** rendía como los especialistas en una evaluación a ciegas (65 % de aceptabilidad) y **nunca se usó** en la práctica diaria.
+- Los obstáculos fueron de **integración, responsabilidad y mantenimiento**, no de rendimiento.
+- Esas mismas cuatro preguntas valen hoy: ¿funciona en mis pacientes?, ¿se integra?, ¿quién responde?, ¿quién la actualiza?
+- La historia va por **ciclos**: cuando una promesa suena demasiado buena, pide evidencia.
+</Resumen>
+
+<Ficha titulo="Historia de la IA: lo esencial">
+**Hitos**
+- 1950 Turing · 1956 Dartmouth · años 70 MYCIN.
+- 2012 aprendizaje profundo · 2017 <T id="transformer">transformer</T> · 2022 ChatGPT.
+- 2018 primer diagnóstico autónomo con IA autorizado por la FDA.
+
+**MYCIN**
+- Sistema experto de reglas para elegir antibióticos.
+- 65 % de aceptabilidad frente a 42,5–62,5 % de los especialistas (JAMA, 1979).
+- Nunca llegó a la práctica diaria.
+
+**Cuatro preguntas ante una herramienta nueva**
+1. ¿Funciona en mis pacientes?
+2. ¿Se integra en mi trabajo?
+3. ¿Quién responde si falla?
+4. ¿Quién la mantiene al día?
+</Ficha>
+
+<TestFinal id="1-2" />
+
+</Sesion>

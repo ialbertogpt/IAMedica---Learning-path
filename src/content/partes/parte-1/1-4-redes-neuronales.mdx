@@ -1,0 +1,154 @@
+---
+id: "1-4"
+titulo: Redes neuronales sin fórmulas
+parte: 1
+minutos: 60
+objetivos:
+  - Describir una neurona artificial como una decisión clínica ponderada
+  - Explicar por qué apilar capas permite reconocer patrones complejos
+  - Explicar por qué la imagen médica fue la primera gran aplicación del aprendizaje profundo
+  - Reconocer el problema de la caja negra y los atajos engañosos con ejemplos reales
+gancho: "En 2016, un algoritmo detectó retinopatía diabética en fotografías de fondo de ojo con una sensibilidad del 97,5 % y una especificidad del 93,4 % en uno de sus puntos de operación. Nadie le explicó qué es un microaneurisma: lo descubrió viendo más de 128.000 imágenes. ¿Cómo «ve» una máquina? ¿Y qué pasa cuando acierta por una razón equivocada?"
+recursos:
+  - v-dotcsv-neurona
+  - v-ringa-redes
+  - a-gulshan-2016
+paraSaberMas:
+  - v-3b1b-red-es
+  - v-dotcsv-red
+  - v-dotcsv-cnn
+  - a-winkler-2019
+test: "1-4"
+fechaRevision: "2026-10-30"
+fuentes:
+  - texto: "Gulshan V, et al. Development and Validation of a Deep Learning Algorithm for Detection of Diabetic Retinopathy in Retinal Fundus Photographs. JAMA 2016;316:2402-10"
+    pmid: "27898976"
+    doi: 10.1001/jama.2016.17216
+  - texto: "Winkler JK, et al. Association Between Surgical Skin Markings in Dermoscopic Images and Diagnostic Performance of a Deep Learning Convolutional Neural Network for Melanoma Recognition. JAMA Dermatol 2019;155:1135-41"
+    pmid: "31411641"
+    doi: 10.1001/jamadermatol.2019.1735
+  - texto: "Zech JR, et al. Variable generalization performance of a deep learning model to detect pneumonia in chest radiographs. PLoS Med 2018;15:e1002683"
+    pmid: "30399157"
+    doi: 10.1371/journal.pmed.1002683
+---
+
+<Sesion n={1} titulo="Una neurona con deslizadores" minutos={21}>
+
+### La pieza más pequeña
+
+Una <T id="red-neuronal">red neuronal</T> es un conjunto de unidades sencillas, las <T id="neurona-artificial">neuronas artificiales</T>, conectadas entre sí. Cada una hace algo muy simple:
+
+1. **Recibe datos** de entrada (la edad, el Barthel, si vive solo…).
+2. **Multiplica cada uno por un peso**: cuánto importa ese dato.
+3. **Suma** todo y decide cuánto «se activa».
+
+<Analogia>
+Una neurona es **una decisión clínica ponderada**. Cuando decides si un paciente ingresa, no pesas igual la edad que la situación funcional o el apoyo familiar. Una neurona hace lo mismo, con números.
+</Analogia>
+
+En el subcapítulo 1.3 la probaste con tres datos. Vuelve a ella y fíjate en lo esencial: **los pesos son los parámetros que aprende la red**. Cambiar un peso cambia cómo decide.
+
+<Neurona />
+
+### De una neurona a millones
+
+Una neurona sola es muy limitada. La potencia llega al conectar muchas, en **capas**, y al ajustar todos sus pesos a la vez con datos. Los modelos actuales tienen miles de millones de pesos (o <T id="parametro">parámetros</T>).
+
+<Video id="v-dotcsv-neurona" nota="cómo se pasa de una neurona a una red, con ejemplos visuales." />
+
+</Sesion>
+
+<Sesion n={2} titulo="Capas, comités e imagen médica" minutos={20}>
+
+### Un comité de especialistas en cadena
+
+En una red con muchas capas, cada capa toma lo que ha detectado la anterior y lo combina en algo más complejo. Es lo que llamamos <T id="aprendizaje-profundo">aprendizaje profundo</T>: «profundo» por el número de capas.
+
+<CapasRed />
+
+<Analogia>
+Es **un comité de especialistas en cadena**: el primero solo ve manchas de color, el siguiente reconoce vasos y bordes, el siguiente, lesiones, y el último, «derivar». Nadie le dijo a cada uno qué buscar: lo descubrieron durante el <T id="entrenamiento">entrenamiento</T>.
+</Analogia>
+
+### Por qué fue la imagen médica la primera revolución
+
+Hay tres motivos:
+
+- **Hay muchos datos etiquetados.** Radiografías, retinografías o biopsias con su diagnóstico, acumuladas durante años.
+- **La tarea es de reconocimiento de patrones**, justo lo que mejor hacen las redes profundas.
+- **El resultado es verificable.** Hay un diagnóstico de referencia con el que comparar.
+
+El estudio de Gulshan (2016) lo ilustra: se entrenó con 128.175 retinografías, graduadas entre 3 y 7 veces por 54 oftalmólogos. Se validó con dos conjuntos distintos y obtuvo un AUC de 0,99. En uno de sus puntos de operación alcanzó una <T id="sensibilidad">sensibilidad</T> del 97,5 % y una <T id="especificidad">especificidad</T> del 93,4 % (EyePACS-1). Los propios autores añadían una cautela: hacía falta comprobar si usarlo en la clínica mejoraba la atención.
+
+<Video id="v-ringa-redes" nota="cómo una red combina capas para reconocer patrones en imágenes." />
+
+</Sesion>
+
+<Sesion n={3} titulo="¿En qué se fija? Caja negra y atajos engañosos" minutos={19}>
+
+### El problema de la caja negra
+
+Una red con millones de pesos acierta, pero **no sabe explicar por qué**. Es una <T id="caja-negra">caja negra</T>: vemos lo que entra y lo que sale, pero no el razonamiento. Hay técnicas para visualizar en qué zonas de la imagen «se fija» (los mapas de calor), pero son una ayuda, no una explicación completa.
+
+<Analogia>
+Es **un colega brillante que acierta el diagnóstico pero no sabe explicar en qué se ha fijado**. Si acierta casi siempre, lo valoras. Pero no te fiarías de él en un caso fuera de lo habitual.
+</Analogia>
+
+### Cuando acierta por la razón equivocada
+
+El riesgo mayor es el **atajo engañoso**: la red encuentra una pista que, en los <T id="datos-entrenamiento">datos de entrenamiento</T>, se asocia con la respuesta correcta, pero que no tiene que ver con la enfermedad.
+
+**Un caso real, en dermatología (Winkler, 2019).** Una red aprobada como producto sanitario en Europa para reconocer melanomas rendía muy bien con imágenes sin marcas (sensibilidad del 95,7 %, especificidad del 84,1 %). Pero al marcar las lesiones con un rotulador violeta, de los que se usan en cirugía, la especificidad bajó al **45,8 %**: puntuaba como sospechosos muchos nevus benignos. Probablemente había más imágenes marcadas entre los melanomas del entrenamiento, y la red aprendió «marca = melanoma».
+
+**Otro, en radiología (Zech, 2018).** Un <T id="modelo">modelo</T> para detectar neumonía en radiografías de tórax no rendía igual en radiografías de otros hospitales: captaba también rasgos propios del centro de origen.
+
+<Clasificador datos="1-4-atajos" />
+
+### Qué hacer con esto
+
+No se trata de desconfiar de todas las redes, sino de saber qué pedir: **<T id="validacion-externa">validación externa</T>, datos variados y análisis de en qué se fija el modelo**. Y, como clínico, mantener tu ojo crítico: si una máquina te marca un hallazgo, revisa que tiene sentido clínico.
+
+<PruebaloTu minutos={5}>
+Busca en Internet «melanoma dermoscopia marcas quirúrgicas rotulador red neuronal». Después, pregunta a tu asistente por ese estudio y verifica en PubMed (PMID 31411641) tres datos: el año, la revista y el efecto de las marcas en la especificidad. ¿Los acierta?
+
+<Plantilla id="p-1-4-atajo" />
+</PruebaloTu>
+
+<OjoCon>
+- **Un buen resultado global no garantiza una buena razón.** Una red puede acertar y fallar en cuanto cambia el contexto.
+- **Los mapas de calor ayudan, pero no demuestran.** Que una zona se ilumine no prueba que el razonamiento sea clínico.
+- **«Aprobado como producto sanitario» no es sinónimo de «validado en mi población».** El estudio de Winkler evaluó una red autorizada en Europa.
+</OjoCon>
+
+<Resumen>
+- Una **neurona artificial** es una decisión ponderada; una **red** son muchas conectadas en capas, como un comité de especialistas en cadena.
+- **Nadie programa** lo que detecta cada capa: lo descubre durante el entrenamiento.
+- La **imagen médica** fue la primera gran aplicación: hay datos etiquetados, patrones visuales y un diagnóstico de referencia.
+- Las redes profundas son **cajas negras**: aciertan sin saber explicar por qué.
+- Pueden acertar por **atajos engañosos** (como las marcas de rotulador): hace falta validar en otras poblaciones.
+</Resumen>
+
+<Ficha titulo="Redes neuronales: lo esencial">
+**Qué son**
+- Neurona = decisión ponderada: datos × pesos → suma → decide.
+- Red = muchas neuronas en capas (comité de especialistas).
+- Aprender = ajustar millones de pesos con ejemplos.
+
+**Por qué triunfaron en imagen**
+- Muchos datos etiquetados.
+- Patrones visuales.
+- Diagnóstico de referencia.
+
+**Riesgos**
+- Caja negra: no explican en qué se fijan.
+- Atajos engañosos: aciertan por una razón equivocada.
+
+**Preguntas**
+- ¿En qué datos se entrenó?
+- ¿Se ha validado en otro centro?
+- ¿Se sabe en qué se fija?
+</Ficha>
+
+<TestFinal id="1-4" />
+
+</Sesion>

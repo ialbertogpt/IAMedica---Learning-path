@@ -243,7 +243,7 @@ function Emparejar({ p, semilla, onResuelta, onFallo }: SubProps<{ pares: { izqu
               class="min-h-11 w-full sm:w-auto sm:max-w-[55%] rounded-lg border border-borde bg-superficie px-2 text-base"
               value={eleccion[i] ?? ''}
               disabled={resuelta}
-              onChange={(e) => { setEleccion({ ...eleccion, [i]: Number((e.target as HTMLSelectElement).value) }); setComprobado(false); }}
+              onChange={(e) => { const v = Number((e.target as HTMLSelectElement).value); setEleccion((prev) => ({ ...prev, [i]: v })); setComprobado(false); }}
             >
               <option value="" disabled>Elige…</option>
               {derechas.map((d) => <option key={d} value={d}>{p.pares[d].derecha}</option>)}

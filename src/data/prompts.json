@@ -1,42 +1,170 @@
 [
   {
-    "id": "p-1-5-con-y-sin-fuentes", "titulo": "La misma pregunta, con y sin fuentes", "tarea": "aprender", "subcapitulo": "1-5",
+    "id": "p-1-5-con-y-sin-fuentes",
+    "titulo": "La misma pregunta, con y sin fuentes",
+    "tarea": "aprender",
+    "subcapitulo": "1-5",
     "plantilla": "PRIMER MENSAJE (sin pedir fuentes):\n¿Qué es [TEMA, p. ej. el índice de Barthel] y para qué se usa en geriatría?\n\nSEGUNDO MENSAJE (en una conversación nueva):\n¿Qué es [EL MISMO TEMA] y para qué se usa en geriatría? Responde en 6 líneas como máximo. Para cada afirmación importante, indica la fuente original (autor, año, revista y PMID o DOI). Si no estás seguro de una fuente, dilo claramente en lugar de inventarla.",
     "notas": "Compara las dos respuestas. Comprueba en PubMed al menos una de las referencias del segundo mensaje: ¿existe?, ¿dice lo que el asistente afirma?"
   },
   {
-    "id": "p-1-5-paso-a-paso", "titulo": "Pide que piense por pasos", "tarea": "aprender", "subcapitulo": "1-5",
+    "id": "p-1-5-paso-a-paso",
+    "titulo": "Pide que piense por pasos",
+    "tarea": "aprender",
+    "subcapitulo": "1-5",
     "plantilla": "Tengo una duda de cálculo y quiero ver el razonamiento completo.\n\nPregunta: [PROBLEMA NUMÉRICO SENCILLO Y SIN DATOS DE PACIENTES, p. ej. «Si una prueba tiene una sensibilidad del 90 % y una especificidad del 80 %, y la prevalencia es del 5 %, ¿cuál es el valor predictivo positivo?»]\n\nResuelve el problema paso a paso, mostrando cada operación. Al final, indica el resultado y revisa tú mismo si hay algún error en el razonamiento.",
     "notas": "Rehaz el cálculo con una calculadora o una tabla 2×2. Si usas un asistente con modo de razonamiento, compara la respuesta con y sin ese modo."
   },
   {
-    "id": "p-1-5-que-te-falta", "titulo": "Que te pregunte lo que le falta", "tarea": "aprender", "subcapitulo": "1-5",
+    "id": "p-1-5-que-te-falta",
+    "titulo": "Que te pregunte lo que le falta",
+    "tarea": "aprender",
+    "subcapitulo": "1-5",
     "plantilla": "Quiero que me ayudes con esto: [TAREA NO CLÍNICA, p. ej. «preparar una charla de 15 minutos sobre prevención de caídas para un centro de mayores»].\n\nAntes de responder, hazme las preguntas que necesites (como máximo 5) para darme una respuesta útil. No empieces a responder hasta que te conteste.",
     "notas": "Esta técnica reduce las respuestas genéricas: el modelo rellena menos huecos por su cuenta."
   },
   {
-    "id": "p-3-2-revision-medicacion", "titulo": "Revisión estructurada de una lista de medicación", "tarea": "farmacologia", "subcapitulo": "3-2",
+    "id": "p-3-2-revision-medicacion",
+    "titulo": "Revisión estructurada de una lista de medicación",
+    "tarea": "farmacologia",
+    "subcapitulo": "3-2",
     "plantilla": "Actúa como farmacéutico clínico especializado en geriatría. Vas a ayudarme a revisar la medicación de un caso ANONIMIZADO. La decisión final es mía y verificaré todo en la ficha técnica.\n\nCASO (sin datos identificativos):\n- Sexo y edad: [p. ej. mujer, 84 años]\n- Peso: [kg]. Creatinina sérica: [mg/dl]. FG estimado (CKD-EPI): [ml/min/1,73 m²]\n- Diagnósticos relevantes: [lista]\n- Situación funcional y cognitiva: [p. ej. Barthel, caídas, deterioro cognitivo]\n- Medicación actual (fármaco, dosis, pauta, desde cuándo si se sabe):\n  1. [...]\n\nTAREA:\n1. Calcula el aclaramiento de creatinina con Cockcroft-Gault mostrando la fórmula y cada operación.\n2. Revisa la lista con los criterios STOPP/START versión 3 y con los criterios de Beers 2023.\n3. Devuélveme una tabla con estas columnas: fármaco | posible problema | criterio concreto (p. ej. «STOPP E6») | qué debería comprobar en la ficha técnica (sección) | propuesta para valorar.\n\nREGLAS:\n- No inventes dosis. Si propones una dosis, indica que debo confirmarla en la sección 4.2 de la ficha técnica.\n- Si no estás seguro de un criterio o de su código, dilo en lugar de suponerlo.\n- No incluyas recomendaciones que no puedas justificar con un criterio o con la ficha técnica.",
     "notas": "Antes de pegar nada, repasa la checklist de anonimización. Después, verifica cada fila de la tabla: el código del criterio en STOPP/START v3 y la dosis en CIMA."
   },
   {
-    "id": "p-3-2-calculo-crcl", "titulo": "Cálculo renal a la vista", "tarea": "farmacologia", "subcapitulo": "3-2",
+    "id": "p-3-2-calculo-crcl",
+    "titulo": "Cálculo renal a la vista",
+    "tarea": "farmacologia",
+    "subcapitulo": "3-2",
     "plantilla": "Calcula el aclaramiento de creatinina con la fórmula de Cockcroft-Gault para estos datos (ficticios): [sexo], [edad] años, [peso] kg, creatinina sérica [valor] mg/dl.\n\n1. Escribe primero la fórmula.\n2. Sustituye los valores y muestra cada operación.\n3. Da el resultado en ml/min con un decimal.\n4. Explica en una frase por qué este valor puede ser distinto del FG estimado por CKD-EPI que informa el laboratorio.",
     "notas": "Repite el cálculo con una calculadora (o con la calculadora didáctica de esta sesión). Si no coincide, el error suele estar en las unidades o en el factor de sexo."
   },
   {
-    "id": "p-3-2-plan-escalonado", "titulo": "Plan de deprescripción escalonado", "tarea": "farmacologia", "subcapitulo": "3-2",
+    "id": "p-3-2-plan-escalonado",
+    "titulo": "Plan de deprescripción escalonado",
+    "tarea": "farmacologia",
+    "subcapitulo": "3-2",
     "plantilla": "A partir de la revisión anterior, propón un plan de cambios ESCALONADO para valorar en consulta:\n- Ordena los cambios por prioridad (primero lo que supone más riesgo inmediato) y justifica el orden.\n- Haz un solo cambio relevante cada vez, salvo que dos cambios sean urgentes.\n- Para cada fármaco que se retire o reduzca, indica si necesita retirada gradual y qué vigilar (síntomas, analítica) y cuándo.\n- Para la retirada de benzodiacepinas e inhibidores de la bomba de protones, básate en los algoritmos de deprescribing.org y dilo.\n- Termina con una lista de lo que debo comprobar en la ficha técnica antes de aplicar el plan.",
     "notas": "El plan es una propuesta para discutir con la paciente o la familia, no una prescripción."
   },
   {
-    "id": "p-3-2-explicacion-familia", "titulo": "Explicación para la paciente o la familia", "tarea": "redactar", "subcapitulo": "3-2",
+    "id": "p-3-2-explicacion-familia",
+    "titulo": "Explicación para la paciente o la familia",
+    "tarea": "redactar",
+    "subcapitulo": "3-2",
     "plantilla": "Redacta una explicación para [la paciente / su hija] sobre los cambios de medicación que hemos acordado: [lista breve de cambios].\n\nRequisitos:\n- Lenguaje sencillo, frases cortas, sin tecnicismos (o explicados entre paréntesis).\n- Máximo 200 palabras.\n- Para cada cambio: qué se hace, por qué y qué síntoma debe hacerles consultar.\n- Termina con una tabla sencilla de horarios (mañana, mediodía, noche).\n- Tono cercano y respetuoso, sin alarmar.",
     "notas": "Revisa que la tabla de horarios coincide exactamente con lo que has decidido."
   },
   {
-    "id": "p-3-2-autocritica", "titulo": "Que revise su propia respuesta", "tarea": "farmacologia", "subcapitulo": "3-2",
+    "id": "p-3-2-autocritica",
+    "titulo": "Que revise su propia respuesta",
+    "tarea": "farmacologia",
+    "subcapitulo": "3-2",
     "plantilla": "Revisa tu respuesta anterior como lo haría un farmacéutico clínico muy exigente:\n1. ¿Hay alguna dosis, criterio o interacción que pueda ser incorrecta o que no puedas justificar? Señálala.\n2. ¿Has pasado por alto algún fármaco de la lista? \n3. ¿Qué datos del caso te faltan para estar más seguro?\nNo repitas la respuesta entera: dame solo la lista de correcciones y dudas.",
     "notas": "La autocrítica ayuda, pero no sustituye a tu verificación: el modelo puede «corregir» algo que estaba bien."
+  },
+  {
+    "id": "p-0-correo",
+    "titulo": "Redactar un correo complicado",
+    "tarea": "redactar",
+    "subcapitulo": "0-0",
+    "plantilla": "Actúa como un asistente de redacción profesional.\n\nSituación: [describe en 2-3 líneas el contexto, sin datos de ningún paciente: a quién escribes, qué ha pasado y qué necesitas conseguir].\n\nTarea: redacta un correo para [destinatario] que sea [cordial pero firme / breve y claro / formal].\n\nFormato: máximo [120] palabras, con un asunto sugerido y sin jerga innecesaria.\n\nLímites: no inventes datos ni compromisos que yo no haya mencionado. Si te falta información, pregúntamela antes de escribir.",
+    "notas": "Léelo como si lo hubieras recibido tú: ¿suena a ti?, ¿hay algo que no dirías?, ¿falta algún dato?"
+  },
+  {
+    "id": "p-0-resumen-publico",
+    "titulo": "Resumir un documento público",
+    "tarea": "resumir",
+    "subcapitulo": "0-0",
+    "plantilla": "A continuación te pego el texto de un documento público. Resúmelo para un médico con poco tiempo.\n\nFormato: 5 líneas como máximo, seguidas de 3 preguntas que un paciente podría hacer sobre este tema.\n\nLímites: usa solo lo que aparece en el texto. No añadas datos externos. Si algo no está claro en el texto, dilo.\n\nTEXTO:\n[pega aquí el texto]",
+    "notas": "Compara el resumen con el original: ¿ha omitido algo importante?, ¿ha cambiado una cifra o una fecha?, ¿ha añadido algo que no dice el documento?"
+  },
+  {
+    "id": "p-1-1-reglas-aprende",
+    "titulo": "Explicar reglas frente a aprendizaje",
+    "tarea": "aprender",
+    "subcapitulo": "1-1",
+    "plantilla": "Explícame la diferencia entre un sistema de IA basado en reglas y uno que aprende de datos.\n\nContexto: soy médico de [tu especialidad], sin formación técnica.\nFormato: máximo 150 palabras, con un ejemplo de mi especialidad para cada tipo y una analogía médica.\nLímites: no uses jerga sin explicarla. Si no estás seguro de algo, dilo.",
+    "notas": "Contrasta con lo que has visto: ¿pone las cosas en el mismo lugar? ¿Mezcla «IA» con «aprendizaje profundo»?"
+  },
+  {
+    "id": "p-1-2-mycin",
+    "titulo": "Preguntar por MYCIN y verificar",
+    "tarea": "aprender",
+    "subcapitulo": "1-2",
+    "plantilla": "Cuéntame qué fue el sistema MYCIN de Stanford.\n\nFormato: máximo 8 líneas. Incluye: para qué servía, cómo funcionaba, cómo se evaluó y por qué no llegó a usarse en la clínica.\nLímites: cita la fuente de cada cifra que des (autor, año, revista y PMID). Si no estás seguro de un dato, dilo en lugar de suponerlo.",
+    "notas": "Comprueba en PubMed (PMID 480542) los casos evaluados, el porcentaje de aceptabilidad de MYCIN y el de los especialistas. Si la respuesta da cifras distintas, es un ejemplo de confabulación."
+  },
+  {
+    "id": "p-1-3-explicar-metricas",
+    "titulo": "Sensibilidad frente a valor predictivo positivo",
+    "tarea": "aprender",
+    "subcapitulo": "1-3",
+    "plantilla": "Explícame con un ejemplo de geriatría la diferencia entre sensibilidad y valor predictivo positivo (VPP).\n\nContexto: sé qué es una tabla 2×2, pero quiero un ejemplo con números inventados para una prueba de cribado de delirium.\nFormato: muestra la tabla 2×2 con los cálculos paso a paso y termina con una frase que explique por qué el VPP cambia con la prevalencia.\nLímites: usa solo números ficticios y revisa que los cálculos sean correctos.",
+    "notas": "Rehaz los cálculos con una calculadora. ¿Coinciden con la tabla? Si no, ¿dónde está el error?"
+  },
+  {
+    "id": "p-1-4-atajo",
+    "titulo": "Preguntar por un estudio y verificar",
+    "tarea": "aprender",
+    "subcapitulo": "1-4",
+    "plantilla": "Resúmeme el estudio de Winkler y colaboradores sobre las marcas de rotulador quirúrgico en imágenes dermatoscópicas y una red neuronal para melanoma.\n\nFormato: máximo 6 líneas con año, revista, diseño y resultado principal.\nLímites: no inventes cifras. Si no recuerdas un dato con seguridad, dilo, y cita la fuente.",
+    "notas": "Verifica en PubMed (PMID 31411641): año, revista y efecto de las marcas en la especificidad (del 84,1 % al 45,8 %)."
+  },
+  {
+    "id": "p-1-6-iterar",
+    "titulo": "Mejorar una respuesta en varias vueltas",
+    "tarea": "aprender",
+    "subcapitulo": "1-6",
+    "plantilla": "Actúa como [un experto en tu especialidad que explica a residentes].\n\nContexto: [describe la tarea y para quién es, sin datos de pacientes].\nTarea: [una petición concreta].\nFormato: [longitud y estructura].\nLímites: no inventes datos ni referencias; avisa si dudas.\n\nDespués de tu primera respuesta, te pediré dos correcciones concretas.",
+    "notas": "Corrige con precisión: «acórtalo a 150 palabras», «cambia el ejemplo por uno de Atención Primaria»… No uses «hazlo mejor»."
+  },
+  {
+    "id": "p-1-6-pregunta-lo-que-falta",
+    "titulo": "Que te pregunte lo que le falta",
+    "tarea": "aprender",
+    "subcapitulo": "1-6",
+    "plantilla": "Quiero que me ayudes con esto: [describe tu tarea en 1-2 líneas, sin datos de pacientes].\n\nAntes de responder, hazme las preguntas que necesites (máximo 5) para darme una respuesta útil. No empieces a responder hasta que yo te conteste.",
+    "notas": "Esta técnica reduce las respuestas genéricas: el modelo rellena menos huecos por su cuenta."
+  },
+  {
+    "id": "p-1-6-correo-dificil",
+    "titulo": "Un correo difícil (versión con cinco bloques)",
+    "tarea": "redactar",
+    "subcapitulo": "1-6",
+    "plantilla": "ROL: actúa como un asistente de redacción profesional.\n\nCONTEXTO: [quién eres, a quién escribes, qué ha pasado y qué necesitas; sin datos de pacientes].\n\nTAREA: redacta un correo para [destinatario] que consiga [objetivo concreto].\n\nFORMATO: máximo [130] palabras; tono [cordial pero firme]; incluye un asunto.\n\nLÍMITES: no inventes datos ni compromisos; si falta algo, pregúntamelo antes.",
+    "notas": "Guárdala con tus datos habituales (cargo, tono, firma) para no repetirlos."
+  },
+  {
+    "id": "p-1-6-resumen-guia",
+    "titulo": "Resumir una guía pública",
+    "tarea": "resumir",
+    "subcapitulo": "1-6",
+    "plantilla": "ROL: actúa como un geriatra que prepara un resumen para compañeros con poco tiempo.\n\nCONTEXTO: te pego el texto de una guía o documento público: [pega el texto].\n\nTAREA: resume los puntos clave y destaca qué cambia respecto a la práctica habitual.\n\nFORMATO: una tabla con tres columnas (recomendación | a quién se aplica | apartado o página del documento) y un máximo de 8 filas.\n\nLÍMITES: usa solo el texto que te he dado; no añadas datos externos; no des dosis; si algo no figura en el texto, dilo.",
+    "notas": "Compara con el original cada cifra y cada recomendación. Si hay una dosis, compruébala en la ficha técnica (CIMA)."
+  },
+  {
+    "id": "p-1-6-info-paciente",
+    "titulo": "Información para un paciente en lenguaje sencillo",
+    "tarea": "redactar",
+    "subcapitulo": "1-6",
+    "plantilla": "ROL: actúa como un médico que explica con cercanía a una persona mayor y a su familia.\n\nCONTEXTO: voy a explicar [diagnóstico o cambio de tratamiento acordado]. La persona tiene [nivel de comprensión, p. ej. «poca formación sanitaria»]. No incluyas ningún dato identificativo.\n\nTAREA: redacta una explicación clara de qué es, por qué lo hacemos y qué debe vigilar.\n\nFORMATO: máximo 150 palabras, frases cortas, sin tecnicismos (o explicados entre paréntesis), y una lista final de «cuándo consultar».\n\nLÍMITES: no cambies nada de lo que he decidido; no añadas pautas ni dosis; avisa si algo no está claro.",
+    "notas": "Léelo en voz alta como si se lo dieras a la familia y comprueba que dice exactamente lo que habéis decidido."
+  },
+  {
+    "id": "p-1-7-transcribir-tabla",
+    "titulo": "Transcribir una tabla de una imagen",
+    "tarea": "resumir",
+    "subcapitulo": "1-7",
+    "plantilla": "Te adjunto una imagen con una tabla de un documento público. Transcríbela a una tabla de texto con las mismas columnas y filas.\n\nLímites: no corrijas ni completes nada. Si no se lee bien una celda, escribe «ilegible» en lugar de suponerla. Al final, dime cuántas filas y columnas has transcrito.",
+    "notas": "Comprueba las cifras una a una con el original. Fíjate sobre todo en unidades, decimales y columnas desplazadas."
+  },
+  {
+    "id": "p-1-8-comparar-asistentes",
+    "titulo": "Comparar dos asistentes",
+    "tarea": "aprender",
+    "subcapitulo": "1-8",
+    "plantilla": "Explícame qué es un agente de IA y dame un ejemplo de mi especialidad ([tu especialidad]).\n\nFormato: máximo 150 palabras.\nLímites: no inventes datos; si citas algo, indica la fuente.",
+    "notas": "Envía exactamente el mismo texto a dos asistentes y compara exactitud, estilo, fuentes y claridad. Apunta para qué tarea usarías cada uno."
   }
 ]

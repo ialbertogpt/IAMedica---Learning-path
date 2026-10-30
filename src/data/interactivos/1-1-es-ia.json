@@ -1,0 +1,22 @@
+{
+  "titulo": "Juego: ¿esto es IA?",
+  "instrucciones": "Clasifica cada ejemplo. Las tres categorías: IA que aprende de datos, IA de reglas (clásica) o algo que no es IA (una fórmula o un automatismo sencillo).",
+  "categorias": [
+    { "id": "aprende", "nombre": "IA que aprende de datos", "descripcion": "se entrena con muchos ejemplos y descubre sus propios patrones" },
+    { "id": "reglas", "nombre": "IA de reglas (clásica)", "descripcion": "sigue reglas complejas escritas por personas expertas" },
+    { "id": "no", "nombre": "No es IA", "descripcion": "una fórmula, un cálculo o un automatismo sencillo" }
+  ],
+  "items": [
+    { "texto": "Tu móvil se desbloquea al reconocer tu cara.", "categoria": "aprende", "explicacion": "Una red neuronal ha aprendido, a partir de enormes cantidades de caras, qué rasgos distinguen unas de otras. Nadie escribió «si la nariz mide tanto…»." },
+    { "texto": "Un programa que señala posibles nódulos pulmonares en un TC de tórax, entrenado con miles de estudios etiquetados por radiólogos.", "categoria": "aprende", "explicacion": "Aprendizaje profundo aplicado a imagen médica: descubre por sí mismo los patrones que distinguen un nódulo de un vaso." },
+    { "texto": "El monitor de la planta suena cuando la frecuencia cardiaca supera 120 latidos por minuto.", "categoria": "no", "explicacion": "Es un automatismo con un umbral fijo: no aprende ni interpreta. Es útil, pero no es IA." },
+    { "texto": "Una hoja de Excel que suma los puntos del índice de Barthel y clasifica el grado de dependencia.", "categoria": "no", "explicacion": "Es un cálculo con una regla fija: suma y compara con unos puntos de corte. No es IA." },
+    { "texto": "MYCIN, un sistema de los años 70 que recomendaba antibióticos aplicando cientos de reglas «si… entonces…» escritas por infectólogos.", "categoria": "reglas", "explicacion": "Es un sistema experto: IA clásica, de reglas. Razonaba, pero no aprendía de datos: cada regla la escribía una persona." },
+    { "texto": "El teclado del móvil que te sugiere la siguiente palabra mientras escribes.", "categoria": "aprende", "explicacion": "Ha aprendido de enormes cantidades de texto qué palabra suele ir detrás de cuál. Es el mismo principio de los asistentes como ChatGPT, a una escala mucho menor." },
+    { "texto": "La calculadora que estima el filtrado glomerular con la ecuación CKD-EPI a partir de la creatinina, la edad y el sexo.", "categoria": "no", "explicacion": "Es una fórmula matemática fija. Se obtuvo de datos, pero la calculadora aplica una ecuación: no aprende ni se adapta." },
+    { "texto": "ChatGPT, Claude o Gemini redactando un resumen.", "categoria": "aprende", "explicacion": "Son modelos de lenguaje entrenados con textos enormes: aprendizaje profundo, de la rama «generativa»." },
+    { "texto": "Un programa de la historia clínica electrónica que avisa de interacciones entre fármacos aplicando miles de reglas «si… entonces…» redactadas por un comité de farmacéuticos.", "categoria": "reglas", "explicacion": "Es IA clásica: un sistema de reglas complejo y útil que no aprende de datos. Si aparece una interacción nueva, alguien tiene que añadir la regla." },
+    { "texto": "Un semáforo que cambia de color cada 60 segundos.", "categoria": "no", "explicacion": "Es un temporizador. Nadie diría que es IA, y sirve de recordatorio: automatizar no es lo mismo que inteligencia artificial." }
+  ],
+  "cierre": "Truco práctico: ante un producto «con IA», pregunta si aprende de datos, quién lo ha entrenado y con qué pacientes. Si la respuesta es «lleva reglas», es útil, pero no es lo que se suele vender."
+}

@@ -1,0 +1,32 @@
+{
+  "titulo": "Antes y después: el mismo encargo, dos prompts",
+  "instrucciones": "Lee las dos respuestas. La primera responde a un prompt de una línea; la segunda, a un prompt con rol, contexto, tarea, formato y límites. Fíjate en qué cambia.",
+  "versiones": [
+    {
+      "titulo": "Antes: un prompt vago",
+      "entrada": "Háblame de la deprescripción.",
+      "etiquetaEntrada": "Prompt",
+      "respuesta": [
+        "La deprescripción es el proceso de reducir o suspender medicamentos que ya no son necesarios, que pueden causar más daño que beneficio o que no encajan con los objetivos del paciente. Es especialmente importante en personas mayores, que a menudo toman muchos fármacos a la vez.",
+        "Entre sus beneficios están la reducción de efectos adversos, de interacciones y de costes, así como una mejor adherencia al tratamiento. Es importante que se haga siempre bajo supervisión de un profesional sanitario y de forma individualizada.",
+        "Si quieres, puedo darte más información sobre algún aspecto concreto."
+      ],
+      "procedencia": "texto redactado por Claude (claude-sonnet-5-5) al responder a este prompt exacto, el 31/10/2026, durante la preparación del curso",
+      "observaciones": ["Correcta, pero genérica: vale para cualquier público.", "No sabe que es para residentes ni para una sesión de 15 minutos.", "Sin estructura ni ejemplo, y no se puede aplicar en consulta."]
+    },
+    {
+      "titulo": "Después: un prompt con cinco bloques",
+      "entrada": "Actúa como un geriatra con experiencia docente que explica a residentes de primer año.\n\nContexto: estoy preparando una sesión de 15 minutos sobre deprescripción para residentes de Medicina Interna, sin formación previa en geriatría. No incluyo datos de pacientes.\n\nTarea: explica qué es la deprescripción y propón un esquema de 4 pasos para aplicarla en una consulta.\n\nFormato: máximo 250 palabras, lista numerada y un ejemplo breve con un caso ficticio.\n\nLímites: no des dosis. Si no estás seguro de algo, dilo. No inventes referencias.",
+      "etiquetaEntrada": "Prompt",
+      "respuesta": [
+        "La deprescripción es la retirada planificada y supervisada de fármacos cuyo riesgo supera al beneficio, o que ya no encajan con los objetivos del paciente. No es «quitar pastillas»: es revisar y decidir con él.",
+        "Cuatro pasos para la consulta:\n1. Revisa toda la medicación, incluida la de venta libre, y la indicación de cada fármaco.\n2. Prioriza: empieza por lo que supone más riesgo o menos beneficio (puedes apoyarte en criterios como STOPP/START o Beers).\n3. Retira con un plan: un cambio relevante cada vez, de forma gradual si el fármaco lo exige, y pactado con el paciente y su familia.\n4. Vigila y reevalúa: acuerda qué síntomas deben hacerle consultar y cuándo revisarás el resultado.",
+        "Ejemplo (caso ficticio): una paciente de 84 años con caídas y una benzodiacepina nocturna desde hace años. El plan podría empezar por proponerle reducirla de forma gradual y explicarle por qué.",
+        "No cito referencias concretas, porque no puedo verificarlas desde aquí: contrasta los criterios en las fuentes originales."
+      ],
+      "procedencia": "texto redactado por Claude (claude-sonnet-5-5) al responder a este prompt exacto, el 31/10/2026, durante la preparación del curso",
+      "observaciones": ["Adaptada al público, a la duración y al formato pedidos.", "Estructura aplicable: cuatro pasos y un ejemplo.", "Respeta los límites: sin dosis, sin referencias inventadas y con un aviso honesto."]
+    }
+  ],
+  "conclusion": "No se trata de escribir más, sino de dar a la IA lo que daría una buena hoja de interconsulta: quién eres, qué sabes, qué necesitas exactamente, cómo lo quieres y qué no debe hacer. Mismo modelo, misma pregunta de fondo: una respuesta mucho más útil."
+}

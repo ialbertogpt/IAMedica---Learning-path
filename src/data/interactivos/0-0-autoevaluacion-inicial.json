@@ -1,0 +1,20 @@
+{
+  "titulo": "Autoevaluación inicial",
+  "fase": "inicial",
+  "intro": "Valora de 1 a 5 cuánta confianza tienes hoy en cada afirmación. No hay respuestas correctas: es solo tu punto de partida.",
+  "escala": ["Ninguna", "Poca", "Algo", "Bastante", "Mucha"],
+  "items": [
+    { "id": "llm", "texto": "Me siento capaz de explicar con palabras sencillas qué es un modelo de lenguaje (LLM) y por qué puede equivocarse." },
+    { "id": "confabulacion", "texto": "Sé reconocer cuándo una respuesta de IA se ha inventado un dato o una referencia." },
+    { "id": "prompt", "texto": "Sé escribir un buen mensaje para una IA (rol, contexto, tarea, formato y límites)." },
+    { "id": "privacidad", "texto": "Sé qué datos de un paciente no debo introducir nunca en una IA y cómo anonimizar un texto." },
+    { "id": "verificar", "texto": "Sé verificar una dosis o una referencia que me ha dado una IA." },
+    { "id": "estudios", "texto": "Sé leer con ojo crítico un estudio que presenta un modelo de IA (validación, sesgos, población)." },
+    { "id": "regulacion", "texto": "Conozco lo esencial del Reglamento Europeo de IA y de mis responsabilidades como médico." },
+    { "id": "herramientas", "texto": "Sé elegir la herramienta adecuada para cada tarea (bibliografía, estadística, presentaciones…)." },
+    { "id": "bibliografia", "texto": "Sé usar la IA para preparar una búsqueda bibliográfica y comprobar que las referencias existen." },
+    { "id": "estadistica", "texto": "Sé analizar una base de datos con apoyo de la IA sin comprometer la privacidad." },
+    { "id": "presentaciones", "texto": "Sé preparar con IA una presentación o un resumen de un caso." },
+    { "id": "estudiar", "texto": "Sé usar la IA para estudiar un curso o una guía clínica de forma fiable." }
+  ]
+}

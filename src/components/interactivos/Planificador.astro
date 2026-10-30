@@ -1,0 +1,12 @@
+---
+import Icono from '../ui/Icono.astro';
+import Isla from './especificos/Planificador.tsx';
+import { minutosTotalesPlan, subcapitulos } from '../../lib/curso';
+const subs = await subcapitulos();
+const total = subs.reduce((a, s) => a + (s.construido ? s.sesiones.length : s.sesionesPlan), 0);
+const medios = Math.round(minutosTotalesPlan / total);
+---
+<section class="interactivo" aria-label="Planificador de ritmo">
+  <h3 class="interactivo-titulo"><Icono nombre="event" tam={20} />Planifica tu ritmo</h3>
+  <Isla client:visible totalSesiones={total} minutosMedios={medios} />
+</section>
