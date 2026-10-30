@@ -1,0 +1,6 @@
+---
+import Cuadro from './Cuadro.astro';
+interface Props { titulo?: string; minutos?: number }
+const { titulo = 'Pruébalo tú', minutos } = Astro.props;
+---
+<Cuadro tipo="prueba" titulo={minutos ? `${titulo} · ${minutos} min` : titulo} icono="edit_note"><slot /></Cuadro>

@@ -1,0 +1,21 @@
+{
+  "titulo": "¿Qué ayuda necesita cada tarea?",
+  "instrucciones": "Para cada tarea, elige qué le conviene más al asistente. A veces valdría más de una: elige la que marca la diferencia.",
+  "categorias": [
+    { "id": "rag", "nombre": "Búsqueda con fuentes", "descripcion": "consultar documentos o internet y citarlos" },
+    { "id": "razonamiento", "nombre": "Razonamiento", "descripcion": "pensar por pasos antes de responder" },
+    { "id": "agente", "nombre": "Agente", "descripcion": "encadenar varias acciones por su cuenta" },
+    { "id": "ninguna", "nombre": "Basta un asistente normal", "descripcion": "la tarea es de redacción o sobre un texto que tú le das" }
+  ],
+  "items": [
+    { "texto": "«¿Qué cambia en la última versión de la guía europea de insuficiencia cardiaca respecto a la anterior?»", "categoria": "rag", "explicacion": "Es información reciente: lo que el modelo aprendió en su entrenamiento puede estar desfasado. Necesita buscar la guía y citarla." },
+    { "texto": "«Calcula el valor predictivo positivo de una prueba con sensibilidad del 90 %, especificidad del 80 % y prevalencia del 5 %, mostrando los pasos.»", "categoria": "razonamiento", "explicacion": "Es un problema de varios pasos con números: pensar por pasos reduce los errores. Aun así, comprueba el resultado con una tabla 2×2." },
+    { "texto": "«Busca en PubMed los ensayos de los últimos dos años sobre ejercicio y caídas en mayores, lee los resúmenes y hazme una tabla.»", "categoria": "agente", "explicacion": "Son muchas acciones encadenadas (buscar, filtrar, leer, resumir y tabular). Un agente puede hacerlas, pero revisa cada artículo de la tabla." },
+    { "texto": "«Reescribe este correo a dirección para que suene firme pero cordial.»", "categoria": "ninguna", "explicacion": "Es redacción a partir de un texto que tú le das: cualquier asistente lo hace bien, sin necesidad de buscar ni de razonar a fondo." },
+    { "texto": "«¿Qué dice exactamente la ficha técnica de este fármaco sobre la insuficiencia renal?»", "categoria": "rag", "explicacion": "La respuesta debe salir del documento oficial, no de la memoria del modelo. Mejor aún: ábrela tú en CIMA." },
+    { "texto": "«Tengo un caso con datos que no encajan; dame un diagnóstico diferencial razonado, con lo que apoya y lo que refuta cada opción.»", "categoria": "razonamiento", "explicacion": "Integrar datos contradictorios es justo donde ayuda razonar por pasos. Recuerda: caso anonimizado y la decisión es tuya." },
+    { "texto": "«Resume en cinco líneas este artículo que te adjunto.»", "categoria": "ninguna", "explicacion": "El texto ya está en la conversación: no hace falta buscar. Comprueba que el resumen no añade nada que no diga el artículo." },
+    { "texto": "«Cada lunes, revisa mis alertas de PubMed, quédate con lo relevante para geriatría y prepárame un resumen.»", "categoria": "agente", "explicacion": "Es una tarea recurrente de varios pasos. Supervisa sus criterios de «relevante» las primeras semanas, como harías con un residente." }
+  ],
+  "cierre": "En la práctica, muchos asistentes combinan las tres ayudas y deciden solos cuándo usar cada una. Saber cuál necesitas te ayuda a pedirlo («busca y cita», «razona paso a paso») y a saber qué comprobar."
+}

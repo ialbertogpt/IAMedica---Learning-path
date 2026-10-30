@@ -1,0 +1,80 @@
+---
+import Icono from '../ui/Icono.astro';
+interface Props { seccion?: string }
+const { seccion } = Astro.props;
+const enlaces = [
+  { id: 'itinerario', href: '/', texto: 'Itinerario' },
+  { id: 'glosario', href: '/glosario/', texto: 'Glosario' },
+  { id: 'prompts', href: '/prompts/', texto: 'Prompts' },
+  { id: 'herramientas', href: '/herramientas/', texto: 'Herramientas' },
+  { id: 'fichas', href: '/fichas/', texto: 'Fichas' },
+];
+---
+<header class="cabecera-web border-b border-borde bg-superficie no-imprimir" data-pagefind-ignore>
+  <div class="contenedor flex items-center gap-4 lg:gap-8 py-3 min-h-16">
+    <a href="/" class="flex items-center gap-2.5 no-underline text-tinta flex-none" aria-label="Mi IA Médica, ir al itinerario">
+      <span class="grid place-items-center size-9 rounded-[10px] bg-tinta text-fondo"><Icono nombre="ecg_heart" tam={22} /></span>
+      <span class="flex flex-col gap-0.5 leading-none">
+        <span class="font-semibold text-base tracking-tight">Mi IA Médica</span>
+        <span class="mono text-[10px] tracking-[.12em] text-tinta-3">LEARNING PATH</span>
+      </span>
+    </a>
+
+    <nav aria-label="Principal" class="hidden lg:block">
+      <ul class="flex gap-1 list-none m-0 p-0 text-[15px]">
+        {enlaces.map((e) => (
+          <li><a href={e.href} aria-current={seccion === e.id ? 'page' : undefined}
+            class:list={['inline-flex items-center min-h-10 px-3 rounded-lg no-underline', seccion === e.id ? 'bg-superficie-2 font-medium text-tinta' : 'text-tinta-2 hover:text-tinta']}>{e.texto}</a></li>
+        ))}
+      </ul>
+    </nav>
+
+    <div class="ml-auto flex items-center gap-2.5">
+      <form action="/buscar/" method="get" role="search" class="hidden md:flex items-center gap-2 w-64 h-10 px-3 border border-borde rounded-[9px] bg-fondo text-tinta-3 focus-within:border-l1">
+        <Icono nombre="search" tam={19} />
+        <label for="busqueda-cabecera" class="sr-only">Buscar en el curso</label>
+        <input id="busqueda-cabecera" name="q" type="search" placeholder="Buscar en el curso" class="flex-1 min-w-0 bg-transparent border-0 outline-none text-[15px] text-tinta placeholder:text-tinta-3" />
+        <kbd class="mono text-[11px] px-1.5 py-0.5 border border-borde-2 rounded-[5px]" aria-hidden="true">/</kbd>
+      </form>
+      <button id="boton-tema" type="button" aria-pressed="false" class="grid place-items-center size-11 md:size-10 rounded-[9px] border border-borde bg-superficie text-tinta cursor-pointer" title="Cambiar entre modo claro y oscuro">
+        <span class="tema-icono-oscuro"><Icono nombre="dark_mode" tam={20} /></span>
+        <span class="tema-icono-claro"><Icono nombre="light_mode" tam={20} /></span>
+        <span class="sr-only">Cambiar entre modo claro y oscuro</span>
+      </button>
+      <a href="/progreso/" aria-current={seccion === 'progreso' ? 'page' : undefined} class="hidden md:inline-flex items-center gap-2 h-10 px-3.5 rounded-[9px] border border-borde bg-superficie text-tinta no-underline text-[15px] font-medium whitespace-nowrap">
+        <Icono nombre="monitoring" tam={19} />Mi progreso
+      </a>
+      <button id="boton-menu" type="button" aria-expanded="false" aria-controls="menu-movil" class="lg:hidden grid place-items-center size-11 rounded-[9px] border border-borde bg-superficie text-tinta cursor-pointer">
+        <span class="menu-abrir"><Icono nombre="menu" tam={22} /></span>
+        <span class="menu-cerrar hidden"><Icono nombre="close" tam={22} /></span>
+        <span class="sr-only">Menú</span>
+      </button>
+    </div>
+  </div>
+
+  <div id="menu-movil" class="lg:hidden border-t border-borde" hidden>
+    <nav aria-label="Menú" class="contenedor py-3 grid gap-1">
+      <form action="/buscar/" method="get" role="search" class="flex md:hidden items-center gap-2 h-12 px-3 mb-2 border border-borde rounded-[10px] bg-fondo text-tinta-3">
+        <Icono nombre="search" tam={20} />
+        <label for="busqueda-movil" class="sr-only">Buscar en el curso</label>
+        <input id="busqueda-movil" name="q" type="search" placeholder="Buscar en el curso" class="flex-1 min-w-0 bg-transparent border-0 outline-none text-base text-tinta placeholder:text-tinta-3" />
+      </form>
+      {[...enlaces, { id: 'progreso', href: '/progreso/', texto: 'Mi progreso' }, { id: 'recursos', href: '/recursos/', texto: 'Recursos externos' }, { id: 'acerca', href: '/acerca/', texto: 'Acerca del curso' }].map((e) => (
+        <a href={e.href} aria-current={seccion === e.id ? 'page' : undefined}
+          class:list={['flex items-center min-h-12 px-3 rounded-lg no-underline', seccion === e.id ? 'bg-superficie-2 font-medium text-tinta' : 'text-tinta']}>{e.texto}</a>
+      ))}
+    </nav>
+  </div>
+</header>
+
+<style>
+  .tema-icono-claro { display: none; }
+  :global(:root[data-theme="dark"]) .tema-icono-claro { display: inline; }
+  :global(:root[data-theme="dark"]) .tema-icono-oscuro { display: none; }
+  @media (prefers-color-scheme: dark) {
+    :global(:root:not([data-theme="light"])) .tema-icono-claro { display: inline; }
+    :global(:root:not([data-theme="light"])) .tema-icono-oscuro { display: none; }
+  }
+  #boton-menu[aria-expanded="true"] .menu-abrir { display: none; }
+  #boton-menu[aria-expanded="true"] .menu-cerrar { display: inline; }
+</style>

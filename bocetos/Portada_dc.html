@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics>
+<meta name="design_doc_mode" content="canvas">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,200..500,0..1,0&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#eceeef;font-family:'IBM Plex Sans',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit}a:hover{color:inherit;opacity:.8}
+[data-theme=light]{--bg:oklch(0.975 0.005 225);--surface:oklch(0.997 0.002 225);--sunk:oklch(0.955 0.007 225);--ink:oklch(0.23 0.02 245);--ink2:oklch(0.43 0.02 245);--ink3:oklch(0.52 0.015 245);--rule:oklch(0.91 0.008 235);--rule2:oklch(0.82 0.01 235);--l0:oklch(0.5 0.12 295);--l1:oklch(0.5 0.12 235);--l2:oklch(0.53 0.14 32);--l3:oklch(0.5 0.12 155);--onc:#fff;--grid:oklch(0.5 0.12 235 / .06)}
+[data-theme=dark]{--bg:oklch(0.17 0.012 245);--surface:oklch(0.205 0.014 245);--sunk:oklch(0.185 0.013 245);--ink:oklch(0.95 0.006 230);--ink2:oklch(0.77 0.012 235);--ink3:oklch(0.66 0.012 235);--rule:oklch(0.29 0.016 245);--rule2:oklch(0.38 0.018 245);--l0:oklch(0.76 0.1 295);--l1:oklch(0.76 0.1 235);--l2:oklch(0.76 0.11 32);--l3:oklch(0.76 0.11 155);--onc:oklch(0.17 0.012 245);--grid:oklch(0.76 0.1 235 / .07)}
+.material-symbols-outlined{font-variation-settings:'wght' 300,'opsz' 24;line-height:1;user-select:none}
+.dv-turn{padding:40px 44px 32px;border-bottom:1px solid rgba(0,0,0,.08);scroll-margin-top:16px}.dv-thd{display:flex;align-items:baseline;gap:10px;margin:0 0 20px}.dv-tid{font:600 10px ui-monospace,Menlo,monospace;padding:3px 7px;background:#1a1a1a;color:#fff;border-radius:4px;text-decoration:none}.dv-tname{font:600 13px/1.2 system-ui,sans-serif;color:#1a1a1a}.dv-opts{display:flex;flex-wrap:wrap;gap:56px;align-items:flex-start}.dv-opt{flex:none;display:flex;flex-direction:column;gap:9px;scroll-margin-top:16px}.dv-oid{font:600 10.5px ui-monospace,Menlo,monospace;padding:3px 7px;background:rgba(0,0,0,.08);color:#1a1a1a;border-radius:5px;text-decoration:none}.dv-olabel{display:flex;align-items:baseline;gap:8px;font:400 11px/1.3 system-ui,sans-serif;color:rgba(0,0,0,.55)}.dv-card{max-width:100%;background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:8px;box-shadow:0 1px 3px rgba(0,0,0,.06);overflow:hidden}.dv-opt:target .dv-oid{background:#2a78d6;color:#fff}.dv-next{margin:22px 0 0;font:12px/1.5 system-ui,sans-serif;color:rgba(0,0,0,.5)}
+</style>
+</helmet>
+<section class="dv-turn" id="t1">
+<div class="dv-thd"><a class="dv-tid" href="#t1">1</a><span class="dv-tname">Portada · itinerario vertical, dirección clínica y tecnológica</span></div>
+<p style="margin:-8px 0 26px;max-width:860px;font:13px/1.55 system-ui,sans-serif;color:rgba(0,0,0,.6);text-wrap:pretty">Supuesto de progreso: M0 y 1.1–1.6, 2.3, 3.0 y 3.1 completados; en curso 3.2 Farmacología (sesión 3 de 7). Tipografía IBM Plex Sans + Mono, iconos lineales Material Symbols teñidos con el color de cada línea. Cada opción tiene su botón de tema (claro/oscuro) y el interruptor «Ruta exprés» atenúa las estaciones que no forman parte del atajo de unas 9 h.</p>
+<div class="dv-opts">
+
+<div class="dv-opt" id="1a">
+<div class="dv-olabel"><a class="dv-oid" href="#1a">1a</a>Hoja clínica: itinerario completo en tabla con raíl de colores, resumen fijo a la izquierda</div>
+<div style="display:flex;gap:40px;align-items:flex-start">
+<div class="dv-card" style="width:1280px">
+<div data-theme="{{ a.theme }}" style="background:var(--bg);color:var(--ink);font-family:'IBM Plex Sans',sans-serif">
+<header style="display:flex;align-items:center;gap:32px;padding:16px 36px;border-bottom:1px solid var(--rule);background:var(--surface)">
+<div style="display:flex;align-items:center;gap:11px">
+<div style="width:36px;height:36px;border-radius:10px;background:var(--ink);color:var(--bg);display:grid;place-items:center"><span class="material-symbols-outlined" style="font-size:22px">ecg_heart</span></div>
+<div style="display:flex;flex-direction:column;gap:2px"><span style="font-weight:600;font-size:16px;letter-spacing:-0.01em">Mi IA Médica</span><span style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:.12em;color:var(--ink3)">LEARNING PATH</span></div>
+</div>
+<nav style="display:flex;gap:4px;font-size:14px">
+<span style="padding:8px 12px;border-radius:8px;background:var(--sunk);font-weight:500">Itinerario</span>
+<span style="padding:8px 12px;color:var(--ink2)">Glosario</span>
+<span style="padding:8px 12px;color:var(--ink2)">Prompts</span>
+<span style="padding:8px 12px;color:var(--ink2)">Herramientas</span>
+<span style="padding:8px 12px;color:var(--ink2)">Fichas</span>
+</nav>
+<div style="margin-left:auto;display:flex;align-items:center;gap:10px">
+<div style="display:flex;align-items:center;gap:8px;width:260px;height:38px;padding:0 12px;border:1px solid var(--rule);border-radius:9px;background:var(--bg);color:var(--ink3);font-size:14px"><span class="material-symbols-outlined" style="font-size:19px">search</span><span style="flex:1">Buscar en el curso</span><span style="font:500 11px 'IBM Plex Mono',monospace;padding:2px 6px;border:1px solid var(--rule2);border-radius:5px">/</span></div>
+<button onClick="{{ a.toggleTheme }}" style="width:38px;height:38px;border-radius:9px;border:1px solid var(--rule);background:var(--surface);color:var(--ink);display:grid;place-items:center;cursor:pointer"><span class="material-symbols-outlined" style="font-size:20px">{{ a.themeIcon }}</span></button>
+<button style="height:38px;padding:0 14px;border-radius:9px;border:1px solid var(--rule);background:var(--surface);color:var(--ink);display:flex;align-items:center;gap:8px;font:500 14px 'IBM Plex Sans',sans-serif;cursor:pointer;white-space:nowrap"><span class="material-symbols-outlined" style="font-size:19px">monitoring</span>Mi progreso</button>
+</div>
+</header>
+
+<div style="display:grid;grid-template-columns:300px minmax(0,1fr);gap:36px;padding:32px 36px 40px;align-items:start">
+<aside style="display:flex;flex-direction:column;gap:16px;position:sticky;top:0">
+<div style="background:var(--surface);border:1px solid var(--rule);border-radius:14px;padding:22px">
+<div style="font:500 11px 'IBM Plex Mono',monospace;letter-spacing:.1em;color:var(--ink3)">TU PROGRESO</div>
+<div style="display:flex;align-items:baseline;gap:8px;margin:10px 0 16px"><span style="font-size:48px;font-weight:500;letter-spacing:-0.03em;line-height:1">40</span><span style="font-size:20px;color:var(--ink2)">%</span></div>
+<div style="display:flex;gap:3px;height:8px">
+<sc-for list="{{ a.parts }}" as="p" hint-placeholder-count="4"><div style="--c:{{ p.color }};flex:{{ p.min }};background:color-mix(in oklch,var(--c) 18%,var(--sunk));border-radius:3px;overflow:hidden"><div style="height:100%;width:{{ p.pct }};background:var(--c)"></div></div></sc-for>
+</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--rule);border:1px solid var(--rule);border-radius:10px;overflow:hidden;margin-top:18px">
+<div style="background:var(--surface);padding:12px 14px;display:flex;flex-direction:column;gap:4px"><span style="font-size:12px;color:var(--ink3)">Horas</span><span style="font:500 17px 'IBM Plex Mono',monospace">14,4<span style="color:var(--ink3);font-size:13px"> / 36</span></span></div>
+<div style="background:var(--surface);padding:12px 14px;display:flex;flex-direction:column;gap:4px"><span style="font-size:12px;color:var(--ink3)">Sesiones</span><span style="font:500 17px 'IBM Plex Mono',monospace">41<span style="color:var(--ink3);font-size:13px"> / 104</span></span></div>
+</div>
+<div style="display:flex;gap:10px;align-items:flex-start;margin-top:16px;font-size:13px;line-height:1.5;color:var(--ink2)"><span class="material-symbols-outlined" style="font-size:18px;color:var(--ink3)">event</span><span>A 4 sesiones por semana, terminas hacia el <strong style="color:var(--ink);font-weight:500">8 de marzo de 2027</strong>.</span></div>
+</div>
+<div style="background:var(--surface);border:1px solid var(--rule);border-radius:14px;padding:6px 18px">
+<sc-for list="{{ a.parts }}" as="p" hint-placeholder-count="4">
+<div style="--c:{{ p.color }};display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--rule)">
+<span class="material-symbols-outlined" style="font-size:20px;color:var(--c)">{{ p.icon }}</span>
+<div style="flex:1;display:flex;flex-direction:column;gap:3px"><span style="font:500 10.5px 'IBM Plex Mono',monospace;letter-spacing:.08em;color:var(--c)">{{ p.code }}</span><span style="font-size:14px;font-weight:500">{{ p.name }}</span><div style="height:3px;margin-top:4px;border-radius:2px;background:color-mix(in oklch,var(--c) 16%,var(--sunk));overflow:hidden"><div style="height:100%;width:{{ p.pct }};background:var(--c)"></div></div></div>
+<span style="font:500 13px 'IBM Plex Mono',monospace;color:var(--ink2);align-self:flex-start;padding-top:14px">{{ p.doneTxt }}</span>
+</div>
+</sc-for>
+<label onClick="{{ a.toggleExpress }}" style="display:flex;align-items:center;gap:12px;padding:14px 0;cursor:pointer">
+<span class="material-symbols-outlined" style="font-size:20px;color:var(--ink2)">bolt</span>
+<span style="flex:1;display:flex;flex-direction:column;gap:2px"><span style="font-size:14px;font-weight:500">Ruta exprés</span><span style="font-size:12px;color:var(--ink3)">Unas 9 h hasta los talleres</span></span>
+<span style="width:36px;height:22px;border-radius:11px;background:{{ a.swBg }};position:relative;transition:background .2s"><span style="position:absolute;top:3px;left:{{ a.swX }};width:16px;height:16px;border-radius:50%;background:var(--surface);transition:left .2s"></span></span>
+</label>
+</div>
+<div style="display:flex;gap:10px;padding:4px 4px 0;font-size:12.5px;line-height:1.5;color:var(--ink3)"><span class="material-symbols-outlined" style="font-size:17px">lock</span><span>Tu progreso se guarda solo en este dispositivo. Puedes exportarlo con un código para cambiar de equipo.</span></div>
+</aside>
+
+<main style="display:flex;flex-direction:column;gap:32px;min-width:0">
+<div style="--c:var(--l3);position:relative;background:var(--surface);border:1px solid var(--rule);border-radius:16px;overflow:hidden">
+<div style="position:absolute;inset:0;background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:22px 22px;pointer-events:none"></div>
+<div style="position:relative;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:32px;padding:28px 30px;align-items:end">
+<div style="display:flex;flex-direction:column;gap:12px">
+<div style="display:flex;align-items:center;gap:10px;font:500 11px 'IBM Plex Mono',monospace;letter-spacing:.1em;color:var(--c)"><span style="width:8px;height:8px;border-radius:50%;background:var(--c);box-shadow:0 0 0 4px color-mix(in oklch,var(--c) 22%,transparent)"></span>CONTINÚA DONDE LO DEJASTE · LÍNEA 3</div>
+<h1 style="margin:0;font-size:30px;line-height:1.2;font-weight:500;letter-spacing:-0.02em;text-wrap:pretty">3.2 · Farmacología: ajuste de dosis, combinaciones y deprescripción</h1>
+<div style="display:flex;flex-wrap:wrap;align-items:center;gap:8px 18px;font-size:14px;color:var(--ink2)">
+<span style="display:flex;align-items:center;gap:6px"><span class="material-symbols-outlined" style="font-size:18px;color:var(--c)">medication</span>Sesión 3 de 7 · Juego «Encuentra el error»</span>
+<span style="display:flex;align-items:center;gap:6px"><span class="material-symbols-outlined" style="font-size:18px">schedule</span>20 min</span>
+</div>
+<div style="display:flex;gap:4px;margin-top:4px;max-width:420px">
+<sc-for list="{{ a.curPips }}" as="pp" hint-placeholder-count="7"><div style="flex:1;height:5px;border-radius:3px;background:{{ pp.bg }}"></div></sc-for>
+</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:10px;align-items:flex-end">
+<button style="height:48px;padding:0 22px;border:none;border-radius:11px;background:var(--c);color:var(--onc);font:500 15px 'IBM Plex Sans',sans-serif;display:flex;align-items:center;gap:10px;cursor:pointer;white-space:nowrap" style-hover="filter:brightness(1.08)">Continuar sesión 3<span class="material-symbols-outlined" style="font-size:20px">arrow_forward</span></button>
+<span style="font-size:12.5px;color:var(--ink3)">Se recomienda antes 2.5 IA y geriatría</span>
+</div>
+</div>
+</div>
+
+<div style="display:flex;flex-direction:column;gap:6px">
+<div style="display:flex;align-items:baseline;justify-content:space-between;padding-bottom:12px;border-bottom:1px solid var(--rule2)">
+<h2 style="margin:0;font-size:20px;font-weight:500;letter-spacing:-0.01em">Itinerario</h2>
+<div style="display:flex;align-items:center;gap:18px;font-size:12.5px;color:var(--ink2)"><span style="display:flex;align-items:center;gap:6px"><span style="width:10px;height:10px;border-radius:50%;background:var(--ink2)"></span>Completado</span><span style="display:flex;align-items:center;gap:6px"><span style="width:10px;height:10px;border-radius:50%;border:2px solid var(--ink2);box-sizing:border-box;box-shadow:0 0 0 3px var(--rule)"></span>En curso</span><span style="display:flex;align-items:center;gap:6px"><span style="width:10px;height:10px;border-radius:50%;border:2px solid var(--rule2);box-sizing:border-box"></span>Pendiente</span><span style="font:400 12.5px 'IBM Plex Mono',monospace;color:var(--ink3);padding-left:14px;border-left:1px solid var(--rule)">23 estaciones · 104 sesiones · 36 h</span></div>
+</div>
+<div style="display:grid;grid-template-columns:28px 52px minmax(0,1fr) 80px 90px 130px;gap:0 14px;padding:8px 0;font:500 10.5px 'IBM Plex Mono',monospace;letter-spacing:.08em;color:var(--ink3)"><span></span><span>ID</span><span>SUBCAPÍTULO</span><span style="text-align:right">MIN</span><span style="text-align:right">SESIONES</span><span>ESTADO</span></div>
+<sc-for list="{{ a.parts }}" as="p" hint-placeholder-count="4">
+<div style="--c:{{ p.color }};display:flex;flex-direction:column;margin-bottom:10px">
+<div style="display:grid;grid-template-columns:28px minmax(0,1fr) auto;gap:0 14px;align-items:start;padding:18px 0 12px">
+<div style="width:28px;height:28px;border-radius:8px;background:color-mix(in oklch,var(--c) 14%,var(--surface));color:var(--c);display:grid;place-items:center"><span class="material-symbols-outlined" style="font-size:18px">{{ p.icon }}</span></div>
+<div style="display:flex;flex-direction:column;gap:3px;min-width:0"><div style="display:flex;align-items:baseline;gap:12px"><span style="font:500 11px 'IBM Plex Mono',monospace;letter-spacing:.1em;color:var(--c)">{{ p.code }}</span><span style="font-size:16px;font-weight:600">{{ p.name }}</span></div><span style="font-size:13px;color:var(--ink3);text-wrap:pretty">{{ p.blurb }}</span></div>
+<div style="display:flex;align-items:center;gap:10px;padding-top:4px"><span style="font:400 12px 'IBM Plex Mono',monospace;color:var(--ink2);white-space:nowrap">{{ p.doneTxt }} · {{ p.hoursTxt }}</span><div style="width:80px;height:4px;border-radius:2px;background:color-mix(in oklch,var(--c) 16%,var(--sunk));overflow:hidden"><div style="height:100%;width:{{ p.pct }};background:var(--c)"></div></div></div>
+</div>
+<div style="background:var(--surface);border:1px solid var(--rule);border-radius:12px;overflow:hidden">
+<sc-for list="{{ p.stations }}" as="s" hint-placeholder-count="3">
+<div style="display:grid;grid-template-columns:28px 52px minmax(0,1fr) 80px 90px 130px;gap:0 14px;align-items:center;min-height:52px;padding:0 16px 0 0;border-top:1px solid var(--rule);opacity:{{ s.op }};background:{{ s.rowBg }};transition:opacity .2s,background .15s;cursor:pointer" style-hover="background:var(--sunk)">
+<div style="position:relative;height:100%;min-height:50px;display:grid;place-items:center;margin-left:14px">
+<div style="position:absolute;top:{{ s.railTop }};bottom:{{ s.railBot }};left:50%;width:2px;margin-left:-1px;background:var(--c);opacity:.35"></div>
+<div style="position:relative;width:12px;height:12px;border-radius:50%;border:2px solid {{ s.nodeBorder }};background:{{ s.nodeBg }};box-shadow:{{ s.nodeShadow }}"></div>
+</div>
+<span style="font:500 13px 'IBM Plex Mono',monospace;color:var(--c);padding-left:14px">{{ s.id }}</span>
+<span style="display:flex;align-items:center;gap:10px;font-size:14.5px;min-width:0"><span class="material-symbols-outlined" style="font-size:19px;color:{{ s.iconColor }}">{{ s.icon }}</span><span style="font-weight:{{ s.weight }};white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ s.t }}</span><span style="font-size:12px;color:var(--ink3);white-space:nowrap">{{ s.pre }}</span></span>
+<span style="font:400 13px 'IBM Plex Mono',monospace;color:var(--ink2);text-align:right">{{ s.min }}</span>
+<span style="font:400 13px 'IBM Plex Mono',monospace;color:var(--ink2);text-align:right">{{ s.sesTxt }}</span>
+<span>
+<sc-if value="{{ s.isDone }}"><span style="display:inline-flex;align-items:center;gap:5px;font-size:12.5px;color:var(--ink2)"><span class="material-symbols-outlined" style="font-size:18px;color:var(--c);font-variation-settings:'FILL' 1">check_circle</span>Completado</span></sc-if>
+<sc-if value="{{ s.isCur }}"><span style="display:inline-flex;align-items:center;gap:6px;height:24px;padding:0 9px;border-radius:12px;background:var(--c);color:var(--onc);font-size:12px;font-weight:500">En curso · 2/7</span></sc-if>
+<sc-if value="{{ s.isPend }}"><span style="font-size:12.5px;color:var(--ink3)">Pendiente</span></sc-if>
+</span>
+</div>
+</sc-for>
+</div>
+</div>
+</sc-for>
+</div>
+</main>
+</div>
+<footer style="display:flex;align-items:center;gap:12px;padding:18px 36px;border-top:1px solid var(--rule);background:var(--surface);font-size:13px;color:var(--ink2)"><span class="material-symbols-outlined" style="font-size:19px;color:var(--l0)">health_and_safety</span>La IA no sustituye tu juicio clínico. La responsabilidad de cada decisión es tuya. Todos los casos y datos de este curso son ficticios.</footer>
+</div>
+</div>
+
+<div class="dv-card" style="width:390px;border-radius:28px">
+<div data-theme="{{ a.theme }}" style="background:var(--bg);color:var(--ink);font-family:'IBM Plex Sans',sans-serif;min-height:844px">
+<header style="display:flex;align-items:center;gap:10px;padding:14px 18px;border-bottom:1px solid var(--rule);background:var(--surface)">
+<div style="width:32px;height:32px;border-radius:9px;background:var(--ink);color:var(--bg);display:grid;place-items:center"><span class="material-symbols-outlined" style="font-size:20px">ecg_heart</span></div>
+<span style="font-weight:600;font-size:16px;flex:1">Mi IA Médica</span>
+<button onClick="{{ a.toggleTheme }}" style="width:44px;height:44px;border-radius:10px;border:none;background:transparent;color:var(--ink);display:grid;place-items:center"><span class="material-symbols-outlined" style="font-size:22px">{{ a.themeIcon }}</span></button>
+<button style="width:44px;height:44px;border-radius:10px;border:none;background:transparent;color:var(--ink);display:grid;place-items:center"><span class="material-symbols-outlined" style="font-size:22px">menu</span></button>
+</header>
+<div style="display:flex;flex-direction:column;gap:14px;padding:18px">
+<div style="--c:var(--l3);background:var(--surface);border:1px solid var(--rule);border-radius:16px;padding:18px;display:flex;flex-direction:column;gap:10px">
+<div style="display:flex;align-items:center;gap:8px;font:500 10.5px 'IBM Plex Mono',monospace;letter-spacing:.1em;color:var(--c)"><span style="width:7px;height:7px;border-radius:50%;background:var(--c)"></span>CONTINÚA · LÍNEA 3</div>
+<div style="font-size:19px;line-height:1.3;font-weight:500;letter-spacing:-0.01em">3.2 · Farmacología: ajuste de dosis, combinaciones y deprescripción</div>
+<div style="font-size:13.5px;color:var(--ink2)">Sesión 3 de 7 · «Encuentra el error» · 20 min</div>
+<div style="display:flex;gap:3px"><sc-for list="{{ a.curPips }}" as="pp" hint-placeholder-count="7"><div style="flex:1;height:5px;border-radius:3px;background:{{ pp.bg }}"></div></sc-for></div>
+<button style="height:48px;margin-top:4px;border:none;border-radius:11px;background:var(--c);color:var(--onc);font:500 15px 'IBM Plex Sans',sans-serif;display:flex;align-items:center;justify-content:center;gap:8px">Continuar<span class="material-symbols-outlined" style="font-size:20px">arrow_forward</span></button>
+</div>
+<div style="display:flex;align-items:center;gap:16px;background:var(--surface);border:1px solid var(--rule);border-radius:16px;padding:16px 18px">
+<div style="display:flex;align-items:baseline;gap:2px"><span style="font-size:32px;font-weight:500;letter-spacing:-0.03em">40</span><span style="color:var(--ink2)">%</span></div>
+<div style="flex:1;display:flex;flex-direction:column;gap:8px">
+<div style="display:flex;gap:3px;height:6px"><sc-for list="{{ a.parts }}" as="p" hint-placeholder-count="4"><div style="--c:{{ p.color }};flex:{{ p.min }};background:color-mix(in oklch,var(--c) 18%,var(--sunk));border-radius:3px;overflow:hidden"><div style="height:100%;width:{{ p.pct }};background:var(--c)"></div></div></sc-for></div>
+<span style="font:400 12px 'IBM Plex Mono',monospace;color:var(--ink2)">14,4 / 36 h · 41 / 104 sesiones</span>
+</div>
+</div>
+<div style="display:flex;align-items:baseline;justify-content:space-between;margin-top:8px"><span style="font-size:17px;font-weight:500">Itinerario</span><span onClick="{{ a.toggleExpress }}" style="display:flex;align-items:center;gap:8px;min-height:44px;font-size:13px;color:var(--ink2);cursor:pointer"><span class="material-symbols-outlined" style="font-size:17px">bolt</span>Ruta exprés<span style="width:32px;height:20px;border-radius:10px;background:{{ a.swBg }};position:relative;transition:background .2s"><span style="position:absolute;top:3px;left:{{ a.swXs }};width:14px;height:14px;border-radius:50%;background:var(--surface);transition:left .2s"></span></span></span></div>
+<sc-for list="{{ a.parts }}" as="p" hint-placeholder-count="4">
+<div style="--c:{{ p.color }};background:var(--surface);border:1px solid var(--rule);border-radius:14px;overflow:hidden">
+<div onClick="{{ p.toggle }}" style="display:flex;align-items:center;gap:12px;padding:12px 14px;min-height:44px;cursor:pointer">
+<div style="width:34px;height:34px;border-radius:9px;background:color-mix(in oklch,var(--c) 14%,var(--surface));color:var(--c);display:grid;place-items:center"><span class="material-symbols-outlined" style="font-size:20px">{{ p.icon }}</span></div>
+<div style="flex:1;display:flex;flex-direction:column;gap:2px"><span style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:.1em;color:var(--c)">{{ p.code }}</span><span style="font-size:15px;font-weight:500">{{ p.name }}</span></div>
+<span style="font:400 12px 'IBM Plex Mono',monospace;color:var(--ink2)">{{ p.doneTxt }}</span>
+<span class="material-symbols-outlined" style="font-size:22px;color:var(--ink3)">{{ p.chev }}</span>
+</div>
+<sc-if value="{{ p.open }}">
+<div style="padding:0 14px 8px">
+<sc-for list="{{ p.stations }}" as="s">
+<div style="display:flex;align-items:center;gap:12px;min-height:52px;opacity:{{ s.op }}">
+<div style="position:relative;align-self:stretch;width:16px;display:grid;place-items:center"><div style="position:absolute;top:{{ s.railTop }};bottom:{{ s.railBot }};left:7px;width:2px;background:var(--c);opacity:.35"></div><div style="position:relative;width:12px;height:12px;border-radius:50%;border:2px solid {{ s.nodeBorder }};background:{{ s.nodeBg }};box-shadow:{{ s.nodeShadow }}"></div></div>
+<div style="flex:1;display:flex;flex-direction:column;gap:2px;padding:6px 0;border-bottom:1px solid var(--rule)"><span style="font-size:14px;font-weight:{{ s.weight }}"><span style="font-family:'IBM Plex Mono',monospace;color:var(--c);font-size:12.5px;margin-right:8px">{{ s.id }}</span>{{ s.t }}</span><span style="font-size:12px;color:var(--ink3)">{{ s.meta }}</span></div>
+</div>
+</sc-for>
+</div>
+</sc-if>
+</div>
+</sc-for>
+<div style="display:flex;gap:10px;padding:8px 2px;font-size:12px;line-height:1.5;color:var(--ink3)"><span class="material-symbols-outlined" style="font-size:17px;color:var(--l0)">health_and_safety</span><span>La IA no sustituye tu juicio clínico. La responsabilidad de cada decisión es tuya. Todos los casos y datos de este curso son ficticios.</span></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="dv-opt" id="1b">
+<div class="dv-olabel"><a class="dv-oid" href="#1b">1b</a>Monitor: panel de constantes por línea arriba, una línea a la vez con pestañas y tarjetas en la ruta</div>
+<div style="display:flex;gap:40px;align-items:flex-start">
+<div class="dv-card" style="width:1280px">
+<div data-theme="{{ b.theme }}" style="background:var(--bg);color:var(--ink);font-family:'IBM Plex Sans',sans-serif">
+<header style="display:flex;align-items:center;gap:28px;padding:0 40px;height:68px;border-bottom:1px solid var(--rule)">
+<div style="display:flex;align-items:center;gap:10px"><span class="material-symbols-outlined" style="font-size:28px;color:var(--l1)">ecg_heart</span><span style="font-weight:600;font-size:17px;letter-spacing:-0.01em">Mi IA Médica</span><span style="font:500 10.5px 'IBM Plex Mono',monospace;letter-spacing:.1em;color:var(--ink3);padding:3px 7px;border:1px solid var(--rule2);border-radius:5px">LEARNING PATH</span></div>
+<nav style="display:flex;gap:26px;font-size:14px;margin-left:24px;align-self:stretch">
+<span style="display:flex;align-items:center;font-weight:500;box-shadow:inset 0 -2px 0 var(--ink)">Itinerario</span>
+<span style="display:flex;align-items:center;color:var(--ink2)">Glosario</span>
+<span style="display:flex;align-items:center;color:var(--ink2)">Prompts</span>
+<span style="display:flex;align-items:center;color:var(--ink2)">Herramientas</span>
+<span style="display:flex;align-items:center;color:var(--ink2)">Fichas</span>
+</nav>
+<div style="margin-left:auto;display:flex;align-items:center;gap:6px">
+<button style="width:40px;height:40px;border-radius:10px;border:none;background:transparent;color:var(--ink2);display:grid;place-items:center;cursor:pointer"><span class="material-symbols-outlined" style="font-size:22px">search</span></button>
+<button onClick="{{ b.toggleTheme }}" style="width:40px;height:40px;border-radius:10px;border:none;background:transparent;color:var(--ink2);display:grid;place-items:center;cursor:pointer"><span class="material-symbols-outlined" style="font-size:22px">{{ b.themeIcon }}</span></button>
+<button style="width:40px;height:40px;border-radius:10px;border:none;background:transparent;color:var(--ink2);display:grid;place-items:center;cursor:pointer"><span class="material-symbols-outlined" style="font-size:22px">download</span></button>
+</div>
+</header>
+
+<div style="position:relative;background:var(--sunk);border-bottom:1px solid var(--rule)">
+<div style="position:absolute;inset:0;background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px),linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:40px 40px,40px 40px,8px 8px,8px 8px;opacity:.9;pointer-events:none"></div>
+<div style="position:relative;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:28px;padding:36px 40px">
+<div style="--c:var(--l3);background:var(--surface);border:1px solid var(--rule);border-radius:18px;padding:28px;display:flex;flex-direction:column;gap:14px">
+<div style="display:flex;align-items:center;justify-content:space-between"><span style="font:500 11px 'IBM Plex Mono',monospace;letter-spacing:.1em;color:var(--ink3)">CONTINÚA DONDE LO DEJASTE</span><span style="display:inline-flex;align-items:center;gap:6px;height:26px;padding:0 10px;border-radius:13px;background:color-mix(in oklch,var(--c) 14%,var(--surface));color:var(--c);font:500 12px 'IBM Plex Mono',monospace"><span class="material-symbols-outlined" style="font-size:16px">medical_services</span>Línea 3 · Taller</span></div>
+<div style="display:flex;gap:16px;align-items:flex-start">
+<div style="flex:none;width:56px;height:56px;border-radius:14px;background:var(--c);color:var(--onc);display:grid;place-items:center"><span class="material-symbols-outlined" style="font-size:30px">medication</span></div>
+<div style="display:flex;flex-direction:column;gap:6px"><span style="font:500 13px 'IBM Plex Mono',monospace;color:var(--c)">3.2</span><h1 style="margin:0;font-size:26px;line-height:1.22;font-weight:500;letter-spacing:-0.02em;text-wrap:pretty">Farmacología: ajuste de dosis, combinaciones y deprescripción</h1></div>
+</div>
+<div style="display:flex;flex-direction:column;gap:8px;padding:14px 0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)">
+<div style="display:flex;justify-content:space-between;font-size:14px"><span>Sesión 3 · Juego «Encuentra el error»</span><span style="font-family:'IBM Plex Mono',monospace;color:var(--ink2)">20 min</span></div>
+<div style="display:flex;gap:4px"><sc-for list="{{ b.curPips }}" as="pp" hint-placeholder-count="7"><div style="flex:1;height:6px;border-radius:3px;background:{{ pp.bg }}"></div></sc-for></div>
+</div>
+<div style="display:flex;align-items:center;gap:16px">
+<button style="height:48px;padding:0 22px;border:none;border-radius:11px;background:var(--ink);color:var(--bg);font:500 15px 'IBM Plex Sans',sans-serif;display:flex;align-items:center;gap:10px;cursor:pointer"><span class="material-symbols-outlined" style="font-size:22px;font-variation-settings:'FILL' 1">play_arrow</span>Continuar</button>
+<span style="display:flex;align-items:center;gap:6px;font-size:13px;color:var(--ink2)"><span class="material-symbols-outlined" style="font-size:18px">info</span>Recomendado antes: 2.5 IA y geriatría</span>
+</div>
+</div>
+
+<div style="background:var(--surface);border:1px solid var(--rule);border-radius:18px;padding:24px 26px;display:flex;flex-direction:column">
+<div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:8px"><span style="font:500 11px 'IBM Plex Mono',monospace;letter-spacing:.1em;color:var(--ink3)">CONSTANTES DEL CURSO</span><span style="font:500 13px 'IBM Plex Mono',monospace">40 % · 14,4 / 36 h</span></div>
+<sc-for list="{{ b.parts }}" as="p" hint-placeholder-count="4">
+<div style="--c:{{ p.color }};display:grid;grid-template-columns:36px minmax(0,1fr) 70px;gap:14px;align-items:center;padding:13px 0;border-top:1px solid var(--rule)">
+<div style="width:36px;height:36px;border-radius:10px;background:color-mix(in oklch,var(--c) 14%,var(--surface));color:var(--c);display:grid;place-items:center"><span class="material-symbols-outlined" style="font-size:21px">{{ p.icon }}</span></div>
+<div style="display:flex;flex-direction:column;gap:7px">
+<div style="display:flex;gap:10px;align-items:baseline"><span style="font:500 10.5px 'IBM Plex Mono',monospace;letter-spacing:.08em;color:var(--c)">{{ p.code }}</span><span style="font-size:14px;font-weight:500">{{ p.name }}</span></div>
+<div style="display:flex;gap:2px">
+<sc-for list="{{ p.stations }}" as="s"><div style="flex:1;height:8px;border-radius:2px;background:{{ s.tick }}"></div></sc-for>
+</div>
+</div>
+<span style="font:500 20px 'IBM Plex Mono',monospace;text-align:right;letter-spacing:-0.02em">{{ p.doneTxt }}</span>
+</div>
+</sc-for>
+</div>
+</div>
+</div>
+
+<div style="padding:32px 40px 44px">
+<div style="display:flex;align-items:center;gap:8px;margin-bottom:24px">
+<sc-for list="{{ b.parts }}" as="p" hint-placeholder-count="4">
+<button onClick="{{ p.select }}" style="--c:{{ p.color }};height:44px;padding:0 16px;border-radius:11px;border:1px solid {{ p.tabBorder }};background:{{ p.tabBg }};color:{{ p.tabInk }};font:500 14px 'IBM Plex Sans',sans-serif;display:flex;align-items:center;gap:9px;cursor:pointer"><span style="width:10px;height:10px;border-radius:50%;background:var(--c)"></span>{{ p.short }}<span style="font:400 12px 'IBM Plex Mono',monospace;opacity:.75">{{ p.doneTxt }}</span></button>
+</sc-for>
+<label onClick="{{ b.toggleExpress }}" style="margin-left:auto;display:flex;align-items:center;gap:10px;font-size:14px;color:var(--ink2);cursor:pointer"><span class="material-symbols-outlined" style="font-size:19px">bolt</span>Ruta exprés (~9 h)<span style="width:36px;height:22px;border-radius:11px;background:{{ b.swBg }};position:relative;transition:background .2s"><span style="position:absolute;top:3px;left:{{ b.swX }};width:16px;height:16px;border-radius:50%;background:var(--surface);transition:left .2s"></span></span></label>
+</div>
+
+<div style="--c:{{ b.line.color }};display:grid;grid-template-columns:280px minmax(0,1fr);gap:48px;align-items:start">
+<div style="display:flex;flex-direction:column;gap:14px;position:sticky;top:0">
+<div style="width:52px;height:52px;border-radius:14px;background:color-mix(in oklch,var(--c) 14%,var(--surface));color:var(--c);display:grid;place-items:center"><span class="material-symbols-outlined" style="font-size:30px">{{ b.line.icon }}</span></div>
+<span style="font:500 12px 'IBM Plex Mono',monospace;letter-spacing:.1em;color:var(--c)">{{ b.line.code }}</span>
+<h2 style="margin:0;font-size:30px;font-weight:500;letter-spacing:-0.02em;line-height:1.15">{{ b.line.name }}</h2>
+<p style="margin:0;font-size:15px;line-height:1.55;color:var(--ink2);text-wrap:pretty">{{ b.line.blurb }}</p>
+<div style="display:flex;gap:20px;padding-top:14px;border-top:1px solid var(--rule);font:400 13px 'IBM Plex Mono',monospace;color:var(--ink2)"><span>{{ b.line.hoursTxt }}</span><span>{{ b.line.sesTotal }} sesiones</span></div>
+</div>
+<div style="display:flex;flex-direction:column">
+<sc-for list="{{ b.line.stations }}" as="s" hint-placeholder-count="5">
+<div style="display:grid;grid-template-columns:40px minmax(0,1fr);gap:18px;opacity:{{ s.op }};transition:opacity .2s">
+<div style="position:relative;display:flex;justify-content:center"><div style="position:absolute;top:0;bottom:0;width:2px;background:var(--c);opacity:.3"></div><div style="position:relative;margin-top:28px;width:16px;height:16px;border-radius:50%;border:2px solid {{ s.nodeBorder }};background:{{ s.nodeBg }};box-shadow:{{ s.nodeShadow }}"></div></div>
+<div style="margin:6px 0;background:var(--surface);border:1px solid {{ s.cardBorder }};border-radius:14px;padding:16px 20px;display:grid;grid-template-columns:40px minmax(0,1fr) auto;gap:16px;align-items:center">
+<div style="width:40px;height:40px;border-radius:10px;background:var(--sunk);color:var(--c);display:grid;place-items:center"><span class="material-symbols-outlined" style="font-size:22px">{{ s.icon }}</span></div>
+<div style="display:flex;flex-direction:column;gap:8px;min-width:0">
+<div style="display:flex;align-items:baseline;gap:10px"><span style="font:500 13px 'IBM Plex Mono',monospace;color:var(--c)">{{ s.id }}</span><span style="font-size:16px;font-weight:500">{{ s.t }}</span></div>
+<div style="display:flex;align-items:center;gap:14px"><div style="display:flex;gap:3px;width:140px"><sc-for list="{{ s.pips }}" as="pp"><div style="flex:1;height:4px;border-radius:2px;background:{{ pp.bg }}"></div></sc-for></div><span style="font:400 12px 'IBM Plex Mono',monospace;color:var(--ink3)">{{ s.meta }}</span><span style="font-size:12px;color:var(--ink3)">{{ s.pre }}</span></div>
+</div>
+<div>
+<sc-if value="{{ s.isDone }}"><span style="display:inline-flex;align-items:center;gap:5px;font-size:13px;color:var(--ink2)"><span class="material-symbols-outlined" style="font-size:19px;color:var(--c);font-variation-settings:'FILL' 1">check_circle</span>Completado</span></sc-if>
+<sc-if value="{{ s.isCur }}"><button style="height:36px;padding:0 14px;border:none;border-radius:9px;background:var(--c);color:var(--onc);font:500 13px 'IBM Plex Sans',sans-serif;cursor:pointer">Continuar · 2/7</button></sc-if>
+<sc-if value="{{ s.isPend }}"><button style="height:36px;padding:0 14px;border:1px solid var(--rule2);border-radius:9px;background:transparent;color:var(--ink);font:500 13px 'IBM Plex Sans',sans-serif;cursor:pointer">Empezar</button></sc-if>
+</div>
+</div>
+</div>
+</sc-for>
+</div>
+</div>
+</div>
+<footer style="display:flex;align-items:center;justify-content:space-between;gap:24px;padding:18px 40px;border-top:1px solid var(--rule);font-size:13px;color:var(--ink2)"><span style="display:flex;align-items:center;gap:10px"><span class="material-symbols-outlined" style="font-size:19px;color:var(--l0)">health_and_safety</span>La IA no sustituye tu juicio clínico. La responsabilidad de cada decisión es tuya. Todos los casos y datos de este curso son ficticios.</span><span style="display:flex;align-items:center;gap:6px;color:var(--ink3)"><span class="material-symbols-outlined" style="font-size:17px">lock</span>Progreso guardado solo en este dispositivo</span></footer>
+</div>
+</div>
+
+<div class="dv-card" style="width:390px;border-radius:28px">
+<div data-theme="{{ b.theme }}" style="background:var(--bg);color:var(--ink);font-family:'IBM Plex Sans',sans-serif;min-height:844px">
+<header style="display:flex;align-items:center;gap:8px;padding:10px 12px 10px 18px;border-bottom:1px solid var(--rule)">
+<span class="material-symbols-outlined" style="font-size:26px;color:var(--l1)">ecg_heart</span>
+<span style="font-weight:600;font-size:16px;flex:1">Mi IA Médica</span>
+<button onClick="{{ b.toggleTheme }}" style="width:44px;height:44px;border:none;background:transparent;color:var(--ink2);display:grid;place-items:center"><span class="material-symbols-outlined" style="font-size:22px">{{ b.themeIcon }}</span></button>
+<button style="width:44px;height:44px;border:none;background:transparent;color:var(--ink2);display:grid;place-items:center"><span class="material-symbols-outlined" style="font-size:22px">menu</span></button>
+</header>
+<div style="position:relative;background:var(--sunk);border-bottom:1px solid var(--rule);padding:18px">
+<div style="position:absolute;inset:0;background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:16px 16px;pointer-events:none"></div>
+<div style="--c:var(--l3);position:relative;background:var(--surface);border:1px solid var(--rule);border-radius:16px;padding:16px;display:flex;flex-direction:column;gap:12px">
+<div style="display:flex;gap:12px;align-items:center">
+<div style="flex:none;width:44px;height:44px;border-radius:12px;background:var(--c);color:var(--onc);display:grid;place-items:center"><span class="material-symbols-outlined" style="font-size:24px">medication</span></div>
+<div style="display:flex;flex-direction:column;gap:2px"><span style="font:500 10.5px 'IBM Plex Mono',monospace;letter-spacing:.08em;color:var(--ink3)">CONTINÚA · 3.2</span><span style="font-size:16px;font-weight:500;line-height:1.3">Farmacología: ajuste de dosis, combinaciones y deprescripción</span></div>
+</div>
+<div style="display:flex;gap:3px"><sc-for list="{{ b.curPips }}" as="pp" hint-placeholder-count="7"><div style="flex:1;height:5px;border-radius:3px;background:{{ pp.bg }}"></div></sc-for></div>
+<button style="height:46px;border:none;border-radius:11px;background:var(--ink);color:var(--bg);font:500 15px 'IBM Plex Sans',sans-serif;display:flex;align-items:center;justify-content:center;gap:8px"><span class="material-symbols-outlined" style="font-size:22px;font-variation-settings:'FILL' 1">play_arrow</span>Sesión 3 · 20 min</button>
+</div>
+<div style="position:relative;display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:12px">
+<sc-for list="{{ b.parts }}" as="p" hint-placeholder-count="4">
+<div style="--c:{{ p.color }};background:var(--surface);border:1px solid var(--rule);border-radius:11px;padding:10px;display:flex;flex-direction:column;gap:6px">
+<span class="material-symbols-outlined" style="font-size:19px;color:var(--c)">{{ p.icon }}</span>
+<span style="font:500 15px 'IBM Plex Mono',monospace">{{ p.doneTxt }}</span>
+<div style="height:3px;border-radius:2px;background:color-mix(in oklch,var(--c) 18%,var(--sunk));overflow:hidden"><div style="height:100%;width:{{ p.pct }};background:var(--c)"></div></div>
+</div>
+</sc-for>
+</div>
+</div>
+<div style="display:flex;gap:6px;padding:14px 18px;overflow-x:auto">
+<sc-for list="{{ b.parts }}" as="p" hint-placeholder-count="4">
+<button onClick="{{ p.select }}" style="--c:{{ p.color }};flex:none;height:44px;padding:0 14px;border-radius:22px;border:1px solid {{ p.tabBorder }};background:{{ p.tabBg }};color:{{ p.tabInk }};font:500 14px 'IBM Plex Sans',sans-serif;display:flex;align-items:center;gap:8px"><span style="width:8px;height:8px;border-radius:50%;background:var(--c)"></span>{{ p.short }}</button>
+</sc-for>
+</div>
+<div style="--c:{{ b.line.color }};padding:0 18px 18px">
+<div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:4px"><span style="font-size:20px;font-weight:500;letter-spacing:-0.01em">{{ b.line.name }}</span><span style="font:400 12px 'IBM Plex Mono',monospace;color:var(--ink2)">{{ b.line.hoursTxt }}</span></div>
+<p style="margin:0 0 10px;font-size:13.5px;line-height:1.5;color:var(--ink2)">{{ b.line.blurb }}</p>
+<sc-for list="{{ b.line.stations }}" as="s" hint-placeholder-count="5">
+<div style="display:grid;grid-template-columns:20px minmax(0,1fr);gap:12px;opacity:{{ s.op }}">
+<div style="position:relative;display:flex;justify-content:center"><div style="position:absolute;top:0;bottom:0;width:2px;background:var(--c);opacity:.3"></div><div style="position:relative;margin-top:24px;width:12px;height:12px;border-radius:50%;border:2px solid {{ s.nodeBorder }};background:{{ s.nodeBg }};box-shadow:{{ s.nodeShadow }}"></div></div>
+<div style="margin:5px 0;background:var(--surface);border:1px solid {{ s.cardBorder }};border-radius:12px;padding:12px 14px;display:flex;gap:12px;align-items:center">
+<span class="material-symbols-outlined" style="font-size:22px;color:var(--c)">{{ s.icon }}</span>
+<div style="flex:1;display:flex;flex-direction:column;gap:5px;min-width:0"><span style="font-size:14.5px;font-weight:500;line-height:1.3"><span style="font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--c);margin-right:6px">{{ s.id }}</span>{{ s.t }}</span><span style="font:400 11.5px 'IBM Plex Mono',monospace;color:var(--ink3)">{{ s.meta }}</span></div>
+<sc-if value="{{ s.isDone }}"><span class="material-symbols-outlined" style="font-size:21px;color:var(--c);font-variation-settings:'FILL' 1">check_circle</span></sc-if>
+<sc-if value="{{ s.isCur }}"><span style="font:500 11.5px 'IBM Plex Mono',monospace;padding:4px 8px;border-radius:10px;background:var(--c);color:var(--onc)">2/7</span></sc-if>
+<sc-if value="{{ s.isPend }}"><span class="material-symbols-outlined" style="font-size:20px;color:var(--ink3)">chevron_right</span></sc-if>
+</div>
+</div>
+</sc-for>
+</div>
+<div style="display:flex;gap:10px;padding:4px 20px 22px;font-size:12px;line-height:1.5;color:var(--ink3)"><span class="material-symbols-outlined" style="font-size:17px;color:var(--l0)">health_and_safety</span><span>La IA no sustituye tu juicio clínico. La responsabilidad de cada decisión es tuya. Todos los casos y datos de este curso son ficticios.</span></div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+<p class="dv-next">Prueba después: «<a class="dv-oid" href="#1a">1a</a> con el bloque de continuar de <a class="dv-oid" href="#1b">1b</a>» · «diseña la página de sesión de 3.2» · «más contraste entre líneas en modo oscuro»</p>
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;temaInicial&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;light&quot;,&quot;dark&quot;],&quot;default&quot;:&quot;light&quot;,&quot;tsType&quot;:&quot;'light'|'dark'&quot;},&quot;rutaExpres&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;}}">
+const PARTS = [
+  { id:'p0', code:'MÓDULO 0', short:'Bienvenida', name:'Bienvenida', color:'var(--l0)', icon:'flag', blurb:'Primer resultado útil en los primeros 30 minutos.', st:[
+    ['M0','Bienvenida',45,2,'done','waving_hand',1,''] ]},
+  { id:'p1', code:'LÍNEA 1', short:'Fundamentos', name:'Fundamentos', color:'var(--l1)', icon:'neurology', blurb:'Qué es la IA, cómo aprende y cómo se le pregunta.', st:[
+    ['1.1','¿Qué es la IA (y qué no es)?',45,2,'done','psychology',0,''],
+    ['1.2','De Turing a hoy',45,2,'done','history_edu',0,''],
+    ['1.3','Cómo aprende una máquina',120,6,'done','model_training',0,''],
+    ['1.4','Redes neuronales sin fórmulas',60,3,'done','hub',0,''],
+    ['1.5','Cómo «piensa» un LLM',120,6,'done','forum',1,''],
+    ['1.6','El arte de preguntar',90,4,'done','edit_note',1,''],
+    ['1.7','Más allá del texto: imagen, voz y vídeo',60,3,'pend','graphic_eq',0,''],
+    ['1.8','El estado del arte hoy',75,4,'pend','explore',0,''] ]},
+  { id:'p2', code:'LÍNEA 2', short:'IA en medicina', name:'IA en medicina', color:'var(--l2)', icon:'stethoscope', blurb:'Dónde se usa ya, cómo se evalúa un estudio y qué dice la regulación.', st:[
+    ['2.1','Dónde está ya la IA en medicina',120,6,'pend','local_hospital',0,''],
+    ['2.2','Leer con lupa un estudio de IA',90,4,'pend','query_stats',0,'Pide 1.3'],
+    ['2.3','Ética, regulación y privacidad',90,4,'done','gavel',1,''],
+    ['2.4','Mapa de herramientas',60,3,'pend','handyman',0,''],
+    ['2.5','IA y geriatría',120,6,'pend','elderly',0,''] ]},
+  { id:'p3', code:'LÍNEA 3', short:'Caja de herramientas', name:'Caja de herramientas', color:'var(--l3)', icon:'medical_services', blurb:'Talleres con casos y datos sintéticos. Cada uno incluye un paso de anonimización y otro de verificación.', st:[
+    ['3.0','Tu entorno de trabajo seguro',60,3,'done','verified_user',1,'Pide 2.3'],
+    ['3.1','Dudas sobre casos clínicos',150,7,'done','clinical_notes',1,'Recomienda 1.6'],
+    ['3.2','Farmacología',150,7,'cur','medication',1,'Recomienda 2.5'],
+    ['3.3','Búsqueda bibliográfica',150,7,'pend','menu_book',1,''],
+    ['3.4','Análisis estadístico de un Excel',180,9,'pend','table_chart',1,''],
+    ['3.5','Escribir un artículo científico',105,5,'pend','article',1,'Usa el caso de 3.1'],
+    ['3.6','Presentaciones',75,4,'pend','slideshow',1,'Usa el caso de 3.1'],
+    ['3.7','Cursos de formación continuada',60,3,'pend','school',1,''],
+    ['3.8','Proyecto final',90,4,'pend','workspace_premium',1,'Pide tres talleres'] ]}
+];
+const fmtH = m => (m/60).toLocaleString('es-ES',{maximumFractionDigits:2}) + ' h';
+const pipsFor = (n, done) => Array.from({length:n}, (_, i) => ({ bg: i < done ? 'var(--c)' : 'color-mix(in oklch, var(--c) 16%, var(--sunk))' }));
+
+class Component extends DCLogic {
+  state = {};
+  build(k) {
+    const S = this.state, set = o => this.setState(o);
+    const theme = S['th'+k] ?? (this.props.temaInicial || 'light');
+    const express = S['ex'+k] ?? !!this.props.rutaExpres;
+    const open = S['op'+k] === undefined ? 'p3' : S['op'+k];
+    const lineId = S['ln'+k] ?? 'p3';
+    const parts = PARTS.map(p => {
+      let doneMin = 0, doneN = 0;
+      const stations = p.st.map(([id,t,min,ses,st,icon,x,pre], i, arr) => {
+        const doneS = st === 'done' ? ses : st === 'cur' ? 2 : 0;
+        doneMin += st === 'done' ? min : st === 'cur' ? 40 : 0;
+        if (st === 'done') doneN++;
+        return { id, t, icon, pre, min: String(min), sesTxt: String(ses),
+          meta: `${min} min · ${ses} sesiones`,
+          isDone: st==='done', isCur: st==='cur', isPend: st==='pend',
+          weight: st==='cur' ? 600 : 400,
+          railTop: i === 0 ? '50%' : '0', railBot: i === arr.length - 1 ? '50%' : '0',
+          iconColor: st==='pend' ? 'var(--ink3)' : 'var(--c)',
+          op: express && !x ? 0.32 : 1,
+          rowBg: st==='cur' ? 'color-mix(in oklch, var(--c) 7%, var(--surface))' : 'transparent',
+          cardBorder: st==='cur' ? 'var(--c)' : 'var(--rule)',
+          nodeBg: st==='done' ? 'var(--c)' : 'var(--surface)',
+          nodeBorder: st==='pend' ? 'var(--rule2)' : 'var(--c)',
+          nodeShadow: st==='cur' ? '0 0 0 5px color-mix(in oklch, var(--c) 24%, transparent)' : 'none',
+          tick: st==='done' ? 'var(--c)' : st==='cur' ? 'color-mix(in oklch, var(--c) 55%, var(--sunk))' : 'color-mix(in oklch, var(--c) 15%, var(--sunk))',
+          pips: pipsFor(ses, doneS) };
+      });
+      const total = p.st.reduce((a, s) => a + s[2], 0);
+      const sesTotal = p.st.reduce((a, s) => a + s[3], 0);
+      const isOpen = open === p.id, isLine = lineId === p.id;
+      return { ...p, stations, min: total, sesTotal, pct: (doneMin/total*100).toFixed(1)+'%',
+        doneTxt: `${doneN}/${p.st.length}`, hoursTxt: fmtH(total),
+        open: isOpen, chev: isOpen ? 'expand_less' : 'expand_more',
+        toggle: () => set({['op'+k]: isOpen ? null : p.id}),
+        select: () => set({['ln'+k]: p.id}),
+        tabBg: isLine ? 'var(--ink)' : 'var(--surface)',
+        tabInk: isLine ? 'var(--bg)' : 'var(--ink)',
+        tabBorder: isLine ? 'var(--ink)' : 'var(--rule)' };
+    });
+    return { theme, parts, line: parts.find(p => p.id === lineId),
+      themeIcon: theme === 'dark' ? 'light_mode' : 'dark_mode',
+      toggleTheme: () => set({['th'+k]: theme === 'dark' ? 'light' : 'dark'}),
+      toggleExpress: () => set({['ex'+k]: !express}),
+      expressTxt: express ? 'sí' : 'no',
+      swBg: express ? 'var(--ink)' : 'var(--rule2)', swX: express ? '17px' : '3px', swXs: express ? '15px' : '3px',
+      curPips: pipsFor(7, 2) };
+  }
+  renderVals() { return { a: this.build('a'), b: this.build('b') }; }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../components/layout/BaseLayout.astro';
+import Plantilla from '../components/curso/Plantilla.astro';
+import { subcapitulos } from '../lib/curso';
+
+const prompts = await getCollection('prompts');
+const subs = await subcapitulos();
+const TAREAS: Record<string, string> = {
+  aprender: 'Aprender y entender', redactar: 'Redactar', resumir: 'Resumir', 'casos-clinicos': 'Casos clínicos', farmacologia: 'Farmacología',
+  bibliografia: 'Bibliografía', estadistica: 'Estadística', articulos: 'Artículos científicos', presentaciones: 'Presentaciones', estudiar: 'Estudiar',
+};
+const presentes = [...new Set(prompts.map((p) => p.data.tarea))];
+---
+<BaseLayout titulo="Biblioteca de prompts" seccion="prompts" descripcion="Plantillas de prompts para médicos, por tarea, con botón de copiar.">
+  <div class="contenedor-lectura pt-7">
+    <h1>Biblioteca de prompts</h1>
+    <p class="tenue">Plantillas listas para copiar. Lo que va entre [CORCHETES] lo rellenas tú. Antes de pegar nada en una IA, comprueba que no contiene datos que identifiquen a un paciente.</p>
+    <div class="grid gap-3 sm:grid-cols-2 mt-4 no-imprimir">
+      <label class="grid gap-1" for="filtro-tarea"><span class="font-bold">Quiero…</span>
+        <select id="filtro-tarea" class="min-h-12 rounded-lg border border-borde bg-superficie px-3 text-lg">
+          <option value="">Todas las tareas</option>
+          {presentes.map((t) => <option value={t}>{TAREAS[t]}</option>)}
+        </select>
+      </label>
+      <label class="grid gap-1" for="filtro-texto"><span class="font-bold">Buscar</span>
+        <input id="filtro-texto" type="search" class="min-h-12 rounded-lg border border-borde bg-superficie px-3 text-lg" placeholder="p. ej., dosis, familia…" />
+      </label>
+    </div>
+    <p id="prompts-vacio" class="retro retro-neutra" hidden>No hay plantillas que coincidan.</p>
+    <div class="grid gap-5 mt-6">
+      {prompts.map((p) => {
+        const s = subs.find((x) => x.id === p.data.subcapitulo);
+        return (
+          <section data-tarea={p.data.tarea} data-texto={`${p.data.titulo} ${p.data.plantilla}`.toLowerCase()} class="grid gap-2">
+            <p class="m-0 text-base tenue"><span class="chip">{TAREAS[p.data.tarea]}</span> {s && <>De <a href={`/${s.slug}/`}>{s.numero} · {s.titulo}</a>{!s.construido && ' (en preparación)'}</>}</p>
+            <Plantilla id={p.data.id} />
+          </section>
+        );
+      })}
+    </div>
+  </div>
+</BaseLayout>
+<script>
+  const tarea = document.getElementById('filtro-tarea') as HTMLSelectElement;
+  const texto = document.getElementById('filtro-texto') as HTMLInputElement;
+  const items = [...document.querySelectorAll<HTMLElement>('[data-tarea]')];
+  const vacio = document.getElementById('prompts-vacio')!;
+  function filtrar() {
+    const q = texto.value.trim().toLowerCase();
+    let n = 0;
+    items.forEach((it) => { const ok = (!tarea.value || it.dataset.tarea === tarea.value) && (!q || it.dataset.texto!.includes(q)); it.hidden = !ok; if (ok) n++; });
+    vacio.hidden = n > 0;
+  }
+  tarea.addEventListener('change', filtrar);
+  texto.addEventListener('input', filtrar);
+</script>

@@ -1,0 +1,17 @@
+---
+// Paso obligatorio de un taller (anonimizar, verificar…) que queda registrado en el progreso.
+import Icono from '../ui/Icono.astro';
+interface Props { id: string; tipo: 'anonimizar' | 'verificar' | 'otro'; texto: string }
+const { id, tipo, texto } = Astro.props;
+const nombres = { anonimizar: 'Paso de anonimización', verificar: 'Paso de verificación', otro: 'Paso del taller' };
+const iconos = { anonimizar: 'verified_user', verificar: 'task_alt', otro: 'check_circle' };
+const color = tipo === 'anonimizar' ? 'var(--l0)' : 'var(--l3)';
+---
+<label class="tarjeta flex gap-3 items-start cursor-pointer" style={`border-left: 4px solid ${color}; --c: ${color}`}>
+  <input type="checkbox" data-paso={id} class="mt-1 size-6 flex-none" style={`accent-color: ${color}`} />
+  <span>
+    <span class="eyebrow flex items-center gap-1.5 text-[var(--c)]"><Icono nombre={iconos[tipo]} tam={16} />{nombres[tipo]}</span>
+    <span class="block font-semibold mt-0.5">{texto}</span>
+    <span class="block text-[15px] tenue">Márcalo cuando lo hayas hecho: queda guardado en tu progreso.</span>
+  </span>
+</label>

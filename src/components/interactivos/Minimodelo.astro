@@ -1,0 +1,13 @@
+---
+import Icono from '../ui/Icono.astro';
+import Isla from './especificos/Minimodelo.tsx';
+import { cargarDatos } from '../../lib/interactivos';
+interface Props { datos: string; modo: 'siguiente' | 'temperatura' }
+const { datos, modo } = Astro.props;
+const d = cargarDatos<{ titulo: string; tituloTemperatura: string; nota: string; inicios: string[]; frases: string[] }>(datos);
+---
+<section class="interactivo" aria-label={modo === 'temperatura' ? d.tituloTemperatura : d.titulo}>
+  <h3 class="interactivo-titulo"><Icono nombre="chat" tam={20} />{modo === 'temperatura' ? d.tituloTemperatura : d.titulo}</h3>
+  <Isla client:visible frases={d.frases} inicios={d.inicios} modo={modo} />
+  <p class="interactivo-nota">{d.nota}</p>
+</section>

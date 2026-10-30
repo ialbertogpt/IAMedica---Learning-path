@@ -1,0 +1,38 @@
+---
+// Vídeo con «fachada»: no se carga nada de YouTube hasta que el alumno pulsa.
+import { getEntry } from 'astro:content';
+import { etiquetaIdioma } from '../../lib/formato';
+import Icono from '../ui/Icono.astro';
+interface Props { id: string; desde?: string; hasta?: string; nota?: string }
+const { id, desde, hasta, nota } = Astro.props;
+const r = await getEntry('recursos', id);
+if (!r) throw new Error(`[recursos] El vídeo «${id}» no existe en src/data/recursos.json`);
+if (r.data.tipo !== 'video' || !r.data.youtubeId) throw new Error(`[recursos] «${id}» no es un vídeo de YouTube`);
+if (r.data.estado === 'descartado') throw new Error(`[recursos] «${id}» está descartado y no puede usarse`);
+const aSeg = (t?: string) => (t ? t.split(':').reduce((acc, x) => acc * 60 + Number(x), 0) : undefined);
+const d = r.data;
+const fragmento = desde ? ` · fragmento ${desde}${hasta ? `–${hasta}` : ''}` : '';
+---
+<figure class="interactivo m-0" data-video={d.youtubeId} data-inicio={aSeg(desde)} data-fin={aSeg(hasta)} data-titulo={d.titulo}>
+  <div data-marco class="rounded-lg bg-superficie-2 border border-borde p-4 grid gap-3">
+    <div class="flex items-start gap-3">
+      <span class="text-l1"><Icono nombre="play_circle" tam={32} /></span>
+      <div>
+        <p class="m-0 font-bold leading-snug">{d.titulo}</p>
+        <p class="m-0 tenue text-base">{d.autor} · {d.duracion} min{fragmento}</p>
+        <p class="m-0 mt-1 flex flex-wrap gap-1.5">
+          <span class="chip">{etiquetaIdioma(d.idioma, d.doblaje)}</span>
+          {d.subtitulos && <span class="chip">Subtítulos: {d.subtitulos}</span>}
+          {d.publicado && <span class="chip">{d.publicado.slice(0, 4)}</span>}
+        </p>
+      </div>
+    </div>
+    <p class="m-0 text-base"><strong>Por qué verlo:</strong> {d.porQue}</p>
+    {nota && <p class="m-0 text-base"><strong>Fíjate en:</strong> {nota}</p>}
+    <div class="flex flex-wrap gap-2 solo-pantalla">
+      <button type="button" class="boton boton-peq" data-cargar-video>Reproducir aquí</button>
+      <a class="boton boton-sec boton-peq" href={d.url} target="_blank" rel="noopener noreferrer">Abrir en YouTube ↗</a>
+    </div>
+    <p class="m-0 text-sm tenue solo-pantalla">Al reproducir se conecta con YouTube en su modo de privacidad mejorada (youtube-nocookie.com).</p>
+  </div>
+</figure>

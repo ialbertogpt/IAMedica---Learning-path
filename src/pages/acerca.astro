@@ -1,0 +1,46 @@
+---
+import BaseLayout from '../components/layout/BaseLayout.astro';
+import { minutosTotalesPlan } from '../lib/curso';
+---
+<BaseLayout titulo="Acerca del curso" seccion="acerca" descripcion="Cómo funciona el curso, privacidad y uso en la tablet.">
+  <div class="contenedor-lectura pt-7 prosa">
+    <h1>Acerca del curso</h1>
+    <p><strong>Mi IA Médica</strong> es un curso personal para que un médico se inicie en la inteligencia artificial y acabe usándola con soltura y seguridad en su trabajo. Dura unas {Math.round(minutosTotalesPlan / 60)} horas, repartidas en sesiones de 15–25 minutos.</p>
+
+    <h2>Cómo funciona</h2>
+    <ul>
+      <li><strong>Un itinerario en tres líneas</strong>, más un módulo de bienvenida: Fundamentos, IA en medicina y Caja de herramientas (talleres prácticos). Hay un orden recomendado y una «ruta exprés», pero puedes ir a cualquier estación.</li>
+      <li><strong>Cada subcapítulo</strong> tiene objetivos, sesiones cortas, al menos un interactivo, recursos verificados, un apartado «Ojo con…», un resumen con ficha de bolsillo imprimible y un test sin nota.</li>
+      <li><strong>Pulsa «Marcar como hecha»</strong> al terminar cada sesión: así la portada sabe dónde te quedaste.</li>
+    </ul>
+
+    <h2>Seguridad clínica</h2>
+    <p>La IA no sustituye tu juicio clínico y la responsabilidad de cada decisión es tuya. Todos los casos, pacientes y datos del curso son <strong>ficticios</strong>. Ninguna dosis se da sin su fuente; en farmacología se remite siempre a la ficha técnica de CIMA. Los ejemplos de respuestas de IA indican con qué modelo y en qué fecha se generaron o si se han modificado a propósito para un ejercicio.</p>
+
+    <h2>Privacidad</h2>
+    <ul>
+      <li>Sin cookies, sin analítica y sin cuentas. El progreso se guarda solo en tu navegador.</li>
+      <li>Las fuentes tipográficas están incluidas en la web: no se hacen peticiones a terceros al cargarla.</li>
+      <li>Los vídeos de YouTube no se cargan hasta que pulsas «Reproducir», y se insertan desde <code>youtube-nocookie.com</code>.</li>
+      <li>Los interactivos funcionan en tu dispositivo. El texto que escribes en ellos no se envía a ningún sitio.</li>
+    </ul>
+
+    <h2>Usarlo en la tablet o el móvil, en casa</h2>
+    <p>La web está en tu ordenador. Para abrirla desde la tablet o el móvil conectados a la <strong>misma wifi de casa</strong>:</p>
+    <ol>
+      <li>En el ordenador, abre una terminal en la carpeta del curso y ejecuta <code>npm run build</code> y después <code>npm run preview -- --host</code>.</li>
+      <li>La terminal mostrará una dirección del tipo <code>http://192.168.1.23:4321/</code> (la cifra cambia en cada casa). Escríbela en el navegador de la tablet.</li>
+      <li>La primera vez, Windows puede preguntar si permites el acceso en redes privadas: acepta solo para redes privadas.</li>
+    </ol>
+    <p>Tu progreso de la tablet es independiente del del ordenador. Usa <a href="/progreso/">Mi progreso</a> para pasarlo de uno a otro.</p>
+
+    <h2>Créditos y licencias</h2>
+    <ul>
+      <li>Tipografías IBM Plex Sans e IBM Plex Mono (SIL Open Font License) e iconos Material Symbols de Google (Apache 2.0), incluidos en la web.</li>
+      <li>Criterios STOPP/START v3: O'Mahony D, et al., <i>Eur Geriatr Med</i> 2023 (licencia CC BY 4.0). Se citan y se parafrasean.</li>
+      <li>Algoritmos de deprescribing.org (CC BY-NC-SA 4.0, «no traducir sin permiso»): se enlazan y se resumen con palabras propias.</li>
+      <li>Tokenizador de los interactivos: <code>gpt-tokenizer</code> (codificación o200k_base de OpenAI).</li>
+    </ul>
+    <p class="tenue">Curso personal, no acreditado como formación continuada. El certificado que se genera al final no es oficial.</p>
+  </div>
+</BaseLayout>

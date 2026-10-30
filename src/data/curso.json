@@ -1,0 +1,37 @@
+{
+  "nombre": "Mi IA Médica",
+  "subtitulo": "Learning Path",
+  "minutosTotalesPlan": 2160,
+  "sesionesPorSemana": 4,
+  "partes": [
+    {"n": 0, "nombre": "Bienvenida", "linea": "Origen", "color": "l0", "carpeta": "parte-0", "icono": "flag", "codigo": "MÓDULO 0", "descripcion": "Primer resultado útil en los primeros 30 minutos."},
+    {"n": 1, "nombre": "Fundamentos", "linea": "Línea 1", "color": "l1", "carpeta": "parte-1", "icono": "neurology", "codigo": "LÍNEA 1", "descripcion": "Qué es la IA, cómo aprende y cómo se le pregunta."},
+    {"n": 2, "nombre": "IA en medicina", "linea": "Línea 2", "color": "l2", "carpeta": "parte-2", "icono": "stethoscope", "codigo": "LÍNEA 2", "descripcion": "Dónde se usa ya, cómo se evalúa un estudio y qué dice la regulación."},
+    {"n": 3, "nombre": "Caja de herramientas", "linea": "Línea 3", "color": "l3", "carpeta": "parte-3", "icono": "medical_services", "codigo": "LÍNEA 3", "descripcion": "Talleres con casos y datos sintéticos. Cada uno incluye un paso de anonimización y otro de verificación."}
+  ],
+  "subcapitulos": [
+    {"id": "0-0", "numero": "M0", "parte": 0, "titulo": "Bienvenida", "slug": "parte-0/0-0-bienvenida", "icono": "waving_hand", "minutosPlan": 45, "sesionesPlan": 2, "requiere": [], "expres": true},
+    {"id": "1-1", "numero": "1.1", "parte": 1, "titulo": "¿Qué es la IA (y qué no es)?", "slug": "parte-1/1-1-que-es-la-ia", "icono": "psychology", "minutosPlan": 45, "sesionesPlan": 2, "requiere": [], "expres": false},
+    {"id": "1-2", "numero": "1.2", "parte": 1, "titulo": "De Turing a hoy: breve historia", "slug": "parte-1/1-2-de-turing-a-hoy", "icono": "history_edu", "minutosPlan": 45, "sesionesPlan": 2, "requiere": [], "expres": false},
+    {"id": "1-3", "numero": "1.3", "parte": 1, "titulo": "Cómo aprende una máquina", "slug": "parte-1/1-3-como-aprende-una-maquina", "icono": "model_training", "minutosPlan": 120, "sesionesPlan": 6, "requiere": [], "expres": false},
+    {"id": "1-4", "numero": "1.4", "parte": 1, "titulo": "Redes neuronales sin fórmulas", "slug": "parte-1/1-4-redes-neuronales", "icono": "hub", "minutosPlan": 60, "sesionesPlan": 3, "requiere": ["1-3"], "expres": false},
+    {"id": "1-5", "numero": "1.5", "parte": 1, "titulo": "Cómo «piensa» ChatGPT o Claude (los LLM)", "slug": "parte-1/1-5-como-piensa-un-llm", "icono": "forum", "minutosPlan": 120, "sesionesPlan": 6, "requiere": [], "expres": true},
+    {"id": "1-6", "numero": "1.6", "parte": 1, "titulo": "El arte de preguntar (prompting)", "slug": "parte-1/1-6-el-arte-de-preguntar", "icono": "edit_note", "minutosPlan": 90, "sesionesPlan": 4, "requiere": ["1-5"], "expres": true},
+    {"id": "1-7", "numero": "1.7", "parte": 1, "titulo": "Más allá del texto: imagen, voz y vídeo", "slug": "parte-1/1-7-mas-alla-del-texto", "icono": "graphic_eq", "minutosPlan": 60, "sesionesPlan": 3, "requiere": ["1-5"], "expres": false},
+    {"id": "1-8", "numero": "1.8", "parte": 1, "titulo": "El estado del arte hoy", "slug": "parte-1/1-8-estado-del-arte", "icono": "explore", "minutosPlan": 75, "sesionesPlan": 4, "requiere": ["1-5"], "expres": false},
+    {"id": "2-1", "numero": "2.1", "parte": 2, "titulo": "Dónde está ya la IA en medicina", "slug": "parte-2/2-1-donde-esta-ya", "icono": "local_hospital", "minutosPlan": 120, "sesionesPlan": 6, "requiere": [], "expres": false},
+    {"id": "2-2", "numero": "2.2", "parte": 2, "titulo": "Leer con lupa un estudio de IA médica", "slug": "parte-2/2-2-leer-con-lupa", "icono": "query_stats", "minutosPlan": 90, "sesionesPlan": 4, "requiere": ["1-3"], "nota": "Pide 1.3", "expres": false},
+    {"id": "2-3", "numero": "2.3", "parte": 2, "titulo": "Ética, regulación y privacidad", "slug": "parte-2/2-3-etica-regulacion-privacidad", "icono": "gavel", "minutosPlan": 90, "sesionesPlan": 4, "requiere": [], "expres": true},
+    {"id": "2-4", "numero": "2.4", "parte": 2, "titulo": "Mapa de herramientas", "slug": "parte-2/2-4-mapa-de-herramientas", "icono": "handyman", "minutosPlan": 60, "sesionesPlan": 3, "requiere": [], "expres": false},
+    {"id": "2-5", "numero": "2.5", "parte": 2, "titulo": "IA y geriatría", "slug": "parte-2/2-5-ia-y-geriatria", "icono": "elderly", "minutosPlan": 120, "sesionesPlan": 6, "requiere": [], "expres": false},
+    {"id": "3-0", "numero": "3.0", "parte": 3, "titulo": "Tu entorno de trabajo seguro", "slug": "parte-3/3-0-entorno-seguro", "icono": "verified_user", "minutosPlan": 60, "sesionesPlan": 3, "requiere": ["2-3"], "nota": "Pide 2.3", "expres": true},
+    {"id": "3-1", "numero": "3.1", "parte": 3, "titulo": "Dudas sobre casos clínicos", "slug": "parte-3/3-1-casos-clinicos", "icono": "clinical_notes", "minutosPlan": 150, "sesionesPlan": 7, "requiere": ["3-0", "1-6"], "nota": "Recomienda 1.6", "expres": true},
+    {"id": "3-2", "numero": "3.2", "parte": 3, "titulo": "Farmacología: ajuste de dosis, combinaciones y deprescripción", "slug": "parte-3/3-2-farmacologia", "icono": "medication", "minutosPlan": 150, "sesionesPlan": 7, "requiere": ["3-0"], "nota": "Recomienda 2.5", "expres": true},
+    {"id": "3-3", "numero": "3.3", "parte": 3, "titulo": "Búsqueda bibliográfica actualizada", "slug": "parte-3/3-3-busqueda-bibliografica", "icono": "menu_book", "minutosPlan": 150, "sesionesPlan": 7, "requiere": ["3-0"], "expres": true},
+    {"id": "3-4", "numero": "3.4", "parte": 3, "titulo": "Análisis estadístico de una base de datos en Excel", "slug": "parte-3/3-4-analisis-estadistico", "icono": "table_chart", "minutosPlan": 180, "sesionesPlan": 9, "requiere": ["3-0"], "expres": true},
+    {"id": "3-5", "numero": "3.5", "parte": 3, "titulo": "Escribir un artículo científico", "slug": "parte-3/3-5-escribir-un-articulo", "icono": "article", "minutosPlan": 105, "sesionesPlan": 5, "requiere": ["3-0"], "nota": "Usa el caso de 3.1", "expres": true},
+    {"id": "3-6", "numero": "3.6", "parte": 3, "titulo": "Presentaciones en PowerPoint", "slug": "parte-3/3-6-presentaciones", "icono": "slideshow", "minutosPlan": 75, "sesionesPlan": 4, "requiere": ["3-0"], "nota": "Usa el caso de 3.1", "expres": true},
+    {"id": "3-7", "numero": "3.7", "parte": 3, "titulo": "Cursos de formación continuada: estudiar con IA", "slug": "parte-3/3-7-formacion-continuada", "icono": "school", "minutosPlan": 60, "sesionesPlan": 3, "requiere": ["3-0"], "expres": true},
+    {"id": "3-8", "numero": "3.8", "parte": 3, "titulo": "Proyecto final", "slug": "parte-3/3-8-proyecto-final", "icono": "workspace_premium", "minutosPlan": 90, "sesionesPlan": 4, "requiere": ["3-1", "3-2", "3-3"], "nota": "Pide tres talleres", "expres": true}
+  ]
+}

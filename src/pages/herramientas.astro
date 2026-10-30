@@ -1,0 +1,80 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../components/layout/BaseLayout.astro';
+import { fechaCorta } from '../lib/formato';
+
+const herramientas = (await getCollection('herramientas')).sort((a, b) => a.data.nombre.localeCompare(b.data.nombre, 'es'));
+const TAREAS: Record<string, string> = {
+  'asistente-general': 'Asistente general', 'evidencia-clinica': 'Evidencia clínica con IA', farmacologia: 'Fármacos y fichas técnicas',
+  interacciones: 'Interacciones', calculadoras: 'Calculadoras clínicas', deprescripcion: 'Deprescripción', bibliografia: 'Buscar bibliografía',
+  'gestor-referencias': 'Gestionar referencias', estadistica: 'Estadística', 'estudiar-documentos': 'Estudiar con tus documentos', presentaciones: 'Presentaciones',
+};
+const DATOS: Record<string, string> = { no: 'No apta para datos de pacientes', 'solo-con-contrato-del-centro': 'Solo con contrato del centro', 'no-aplica': 'No usa datos de pacientes' };
+const ESTADO: Record<string, string> = { verificado: 'Verificada', parcial: 'Verificación parcial', 'bloqueado-anti-bots': 'Pendiente de comprobación manual', 'no-disponible': 'No disponible en España' };
+const tareas = [...new Set(herramientas.flatMap((h) => h.data.tareas))];
+---
+<BaseLayout titulo="Directorio de herramientas" seccion="herramientas" descripcion="Herramientas de IA y de apoyo clínico, por tarea, con lo que hacen bien y mal.">
+  <div class="contenedor pt-7">
+    <h1>Directorio de herramientas</h1>
+    <div class="contenedor-lectura px-0 mx-0">
+      <p class="tenue">Ordenadas por <strong class="text-tinta">tarea</strong>, no por marca. Cada una indica lo que hace bien, lo que hace mal y cuándo no usarla. Precios, disponibilidad y condiciones cambian a menudo: aquí aparecen a fecha de su verificación.</p>
+      <p class="cuadro cuadro-aviso text-base"><strong>En este curso usas tus cuentas y dispositivos personales.</strong> Con una cuenta personal, ninguna herramienta de IA es apta para datos identificables de pacientes. Solo lo sería una herramienta contratada y autorizada por tu centro.</p>
+    </div>
+    <form class="grid gap-3 sm:grid-cols-2 lg:grid-cols-5 items-end mt-4 no-imprimir" id="filtros" onsubmit="return false">
+      <label class="grid gap-1 lg:col-span-2"><span class="font-bold">Quiero…</span>
+        <select name="tarea" class="min-h-12 rounded-lg border border-borde bg-superficie px-3 text-lg">
+          <option value="">Todas las tareas</option>
+          {tareas.map((t) => <option value={t}>{TAREAS[t]}</option>)}
+        </select>
+      </label>
+      <label class="flex gap-2 items-center min-h-12"><input type="checkbox" name="gratis" class="size-5" /> Solo gratuitas</label>
+      <label class="flex gap-2 items-center min-h-12"><input type="checkbox" name="es" class="size-5" /> En español</label>
+      <label class="flex gap-2 items-center min-h-12"><input type="checkbox" name="espana" class="size-5" /> Disponibles en España</label>
+    </form>
+    <p class="text-base tenue mt-2" aria-live="polite"><span id="n-herramientas">{herramientas.length}</span> herramientas</p>
+    <div class="grid gap-4 mt-2 md:grid-cols-2 xl:grid-cols-3">
+      {herramientas.map((h) => {
+        const d = h.data;
+        return (
+          <article class="tarjeta grid gap-2 content-start" data-tareas={d.tareas.join(' ')} data-gratis={String(d.gratis)} data-es={String(d.idiomaEs !== 'no')} data-espana={String(d.disponibleEspana === 'sí')}>
+            <h2 class="text-xl m-0"><a href={d.url} target="_blank" rel="noopener noreferrer">{d.nombre} ↗</a></h2>
+            <p class="m-0 flex flex-wrap gap-1.5">
+              {d.tareas.map((t) => <span class="chip">{TAREAS[t]}</span>)}
+            </p>
+            <p class="m-0 text-base">{d.descripcion}</p>
+            <ul class="m-0 pl-5 text-base"><li class="list-none -ml-5 font-bold">Hace bien</li>{d.haceBien.map((x) => <li>{x}</li>)}</ul>
+            <ul class="m-0 pl-5 text-base"><li class="list-none -ml-5 font-bold">Hace mal</li>{d.haceMal.map((x) => <li>{x}</li>)}</ul>
+            <p class="m-0 text-base"><strong>Cuándo no usarla:</strong> {d.cuandoNoUsarla}</p>
+            <dl class="m-0 grid grid-cols-[auto_1fr] gap-x-3 gap-y-0.5 text-base">
+              <dt class="font-bold">Precio</dt><dd class="m-0">{d.precio}</dd>
+              <dt class="font-bold">Español</dt><dd class="m-0">{d.idiomaEs}</dd>
+              <dt class="font-bold">En España</dt><dd class="m-0">{d.disponibleEspana === 'por-verificar' ? 'por verificar' : d.disponibleEspana}</dd>
+              <dt class="font-bold">Pacientes</dt><dd class="m-0">{DATOS[d.aptaDatosPacientes]}</dd>
+              <dt class="font-bold">Registro</dt><dd class="m-0">{d.registro === 'no' ? 'No hace falta' : d.registro === 'gratuito' ? 'Gratuito' : 'Solo profesionales'}</dd>
+            </dl>
+            <p class="m-0 text-sm tenue">{ESTADO[d.estado]} · {fechaCorta(d.fechaVerificacion)}{d.notas ? ` · ${d.notas}` : ''}</p>
+          </article>
+        );
+      })}
+    </div>
+  </div>
+</BaseLayout>
+<script>
+  const form = document.getElementById('filtros') as HTMLFormElement;
+  const items = [...document.querySelectorAll<HTMLElement>('[data-tareas]')];
+  const contador = document.getElementById('n-herramientas')!;
+  form.addEventListener('input', () => {
+    const f = new FormData(form);
+    const tarea = String(f.get('tarea') ?? '');
+    let n = 0;
+    items.forEach((it) => {
+      const ok = (!tarea || it.dataset.tareas!.split(' ').includes(tarea))
+        && (!f.get('gratis') || it.dataset.gratis === 'true')
+        && (!f.get('es') || it.dataset.es === 'true')
+        && (!f.get('espana') || it.dataset.espana === 'true');
+      it.hidden = !ok;
+      if (ok) n++;
+    });
+    contador.textContent = String(n);
+  });
+</script>

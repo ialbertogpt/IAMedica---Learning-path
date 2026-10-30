@@ -1,0 +1,214 @@
+---
+// Página de un subcapítulo: cabecera, sesiones (una cada vez), recursos y pie con fuentes.
+import { getCollection, getEntries, render } from 'astro:content';
+import BaseLayout from '../components/layout/BaseLayout.astro';
+import Recurso from '../components/curso/Recurso.astro';
+import Icono from '../components/ui/Icono.astro';
+import { componentesMDX } from '../components/curso';
+import { subcapitulos, infoParte, extraerSesiones } from '../lib/curso';
+import { minutosATexto, fechaLarga } from '../lib/formato';
+
+export async function getStaticPaths() {
+  const entradas = await getCollection('partes');
+  return entradas.map((entrada) => ({ params: { slug: entrada.id }, props: { entrada } }));
+}
+
+const { entrada } = Astro.props;
+const d = entrada.data;
+const { Content } = await render(entrada);
+const subs = await subcapitulos();
+const info = subs.find((s) => s.id === d.id);
+if (!info) throw new Error(`[curso] ${d.id} no está en src/data/curso.json`);
+if (info.parte !== d.parte) throw new Error(`[curso] ${d.id}: la parte del frontmatter (${d.parte}) no coincide con curso.json (${info.parte})`);
+const parte = infoParte(d.parte);
+const sesiones = extraerSesiones(entrada.body);
+const construidos = subs.filter((s) => s.construido);
+const i = construidos.findIndex((s) => s.id === d.id);
+const anterior = construidos[i - 1];
+const siguiente = construidos[i + 1];
+const requisitos = info.requiere.map((id) => subs.find((s) => s.id === id)!).map((s) => ({
+  id: s.id, numero: s.numero, titulo: s.titulo, slug: s.slug, construido: s.construido, sesiones: s.sesiones.length,
+}));
+const recursos = await getEntries(d.recursos);
+const paraSaberMas = await getEntries(d.paraSaberMas);
+const color = `var(--${parte.color})`;
+---
+<BaseLayout titulo={`${info.numero} · ${d.titulo}`} descripcion={d.gancho}>
+  <article class="contenedor-lectura pt-6" data-subcapitulo={d.id} data-total={sesiones.length} style={`--c: ${color}`}>
+    <nav class="text-base mb-3 no-imprimir" aria-label="Ruta" data-pagefind-ignore>
+      <a href="/" class="no-underline">Itinerario</a> <span aria-hidden="true" class="text-tinta-3">›</span> <span class="text-tinta-2">{parte.n === 0 ? 'Módulo 0' : parte.linea} · {parte.nombre}</span>
+    </nav>
+
+    <header class="grid gap-3.5">
+      <p class="m-0 flex items-center gap-2.5 mono text-[12px] font-medium tracking-[.1em] text-[var(--c)]">
+        <span class="size-2 rounded-full bg-[var(--c)] shadow-[0_0_0_4px_color-mix(in_oklch,var(--c)_22%,transparent)]"></span>
+        {(parte.n === 0 ? 'MÓDULO 0' : parte.linea.toUpperCase())} · {info.numero}
+      </p>
+      <h1 class="m-0 flex items-start gap-3"><span class="mt-1.5 text-[var(--c)] hidden sm:inline"><Icono nombre={info.icono} tam={34} /></span><span>{d.titulo}</span></h1>
+      <p class="m-0 flex flex-wrap gap-x-5 gap-y-1.5">
+        <span class="meta"><Icono nombre="schedule" tam={18} />{minutosATexto(d.minutos)}</span>
+        <span class="meta"><Icono nombre="library_books" tam={18} />{sesiones.length} sesiones de {Math.min(...sesiones.map((s) => s.minutos))}–{Math.max(...sesiones.map((s) => s.minutos))} min</span>
+        {d.aFecha && <span class="meta"><Icono nombre="event" tam={18} />Contenido a fecha de {d.aFecha}</span>}
+      </p>
+      <p class="tarjeta rejilla m-0 text-lg border-l-4 border-l-[var(--c)]"><span>{d.gancho}</span></p>
+      <section class="tarjeta" aria-labelledby="objetivos-t">
+        <h2 id="objetivos-t" class="eyebrow mt-0 mb-2.5">Al terminar, serás capaz de</h2>
+        <ul class="m-0 p-0 list-none grid gap-2">{d.objetivos.map((o) => <li class="flex gap-2.5 items-start"><span class="text-[var(--c)] mt-1"><Icono nombre="task_alt" tam={20} /></span><span>{o}.</span></li>)}</ul>
+      </section>
+      <div id="aviso-requisitos" class="cuadro cuadro-aviso no-imprimir" hidden data-requisitos={JSON.stringify(requisitos)} data-pagefind-ignore></div>
+    </header>
+
+    <nav class="nav-sesiones mt-7 no-imprimir" aria-label="Sesiones de este subcapítulo" data-pagefind-ignore>
+      <ol class="list-none m-0 p-0 flex flex-wrap gap-2">
+        {sesiones.map((s) => (
+          <li>
+            <a href={`#sesion-${s.n}`} data-pestana={s.n} class="inline-flex items-center gap-1.5 min-h-11 px-3.5 rounded-[10px] border border-borde bg-superficie no-underline text-tinta text-[15px]" title={s.titulo}>
+              <span data-marca={s.n} class="text-[var(--c)] hidden"><Icono nombre="check_circle" relleno tam={17} /></span><span class="mono text-[13px] text-tinta-3">S{s.n}</span><span>Sesión {s.n}</span><span class="sr-only">: {s.titulo}</span>
+            </a>
+          </li>
+        ))}
+      </ol>
+      <p class="mt-2.5 mb-0 text-[15px]"><button type="button" id="ver-todo" class="underline text-l1 bg-transparent border-0 p-0 cursor-pointer">Ver todo el subcapítulo en una página</button></p>
+    </nav>
+
+    <div class="mt-6" id="sesiones">
+      <Content components={componentesMDX} />
+    </div>
+
+    <p id="fin-subcapitulo" class="retro retro-ok mt-6" hidden>✓ Has completado todas las sesiones de este subcapítulo. {siguiente ? <>Siguiente parada: <a href={`/${siguiente.slug}/`}>{siguiente.numero} · {siguiente.titulo}</a>.</> : <a href="/">Vuelve al itinerario</a>}</p>
+
+    <section class="mt-12 grid gap-3" aria-labelledby="recursos-t">
+      <h2 id="recursos-t">Recursos de este subcapítulo</h2>
+      {recursos.map((r) => <Recurso id={r.id} />)}
+      {paraSaberMas.length > 0 && <>
+        <h3 class="mt-4">Para saber más (opcional)</h3>
+        {paraSaberMas.map((r) => <Recurso id={r.id} compacto />)}
+      </>}
+    </section>
+
+    <footer class="mt-12 pt-6 border-t border-borde text-base grid gap-2">
+      <p class="m-0"><strong>Última revisión:</strong> {fechaLarga(d.fechaRevision)}{d.aFecha && ` · Información sensible al tiempo a fecha de ${d.aFecha}`}.</p>
+      <details>
+        <summary class="cursor-pointer font-bold">Fuentes ({d.fuentes.length})</summary>
+        <ol class="mt-2 pl-5 grid gap-1">
+          {d.fuentes.map((f) => (
+            <li>
+              {f.url ? <a href={f.url} target="_blank" rel="noopener noreferrer">{f.texto}</a> : f.texto}
+              {f.pmid && <> · PMID <a href={`https://pubmed.ncbi.nlm.nih.gov/${f.pmid}/`} target="_blank" rel="noopener noreferrer">{f.pmid}</a></>}
+              {f.doi && <> · DOI {f.doi}</>}
+            </li>
+          ))}
+        </ol>
+      </details>
+      <nav class="flex flex-wrap justify-between gap-3 mt-4 no-imprimir" aria-label="Otros subcapítulos" data-pagefind-ignore>
+        {anterior ? <a class="boton boton-sec" href={`/${anterior.slug}/`}>← {anterior.numero} · {anterior.titulo}</a> : <span></span>}
+        {siguiente ? <a class="boton boton-sec" href={`/${siguiente.slug}/`}>{siguiente.numero} · {siguiente.titulo} →</a> : <a class="boton boton-sec" href="/">Volver al itinerario</a>}
+      </nav>
+    </footer>
+  </article>
+</BaseLayout>
+
+<script>
+  import { leer, marcarSesion, registrarVisita, alCambiar } from '../lib/progreso';
+
+  const art = document.querySelector<HTMLElement>('[data-subcapitulo]')!;
+  const sub = art.dataset.subcapitulo!;
+  const total = Number(art.dataset.total);
+  const secciones = [...art.querySelectorAll<HTMLElement>('.sesion')];
+  const contenedor = document.getElementById('sesiones')!;
+  let modoTodo = false;
+
+  function hechas(): Set<number> { return new Set(leer().sesiones[sub] ?? []); }
+
+  function pintarEstado() {
+    const h = hechas();
+    art.querySelectorAll<HTMLElement>('[data-marca]').forEach((m) => { m.classList.toggle('hidden', !h.has(Number(m.dataset.marca))); });
+    art.querySelectorAll<HTMLElement>('[data-estado-sesion]').forEach((e) => {
+      e.textContent = h.has(Number(e.dataset.estadoSesion)) ? '✓ Sesión marcada como hecha' : '';
+    });
+    art.querySelectorAll<HTMLButtonElement>('[data-completar-sesion]').forEach((b) => {
+      const n = Number(b.dataset.completarSesion);
+      const ultima = n === total;
+      if (h.has(n)) b.textContent = ultima ? 'Volver al itinerario →' : 'Continuar →';
+      else b.textContent = ultima ? 'Marcar como hecha y terminar ✓' : 'Marcar como hecha y continuar →';
+    });
+    document.getElementById('fin-subcapitulo')!.hidden = h.size < total;
+  }
+
+  function mostrar(n: number, desplazar = true) {
+    if (n < 1 || n > total) return;
+    if (!modoTodo) {
+      contenedor.classList.add('js-sesiones');
+      secciones.forEach((s) => s.classList.toggle('activa', Number(s.dataset.sesion) === n));
+    }
+    art.querySelectorAll<HTMLElement>('[data-pestana]').forEach((p) => {
+      const activa = Number(p.dataset.pestana) === n;
+      p.setAttribute('aria-current', activa ? 'step' : 'false');
+      p.style.borderColor = activa ? 'var(--c)' : '';
+      p.style.background = activa ? 'color-mix(in oklch, var(--c) 9%, var(--superficie))' : '';
+      p.style.fontWeight = activa ? '600' : '';
+    });
+    history.replaceState(null, '', `#sesion-${n}`);
+    registrarVisita(sub, n);
+    if (desplazar) document.getElementById(`sesion-${n}`)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  function inicial(): number {
+    if (location.hash === '#ficha') {
+      const ses = document.getElementById('ficha')?.closest<HTMLElement>('.sesion');
+      if (ses) return Number(ses.dataset.sesion);
+    }
+    const m = location.hash.match(/^#sesion-(\d+)$/);
+    if (m) return Number(m[1]);
+    const h = hechas();
+    for (let n = 1; n <= total; n++) if (!h.has(n)) return n;
+    return 1;
+  }
+
+  art.addEventListener('click', (e) => {
+    const t = e.target as Element;
+    const pestana = t.closest<HTMLElement>('[data-pestana]');
+    if (pestana) { e.preventDefault(); mostrar(Number(pestana.dataset.pestana)); return; }
+    const ir = t.closest<HTMLElement>('[data-ir-sesion]');
+    if (ir) { mostrar(Number(ir.dataset.irSesion)); return; }
+    const completar = t.closest<HTMLElement>('[data-completar-sesion]');
+    if (completar) {
+      const n = Number(completar.dataset.completarSesion);
+      const yaHecha = hechas().has(n);
+      if (!yaHecha) marcarSesion(sub, n, true);
+      if (n < total) mostrar(n + 1);
+      else if (yaHecha) location.href = '/';
+      else document.getElementById('fin-subcapitulo')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  });
+
+  document.getElementById('ver-todo')!.addEventListener('click', (e) => {
+    modoTodo = !modoTodo;
+    contenedor.classList.toggle('js-sesiones', !modoTodo);
+    (e.target as HTMLElement).textContent = modoTodo ? 'Ver una sesión cada vez' : 'Ver todo el subcapítulo en una página';
+    if (!modoTodo) mostrar(inicial(), false);
+  });
+
+  window.addEventListener('hashchange', () => {
+    const m = location.hash.match(/^#sesion-(\d+)$/);
+    if (m) mostrar(Number(m[1]));
+  });
+
+  // Aviso suave de requisitos (no bloquea)
+  const aviso = document.getElementById('aviso-requisitos')!;
+  const requisitos: { numero: string; titulo: string; slug: string; construido: boolean; id: string; sesiones: number }[] = JSON.parse(aviso.dataset.requisitos ?? '[]');
+  const progreso = leer();
+  const pendientes = requisitos.filter((r) => !r.construido || (progreso.sesiones[r.id]?.length ?? 0) < r.sesiones);
+  if (pendientes.length) {
+    aviso.hidden = false;
+    aviso.innerHTML = `<p class="cuadro-titulo"><span aria-hidden="true">ⓘ</span>Antes de empezar (recomendado, no obligatorio)</p><p class="m-0">Este subcapítulo se apoya en: ${pendientes
+      .map((r) => (r.construido ? `<a href="/${r.slug}/">${r.numero} · ${r.titulo}</a>` : `${r.numero} · ${r.titulo} <span class="tenue">(en preparación)</span>`))
+      .join(', ')}. Puedes seguir igualmente.</p>`;
+  }
+
+  pintarEstado();
+  alCambiar(pintarEstado);
+  const irAFicha = location.hash === '#ficha';
+  mostrar(inicial(), Boolean(location.hash) && !irAFicha);
+  if (irAFicha) document.getElementById('ficha')?.scrollIntoView({ block: 'start' });
+</script>

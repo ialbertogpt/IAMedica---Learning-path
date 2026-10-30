@@ -1,0 +1,21 @@
+---
+import Icono from '../ui/Icono.astro';
+// Los tokens de cada mensaje se cuentan aquí, en la compilación, con el tokenizador real.
+import { encode } from 'gpt-tokenizer/encoding/o200k_base';
+import Isla from './especificos/VentanaContexto.tsx';
+import { cargarDatos } from '../../lib/interactivos';
+interface Props { datos: string }
+interface Datos {
+  titulo: string; nota: string; respuestaCon: string; respuestaSin: string; pregunta: string;
+  turnos: { rol: 'usuario' | 'asistente'; texto: string; clave?: boolean }[];
+}
+const d = cargarDatos<Datos>(Astro.props.datos);
+const turnos = d.turnos.map((t) => ({ ...t, tokens: encode(t.texto).length }));
+const pregunta = { texto: d.pregunta, tokens: encode(d.pregunta).length };
+const minimo = Math.ceil((pregunta.tokens + turnos[turnos.length - 1].tokens + 10) / 10) * 10;
+---
+<section class="interactivo" aria-label={d.titulo}>
+  <h3 class="interactivo-titulo"><Icono nombre="forum" tam={20} />{d.titulo}</h3>
+  <Isla client:visible turnos={turnos} pregunta={pregunta} respuestaCon={d.respuestaCon} respuestaSin={d.respuestaSin} minimo={minimo} />
+  <p class="interactivo-nota">{d.nota}</p>
+</section>

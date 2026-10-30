@@ -1,0 +1,358 @@
+---
+id: "3-2"
+titulo: "Farmacología: ajuste de dosis, combinaciones y deprescripción"
+parte: 3
+minutos: 150
+objetivos:
+  - Localizar en la ficha técnica de CIMA la posología en insuficiencia renal, las contraindicaciones y las interacciones de un fármaco
+  - Calcular el aclaramiento de creatinina con Cockcroft-Gault y distinguirlo del FG estimado por CKD-EPI
+  - Usar la IA para revisar una lista de medicación con STOPP/START v3 y Beers 2023 y verificar cada propuesta en su fuente
+  - Redactar con ayuda de la IA un plan de deprescripción escalonado y su explicación para la paciente o la familia
+gancho: "Una paciente ficticia de 84 años toma 12 fármacos y tiene un filtrado de 28 ml/min. Pides ayuda a una IA y en diez segundos te devuelve una tabla impecable, con dosis y recomendaciones. Tres de esas recomendaciones son peligrosas. En este taller aprenderás a aprovechar esos diez segundos sin heredar sus errores."
+recursos:
+  - r-cima
+  - r-stopp-start-3-es
+  - r-deprescribing-algoritmos
+paraSaberMas:
+  - r-stopp-start-3
+  - r-drugs-interacciones
+  - r-acbcalc
+  - r-mdcalc
+  - v-uva-fichatecnica
+test: "3-2"
+fechaRevision: "2026-10-30"
+aFecha: octubre de 2026
+fuentes:
+  - texto: "Ficha técnica de Metformina Cinfa 850 mg (CIMA, nº reg. 68167; revisión del texto: marzo de 2025), secciones 4.2 y 4.3"
+    url: https://cima.aemps.es/cima/dochtml/ft/68167/FT_68167.html
+  - texto: "Ficha técnica de Eliquis 5 mg (apixabán) (CIMA, nº reg. 111691009; medicamento autorizado por la EMA), sección 4.2; consultada el 30/10/2026"
+    url: https://cima.aemps.es/cima/dochtml/ft/111691009/FT_111691009.html
+  - texto: "Ficha técnica de Digoxina Kern Pharma 0,25 mg (CIMA, nº reg. 34566; revisión: octubre de 2026), sección 4.2"
+    url: https://cima.aemps.es/cima/dochtml/ft/34566/FT_34566.html
+  - texto: "Ficha técnica de Enalapril Cinfa 20 mg (CIMA, nº reg. 63355; revisión: julio de 2021), sección 4.2"
+    url: https://cima.aemps.es/cima/dochtml/ft/63355/FT_63355.html
+  - texto: "Ficha técnica de Amlodipino Cinfa 10 mg (CIMA, nº reg. 65461; revisión: julio de 2022), sección 4.8"
+    url: https://cima.aemps.es/cima/dochtml/ft/65461/FT_65461.html
+  - texto: "Ficha técnica de Simvastatina Cinfamed 40 mg (CIMA, nº reg. 70235; revisión: abril de 2026), secciones 4.2 y 4.5"
+    url: https://cima.aemps.es/cima/dochtml/ft/70235/FT_70235.html
+  - texto: "Ficha técnica de Lorazepam Cinfa 1 mg (CIMA, nº reg. 68477; revisión: noviembre de 2021), sección 4.2"
+    url: https://cima.aemps.es/cima/dochtml/ft/68477/FT_68477.html
+  - texto: "Ficha técnica de Tryptizol 25 mg (amitriptilina) (CIMA, nº reg. 37130; revisión: enero de 2025), sección 4.2"
+    url: https://cima.aemps.es/cima/dochtml/ft/37130/FT_37130.html
+  - texto: "Ficha técnica de Alopurinol Cinfamed 100 mg (CIMA, nº reg. 84085; revisión: enero de 2025), sección 4.2"
+    url: https://cima.aemps.es/cima/dochtml/ft/84085/FT_84085.html
+  - texto: "Ficha técnica de Ibuprofeno Cinfa 600 mg (CIMA, nº reg. 70039; revisión: noviembre de 2024), secciones 4.2 y 4.3"
+    url: https://cima.aemps.es/cima/dochtml/ft/70039/FT_70039.html
+  - texto: "O'Mahony D, et al. STOPP/START criteria for potentially inappropriate prescribing in older people: version 3. Eur Geriatr Med 2023;14:625-32 (apéndice 1, CC BY 4.0)"
+    pmid: "37256475"
+    doi: 10.1007/s41999-023-00777-y
+  - texto: "Delgado-Silveira E, et al. Versión en español de los criterios STOPP/START 3. Rev Esp Geriatr Gerontol 2023"
+    pmid: "37738843"
+    doi: 10.1016/j.regg.2023.101407
+  - texto: "2023 American Geriatrics Society Beers Criteria Update Expert Panel. J Am Geriatr Soc 2023;71:2052-81"
+    pmid: "37139824"
+    doi: 10.1111/jgs.18372
+  - texto: "Rodríguez-Pérez A, et al. Novel tool for deprescribing in chronic patients with multimorbidity: LESS-CHRON criteria. Geriatr Gerontol Int 2017"
+    pmid: "28544188"
+    doi: 10.1111/ggi.13062
+  - texto: "deprescribing.org. Benzodiazepine & Z-Drug (BZRA) Deprescribing Algorithm (2019) y PPI Deprescribing Algorithm (2018)"
+    url: https://deprescribing.org/resources/deprescribing-guidelines-algorithms/
+  - texto: "Cockcroft DW, Gault MH. Prediction of creatinine clearance from serum creatinine. Nephron 1976;16:31-41"
+    pmid: "1244564"
+  - texto: "Inker LA, et al. New Creatinine- and Cystatin C-Based Equations to Estimate GFR without Race. N Engl J Med 2021;385:1737-49"
+    pmid: "34554658"
+  - texto: "KDIGO 2024 Clinical Practice Guideline for the Evaluation and Management of Chronic Kidney Disease. Kidney Int 2024"
+    pmid: "38490803"
+---
+
+<Sesion n={1} titulo="La regla de oro: la IA propone, la ficha técnica decide" minutos={20}>
+
+<AvisoClinico titulo="Antes de empezar">
+Todos los pacientes de este taller son **ficticios**. Las dosis y los criterios que aparecen están verificados en su fuente y fechados, pero la ficha técnica puede actualizarse: **consulta siempre la versión vigente en CIMA**. La decisión clínica es tuya.
+</AvisoClinico>
+
+### Para qué sirve la IA aquí (y para qué no)
+
+En farmacología, la IA es muy buena **explicando, organizando y redactando**. Repasa una lista de 12 fármacos contra cientos de criterios en segundos, explica un mecanismo de interacción o convierte un plan técnico en una explicación clara para la familia.
+
+En lo que **no es fiable** es en los datos exactos: dosis, umbrales de función renal y límites de combinación. Ya viste por qué en el subcapítulo 1.5: predice texto plausible, y «reducir la dosis a la mitad» suena igual de plausible que «está contraindicado».
+
+<Analogia>
+Trata a la IA como a **un residente de primer año muy rápido y muy leído**: le pides que prepare la revisión, pero **ninguna dosis sale de la planta sin que tú la compruebes en la fuente**.
+</Analogia>
+
+### La fuente oficial: la ficha técnica en CIMA
+
+La <T id="ficha-tecnica">ficha técnica</T> es el documento autorizado de cada medicamento. En España se consulta gratis en <T id="cima">CIMA</T>, la web y app de la AEMPS: busca por principio activo, abre una presentación y salta a la sección que necesites.
+
+<AnatomiaFicha />
+
+Dos detalles prácticos:
+
+- **Cada presentación tiene su ficha.** Suelen coincidir entre genéricos del mismo principio activo, pero mira la **fecha de revisión** (sección 10).
+- Los medicamentos autorizados por la Agencia Europea (EMA) también están en CIMA. La fecha de revisión de su texto se consulta en la web de la EMA.
+
+<Clasificador datos="3-2-donde-compruebo" />
+
+<PasoTaller id="3-2-cima" tipo="otro" texto="He abierto CIMA (web o app) y he localizado la sección 4.2 de la ficha técnica de un fármaco que uso a menudo." />
+
+</Sesion>
+
+<Sesion n={2} titulo="Función renal: los cálculos, a la vista" minutos={20}>
+
+### Dos «reglas» para medir el riñón
+
+Muchos ajustes de dosis dependen de la función renal, pero hay dos formas de estimarla, y no dan lo mismo:
+
+- El <T id="fg-estimado">FG estimado</T>, en ml/min/1,73 m². Suele calcularse con la ecuación CKD-EPI y es el que informa el laboratorio.
+- El <T id="aclaramiento-creatinina">aclaramiento de creatinina</T>, en ml/min. Se estima con la <T id="cockcroft-gault">fórmula de Cockcroft-Gault</T>, que tiene en cuenta el peso.
+
+**La medida que debes usar es la que use la ficha técnica de cada fármaco.** Por ejemplo, la de metformina habla de «TFG», mientras que las de apixabán y enalapril hablan de «aclaramiento de creatinina».
+
+<Caso titulo="La paciente del taller">
+Mujer de 84 años, 58 kg, creatinina sérica 1,75 mg/dl. El laboratorio informa un **FG estimado de 28 ml/min/1,73 m²**.
+</Caso>
+
+<CalculadoraRenal />
+
+En esta paciente, Cockcroft-Gault da unos **22 ml/min**: seis puntos menos que el FG estimado. En los mayores de poco peso, esa diferencia puede cambiar la dosis de un fármaco.
+
+### Pedirle a la IA que calcule… mostrando el cálculo
+
+Los <T id="llm">LLM</T> fallan con relativa frecuencia en cálculos: recuerda cómo trocean los números. Si le pides un cálculo, **exige que escriba la fórmula y cada operación**. Así puedes revisarlo en diez segundos.
+
+<PruebaloTu minutos={6}>
+Copia la plantilla, rellénala con los datos de la paciente del taller y compara el resultado de la IA con el de la calculadora. ¿Coinciden? Si no, ¿dónde está el error: las unidades, el factor de sexo, el redondeo?
+
+<Plantilla id="p-3-2-calculo-crcl" />
+</PruebaloTu>
+
+<OjoCon>
+- **Unidades:** la creatinina en µmol/l se divide entre 88,4 para pasarla a mg/dl. Un error de unidades multiplica el resultado.
+- **Peso real frente a peso ideal:** en la obesidad o la caquexia, Cockcroft-Gault se desvía. Consulta qué peso recomienda tu centro.
+- **Función renal inestable** (fracaso renal agudo, deshidratación): ninguna fórmula es fiable. Vuelve a medir cuando se estabilice.
+</OjoCon>
+
+</Sesion>
+
+<Sesion n={3} titulo="Encuentra el error" minutos={20}>
+
+### Una respuesta impecable… y peligrosa
+
+Has visto la teoría. Ahora, la práctica que más enseña: **una respuesta que suena perfecta y tiene errores de dosis**. Léela como si te la hubiera pasado un residente.
+
+<EncuentraError datos="3-2-encuentra-error" />
+
+### Lo que tienen en común los tres errores
+
+1. **Metformina:** la IA aplica una regla general («ajustar a la función renal») cuando el dato concreto es «contraindicada por debajo de 30».
+2. **Apixabán:** invierte el umbral. El de 15 ml/min existe, pero es el de «no recomendado»; el ajuste empieza antes.
+3. **Simvastatina:** afirma con seguridad que no hay interacciones. Negar algo que no ha comprobado es una forma especialmente traicionera de <T id="confabulacion">confabulación</T>.
+
+En los tres casos, **la frase tiene parte de verdad**, y eso la hace creíble. Ninguno se detecta leyendo; todos se detectan abriendo la ficha técnica.
+
+<PasoTaller id="3-2-verificar-error" tipo="verificar" texto="He abierto en CIMA la ficha técnica de al menos uno de los tres fármacos con error y he localizado el dato correcto." />
+
+</Sesion>
+
+<Sesion n={4} titulo="Interacciones y criterios de prescripción en mayores" minutos={20}>
+
+### Interacciones: comprobador más ficha técnica
+
+Una <T id="interaccion">interacción</T> no siempre es una prohibición. A veces solo obliga a **limitar la dosis o a vigilar**. Para cribarlas, usa un comprobador gratuito como el de Drugs.com: es rápido, pero está en inglés y lista también interacciones teóricas. **Las relevantes se confirman en la sección 4.5** de la ficha técnica.
+
+<PruebaloTu minutos={6}>
+1. Abre el [comprobador de interacciones de Drugs.com](https://www.drugs.com/drug_interactions.html).
+2. Añade: **simvastatin**, **amlodipine**, **apixaban** e **ibuprofen** (usa los nombres en inglés).
+3. Mira qué interacciones marca y con qué gravedad.
+4. Comprueba la de simvastatina y amlodipino en la sección 4.5 de la ficha técnica de la simvastatina en CIMA. ¿Qué límite de dosis indica?
+</PruebaloTu>
+
+### Más allá de la dosis: ¿le conviene a esta persona?
+
+Un fármaco puede estar **bien dosificado y ser inapropiado**. Para eso están los criterios de <T id="prescripcion-inapropiada">prescripción potencialmente inapropiada</T>:
+
+- Los <T id="stopp-start">criterios STOPP/START</T> (versión 3, 2023) tienen **190 criterios**: 133 STOPP («considera retirar») y 57 START («considera iniciar»). Hay versión oficial en español.
+- Los <T id="criterios-beers">criterios de Beers</T>, de la Sociedad Americana de Geriatría, en su actualización de 2023.
+- Los <T id="less-chron">criterios LESS-CHRON</T>, desarrollados en España para decidir cuándo retirar fármacos en pacientes crónicos con multimorbilidad.
+
+No hace falta memorizarlos. **Es justo la tarea en la que la IA ayuda mucho**: aplica cientos de criterios a una lista en segundos. Tu trabajo es comprobar que cada criterio que cita existe y dice eso.
+
+<Analogia>
+Los criterios son **un checklist de quirófano para la medicación**. La IA puede pasarlo por ti, pero tú firmas el checklist: compruebas cada casilla que te marca.
+</Analogia>
+
+### La carga anticolinérgica
+
+Algunos fármacos suman efectos anticolinérgicos (confusión, estreñimiento, retención urinaria, caídas) que, por separado, pasan desapercibidos. Esa suma es la <T id="carga-anticolinergica">carga anticolinérgica</T>. Calculadoras como **ACB Calculator** la cuantifican. Beers 2023 incluye la amitriptilina entre los fármacos con **fuerte actividad anticolinérgica**.
+
+</Sesion>
+
+<Sesion n={5} titulo="Deprescribir con método" minutos={22}>
+
+### Qué es deprescribir (y qué no)
+
+La <T id="deprescripcion">deprescripción</T> es **reducir o retirar de forma planificada** los fármacos cuyo riesgo supera al beneficio, **de acuerdo con el paciente**. No es «quitar pastillas»: es revisar, priorizar, retirar de forma gradual cuando hace falta y vigilar.
+
+En la <T id="polifarmacia">polifarmacia</T> del paciente mayor, pocas intervenciones son tan útiles y tan poco glamurosas.
+
+<Analogia>
+Deprescribir es **destetar**, no suspender de golpe. Igual que no retiras unos corticoides de meses de un día para otro, hay fármacos (las benzodiacepinas, por ejemplo) que exigen bajar poco a poco.
+</Analogia>
+
+### Cuatro principios para el plan
+
+1. **Prioriza por riesgo inmediato.** Primero lo contraindicado o lo que puede causar daño a corto plazo; después lo que no aporta beneficio.
+2. **Un cambio relevante cada vez**, salvo urgencias. Si algo empeora, sabrás por qué.
+3. **Retira de forma gradual lo que lo requiere y pacta qué vigilar.** Explica qué síntomas deben hacer consultar y cuándo será la próxima revisión.
+4. **Decide con la paciente y su familia.** La adherencia a un plan pactado es mucho mayor.
+
+### Dos algoritmos que conviene conocer
+
+En **deprescribing.org** hay algoritmos de una página basados en guías con metodología GRADE. Están en inglés y su licencia no permite traducirlos, así que aquí tienes lo esencial con nuestras palabras:
+
+- **Benzodiacepinas e hipnóticos (2019):** en mayores de 65 años se recomienda deprescribir, sea cual sea el tiempo de uso. La retirada es **lenta y pactada**: por ejemplo, reducir en torno a un 25 % cada dos semanas y hacer reducciones más pequeñas al final. Se vigila cada 1–2 semanas y se acompaña de medidas no farmacológicas para el sueño.
+- **Inhibidores de la bomba de protones (2018):** si no hay una indicación que justifique mantenerlos, se recomienda **reducir la dosis o suspender y usar a demanda**. Se vigila la reaparición de síntomas a las 4 y a las 12 semanas.
+
+<OjoCon>
+- **No suspendas de golpe** una benzodiacepina tomada durante más de 4 semanas: hay riesgo de síndrome de abstinencia. STOPP/START v3 lo indica de forma expresa.
+- **Revisa las indicaciones cruzadas:** un protector gástrico puede estar justificado mientras se tome un AINE. Si retiras el AINE, revisa el protector.
+- **La IA tiende a proponer cambios simultáneos.** Pídele expresamente un plan escalonado.
+</OjoCon>
+
+</Sesion>
+
+<Sesion n={6} titulo="Taller I: revisión de los 12 fármacos" minutos={24}>
+
+<Caso titulo="Revisión de medicación">
+**Mujer de 84 años**, 58 kg. Creatinina 1,75 mg/dl; **FG estimado 28 ml/min/1,73 m²** (aclaramiento por Cockcroft-Gault: unos 22 ml/min).
+
+**Diagnósticos:** hipertensión arterial, fibrilación auricular no valvular, diabetes tipo 2, gota (último episodio hace años), artrosis de rodillas, insomnio y síntomas depresivos leves. **Dos caídas en el último año.** Vive con su hija. No consta úlcera péptica ni insuficiencia cardiaca.
+
+**Medicación actual:**
+1. Metformina 850 mg cada 12 h
+2. Apixabán 5 mg cada 12 h (fibrilación auricular)
+3. Digoxina 0,25 mg al día (control de la frecuencia, desde hace 6 años)
+4. Enalapril 20 mg al día
+5. Amlodipino 10 mg al día
+6. Furosemida 40 mg al día (edemas maleolares)
+7. Simvastatina 40 mg por la noche
+8. Omeprazol 20 mg al día (desde un ingreso hace 3 años; no consta la indicación)
+9. Lorazepam 1 mg por la noche (insomnio, desde hace 2 años)
+10. Amitriptilina 25 mg por la noche (dolor e insomnio, desde hace 1 año)
+11. Alopurinol 300 mg al día
+12. Ibuprofeno 600 mg a demanda (2–3 veces por semana, por la rodilla)
+</Caso>
+
+### Paso 1 · Anonimizar
+
+Este caso ya es ficticio, pero practica el gesto que harás con uno real. Antes de pegar nada, <T id="anonimizar">anonimiza</T> el texto **repasando esta checklist**: nombre y apellidos, NHC, DNI o CIP, fechas exactas (pásalas a edades o intervalos), dirección, centro y servicio, y combinaciones raras que identifiquen (una profesión poco común, un suceso conocido).
+
+<PasoTaller id="3-2-anonimizar" tipo="anonimizar" texto="He revisado que el texto que voy a pegar no contiene ningún dato que permita identificar a la paciente." />
+
+### Paso 2 · Pedir una revisión estructurada
+
+<PruebaloTu minutos={8}>
+Copia la plantilla, pega los datos del caso tal como aparecen arriba y envíala a tu asistente. Guarda la tabla que te devuelva: la usarás en el paso 3 y en la sesión siguiente.
+
+<Plantilla id="p-3-2-revision-medicacion" />
+</PruebaloTu>
+
+### Paso 3 · Verificar cada fila
+
+Compara la tabla de la IA con la solución verificada. Fíjate en tres cosas: **qué ha detectado, qué se ha dejado** y **qué ha inventado**. Por ejemplo, un código de criterio que no existe o una dosis que no coincide con la ficha.
+
+<Desplegable titulo="Ver la solución verificada (ábrela después de tener la respuesta de la IA)">
+
+| Fármaco | Problema | Fuente |
+|---|---|---|
+| Metformina 850 mg/12 h | **Contraindicada** con TFG inferior a 30 ml/min. | Ficha técnica, secciones 4.2 y 4.3 · STOPP E6 |
+| Apixabán 5 mg/12 h | **Dosis excesiva.** En la fibrilación auricular, con un aclaramiento de 15–29 ml/min, la dosis es de 2,5 mg/12 h. Además cumple los tres criterios de reducción (edad, peso y creatinina). | Ficha técnica de Eliquis, sección 4.2 |
+| Digoxina 0,25 mg/día | Dosis de 125 µg/día o más con FG inferior a 30 (riesgo de toxicidad). La digoxina como primera opción a largo plazo para controlar la frecuencia en la fibrilación auricular también es un criterio STOPP. En mayores, la ficha pide dosis más bajas y control de niveles. | STOPP E1 y B21 · Beers 2023 · ficha técnica, sección 4.2 |
+| Enalapril 20 mg/día | **Revisar, no necesariamente cambiar.** Con un aclaramiento de 10–30 ml/min, la ficha indica empezar con 2,5 mg/día. La dosis de mantenimiento se ajusta según la tensión arterial, el potasio y la función renal. | Ficha técnica, sección 4.2 |
+| Amlodipino 10 mg/día | Sin ajuste renal. El edema es una reacción adversa muy frecuente: valora si los edemas por los que toma furosemida podrían deberse al amlodipino. Limita la dosis de simvastatina (ver abajo). | Ficha técnica, sección 4.8 |
+| Furosemida 40 mg/día | Sin criterio claro con estos datos. Vigila el potasio, el sodio y la función renal, y revisa la causa de los edemas. | Valoración clínica |
+| Simvastatina 40 mg | **Con amlodipino, no superar 20 mg/día.** Con un aclaramiento inferior a 30 ml/min, las dosis de más de 10 mg/día se consideran con cuidado. | Ficha técnica, secciones 4.2 y 4.5 |
+| Omeprazol 20 mg/día | Sin indicación documentada. Con el AINE y el anticoagulante podría estar justificado mientras se mantenga el AINE; si se retira, reducir o suspender y usar a demanda. | STOPP A1 · algoritmo de IBP de deprescribing.org |
+| Lorazepam 1 mg | Uso durante más de 4 semanas, por insomnio y con caídas de repetición. Retirada **gradual**, nunca brusca. La ficha limita el insomnio a 4 semanas como máximo, y en mayores puede bastar la mitad de la dosis. | STOPP D8, D10 y K1 · Beers 2023 · ficha técnica, sección 4.2 · algoritmo de benzodiacepinas de deprescribing.org |
+| Amitriptilina 25 mg | **La dosis encaja con la ficha** (en mayores, 10–25 mg por la noche), pero es un antidepresivo en una paciente con caídas de repetición y con fuerte actividad anticolinérgica. | STOPP K8 · Beers 2023 · ficha técnica, sección 4.2 |
+| Alopurinol 300 mg/día | Con alteración renal, la ficha indica empezar con un máximo de 100 mg/día y aumentar solo si la uricemia no se controla; en la insuficiencia renal grave pueden bastar menos de 100 mg/día. **Revisar la dosis** y la uricemia. | Ficha técnica, sección 4.2 |
+| Ibuprofeno 600 mg a demanda | **Contraindicado** en la insuficiencia renal grave. AINE con FG inferior a 50, y AINE junto con un anticoagulante (riesgo de hemorragia digestiva). Hay que buscar otra analgesia para la rodilla. | Ficha técnica, sección 4.3 · STOPP E4 y C10 |
+
+**Omisiones (START):** con estos datos no hay un criterio START claro. Si la IA te propone añadir un fármaco, comprueba que el caso cumple exactamente el criterio que cita. Por ejemplo, para un suplemento hace falta osteoporosis documentada o una fractura previa, y aquí no consta.
+
+**Referencias:** STOPP/START v3 (O'Mahony et al., 2023, apéndice 1); Beers 2023; fichas técnicas consultadas en CIMA el 30/10/2026 (fechas de revisión en las fuentes de esta página).
+</Desplegable>
+
+<PasoTaller id="3-2-verificar" tipo="verificar" texto="He comparado cada fila de la tabla de la IA con la ficha técnica o con el criterio original, y he anotado qué detectó, qué omitió y qué inventó." />
+
+</Sesion>
+
+<Sesion n={7} titulo="Taller II: plan escalonado y explicación para la familia" minutos={24}>
+
+### Paso 4 · Un plan escalonado
+
+Con la revisión ya verificada, pide a la IA **un plan en fases**. Ordena tú las prioridades si no estás de acuerdo con las suyas: por ejemplo, ¿qué es más urgente, la metformina contraindicada o la retirada lenta del lorazepam?
+
+<Plantilla id="p-3-2-plan-escalonado" />
+
+Después, pídele que **critique su propia respuesta**. A menudo detecta algo, pero a veces «corrige» lo que estaba bien: la verificación sigue siendo tuya.
+
+<Plantilla id="p-3-2-autocritica" />
+
+### Paso 5 · La explicación para la paciente o la familia
+
+Aquí la IA brilla: convierte un plan técnico en **un texto claro, cálido y comprensible**. Tú solo tienes que comprobar que dice exactamente lo que habéis decidido.
+
+<PruebaloTu minutos={6}>
+<Plantilla id="p-3-2-explicacion-familia" />
+
+Lee el resultado en voz alta, como si se lo dieras a la hija de la paciente. ¿Se entiende? ¿El horario coincide con el plan? ¿Hay algún tecnicismo sin explicar?
+</PruebaloTu>
+
+<OjoCon>
+- **Las dosis las verificas tú en CIMA**, aunque la respuesta parezca perfecta y diga «comprueba en la ficha técnica».
+- **La IA mezcla «la dosis es correcta» con «el fármaco es adecuado».** Son dos preguntas distintas: la primera la responde la ficha técnica; la segunda, criterios como STOPP/START o Beers.
+- **Los códigos de criterio se inventan con facilidad** («STOPP B47»). Compruébalos en el documento original.
+- **Interacciones «negadas»:** que la IA diga que no hay interacciones no significa que no las haya. Pásalas por un comprobador y por la sección 4.5.
+- **Con tu cuenta personal, nunca uses datos reales identificables.** Esta formación está pensada para tus dispositivos y cuentas personales.
+</OjoCon>
+
+<Resumen>
+- La IA **explica, organiza y propone**; la **dosis se verifica siempre en la ficha técnica** (CIMA): sección 4.2 para la posología, 4.3 para las contraindicaciones y 4.5 para las interacciones.
+- Usa la medida renal que pide cada ficha. **Cockcroft-Gault y el FG estimado pueden diferir varios puntos** en mayores de poco peso. Exige ver el cálculo.
+- La ficha responde «¿cuánto?» y los criterios (**STOPP/START v3, Beers 2023, LESS-CHRON**) responden «¿le conviene a esta persona mayor?».
+- Deprescribir es **planificar, escalonar, retirar de forma gradual lo que lo requiere y pactarlo**. Los algoritmos de deprescribing.org ayudan.
+- En cada taller: **anonimizar antes y verificar después**.
+</Resumen>
+
+<Ficha titulo="Farmacología con IA: lo esencial">
+**El flujo**
+1. Anonimiza (sin nombre, NHC, DNI/CIP ni fechas exactas).
+2. Función renal: la medida que pida la ficha (Cockcroft-Gault o FG estimado).
+3. Pide una tabla: fármaco · problema · criterio · sección de la ficha.
+4. Verifica cada fila en CIMA y en el criterio original.
+5. Plan escalonado, pactado con la paciente o la familia.
+
+**Dónde mirar**
+- Dosis y ajustes: ficha técnica, 4.2.
+- Contraindicaciones: 4.3.
+- Interacciones: 4.5 y un comprobador.
+- ¿Le conviene a una persona mayor? STOPP/START v3 y Beers 2023.
+- Cómo retirar: deprescribing.org.
+
+**Errores típicos de la IA**
+- Ajustar lo que está contraindicado.
+- Invertir umbrales renales.
+- Negar interacciones que existen.
+- Inventar códigos de criterio.
+- Proponer muchos cambios a la vez.
+
+**Fórmulas**
+- Cockcroft-Gault (ml/min) = (140 − edad) × peso ÷ (72 × creatinina en mg/dl), × 0,85 si es mujer.
+- Creatinina en µmol/l ÷ 88,4 = mg/dl.
+</Ficha>
+
+<TestFinal id="3-2" />
+
+</Sesion>

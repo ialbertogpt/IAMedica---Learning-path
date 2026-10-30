@@ -1,0 +1,47 @@
+---
+import '@fontsource-variable/ibm-plex-sans';
+import '@fontsource/ibm-plex-mono/400.css';
+import '@fontsource/ibm-plex-mono/500.css';
+import '../../styles/global.css';
+import Cabecera from './Cabecera.astro';
+import Pie from './Pie.astro';
+
+interface Props {
+  titulo: string;
+  descripcion?: string;
+  /** Sección activa del menú */
+  seccion?: 'itinerario' | 'glosario' | 'prompts' | 'herramientas' | 'fichas' | 'recursos' | 'buscar' | 'progreso' | 'acerca';
+  /** Excluir la página del índice del buscador */
+  sinIndexar?: boolean;
+}
+const { titulo, descripcion = 'Curso personal de inteligencia artificial para médicos.', seccion, sinIndexar = false } = Astro.props;
+const tituloCompleto = titulo === 'Mi IA Médica' ? titulo : `${titulo} · Mi IA Médica`;
+---
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={descripcion} />
+    <meta name="robots" content="noindex" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; frame-src https://www.youtube-nocookie.com; base-uri 'self'; form-action 'self'" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <title>{tituloCompleto}</title>
+    <script is:inline>
+      // Tema antes de pintar para evitar parpadeos.
+      try { var t = localStorage.getItem('miamed:tema'); if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t); } catch (e) {}
+    </script>
+  </head>
+  <body>
+    <a href="#contenido" class="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:m-2 focus:rounded focus:bg-superficie focus:p-3">Saltar al contenido</a>
+    <Cabecera seccion={seccion} />
+    <main id="contenido" data-pagefind-body={sinIndexar ? undefined : ''}>
+      <slot />
+    </main>
+    <Pie />
+    <script>
+      import '../../scripts/global.ts';
+    </script>
+  </body>
+</html>

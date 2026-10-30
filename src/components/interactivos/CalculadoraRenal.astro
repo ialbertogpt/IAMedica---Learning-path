@@ -1,0 +1,14 @@
+---
+import Icono from '../ui/Icono.astro';
+import Isla from './especificos/CalculadoraRenal.tsx';
+interface Props { sexo?: 'mujer' | 'hombre'; edad?: number; peso?: number; creatinina?: number }
+const { sexo = 'mujer', edad = 84, peso = 58, creatinina = 1.75 } = Astro.props;
+---
+<section class="interactivo" aria-label="Calculadora didáctica de función renal">
+  <h3 class="interactivo-titulo"><Icono nombre="calculate" tam={20} />Calculadora didáctica: Cockcroft-Gault frente a CKD-EPI</h3>
+  <Isla client:visible inicial={{ sexo, edad, peso, creatinina }} />
+  <p class="interactivo-nota">
+    <strong>Solo para aprender.</strong> En la práctica, usa la calculadora validada de tu centro o una de referencia como MDCalc.
+    Fórmulas: Cockcroft DW, Gault MH. <i>Nephron</i> 1976;16:31-41 (PMID 1244564) · Inker LA et al. <i>N Engl J Med</i> 2021;385:1737-49 (PMID 34554658).
+  </p>
+</section>

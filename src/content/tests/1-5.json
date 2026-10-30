@@ -1,0 +1,54 @@
+{
+  "titulo": "Test · Cómo «piensa» un LLM",
+  "preguntas": [
+    {
+      "tipo": "vf",
+      "enunciado": "Cuando un asistente como ChatGPT o Claude te responde, busca la respuesta correcta en una base de datos interna de hechos verificados.",
+      "respuesta": false,
+      "explicacionVerdadero": "No. Un LLM no consulta una base de datos de hechos: genera el texto pieza a pieza (token a token) según los patrones que aprendió al entrenarse. Por eso puede sonar seguro y equivocarse. Si está conectado a una búsqueda, consulta documentos, pero la respuesta la sigue redactando él.",
+      "explicacionFalso": "Correcto. Un LLM genera el texto prediciendo la siguiente pieza a partir de patrones aprendidos; no «busca» la respuesta verdadera. Aunque esté conectado a una búsqueda, la respuesta la redacta él, y puede interpretar mal lo que encuentra."
+    },
+    {
+      "tipo": "escenario",
+      "enunciado": "¿Qué falla en esta respuesta de la IA?",
+      "caso": "Pides bibliografía sobre deprescripción en mayores y el asistente responde: «Según Martínez et al. (2022), Revista Española de Deprescripción Geriátrica (PMID 35512345), retirar las benzodiacepinas reduce un 37 % las caídas».",
+      "opciones": [
+        { "texto": "Nada: tiene autor, año, revista y PMID, así que es una referencia fiable.", "correcta": false, "explicacion": "El formato no garantiza nada: un LLM puede inventar todos esos elementos con total naturalidad. En un estudio con ChatGPT-3.5, el 47 % de las referencias médicas generadas eran inventadas y otro 46 % tenían errores (Bhattacharyya et al., Cureus 2023)." },
+        { "texto": "Puede ser una referencia inventada: hay que buscar el PMID en PubMed y comprobar que el artículo existe y dice eso.", "correcta": true, "explicacion": "Exacto. De hecho, ese PMID corresponde a un artículo de radiobiología sobre la proteína p53, y esa revista no existe. Comprobar el PMID o el DOI lleva un minuto y evita citar algo falso." },
+        { "texto": "El único problema es que le falta el DOI.", "correcta": false, "explicacion": "Añadir un DOI no la haría más fiable: también se puede inventar. Lo que importa es verificar que la referencia existe y que dice lo que se afirma." },
+        { "texto": "Si el asistente es de pago, la referencia será correcta.", "correcta": false, "explicacion": "Los modelos de pago suelen equivocarse menos, sobre todo si buscan en internet, pero ninguno está libre de confabular. La verificación es siempre tuya." }
+      ]
+    },
+    {
+      "tipo": "emparejar",
+      "enunciado": "Empareja cada concepto con su analogía médica.",
+      "pares": [
+        { "izquierda": "Token", "derecha": "Las sílabas al dictar: el texto se procesa en trozos", "porque": "El modelo no lee palabras enteras: trocea el texto en piezas, que a veces son palabras y a veces trozos de palabra." },
+        { "izquierda": "Ventana de contexto", "derecha": "Lo que recuerdas de la consulta en curso", "porque": "El modelo solo tiene en cuenta lo que cabe en su ventana; lo que queda fuera es como la consulta de ayer." },
+        { "izquierda": "Confabulación", "derecha": "El paciente con Korsakoff que rellena huecos con relatos convincentes", "porque": "Ante un hueco, el modelo genera algo verosímil, con fluidez y seguridad, aunque sea falso." },
+        { "izquierda": "Búsqueda con fuentes (RAG)", "derecha": "Consultar la guía clínica antes de contestar", "porque": "El sistema busca documentos y basa la respuesta en ellos, idealmente citándolos." },
+        { "izquierda": "Complacencia", "derecha": "El residente que te da la razón porque eres el adjunto", "porque": "Si le das tu hipótesis, el modelo tiende a confirmarla: por eso conviene presentar los casos de forma neutra." }
+      ]
+    },
+    {
+      "tipo": "ordenar",
+      "enunciado": "Ordena las fases por las que pasa un asistente como ChatGPT o Claude, desde que se crea hasta que te responde.",
+      "pasos": [
+        { "texto": "Preentrenamiento: aprende a predecir la siguiente palabra leyendo cantidades enormes de texto.", "porque": "Es la base, como la carrera: conocimiento amplio, pero todavía no sabe conversar ni seguir instrucciones." },
+        { "texto": "Ajuste fino con ejemplos de conversaciones y de instrucciones bien resueltas.", "porque": "Como la especialidad: aprende a comportarse como un asistente útil." },
+        { "texto": "Ajuste con valoraciones de personas sobre qué respuestas son mejores (RLHF).", "porque": "Aprende qué respuestas gustan más. Mejora mucho el trato… y es una de las causas de la complacencia." },
+        { "texto": "Uso: recibe tu prompt y genera la respuesta pieza a pieza.", "porque": "Al responder ya no aprende de ti: aplica lo aprendido a lo que cabe en su ventana de contexto." }
+      ]
+    },
+    {
+      "tipo": "unica",
+      "enunciado": "Quieres que la IA te ayude con la dosis de un fármaco en una paciente con insuficiencia renal. ¿Cuál es el uso más seguro?",
+      "opciones": [
+        { "texto": "Pedirle la dosis y aplicarla si la respuesta es clara y detallada.", "correcta": false, "explicacion": "La claridad y el detalle no son garantía: un LLM confabula con el mismo tono seguro con el que acierta." },
+        { "texto": "Subir la temperatura para que explore más opciones.", "correcta": false, "explicacion": "Una temperatura alta da respuestas más variadas y más propensas a errores; justo lo contrario de lo que quieres con una dosis." },
+        { "texto": "Pedirle que explique el razonamiento y qué sección de la ficha técnica mirar, y verificar la dosis en CIMA.", "correcta": true, "explicacion": "Así la usas para lo que hace bien (explicar y organizar) y la dosis la decides con la fuente oficial. Lo trabajarás a fondo en el taller 3.2." },
+        { "texto": "Repetir la pregunta tres veces y quedarte con la respuesta que más se repita.", "correcta": false, "explicacion": "Repetir puede detectar respuestas inestables, pero un error que el modelo «cree» con firmeza se repetirá las tres veces. Sigue sin ser una fuente." }
+      ]
+    }
+  ]
+}

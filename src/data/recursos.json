@@ -1,0 +1,214 @@
+[
+  {
+    "id": "v-3b1b-llm", "tipo": "video", "titulo": "Breve explicación de los modelos extensos de lenguaje (LLM)", "tituloOriginal": "Large Language Models explained briefly",
+    "autor": "3Blue1Brown", "url": "https://www.youtube.com/watch?v=LPZh9BOjkQs", "youtubeId": "LPZh9BOjkQs",
+    "idioma": "es", "doblaje": "oficial", "subtitulos": "español (manuales)", "duracion": "7:58", "publicado": "2024-11-20",
+    "subcapitulos": ["1-5"], "porQue": "En 8 minutos y con animaciones muy claras, cuenta qué hace un chatbot por dentro: predecir la siguiente palabra, entrenamiento previo, ajuste con personas y la idea de «atención». Es la mejor visión de conjunto que he encontrado.",
+    "fechaVerificacion": "2026-10-30", "estado": "verificado", "contenido": "capitulos",
+    "notas": "Vídeo original en inglés con pista de audio en español subida por el canal (no es doblaje automático de YouTube). Capítulos comprobados: chatbots, LLM, entrenamiento y parámetros, preentrenamiento y RLHF, GPU, transformer, atención."
+  },
+  {
+    "id": "v-dotcsv-llm", "tipo": "video", "titulo": "¿Qué es un LLM? Enormes Modelos del Lenguaje", "autor": "Dot CSV (Carlos Santana)",
+    "url": "https://www.youtube.com/watch?v=Sz4qacFBHLk", "youtubeId": "Sz4qacFBHLk", "idioma": "es-ES", "subtitulos": "español (automáticos)",
+    "duracion": "15:25", "publicado": "2022-06-05", "subcapitulos": ["1-5"],
+    "porQue": "El divulgador de IA de referencia en España explica por qué hacer los modelos cada vez más grandes cambió las reglas del juego. Es de 2022: anterior a ChatGPT y a los modelos de razonamiento, pero la base sigue siendo válida.",
+    "fechaVerificacion": "2026-10-30", "estado": "verificado", "contenido": "titulo-descripcion",
+    "notas": "Patrocinado por la Universitat Politècnica de València (se menciona en la descripción)."
+  },
+  {
+    "id": "v-dotcsv-transformer", "tipo": "video", "titulo": "¿Qué es un TRANSFORMER? La Red Neuronal que lo cambió TODO", "autor": "Dot CSV (Carlos Santana)",
+    "url": "https://www.youtube.com/watch?v=aL-EmKuB078", "youtubeId": "aL-EmKuB078", "idioma": "es-ES", "subtitulos": "español (manuales)",
+    "duracion": "18:41", "publicado": "2021-09-27", "subcapitulos": ["1-5"],
+    "porQue": "Para quien quiera asomarse a la pieza técnica que hay dentro de todos los LLM actuales. Opcional: no hace falta para seguir el curso.",
+    "fechaVerificacion": "2026-10-29", "estado": "verificado", "contenido": "titulo-descripcion"
+  },
+  {
+    "id": "v-3b1b-gpt", "tipo": "video", "titulo": "Pero, ¿qué es un GPT? Introducción visual a los Transformers", "tituloOriginal": "Transformers, the tech behind LLMs",
+    "autor": "3Blue1Brown", "url": "https://www.youtube.com/watch?v=wjZofJX0v4M", "youtubeId": "wjZofJX0v4M", "idioma": "es", "doblaje": "oficial",
+    "subtitulos": "español (manuales)", "duracion": "27:14", "publicado": "2024-04-01", "subcapitulos": ["1-5"],
+    "porQue": "La versión larga y más visual del funcionamiento interno. Opcional, para curiosos.",
+    "fechaVerificacion": "2026-10-29", "estado": "verificado", "contenido": "titulo-descripcion"
+  },
+  {
+    "id": "v-uva-fichatecnica", "tipo": "video", "titulo": "La ficha técnica de los medicamentos. Contenido y estructura", "autor": "Universidad de Valladolid (UVa Online) · Susana Álvarez Álvarez",
+    "url": "https://www.youtube.com/watch?v=Cdb3itggsvA", "youtubeId": "Cdb3itggsvA", "idioma": "es-ES", "subtitulos": "español (automáticos)",
+    "duracion": "7:12", "publicado": "2015-03-27", "subcapitulos": ["3-2"],
+    "porQue": "Repaso breve de las secciones de una ficha técnica. Opcional: está hecho desde la Facultad de Traducción, no para clínicos, y es de 2015 (la estructura de la ficha no ha cambiado).",
+    "fechaVerificacion": "2026-10-30", "estado": "con-reservas", "contenido": "titulo-descripcion"
+  },
+  {
+    "id": "r-cima", "tipo": "web", "titulo": "CIMA · Centro de Información de Medicamentos", "autor": "Agencia Española de Medicamentos y Productos Sanitarios (AEMPS)",
+    "url": "https://cima.aemps.es/cima/publico/home.html", "idioma": "es-ES", "minutosLectura": 10, "subcapitulos": ["3-2"],
+    "porQue": "Es la fuente oficial de las fichas técnicas autorizadas en España. Gratuita, sin registro y con app para el móvil. Aquí se verifica toda dosis.",
+    "fechaVerificacion": "2026-10-30", "estado": "verificado", "contenido": "completo"
+  },
+  {
+    "id": "r-stopp-start-3-es", "tipo": "articulo", "titulo": "Versión en español de los criterios STOPP/START 3. Avances en la detección de la prescripción inapropiada de medicamentos en personas mayores",
+    "autor": "Delgado-Silveira E, et al. Rev Esp Geriatr Gerontol. 2023", "url": "https://www.elsevier.es/es-revista-revista-espanola-geriatria-gerontologia-124-articulo-version-espanol-criterios-stopp-start-3--S0211139X23001282",
+    "idioma": "es-ES", "minutosLectura": 10, "subcapitulos": ["3-2"],
+    "porQue": "Los 190 criterios de la versión 3 traducidos y adaptados por geriatras y farmacéuticos españoles. Lee la introducción y localiza las secciones: no hace falta memorizarlos.",
+    "fechaVerificacion": "2026-10-29", "estado": "verificado", "contenido": "titulo-descripcion",
+    "notas": "DOI 10.1016/j.regg.2023.101407 · PMID 37738843. Resumen en acceso abierto en Salud y Fármacos (r-stopp-start-3-es-abierto)."
+  },
+  {
+    "id": "r-stopp-start-3-es-abierto", "tipo": "web", "titulo": "Versión en español de los criterios STOPP/START 3 (resumen en Salud y Fármacos)", "autor": "Salud y Fármacos · Boletín Fármacos, noviembre de 2023",
+    "url": "https://www.saludyfarmacos.org/lang/es/boletin-farmacos/boletines/nov202301/05_ve/", "idioma": "es", "minutosLectura": 4, "subcapitulos": ["3-2"],
+    "porQue": "Resumen gratuito de la versión española, por si no tienes acceso a la revista.",
+    "fechaVerificacion": "2026-10-29", "estado": "verificado", "contenido": "titulo-descripcion"
+  },
+  {
+    "id": "r-stopp-start-3", "tipo": "articulo", "titulo": "STOPP/START criteria for potentially inappropriate prescribing in older people: version 3",
+    "autor": "O'Mahony D, et al. Eur Geriatr Med. 2023;14:625-632", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10447584/",
+    "idioma": "en", "minutosLectura": 15, "subcapitulos": ["3-2"],
+    "porQue": "Artículo original en acceso abierto (licencia CC BY 4.0), con la lista completa de criterios en el apéndice 1. Es la fuente de los criterios citados en el taller.",
+    "fechaVerificacion": "2026-10-30", "estado": "verificado", "contenido": "completo",
+    "notas": "PMID 37256475 · DOI 10.1007/s41999-023-00777-y. Apéndice 1 revisado el 30/10/2026."
+  },
+  {
+    "id": "r-deprescribing-algoritmos", "tipo": "web", "titulo": "Deprescribing guidelines and algorithms", "autor": "deprescribing.org (Bruyère Research Institute, Canadá)",
+    "url": "https://deprescribing.org/resources/deprescribing-guidelines-algorithms/", "idioma": "en", "minutosLectura": 10, "subcapitulos": ["3-2"],
+    "porQue": "Algoritmos de una página, basados en guías con metodología GRADE, para retirar benzodiacepinas e hipnóticos, IBP, antipsicóticos y otros. Muy prácticos para planificar la retirada.",
+    "fechaVerificacion": "2026-10-30", "estado": "verificado", "contenido": "completo",
+    "notas": "Licencia CC BY-NC-SA 4.0 con la condición «no modificar ni traducir sin permiso»: en el curso se enlazan y se resumen con palabras propias, sin traducirlos."
+  },
+  {
+    "id": "r-acbcalc", "tipo": "web", "titulo": "ACB Calculator · calculadora de carga anticolinérgica", "autor": "acbcalc.com",
+    "url": "https://www.acbcalc.com", "idioma": "en", "minutosLectura": 5, "subcapitulos": ["3-2"],
+    "porQue": "Suma la carga anticolinérgica de una lista de fármacos según la escala ACB. Útil para detectar acumulaciones que pasan desapercibidas.",
+    "fechaVerificacion": "2026-10-29", "estado": "verificado", "contenido": "titulo-descripcion"
+  },
+  {
+    "id": "r-drugs-interacciones", "tipo": "web", "titulo": "Drug Interaction Checker", "autor": "Drugs.com",
+    "url": "https://www.drugs.com/drug_interactions.html", "idioma": "en", "minutosLectura": 5, "subcapitulos": ["3-2"],
+    "porQue": "Comprobador de interacciones gratuito y sin registro. Está en inglés y usa nombres de EE. UU., pero es suficiente para un primer cribado que luego se confirma en la ficha técnica.",
+    "fechaVerificacion": "2026-10-29", "estado": "verificado", "contenido": "titulo-descripcion"
+  },
+  {
+    "id": "r-medscape-interacciones", "tipo": "web", "titulo": "Drug Interaction Checker", "autor": "Medscape",
+    "url": "https://reference.medscape.com/drug-interactionchecker", "idioma": "en", "minutosLectura": 5, "subcapitulos": ["3-2"],
+    "porQue": "Alternativa gratuita al comprobador de Drugs.com.",
+    "fechaVerificacion": "2026-10-29", "estado": "bloqueado-anti-bots", "contenido": "pendiente",
+    "notas": "La web responde 403 a las comprobaciones automáticas (Cloudflare). Pendiente de comprobación manual."
+  },
+  {
+    "id": "r-mdcalc", "tipo": "web", "titulo": "MDCalc", "autor": "MDCalc",
+    "url": "https://www.mdcalc.com", "idioma": "en", "minutosLectura": 5, "subcapitulos": ["3-2"],
+    "porQue": "Calculadoras clínicas (Cockcroft-Gault, CKD-EPI y muchas más) con su referencia bibliográfica.",
+    "fechaVerificacion": "2026-10-29", "estado": "verificado", "contenido": "titulo-descripcion"
+  },
+  {
+    "id": "r-omc-manual-ia-2026", "tipo": "documento", "titulo": "Manual de Buenas Prácticas para la Inteligencia Artificial en Medicina", "autor": "Organización Médica Colegial (OMC), 2026",
+    "url": "https://www.cgcom.es/media/7247/download", "idioma": "es-ES", "minutosLectura": 15, "subcapitulos": ["2-3", "3-0", "3-1"],
+    "porQue": "El documento de referencia de la profesión médica en España sobre IA: diez principios para el médico, diez garantías para el paciente y un checklist para evaluar herramientas.",
+    "fechaVerificacion": "2026-10-29", "estado": "verificado", "contenido": "completo",
+    "notas": "PDF de 140 páginas y unos 31 MB: mejor descargarlo con wifi."
+  },
+  {
+    "id": "r-elementsofai-es", "tipo": "curso", "titulo": "Elements of AI · curso gratuito de introducción a la IA", "autor": "Universidad de Helsinki y MinnaLearn",
+    "url": "https://www.elementsofai.com/es", "idioma": "es", "minutosLectura": 30, "subcapitulos": ["0-0", "1-1", "1-3"],
+    "porQue": "Curso en línea gratuito y en español, pensado para no expertos. Buen complemento si quieres más ejercicios.",
+    "fechaVerificacion": "2026-10-29", "estado": "verificado", "contenido": "titulo-descripcion"
+  },
+  {
+    "id": "r-aepd-rgpd-ia", "tipo": "documento", "titulo": "Adecuación al RGPD de tratamientos que incorporan Inteligencia Artificial. Una introducción", "autor": "Agencia Española de Protección de Datos (AEPD), 2020",
+    "url": "https://www.aepd.es/guias/adecuacion-rgpd-ia.pdf", "idioma": "es-ES", "minutosLectura": 20, "subcapitulos": ["2-3", "3-0"],
+    "porQue": "La autoridad española de protección de datos explica qué exige el RGPD cuando se usa IA con datos personales.",
+    "fechaVerificacion": "2026-10-29", "estado": "verificado", "contenido": "titulo-descripcion"
+  },
+  {
+    "id": "v-derivando-ia", "tipo": "video", "titulo": "¿Qué es y cómo funciona la INTELIGENCIA ARTIFICIAL?", "autor": "Derivando (Eduardo Sáenz de Cabezón)",
+    "url": "https://www.youtube.com/watch?v=_tA5cinv0U8", "youtubeId": "_tA5cinv0U8", "idioma": "es-ES", "subtitulos": "español (automáticos)",
+    "duracion": "8:33", "publicado": "2021-08-04", "subcapitulos": ["1-1"],
+    "porQue": "Un matemático y divulgador explica qué es la IA con humor y sin tecnicismos.",
+    "fechaVerificacion": "2026-10-29", "estado": "verificado", "contenido": "titulo-descripcion"
+  },
+  {
+    "id": "v-dotcsv-ml-mapa", "tipo": "video", "titulo": "¿Qué es el Machine Learning? ¿Y Deep Learning? Un mapa conceptual", "autor": "Dot CSV (Carlos Santana)",
+    "url": "https://www.youtube.com/watch?v=KytW151dpqU", "youtubeId": "KytW151dpqU", "idioma": "es-ES", "subtitulos": "español (automáticos)",
+    "duracion": "7:46", "publicado": "2017-11-01", "subcapitulos": ["1-1"],
+    "porQue": "Ordena los términos IA, aprendizaje automático y aprendizaje profundo en un mapa sencillo.",
+    "fechaVerificacion": "2026-10-29", "estado": "verificado", "contenido": "titulo-descripcion"
+  },
+  {
+    "id": "v-cuello-roc", "tipo": "video", "titulo": "Entendiendo las Curvas ROC", "autor": "Carlos A. Cuello García",
+    "url": "https://www.youtube.com/watch?v=Y1XAP6omGzo", "youtubeId": "Y1XAP6omGzo", "idioma": "es-419", "subtitulos": "español (automáticos)",
+    "duracion": "8:50", "publicado": "2016-02-21", "subcapitulos": ["1-3"],
+    "porQue": "Explicación de la curva ROC por un médico epidemiólogo: conecta lo que ya sabes de pruebas diagnósticas con la evaluación de modelos.",
+    "fechaVerificacion": "2026-10-29", "estado": "verificado", "contenido": "titulo-descripcion"
+  },
+  {
+    "id": "v-codbits-overfitting", "tipo": "video", "titulo": "Underfitting y Overfitting en las Redes Neuronales", "autor": "Codificando Bits",
+    "url": "https://www.youtube.com/watch?v=hBFff9l-AlE", "youtubeId": "hBFff9l-AlE", "idioma": "es-419", "subtitulos": "español (manuales)",
+    "duracion": "5:28", "publicado": "2019-08-27", "subcapitulos": ["1-3"],
+    "porQue": "Explica de forma visual el sobreajuste: el modelo que memoriza en vez de aprender.",
+    "fechaVerificacion": "2026-10-29", "estado": "verificado", "contenido": "titulo-descripcion"
+  },
+  {
+    "id": "v-dotcsv-neurona", "tipo": "video", "titulo": "¿Qué es una Red Neuronal? Parte 1: La Neurona", "autor": "Dot CSV (Carlos Santana)",
+    "url": "https://www.youtube.com/watch?v=MRIv2IwFTPg", "youtubeId": "MRIv2IwFTPg", "idioma": "es-ES", "subtitulos": "español (automáticos)",
+    "duracion": "9:14", "publicado": "2018-03-19", "subcapitulos": ["1-4"],
+    "porQue": "La neurona artificial explicada desde cero, con ejemplos visuales.",
+    "fechaVerificacion": "2026-10-29", "estado": "verificado", "contenido": "titulo-descripcion"
+  },
+  {
+    "id": "v-ringa-redes", "tipo": "video", "titulo": "Cómo funcionan las redes neuronales", "autor": "Ringa Tech",
+    "url": "https://www.youtube.com/watch?v=CU24iC3grq8", "youtubeId": "CU24iC3grq8", "idioma": "es", "subtitulos": "español (automáticos)",
+    "duracion": "11:52", "publicado": "2020-11-10", "subcapitulos": ["1-4"],
+    "porQue": "Animaciones claras de cómo una red combina capas para reconocer patrones.",
+    "fechaVerificacion": "2026-10-29", "estado": "verificado", "contenido": "titulo-descripcion"
+  },
+  {
+    "id": "v-nabani-agentes", "tipo": "video", "titulo": "¿Qué son los Agentes de IA? Explicación sencilla", "autor": "Oliver Nabani",
+    "url": "https://www.youtube.com/watch?v=Xh1Jv33RIKw", "youtubeId": "Xh1Jv33RIKw", "idioma": "es", "subtitulos": "español (manuales)",
+    "duracion": "9:00", "publicado": "2024-12-27", "subcapitulos": ["1-8"],
+    "porQue": "Qué es un agente de IA y en qué se diferencia de un chatbot, sin tecnicismos.",
+    "fechaVerificacion": "2026-10-29", "estado": "verificado", "contenido": "titulo-descripcion"
+  },
+  {
+    "id": "v-dotcsv-alphafold", "tipo": "video", "titulo": "¡La Revolución de la INTELIGENCIA ARTIFICIAL en BIOMEDICINA! (AlphaFold2)", "autor": "Dot CSV con La Hiperactina",
+    "url": "https://www.youtube.com/watch?v=Uz7ucmqjZ08", "youtubeId": "Uz7ucmqjZ08", "idioma": "es-ES", "subtitulos": "español (automáticos)",
+    "duracion": "18:10", "publicado": "2021-01-03", "subcapitulos": ["2-1"],
+    "porQue": "Un divulgador de IA y una divulgadora biomédica explican por qué predecir la forma de las proteínas fue un hito.",
+    "fechaVerificacion": "2026-10-29", "estado": "verificado", "contenido": "titulo-descripcion"
+  },
+  {
+    "id": "v-civio-sanidad", "tipo": "video", "titulo": "Algoritmos e IA en la sanidad pública española: lo que hemos descubierto en Civio", "autor": "Fundación Civio",
+    "url": "https://www.youtube.com/watch?v=pCBgqQOFKfY", "youtubeId": "pCBgqQOFKfY", "idioma": "es-ES", "subtitulos": "español (manuales)",
+    "duracion": "26:51", "publicado": "2025-11-21", "subcapitulos": ["2-1", "2-3"],
+    "porQue": "Periodismo de datos sobre qué algoritmos se usan ya en la sanidad pública española y con qué transparencia.",
+    "fechaVerificacion": "2026-10-29", "estado": "verificado", "contenido": "titulo-descripcion"
+  },
+  {
+    "id": "v-us-pubmed", "tipo": "video", "titulo": "Cómo realizar una búsqueda bibliográfica en PubMed", "autor": "Biblioteca de Centros de la Salud · Universidad de Sevilla",
+    "url": "https://www.youtube.com/watch?v=wVn04jZC-bk", "youtubeId": "wVn04jZC-bk", "idioma": "es-ES", "subtitulos": "español (automáticos)",
+    "duracion": "8:56", "publicado": "2021-04-15", "subcapitulos": ["3-3"],
+    "porQue": "Tutorial de una biblioteca universitaria de ciencias de la salud: la base que la IA no sustituye.",
+    "fechaVerificacion": "2026-10-29", "estado": "verificado", "contenido": "titulo-descripcion"
+  },
+  {
+    "id": "v-us-mesh", "tipo": "video", "titulo": "Cómo utilizar el MeSH de PubMed", "autor": "Biblioteca de Centros de la Salud · Universidad de Sevilla",
+    "url": "https://www.youtube.com/watch?v=_iYMuUtP7LA", "youtubeId": "_iYMuUtP7LA", "idioma": "es-ES", "subtitulos": "no tiene",
+    "duracion": "5:22", "publicado": "2021-04-30", "subcapitulos": ["3-3"],
+    "porQue": "Cómo usar el tesauro MeSH para buscar con precisión.",
+    "fechaVerificacion": "2026-10-29", "estado": "verificado", "contenido": "titulo-descripcion"
+  },
+  {
+    "id": "v-medina-jamovi", "tipo": "video", "titulo": "Introducción y menús principales de Jamovi", "autor": "Luis Medina Gual",
+    "url": "https://www.youtube.com/watch?v=VyUq1XgBqvw", "youtubeId": "VyUq1XgBqvw", "idioma": "es-419", "subtitulos": "español (automáticos)",
+    "duracion": "10:04", "publicado": "2022-01-24", "subcapitulos": ["3-4"],
+    "porQue": "Primer contacto con jamovi, el programa gratuito que sustituye a SPSS en el taller.",
+    "fechaVerificacion": "2026-10-29", "estado": "verificado", "contenido": "titulo-descripcion"
+  },
+  {
+    "id": "v-cof-coruna-stopp", "tipo": "video", "titulo": "Criterios STOPP/START como herramienta para la revisión de medicación de un paciente", "autor": "Colegio Oficial de Farmacéuticos de A Coruña",
+    "url": "https://www.youtube.com/watch?v=5szbNyMbypQ", "youtubeId": "5szbNyMbypQ", "idioma": "es-ES", "duracion": "76:03", "publicado": "2018-04-11", "subcapitulos": [],
+    "porQue": "Descartado: explica la versión 2 de los criterios, sustituida por la versión 3 en 2023.",
+    "fechaVerificacion": "2026-10-29", "estado": "descartado", "contenido": "titulo-descripcion"
+  },
+  {
+    "id": "v-kabilia-stopp", "tipo": "video", "titulo": "Criterios STOPP-START", "autor": "Kabilia",
+    "url": "https://www.youtube.com/watch?v=UMPFtRk5qVE", "youtubeId": "UMPFtRk5qVE", "idioma": "es", "duracion": "13:13", "publicado": "2022-03-07", "subcapitulos": [],
+    "porQue": "Descartado: anterior a la versión 3 de los criterios (2023).",
+    "fechaVerificacion": "2026-10-29", "estado": "descartado", "contenido": "titulo-descripcion"
+  }
+]

@@ -1,0 +1,39 @@
+{
+  "name": "mi-ia-medica",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Mi IA Médica - Learning Path: curso personal de IA para médicos (web estática, sin servidor).",
+  "type": "module",
+  "engines": {
+    "node": ">=22.23.4"
+  },
+  "scripts": {
+    "validar": "node scripts/validar-contenido.mjs",
+    "dev": "node scripts/validar-contenido.mjs && astro dev",
+    "build": "node scripts/validar-contenido.mjs && astro build && pagefind --site dist",
+    "preview": "astro preview",
+    "check-links": "node --use-system-ca --max-http-header-size=65536 scripts/check-links.mjs",
+    "check-glosario": "node scripts/check-glosario.mjs",
+    "horas": "node scripts/horas.mjs"
+  },
+  "dependencies": {
+    "@astrojs/mdx": "8.1.2",
+    "@astrojs/preact": "6.1.1",
+    "@fontsource-variable/ibm-plex-sans": "5.3.0",
+    "@fontsource/ibm-plex-mono": "5.3.0",
+    "@tailwindcss/vite": "4.3.3",
+    "astro": "7.4.4",
+    "gpt-tokenizer": "4.1.0",
+    "preact": "11.1.0",
+    "tailwindcss": "4.3.3"
+  },
+  "devDependencies": {
+    "@material-symbols/svg-300": "0.48.2",
+    "mdast-util-from-markdown": "2.1.0",
+    "mdast-util-mdx": "3.0.0",
+    "micromark-extension-mdxjs": "3.0.0",
+    "pagefind": "1.5.2",
+    "unist-util-visit": "5.2.0",
+    "yaml": "2.9.1"
+  }
+}

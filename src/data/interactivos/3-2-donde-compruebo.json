@@ -1,0 +1,20 @@
+{
+  "titulo": "¿Dónde lo compruebo?",
+  "instrucciones": "La IA te ha hecho varias afirmaciones sobre la medicación de una paciente. ¿Dónde verificarías cada una?",
+  "categorias": [
+    { "id": "4-2", "nombre": "Ficha técnica · 4.2 Posología", "descripcion": "dosis, dosis máxima y ajustes por función renal o edad" },
+    { "id": "4-3", "nombre": "Ficha técnica · 4.3 Contraindicaciones", "descripcion": "cuándo no se debe usar" },
+    { "id": "4-5", "nombre": "Ficha técnica · 4.5 Interacciones", "descripcion": "combinaciones a evitar o con límite de dosis (con un comprobador como apoyo)" },
+    { "id": "criterios", "nombre": "Criterios STOPP/START o Beers", "descripcion": "si un fármaco es potencialmente inapropiado en una persona mayor" }
+  ],
+  "items": [
+    { "texto": "«Con un aclaramiento de creatinina de 22 ml/min, la dosis de apixabán para la fibrilación auricular es de 2,5 mg cada 12 horas.»", "categoria": "4-2", "explicacion": "Es un ajuste de dosis por función renal: está en la sección 4.2 de la ficha técnica de apixabán." },
+    { "texto": "«La metformina no se debe usar con un filtrado glomerular inferior a 30 ml/min.»", "categoria": "4-3", "explicacion": "Es una contraindicación: figura en la sección 4.3 (y también en la tabla de la 4.2) de la ficha técnica de la metformina." },
+    { "texto": "«Con amlodipino, la simvastatina no debe superar los 20 mg al día.»", "categoria": "4-5", "explicacion": "Es una interacción con límite de dosis: la recoge la sección 4.5 de la ficha técnica de la simvastatina (y también la 4.2)." },
+    { "texto": "«Una benzodiacepina en una persona mayor con caídas de repetición es potencialmente inapropiada.»", "categoria": "criterios", "explicacion": "No es una cuestión de dosis, sino de adecuación en una persona mayor: lo recogen STOPP/START v3 (sección K, criterio 1) y Beers 2023." },
+    { "texto": "«El ibuprofeno está contraindicado en la insuficiencia renal grave.»", "categoria": "4-3", "explicacion": "Contraindicación recogida en la sección 4.3 de la ficha técnica del ibuprofeno." },
+    { "texto": "«En pacientes de edad avanzada, la amitriptilina se inicia con 10–25 mg por la noche.»", "categoria": "4-2", "explicacion": "Es una pauta posológica por edad: sección 4.2 de la ficha técnica." },
+    { "texto": "«La amitriptilina es poco recomendable en mayores por su fuerte efecto anticolinérgico.»", "categoria": "criterios", "explicacion": "La ficha técnica da la dosis; si un fármaco es adecuado para una persona mayor concreta lo valoran criterios como Beers 2023 o STOPP/START v3. La dosis puede ser correcta y el fármaco, inapropiado." }
+  ],
+  "cierre": "Clave del taller: la ficha técnica responde «¿cuánto y cuándo no?»; los criterios responden «¿le conviene a esta persona mayor?». La IA mezcla ambas preguntas con facilidad: sepáralas tú."
+}

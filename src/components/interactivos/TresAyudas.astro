@@ -1,0 +1,42 @@
+---
+import Icono from '../ui/Icono.astro';
+// Infografía: tres formas de ayudar a un LLM a fallar menos (y lo que no arreglan).
+const ayudas = [
+  {
+    nombre: 'Búsqueda con fuentes (RAG)', analogia: 'Consultar la guía clínica antes de contestar.', color: 'var(--l1)',
+    que: 'Antes de responder, el sistema busca en documentos o en internet y se apoya en lo que encuentra.',
+    mejora: 'Datos más actualizados y respuestas que puedes comprobar porque citan la fuente.',
+    noArregla: 'Si la fuente es mala o la interpreta mal, el error viene con cita. Abre siempre la cita.',
+    icono: 'menu_book',
+  },
+  {
+    nombre: 'Modelo de razonamiento', analogia: 'Pensar el diagnóstico diferencial en voz alta antes de decidir.', color: 'var(--l3)',
+    que: 'El modelo dedica tiempo a «pensar» por pasos antes de dar la respuesta final.',
+    mejora: 'Cálculos, problemas de varios pasos y casos con información contradictoria.',
+    noArregla: 'Puede razonar de forma impecable a partir de un dato falso. Tarda más y, a veces, cuesta más.',
+    icono: 'lightbulb',
+  },
+  {
+    nombre: 'Agente', analogia: 'Un residente al que encargas una tarea de varios pasos y cuyo trabajo supervisas.', color: 'var(--l2)',
+    que: 'Encadena acciones por su cuenta: busca, lee, usa herramientas, redacta y revisa.',
+    mejora: 'Tareas largas y repetitivas, como reunir artículos y resumirlos en una tabla.',
+    noArregla: 'Un error al principio se arrastra a todos los pasos siguientes. Necesita supervisión, como un residente.',
+    icono: 'route',
+  },
+];
+---
+<section class="interactivo" aria-labelledby="tres-ayudas-t">
+  <h3 id="tres-ayudas-t" class="interactivo-titulo"><Icono nombre="hub" tam={20} />Tres formas de ayudar a un LLM a fallar menos</h3>
+  <div class="grid gap-3 md:grid-cols-3">
+    {ayudas.map((a) => (
+      <article class="rounded-xl border border-borde p-4 grid gap-2 content-start" style={`border-top: 3px solid ${a.color}`}>
+        <span class="size-10 rounded-[10px] grid place-items-center" style={`color:${a.color}; background: color-mix(in oklch, ${a.color} 14%, var(--superficie))`}><Icono nombre={a.icono} tam={24} /></span>
+        <h4 class="m-0 text-[17px]">{a.nombre}</h4>
+        <p class="m-0 text-base italic tenue">{a.analogia}</p>
+        <p class="m-0 text-base">{a.que}</p>
+        <p class="m-0 text-base"><strong>Mejora:</strong> {a.mejora}</p>
+        <p class="m-0 text-base"><strong>No arregla:</strong> {a.noArregla}</p>
+      </article>
+    ))}
+  </div>
+</section>

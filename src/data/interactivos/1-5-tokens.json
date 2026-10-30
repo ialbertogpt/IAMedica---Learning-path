@@ -1,0 +1,10 @@
+{
+  "titulo": "Visualizador de tokens: así trocea el texto un modelo real",
+  "nota": "Tokenizador real o200k_base, publicado por OpenAI y usado en modelos como GPT-4o. Otros modelos (Claude, Gemini, Llama…) usan tokenizadores propios: los cortes cambian, pero la idea es la misma. Ejemplos ficticios.",
+  "ejemplos": [
+    { "titulo": "Nota clínica", "texto": "Paciente de 86 años con hiponatremia (Na 128 mEq/l) y caídas de repetición. Toma 11 fármacos." },
+    { "titulo": "La misma nota en inglés", "texto": "86-year-old patient with hyponatremia (Na 128 mEq/L) and recurrent falls. Takes 11 drugs." },
+    { "titulo": "Palabras médicas largas", "texto": "Electroencefalograma, otorrinolaringología, esternocleidomastoideo y deprescripción." },
+    { "titulo": "Frase coloquial", "texto": "¿Qué tal está? Me duele un poco la rodilla desde ayer." }
+  ]
+}

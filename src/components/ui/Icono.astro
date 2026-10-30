@@ -1,0 +1,30 @@
+---
+// Icono lineal de Material Symbols (Apache 2.0), insertado como SVG en la compilación:
+// solo viajan al navegador los iconos que se usan y no se hacen peticiones a terceros.
+import { readFileSync } from 'node:fs';
+import { join } from 'node:path';
+
+interface Props { nombre: string; tam?: number; relleno?: boolean; class?: string; titulo?: string }
+const { nombre, tam = 20, relleno = false, class: clase = '', titulo } = Astro.props;
+const archivo = join(process.cwd(), 'node_modules', '@material-symbols', 'svg-300', 'outlined', `${nombre}${relleno ? '-fill' : ''}.svg`);
+let svg: string;
+try {
+  svg = readFileSync(archivo, 'utf8');
+} catch {
+  throw new Error(`[iconos] No existe el icono «${nombre}${relleno ? '-fill' : ''}» en @material-symbols/svg-300`);
+}
+const trazado = svg.replace(/^<svg[^>]*>/, '').replace(/<\/svg>\s*$/, '');
+---
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 -960 960 960"
+  width={tam}
+  height={tam}
+  fill="currentColor"
+  class:list={['icono', clase]}
+  aria-hidden={titulo ? undefined : 'true'}
+  role={titulo ? 'img' : undefined}
+  aria-label={titulo}
+  focusable="false"
+  set:html={trazado}
+/>

@@ -1,0 +1,323 @@
+---
+// Portada · «hoja clínica» (opción 1a del boceto del usuario): resumen fijo a la izquierda,
+// bloque «continúa donde lo dejaste» e itinerario completo en tabla con raíl de colores.
+import BaseLayout from '../components/layout/BaseLayout.astro';
+import Icono from '../components/ui/Icono.astro';
+import { subcapitulos, partes, minutosTotalesPlan, sesionesPorSemana } from '../lib/curso';
+import { horasDecimal } from '../lib/formato';
+
+const subs = await subcapitulos();
+const totalSesiones = subs.reduce((a, s) => a + (s.construido ? s.sesiones.length : s.sesionesPlan), 0);
+const color = (n: number) => `var(--${partes.find((p) => p.n === n)!.color})`;
+const minExpres = subs.filter((s) => s.expres && (s.parte < 3 || s.id === '3-0')).reduce((a, s) => a + s.minutos, 0);
+const grupos = partes.map((p) => {
+  const lista = subs.filter((s) => s.parte === p.n);
+  return { ...p, lista, minutos: lista.reduce((a, s) => a + s.minutos, 0), sesiones: lista.reduce((a, s) => a + (s.construido ? s.sesiones.length : s.sesionesPlan), 0) };
+});
+const nSes = (s: (typeof subs)[number]) => (s.construido ? s.sesiones.length : s.sesionesPlan);
+const datosCliente = {
+  total: minutosTotalesPlan, totalSesiones, sesionesPorSemana,
+  subs: subs.map((s) => ({ id: s.id, numero: s.numero, titulo: s.titulo, slug: s.slug, parte: s.parte, icono: s.icono, construido: s.construido, minutos: s.minutos, sesiones: s.sesiones, nSesiones: nSes(s), requiere: s.requiere })),
+  partes: grupos.map((g) => ({ n: g.n, minutos: g.minutos, linea: g.n === 0 ? 'Módulo 0' : g.linea, color: g.color })),
+};
+const primero = subs.find((s) => s.construido)!;
+---
+<BaseLayout titulo="Mi IA Médica" seccion="itinerario" descripcion="Itinerario del curso de inteligencia artificial para médicos: progreso y próximo paso.">
+  <div class="contenedor pt-6 pb-4 min-[1100px]:pt-8 grid gap-6 min-[1100px]:grid-cols-[300px_minmax(0,1fr)] min-[1100px]:gap-9 items-start" id="portada" data-modo-expres="0">
+
+    <!-- ── Resumen (fijo a la izquierda en escritorio) ── -->
+    <aside class="grid gap-4 min-[768px]:max-[1099px]:grid-cols-2 min-[1100px]:sticky min-[1100px]:top-4 max-[1099px]:order-2" aria-label="Tu progreso">
+      <!-- Versión compacta (móvil) -->
+      <section class="tarjeta flex items-center gap-4 px-[18px] py-4 min-[768px]:hidden">
+        <p class="m-0 flex items-baseline gap-0.5"><span class="text-[32px] font-medium tracking-[-0.03em]" data-p-movil="pct">0</span><span class="text-tinta-2">%</span></p>
+        <div class="flex-1 flex flex-col gap-2">
+          <div class="flex gap-[3px] h-1.5" aria-hidden="true">
+            {grupos.map((g) => (
+              <div class="rounded-[3px] overflow-hidden" style={`flex:${g.minutos}; --c:${color(g.n)}; background: color-mix(in oklch, var(--c) 18%, var(--superficie-2))`}><div class="h-full" style="width:0%; background: var(--c)" data-seg={g.n}></div></div>
+            ))}
+          </div>
+          <span class="mono text-[12.5px] text-tinta-2"><span data-p-movil="horas">0</span> / {(minutosTotalesPlan / 60).toLocaleString('es-ES')} h · <span data-p-movil="sesiones">0</span> / {totalSesiones} sesiones</span>
+        </div>
+      </section>
+      <section class="tarjeta p-5 max-[767px]:hidden">
+        <p class="eyebrow m-0">Tu progreso</p>
+        <p class="m-0 mt-2.5 mb-4 flex items-baseline gap-2"><span class="text-5xl font-medium tracking-[-0.03em] leading-none" data-p="pct">0</span><span class="text-xl text-tinta-2">%</span></p>
+        <div class="flex gap-[3px] h-2" role="img" aria-label="Progreso por partes" data-p="barra-aria">
+          {grupos.map((g) => (
+            <div class="rounded-[3px] overflow-hidden" style={`flex:${g.minutos}; --c:${color(g.n)}; background: color-mix(in oklch, var(--c) 18%, var(--superficie-2))`}><div class="h-full" style="width:0%; background: var(--c)" data-seg={g.n}></div></div>
+          ))}
+        </div>
+        <div class="grid grid-cols-2 gap-px bg-borde border border-borde rounded-[10px] overflow-hidden mt-4">
+          <div class="bg-superficie px-3.5 py-3 flex flex-col gap-1"><span class="text-[13px] text-tinta-3">Horas</span><span class="mono text-[17px] font-medium"><span data-p="horas">0</span><span class="text-tinta-3 text-[13px]"> / {(minutosTotalesPlan / 60).toLocaleString('es-ES')}</span></span></div>
+          <div class="bg-superficie px-3.5 py-3 flex flex-col gap-1"><span class="text-[13px] text-tinta-3">Sesiones</span><span class="mono text-[17px] font-medium"><span data-p="sesiones">0</span><span class="text-tinta-3 text-[13px]"> / {totalSesiones}</span></span></div>
+        </div>
+        <p class="m-0 mt-4 flex gap-2.5 items-start text-sm leading-normal text-tinta-2"><span class="text-tinta-3 mt-px"><Icono nombre="event" tam={18} /></span><span data-p="fin">A {sesionesPorSemana} sesiones por semana, terminarías el curso en unos meses.</span></p>
+      </section>
+
+      <section class="tarjeta py-1.5 px-[18px] max-[767px]:hidden" aria-label="Partes del curso">
+        {grupos.map((g) => (
+          <div class="flex items-center gap-3 py-3 border-b border-borde" style={`--c:${color(g.n)}`}>
+            <span class="text-[var(--c)]"><Icono nombre={g.icono} tam={20} /></span>
+            <div class="flex-1 flex flex-col gap-[3px] min-w-0">
+              <span class="mono text-[11px] font-medium tracking-[.08em] text-[var(--c)]">{g.codigo}</span>
+              <span class="text-[15px] font-medium leading-tight">{g.nombre}</span>
+              <div class="h-[3px] mt-1 rounded-sm overflow-hidden" style="background: color-mix(in oklch, var(--c) 16%, var(--superficie-2))"><div class="h-full" style="width:0%; background: var(--c)" data-parte-fill={g.n}></div></div>
+            </div>
+            <span class="mono text-[13px] text-tinta-2 self-start pt-3.5"><span data-parte-hechas={g.n}>0</span>/{g.lista.length}</span>
+          </div>
+        ))}
+        <button type="button" role="switch" aria-checked="false" id="interruptor-expres" class="w-full flex items-center gap-3 py-3.5 bg-transparent border-0 text-left cursor-pointer">
+          <span class="text-tinta-2"><Icono nombre="bolt" tam={20} /></span>
+          <span class="flex-1 flex flex-col gap-0.5"><span class="text-[15px] font-medium">Ruta exprés</span><span class="text-[13px] text-tinta-3">Unas {Math.round(minExpres / 60)} h hasta los talleres</span></span>
+          <span class="interruptor" aria-hidden="true"><span></span></span>
+        </button>
+      </section>
+      <p class="m-0 flex gap-2.5 px-1 text-[13px] leading-normal text-tinta-3 min-[768px]:max-[1099px]:col-span-2"><span class="mt-px"><Icono nombre="lock" tam={17} /></span><span>Tu progreso se guarda solo en este dispositivo. <a href="/progreso/">Puedes exportarlo</a> con un código para cambiar de equipo.</span></p>
+    </aside>
+
+    <div class="grid gap-8 min-w-0 max-[1099px]:contents">
+      <!-- ── Continúa donde lo dejaste ── -->
+      <section class="tarjeta rejilla p-0 rounded-2xl overflow-hidden max-[1099px]:order-1" id="continuar" style={`--c:${color(primero.parte)}`} aria-labelledby="continuar-titulo">
+        <div class="grid gap-6 p-5 min-[768px]:p-7 min-[768px]:grid-cols-[minmax(0,1fr)_auto] items-end">
+          <div class="flex flex-col gap-3">
+            <p class="m-0 flex items-center gap-2.5 mono text-[11.5px] font-medium tracking-[.1em] text-[var(--c)]">
+              <span class="size-2 rounded-full bg-[var(--c)] shadow-[0_0_0_4px_color-mix(in_oklch,var(--c)_22%,transparent)]"></span>
+              <span data-c="eyebrow">EMPIEZA AQUÍ · {primero.parte === 0 ? 'MÓDULO 0' : `LÍNEA ${primero.parte}`}</span>
+            </p>
+            <h1 id="continuar-titulo" class="m-0 text-[clamp(1.4rem,3vw,1.9rem)] font-medium tracking-[-0.02em] text-pretty" data-c="titulo">{primero.numero} · {primero.titulo}</h1>
+            <p class="m-0 flex flex-wrap items-center gap-x-4.5 gap-y-2 text-[15px] text-tinta-2">
+              <span class="flex items-center gap-1.5"><span class="text-[var(--c)]" data-c="icono">{subs.filter((s) => s.construido).map((s) => <span data-icono={s.id} hidden={s.id !== primero.id}><Icono nombre={s.icono} tam={18} /></span>)}</span><span data-c="sesion">Sesión 1 de {primero.sesiones.length} · {primero.sesiones[0]?.titulo}</span></span>
+              <span class="flex items-center gap-1.5"><Icono nombre="schedule" tam={18} /><span data-c="min">{primero.sesiones[0]?.minutos} min</span></span>
+            </p>
+            <div class="flex gap-1 mt-1 max-w-[420px]" data-c="pips" aria-hidden="true">
+              {primero.sesiones.map(() => <div class="flex-1 h-[5px] rounded-[3px]" style="background: color-mix(in oklch, var(--c) 16%, var(--superficie-2))"></div>)}
+            </div>
+          </div>
+          <div class="flex flex-col gap-2.5 min-[768px]:items-end">
+            <a class="boton h-12 px-5.5 text-[15px] whitespace-nowrap" href={`/${primero.slug}/`} data-c="boton"><span data-c="boton-txt">Empezar</span><Icono nombre="arrow_forward" tam={20} /></a>
+            <span class="text-[13px] text-tinta-3" data-c="requisito"></span>
+          </div>
+        </div>
+        <p class="m-0 px-5 min-[768px]:px-7 pb-5 text-sm text-tinta-2" data-c="piloto">Versión piloto: de momento están disponibles {subs.filter((s) => s.construido).map((s, i, a) => <>{i > 0 && (i === a.length - 1 ? ' y ' : ', ')}<a href={`/${s.slug}/`}>{s.numero} · {s.titulo}</a></>)}.</p>
+      </section>
+
+      <!-- ── Itinerario ── -->
+      <section aria-labelledby="itinerario-t" class="flex flex-col gap-1.5 min-w-0 max-[1099px]:order-3">
+        <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-2 pb-3 border-b border-borde-2">
+          <h2 id="itinerario-t" class="m-0 text-xl font-medium">Itinerario</h2>
+          <div class="flex flex-wrap items-center gap-x-4.5 gap-y-1 text-[13px] text-tinta-2">
+            <span class="hidden min-[768px]:flex items-center gap-1.5"><span class="size-2.5 rounded-full bg-tinta-2"></span>Completado</span>
+            <span class="hidden min-[768px]:flex items-center gap-1.5"><span class="size-2.5 rounded-full border-2 border-tinta-2 shadow-[0_0_0_3px_var(--borde)]"></span>En curso</span>
+            <span class="hidden min-[768px]:flex items-center gap-1.5"><span class="size-2.5 rounded-full border-2 border-[var(--borde-nodo)]"></span>Pendiente</span>
+            <span class="mono text-tinta-3 min-[768px]:pl-3.5 min-[768px]:border-l border-borde">{subs.length} estaciones · {totalSesiones} sesiones · {horasDecimal(minutosTotalesPlan)}</span>
+            <button type="button" role="switch" aria-checked="false" class="min-[768px]:hidden flex items-center gap-2 min-h-11 bg-transparent border-0 text-[13px] text-tinta-2 cursor-pointer" data-interruptor-expres><Icono nombre="bolt" tam={17} />Ruta exprés<span class="interruptor interruptor-peq" aria-hidden="true"><span></span></span></button>
+          </div>
+        </div>
+
+        <!-- Tabla (tablet y escritorio) -->
+        <div class="hidden min-[768px]:block">
+          <div class="fila-itinerario cabecera-tabla mono text-[11px] font-medium tracking-[.08em] text-tinta-3 py-2" aria-hidden="true">
+            <span></span><span>ID</span><span>SUBCAPÍTULO</span><span class="text-right">MIN</span><span class="text-right col-sesiones">SESIONES</span><span>ESTADO</span>
+          </div>
+          {grupos.map((g) => (
+            <div class="flex flex-col mb-2.5" style={`--c:${color(g.n)}`}>
+              <div class="grid grid-cols-[28px_minmax(0,1fr)_auto] gap-x-3.5 items-start pt-4.5 pb-3">
+                <span class="size-7 rounded-lg grid place-items-center text-[var(--c)]" style="background: color-mix(in oklch, var(--c) 14%, var(--superficie))"><Icono nombre={g.icono} tam={18} /></span>
+                <div class="flex flex-col gap-[3px] min-w-0">
+                  <div class="flex items-baseline gap-3"><span class="mono text-[11px] font-medium tracking-[.1em] text-[var(--c)]">{g.codigo}</span><h3 class="m-0 text-base font-semibold tracking-normal">{g.nombre}</h3></div>
+                  <span class="text-sm text-tinta-3 text-pretty">{g.descripcion}</span>
+                </div>
+                <div class="flex items-center gap-2.5 pt-1">
+                  <span class="mono text-[12.5px] text-tinta-2 whitespace-nowrap"><span data-parte-hechas={g.n}>0</span>/{g.lista.length} · {horasDecimal(g.minutos)}</span>
+                  <div class="w-20 h-1 rounded-sm overflow-hidden" style="background: color-mix(in oklch, var(--c) 16%, var(--superficie-2))"><div class="h-full" style="width:0%; background: var(--c)" data-parte-fill={g.n}></div></div>
+                </div>
+              </div>
+              <ol class="list-none m-0 p-0 bg-superficie border border-borde rounded-xl overflow-hidden">
+                {g.lista.map((s, i) => {
+                  const Etiqueta = s.construido ? 'a' : 'div';
+                  return (
+                    <li>
+                      <Etiqueta href={s.construido ? `/${s.slug}/` : undefined} class:list={['fila-itinerario fila min-h-[52px] border-t border-borde no-underline text-tinta', i === 0 && 'border-t-0', !s.construido && 'por-construir']}
+                        data-fila data-id={s.id} data-expres={s.expres ? '1' : '0'} data-estado={s.construido ? 'pendiente' : 'preparacion'}
+                        style={`--rail-top:${i === 0 ? '50%' : '0'}; --rail-bot:${i === g.lista.length - 1 ? '50%' : '0'}`}>
+                        <span class="rail ml-3.5 min-h-[50px]"><span class="nodo"></span></span>
+                        <span class="mono text-[13.5px] font-medium text-[var(--c)] pl-3.5">{s.numero}</span>
+                        <span class="flex items-center gap-2.5 min-w-0 text-[15.5px]">
+                          <span class="icono-estacion"><Icono nombre={s.icono} tam={19} /></span>
+                          <span class="titulo-estacion truncate">{s.titulo}</span>
+                          {s.nota && <span class="text-[12.5px] text-tinta-3 whitespace-nowrap hidden min-[1200px]:inline">{s.nota}</span>}
+                        </span>
+                        <span class="mono text-[13.5px] text-tinta-2 text-right">{s.minutos}</span>
+                        <span class="mono text-[13.5px] text-tinta-2 text-right col-sesiones">{nSes(s)}</span>
+                        <span class="text-[13px]">
+                          <span class="estado-variante estado-hecha items-center gap-1.5 text-tinta-2"><span class="text-[var(--c)]"><Icono nombre="check_circle" relleno tam={18} /></span>Completado</span>
+                          <span class="estado-variante estado-en-curso items-center h-6 px-2.5 rounded-xl bg-[var(--c)] text-sobre-linea text-[12.5px] font-medium">En curso · <span data-encurso-txt class="ml-1">0/{nSes(s)}</span></span>
+                          <span class="estado-variante estado-pendiente text-tinta-3">Pendiente</span>
+                          <span class="estado-variante estado-preparacion text-tinta-3 italic">En preparación</span>
+                        </span>
+                      </Etiqueta>
+                    </li>
+                  );
+                })}
+              </ol>
+            </div>
+          ))}
+        </div>
+
+        <!-- Lista por partes (móvil) -->
+        <div class="min-[768px]:hidden grid gap-3.5 mt-2" data-pagefind-ignore>
+          {grupos.map((g) => (
+            <details class="tarjeta p-0 overflow-hidden" style={`--c:${color(g.n)}`} open={g.lista.some((s) => s.id === primero.id)} data-parte-movil={g.n}>
+              <summary class="flex items-center gap-3 px-3.5 py-3 min-h-11 cursor-pointer list-none">
+                <span class="size-[34px] rounded-[9px] grid place-items-center text-[var(--c)] flex-none" style="background: color-mix(in oklch, var(--c) 14%, var(--superficie))"><Icono nombre={g.icono} tam={20} /></span>
+                <span class="flex-1 flex flex-col gap-0.5"><span class="mono text-[10.5px] font-medium tracking-[.1em] text-[var(--c)]">{g.codigo}</span><span class="text-[15.5px] font-medium">{g.nombre}</span></span>
+                <span class="mono text-[13px] text-tinta-2"><span data-parte-hechas={g.n}>0</span>/{g.lista.length}</span>
+                <span class="chevron text-tinta-3"><Icono nombre="keyboard_arrow_down" tam={22} /></span>
+              </summary>
+              <ol class="list-none m-0 px-3.5 pb-2">
+                {g.lista.map((s, i) => {
+                  const Etiqueta = s.construido ? 'a' : 'div';
+                  return (
+                    <li>
+                      <Etiqueta href={s.construido ? `/${s.slug}/` : undefined} class:list={['flex items-center gap-3 min-h-[56px] no-underline text-tinta fila', !s.construido && 'por-construir']}
+                        data-fila data-id={s.id} data-expres={s.expres ? '1' : '0'} data-estado={s.construido ? 'pendiente' : 'preparacion'}
+                        style={`--rail-top:${i === 0 ? '50%' : '0'}; --rail-bot:${i === g.lista.length - 1 ? '50%' : '0'}`}>
+                        <span class="rail w-4"><span class="nodo"></span></span>
+                        <span class="flex-1 flex flex-col gap-0.5 py-2 border-b border-borde min-w-0">
+                          <span class="text-[15px] leading-snug"><span class="mono text-[13px] text-[var(--c)] mr-2">{s.numero}</span><span class="titulo-estacion">{s.titulo}</span></span>
+                          <span class="text-[13px] text-tinta-3">{s.minutos} min · {nSes(s)} sesiones ·
+                            <span class="estado-variante estado-hecha">completado</span><span class="estado-variante estado-en-curso">en curso (<span data-encurso-txt>0/{nSes(s)}</span>)</span><span class="estado-variante estado-pendiente">pendiente</span><span class="estado-variante estado-preparacion">en preparación</span>
+                          </span>
+                        </span>
+                      </Etiqueta>
+                    </li>
+                  );
+                })}
+              </ol>
+            </details>
+          ))}
+        </div>
+      </section>
+    </div>
+  </div>
+  <script type="application/json" id="datos-curso" set:html={JSON.stringify(datosCliente)} />
+</BaseLayout>
+
+<style is:global>
+  .fila-itinerario { display: grid; grid-template-columns: 28px 52px minmax(0, 1fr) 64px 84px 136px; gap: 0 14px; align-items: center; padding-right: 16px; }
+  @media (max-width: 899px) { .fila-itinerario { grid-template-columns: 28px 48px minmax(0, 1fr) 56px 128px; } .fila-itinerario .col-sesiones { display: none; } }
+  a.fila:hover { background: var(--superficie-2); }
+  .fila[data-estado="en-curso"] { background: color-mix(in oklch, var(--c) 7%, var(--superficie)); }
+  .fila[data-estado="en-curso"] .titulo-estacion { font-weight: 600; }
+  .fila .icono-estacion { color: var(--c); }
+  .fila[data-estado="pendiente"] .icono-estacion, .fila[data-estado="preparacion"] .icono-estacion { color: var(--tinta-3); }
+  .fila.por-construir .titulo-estacion { color: var(--tinta-2); }
+  .fila { transition: opacity .2s, background .15s; }
+  [data-modo-expres="1"] .fila[data-expres="0"] { opacity: .32; }
+  .interruptor { flex: none; width: 36px; height: 22px; border-radius: 11px; background: var(--borde-2); position: relative; transition: background .2s; }
+  .interruptor > span { position: absolute; top: 3px; left: 3px; width: 16px; height: 16px; border-radius: 50%; background: var(--superficie); transition: left .2s; }
+  .interruptor-peq { width: 32px; height: 20px; }
+  .interruptor-peq > span { width: 14px; height: 14px; }
+  [aria-checked="true"] > .interruptor { background: var(--tinta); }
+  [aria-checked="true"] > .interruptor > span { left: 17px; }
+  [aria-checked="true"] > .interruptor-peq > span { left: 15px; }
+  details[open] > summary .chevron { transform: rotate(180deg); }
+  summary::-webkit-details-marker { display: none; }
+</style>
+
+<script>
+  import { leer, alCambiar } from '../lib/progreso';
+
+  interface Ses { n: number; titulo: string; minutos: number }
+  interface Sub { id: string; numero: string; titulo: string; slug: string; parte: number; icono: string; construido: boolean; minutos: number; sesiones: Ses[]; nSesiones: number; requiere: string[] }
+  const datos = JSON.parse(document.getElementById('datos-curso')!.textContent!) as { total: number; totalSesiones: number; sesionesPorSemana: number; subs: Sub[]; partes: { n: number; minutos: number; linea: string; color: string }[] };
+  const { subs, total } = datos;
+  const portada = document.getElementById('portada')!;
+  const MESES = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'];
+  const h1 = (m: number) => (m / 60).toLocaleString('es-ES', { maximumFractionDigits: 1 });
+
+  // Ruta exprés (preferencia del navegador)
+  const interruptores = [document.getElementById('interruptor-expres')!, ...document.querySelectorAll<HTMLElement>('[data-interruptor-expres]')];
+  function ponerExpres(on: boolean) {
+    portada.dataset.modoExpres = on ? '1' : '0';
+    interruptores.forEach((b) => b.setAttribute('aria-checked', String(on)));
+    try { localStorage.setItem('miamed:expres', on ? '1' : '0'); } catch { /* sin almacenamiento */ }
+  }
+  interruptores.forEach((b) => b.addEventListener('click', () => ponerExpres(portada.dataset.modoExpres !== '1')));
+  try { if (localStorage.getItem('miamed:expres') === '1') ponerExpres(true); } catch { /* sin almacenamiento */ }
+
+  function pintar() {
+    const p = leer();
+    const hechasDe = (s: Sub) => new Set(p.sesiones[s.id] ?? []);
+    const estado = (s: Sub): 'hecha' | 'en-curso' | 'pendiente' | 'preparacion' => {
+      if (!s.construido) return 'preparacion';
+      const h = hechasDe(s);
+      if (s.sesiones.length && h.size >= s.sesiones.length) return 'hecha';
+      if (h.size > 0 || p.ultima?.sub === s.id) return 'en-curso';
+      return 'pendiente';
+    };
+
+    let minutos = 0, nSesiones = 0;
+    const minParte = new Map<number, number>();
+    for (const s of subs) {
+      const h = hechasDe(s);
+      for (const ses of s.sesiones) if (h.has(ses.n)) { minutos += ses.minutos; nSesiones++; minParte.set(s.parte, (minParte.get(s.parte) ?? 0) + ses.minutos); }
+      const e = estado(s);
+      document.querySelectorAll<HTMLElement>(`[data-fila][data-id="${s.id}"]`).forEach((el) => {
+        el.dataset.estado = e;
+        el.querySelectorAll('[data-encurso-txt]').forEach((t) => (t.textContent = `${h.size}/${s.nSesiones}`));
+      });
+    }
+
+    const $ = (k: string) => document.querySelector<HTMLElement>(`[data-p="${k}"]`)!;
+    $('pct').textContent = String(Math.round((minutos / total) * 100));
+    $('horas').textContent = h1(minutos);
+    $('sesiones').textContent = String(nSesiones);
+    const m = (k: string) => document.querySelector<HTMLElement>(`[data-p-movil="${k}"]`)!;
+    m('pct').textContent = $('pct').textContent;
+    m('horas').textContent = h1(minutos);
+    m('sesiones').textContent = String(nSesiones);
+    const restantes = datos.totalSesiones - nSesiones;
+    const fin = new Date(Date.now() + (restantes / datos.sesionesPorSemana) * 7 * 864e5);
+    $('fin').innerHTML = `A ${datos.sesionesPorSemana} sesiones por semana, ${nSesiones ? 'terminas' : 'terminarías'} hacia el <strong class="text-tinta font-medium">${fin.getDate()} de ${MESES[fin.getMonth()]} de ${fin.getFullYear()}</strong>.`;
+    $('barra-aria').setAttribute('aria-label', `Progreso por partes: ${datos.partes.map((pt) => `${pt.linea}, ${Math.round(((minParte.get(pt.n) ?? 0) / pt.minutos) * 100)} %`).join('; ')}`);
+
+    for (const pt of datos.partes) {
+      const pct = `${((minParte.get(pt.n) ?? 0) / pt.minutos) * 100}%`;
+      document.querySelectorAll<HTMLElement>(`[data-seg="${pt.n}"], [data-parte-fill="${pt.n}"]`).forEach((el) => (el.style.width = pct));
+      const hechas = subs.filter((s) => s.parte === pt.n && estado(s) === 'hecha').length;
+      document.querySelectorAll<HTMLElement>(`[data-parte-hechas="${pt.n}"]`).forEach((el) => (el.textContent = String(hechas)));
+    }
+
+    // «Continúa donde lo dejaste»
+    const c = (k: string) => document.querySelector<HTMLElement>(`[data-c="${k}"]`)!;
+    let objetivo: { s: Sub; n: number } | null = null;
+    const ultima = p.ultima && subs.find((s) => s.id === p.ultima!.sub && s.construido);
+    if (ultima && estado(ultima) !== 'hecha') {
+      const h = hechasDe(ultima);
+      objetivo = { s: ultima, n: h.has(p.ultima!.sesion) ? (ultima.sesiones.find((x) => !h.has(x.n))?.n ?? p.ultima!.sesion) : p.ultima!.sesion };
+    }
+    if (!objetivo && (p.ultima || Object.keys(p.sesiones).length)) {
+      const sig = subs.find((s) => s.construido && estado(s) !== 'hecha');
+      if (sig) objetivo = { s: sig, n: sig.sesiones.find((x) => !hechasDe(sig).has(x.n))?.n ?? 1 };
+    }
+    if (!objetivo) return;
+    const { s, n } = objetivo;
+    const ses = s.sesiones.find((x) => x.n === n)!;
+    const h = hechasDe(s);
+    const pt = datos.partes.find((x) => x.n === s.parte)!;
+    document.getElementById('continuar')!.style.setProperty('--c', `var(--${pt.color})`);
+    c('eyebrow').textContent = `CONTINÚA DONDE LO DEJASTE · ${pt.linea.toUpperCase()}`;
+    c('titulo').textContent = `${s.numero} · ${s.titulo}`;
+    c('icono').querySelectorAll<HTMLElement>('[data-icono]').forEach((el) => (el.hidden = el.dataset.icono !== s.id));
+    c('sesion').textContent = `Sesión ${n} de ${s.sesiones.length} · ${ses.titulo}`;
+    c('min').textContent = `${ses.minutos} min`;
+    c('pips').innerHTML = s.sesiones.map((x) => `<div style="flex:1;height:5px;border-radius:3px;background:${h.has(x.n) ? 'var(--c)' : x.n === n ? 'color-mix(in oklch, var(--c) 55%, var(--superficie-2))' : 'color-mix(in oklch, var(--c) 16%, var(--superficie-2))'}"></div>`).join('');
+    (c('boton') as HTMLAnchorElement).href = `/${s.slug}/#sesion-${n}`;
+    c('boton-txt').textContent = `Continuar sesión ${n}`;
+    const pendientes = s.requiere.map((id) => subs.find((x) => x.id === id)!).filter((r) => estado(r) !== 'hecha');
+    c('requisito').textContent = pendientes.length ? `Se recomienda antes ${pendientes.map((r) => `${r.numero} ${r.titulo}`).join(' y ')}` : '';
+  }
+  pintar();
+  alCambiar(pintar);
+</script>

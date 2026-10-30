@@ -483,49 +483,9 @@ REVISION_CLINICA.md · CLAUDE.md · README.md · PLAN.md
 
 ## 8. Propuesta visual
 
-### 8.1 Metáfora: plano de metro
 
-- **Estación de origen «M0 · Bienvenida»** y tres líneas:
-  - **Línea 1 · Fundamentos** (azul petróleo), 8 estaciones.
-  - **Línea 2 · IA en medicina** (terracota), 5 estaciones.
-  - **Línea 3 · Caja de herramientas** (verde), 9 estaciones.
-- **Transbordos** donde un subcapítulo es prerrequisito de otro: 1.3 ↔ 2.2, 1.6 ↔ 3.1, 2.3 ↔ 3.0, 2.5 ↔ 3.2.
-- Estación completada = círculo relleno. «Estás aquí» = anillo destacado (con un pulso suave solo si no se ha activado `prefers-reduced-motion`). Próxima estación recomendada = etiqueta.
-- **En el móvil**, el plano se convierte en tres líneas verticales desplegables (como el plano de una sola línea en un vagón). Así no hace falta hacer zoom.
-- Junto al mapa: horas completadas, porcentaje, «continúa donde lo dejaste» y próximo paso.
 
-He descartado otras metáforas (sendero de montaña, plan de residencia): el metro comunica mejor tres recorridos paralelos que se cruzan y permite ir a cualquier estación sin bloqueos.
-
-### 8.2 Paleta (contraste calculado con la fórmula WCAG)
-
-| Uso | Claro | Contraste sobre el fondo | Oscuro | Contraste sobre el fondo |
-|---|---|---|---|---|
-| Fondo | `#FBF8F3` marfil | — | `#13191C` | — |
-| Texto | `#1E2A2F` tinta | 13,9 : 1 | `#ECE6DC` | 14,3 : 1 |
-| Texto secundario | `#4B5A60` | 6,8 : 1 | `#B4BDC1` | 9,3 : 1 |
-| Línea 1 · Fundamentos | `#1D6A84` petróleo | 5,8 : 1 | `#62B6D3` | 7,7 : 1 |
-| Línea 2 · Medicina | `#A3452B` terracota | 5,8 : 1 | `#E8906F` | 7,3 : 1 |
-| Línea 3 · Herramientas | `#3D7A4C` verde | 4,9 : 1 | `#86C394` | 8,7 : 1 |
-| M0 · Bienvenida | `#5A4E7A` ciruela | 7,1 : 1 | `#B3A6DA` | 7,9 : 1 |
-| Acento (solo gráficos, no texto) | `#B07D12` mostaza | 3,4 : 1 (válido para elementos no textuales) | `#E3B54E` | 9,3 : 1 |
-
-El texto blanco sobre los colores de línea (botones) cumple AA: 6,1 / 6,1 / 5,1 : 1.
-
-### 8.3 Tipografía
-
-- **Cuerpo:** *Atkinson Hyperlegible Next*, diseñada por el Braille Institute para personas con baja visión. Distingue bien caracteres parecidos (l/I/1, 0/O), algo útil para dosis y cifras. Tamaño de 18 px en el móvil y 19–20 px en tablet y escritorio. Interlineado de 1,6.
-- **Títulos:** *Fraunces*, una serif cálida con un punto editorial, que aleja la web del estilo «hospital frío».
-- Ambas autoalojadas con Fontsource (`@fontsource-variable/atkinson-hyperlegible-next` 5.3.0 y `@fontsource-variable/fraunces` 5.3.0, verificadas en npm).
-
-### 8.4 Componentes y tono visual
-
-- **Tarjetas** con sombra muy suave y esquinas de 12 px; **callouts** con icono y color semántico: «Ojo con…» en terracota, «Pruébalo tú» en verde, «Analogía médica» en petróleo y «Aviso clínico» en ciruela.
-- **Insignias discretas** al terminar cada parte: un «sello» lineal monocromo con el nombre de la línea, sin confeti.
-- **Animaciones** solo con propósito: la transición de umbral en el ROC o el resaltado del token activo. Todo se desactiva con `prefers-reduced-motion`.
-- **Modo oscuro:** sigue al sistema y tiene un selector manual que se recuerda.
-- **Accesibilidad:** foco visible, navegación completa por teclado (incluidos «ordenar» y «emparejar»), `aria-live` para la retroalimentación de los tests, textos alternativos en todos los SVG y objetivos táctiles de al menos 44 × 44 px.
-
-**Boceto:** [bocetos/portada.html](bocetos/portada.html). Ábrelo con doble clic en el navegador y prueba a estrecharlo hasta el ancho de un móvil y a activar el modo oscuro. Es solo un boceto estático: los datos de progreso son de ejemplo.
+**Boceto:** [bocetos/Portada_dc.html](bocetos/Portada_dc.html). Utilizalo de referencia para el diseño web, toma la opción 1a.
 
 ---
 

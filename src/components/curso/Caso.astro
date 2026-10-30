@@ -1,0 +1,6 @@
+---
+import Cuadro from './Cuadro.astro';
+interface Props { titulo?: string }
+const { titulo = 'Caso' } = Astro.props;
+---
+<Cuadro tipo="caso" titulo={`${titulo} · caso ficticio`} icono="clinical_notes"><slot /></Cuadro>

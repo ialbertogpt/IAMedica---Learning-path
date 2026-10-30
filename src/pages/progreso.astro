@@ -1,0 +1,93 @@
+---
+import BaseLayout from '../components/layout/BaseLayout.astro';
+import { subcapitulos } from '../lib/curso';
+const subs = (await subcapitulos()).filter((s) => s.construido);
+const datos = subs.map((s) => ({ id: s.id, numero: s.numero, titulo: s.titulo, slug: s.slug, sesiones: s.sesiones.length }));
+---
+<BaseLayout titulo="Mi progreso" seccion="progreso" sinIndexar descripcion="Tu progreso: exportar, importar o reiniciar.">
+  <div class="contenedor-lectura pt-7">
+    <h1>Mi progreso</h1>
+    <p class="tenue">Tu progreso se guarda <strong class="text-tinta">solo en este navegador</strong>. Si borras los datos del navegador o usas el modo privado, se pierde. Para seguir en otro dispositivo (por ejemplo, del portátil a la tablet), exporta un código aquí e impórtalo allí.</p>
+
+    <section class="tarjeta mt-5" aria-labelledby="resumen-t">
+      <h2 id="resumen-t" class="text-xl mt-0">Subcapítulos disponibles</h2>
+      <ul class="m-0 p-0 list-none grid gap-2" id="lista-progreso"></ul>
+    </section>
+
+    <section class="tarjeta mt-5 grid gap-3" aria-labelledby="exportar-t">
+      <h2 id="exportar-t" class="text-xl m-0">Exportar</h2>
+      <p class="m-0 text-base">Genera un código con todo tu progreso. Cópialo y pégalo en «Importar» en el otro dispositivo.</p>
+      <div class="flex flex-wrap gap-2">
+        <button type="button" class="boton boton-peq" id="generar">Generar código</button>
+        <button type="button" class="boton boton-sec boton-peq" id="descargar">Descargar archivo .json</button>
+      </div>
+      <div id="bloque-codigo" hidden class="grid gap-2">
+        <pre id="codigo" class="m-0 p-3 rounded-lg border border-borde bg-superficie-2 whitespace-pre-wrap break-all text-sm"></pre>
+        <span class="flex items-center gap-2"><button type="button" class="boton boton-sec boton-peq justify-self-start" data-copiar="codigo">Copiar código</button><span class="sr-only" aria-live="polite" data-estado-copia></span></span>
+      </div>
+    </section>
+
+    <section class="tarjeta mt-5 grid gap-3" aria-labelledby="importar-t">
+      <h2 id="importar-t" class="text-xl m-0">Importar</h2>
+      <p class="m-0 text-base"><strong>Ojo:</strong> importar sustituye el progreso que hay ahora en este navegador.</p>
+      <label class="grid gap-1" for="entrada-codigo"><span class="font-bold">Pega aquí el código</span>
+        <textarea id="entrada-codigo" rows="3" class="w-full rounded-lg border border-borde bg-superficie p-2 text-base" placeholder="MIAM1-…"></textarea>
+      </label>
+      <div class="flex flex-wrap gap-2 items-center">
+        <button type="button" class="boton boton-peq" id="importar">Importar código</button>
+        <label class="boton boton-sec boton-peq cursor-pointer">Importar archivo .json<input type="file" accept="application/json,.json" id="archivo" class="sr-only" /></label>
+      </div>
+      <p id="resultado-importar" class="m-0" aria-live="polite"></p>
+    </section>
+
+    <section class="tarjeta mt-5 grid gap-3" aria-labelledby="reiniciar-t">
+      <h2 id="reiniciar-t" class="text-xl m-0">Empezar de cero</h2>
+      <p class="m-0 text-base">Borra todo tu progreso de este navegador. No se puede deshacer (salvo que antes exportes un código).</p>
+      <button type="button" class="boton boton-sec boton-peq justify-self-start" id="reiniciar">Borrar mi progreso…</button>
+    </section>
+  </div>
+  <script type="application/json" id="datos-progreso" set:html={JSON.stringify(datos)} />
+</BaseLayout>
+<script>
+  import { leer, exportarCodigo, importarCodigo, importarJSON, reiniciar, alCambiar } from '../lib/progreso';
+  const subs: { id: string; numero: string; titulo: string; slug: string; sesiones: number }[] = JSON.parse(document.getElementById('datos-progreso')!.textContent!);
+
+  function pintar() {
+    const p = leer();
+    document.getElementById('lista-progreso')!.innerHTML = subs.map((s) => {
+      const h = p.sesiones[s.id]?.length ?? 0;
+      const t = p.tests[s.id];
+      return `<li class="flex flex-wrap justify-between gap-2 border-b border-borde pb-2"><a href="/${s.slug}/">${s.numero} · ${s.titulo}</a><span class="tenue text-base">${h}/${s.sesiones} sesiones${t?.superado ? ` · test ✓ (${t.aciertosPrimera}/${t.total} a la primera)` : ''}</span></li>`;
+    }).join('');
+  }
+  pintar();
+  alCambiar(pintar);
+
+  document.getElementById('generar')!.addEventListener('click', async () => {
+    document.getElementById('codigo')!.textContent = await exportarCodigo();
+    document.getElementById('bloque-codigo')!.hidden = false;
+  });
+  document.getElementById('descargar')!.addEventListener('click', () => {
+    const blob = new Blob([JSON.stringify(leer(), null, 2)], { type: 'application/json' });
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = `mi-ia-medica-progreso-${new Date().toISOString().slice(0, 10)}.json`;
+    a.click();
+    setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+  });
+  const resultado = document.getElementById('resultado-importar')!;
+  const mostrar = (ok: boolean, texto: string) => { resultado.className = `retro m-0 ${ok ? 'retro-ok' : 'retro-mal'}`; resultado.textContent = texto; };
+  document.getElementById('importar')!.addEventListener('click', async () => {
+    const r = await importarCodigo((document.getElementById('entrada-codigo') as HTMLTextAreaElement).value);
+    mostrar(r.ok, r.ok ? 'Progreso importado correctamente.' : r.motivo);
+  });
+  document.getElementById('archivo')!.addEventListener('change', async (e) => {
+    const f = (e.target as HTMLInputElement).files?.[0];
+    if (!f) return;
+    const ok = importarJSON(await f.text());
+    mostrar(ok, ok ? 'Progreso importado desde el archivo.' : 'El archivo no contiene un progreso válido.');
+  });
+  document.getElementById('reiniciar')!.addEventListener('click', () => {
+    if (confirm('¿Seguro que quieres borrar todo tu progreso de este navegador?')) { reiniciar(); mostrar(true, 'Progreso borrado.'); }
+  });
+</script>

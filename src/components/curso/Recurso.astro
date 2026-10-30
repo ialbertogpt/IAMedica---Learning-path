@@ -1,0 +1,23 @@
+---
+import { getEntry } from 'astro:content';
+import { etiquetaIdioma, etiquetaTipo, fechaCorta } from '../../lib/formato';
+interface Props { id: string; compacto?: boolean }
+const { id, compacto = false } = Astro.props;
+const r = await getEntry('recursos', id);
+if (!r) throw new Error(`[recursos] El recurso «${id}» no existe en src/data/recursos.json`);
+if (r.data.estado === 'descartado') throw new Error(`[recursos] «${id}» está descartado y no puede usarse`);
+const d = r.data;
+const tiempo = d.duracion ? `${d.duracion} min` : `${d.minutosLectura} min de lectura`;
+---
+<article class:list={['tarjeta grid gap-1.5', compacto && 'p-4']}>
+  <p class="m-0 eyebrow">{etiquetaTipo(d.tipo)} · {tiempo}</p>
+  <p class="m-0 font-bold leading-snug"><a href={d.url} target="_blank" rel="noopener noreferrer">{d.titulo} ↗</a></p>
+  <p class="m-0 tenue text-base">{d.autor}</p>
+  <p class="m-0 flex flex-wrap gap-1.5">
+    <span class="chip">{etiquetaIdioma(d.idioma, d.doblaje)}</span>
+    {d.estado === 'con-reservas' && <span class="chip">Con reservas</span>}
+    {d.estado === 'bloqueado-anti-bots' && <span class="chip">Pendiente de comprobación manual</span>}
+  </p>
+  {!compacto && <p class="m-0 text-base"><strong>Por qué:</strong> {d.porQue}</p>}
+  <p class="m-0 text-sm tenue">Verificado el {fechaCorta(d.fechaVerificacion)}{d.notas ? ` · ${d.notas}` : ''}</p>
+</article>

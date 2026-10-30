@@ -1,0 +1,58 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../components/layout/BaseLayout.astro';
+import { subcapitulos } from '../lib/curso';
+
+const terminos = (await getCollection('glosario')).sort((a, b) => a.data.termino.localeCompare(b.data.termino, 'es'));
+const entradas = await getCollection('partes');
+const subs = await subcapitulos();
+// Dónde aparece cada término (según los <T id="…"> de los subcapítulos)
+const usos = new Map<string, { numero: string; slug: string }[]>();
+for (const e of entradas) {
+  const info = subs.find((s) => s.id === e.data.id)!;
+  for (const m of (e.body ?? '').matchAll(/<T\s+id="([^"]+)"/g)) {
+    const lista = usos.get(m[1]) ?? [];
+    if (!lista.some((x) => x.slug === info.slug)) lista.push({ numero: info.numero, slug: info.slug });
+    usos.set(m[1], lista);
+  }
+}
+const nombre = new Map(terminos.map((t) => [t.data.id, t.data.termino]));
+---
+<BaseLayout titulo="Glosario" seccion="glosario" descripcion="Términos de inteligencia artificial explicados con analogías médicas.">
+  <div class="contenedor-lectura pt-7">
+    <h1>Glosario</h1>
+    <p class="tenue">{terminos.length} términos, cada uno con una definición de una línea y una analogía médica. En los textos del curso, los términos subrayados con puntos abren esta definición.</p>
+    <label class="grid gap-1 mt-4 no-imprimir" for="filtro-glosario">
+      <span class="font-bold">Buscar un término</span>
+      <input id="filtro-glosario" type="search" autocomplete="off" placeholder="p. ej., token, confabulación, ficha técnica…" class="min-h-12 w-full rounded-lg border border-borde bg-superficie px-3 text-lg" />
+    </label>
+    <p id="glosario-vacio" class="retro retro-neutra" hidden>No hay términos que coincidan. Prueba con otra palabra o usa el <a href="/buscar/">buscador general</a>.</p>
+    <dl class="mt-6 grid gap-3">
+      {terminos.map((t) => (
+        <div class="tarjeta scroll-mt-4" id={t.data.id} data-termino={`${t.data.termino} ${t.data.definicion} ${t.data.analogia}`.toLowerCase()}>
+          <dt class="font-medium text-xl">{t.data.termino}</dt>
+          <dd class="m-0 mt-1">{t.data.definicion}</dd>
+          <dd class="m-0 mt-2 tenue"><strong class="text-tinta">Analogía médica:</strong> {t.data.analogia}</dd>
+          {t.data.ver.length > 0 && (
+            <dd class="m-0 mt-2 text-base">Ver también: {t.data.ver.filter((v) => nombre.has(v)).map((v, i) => <>{i > 0 && ' · '}<a href={`#${v}`}>{nombre.get(v)}</a></>)}</dd>
+          )}
+          {usos.get(t.data.id) && (
+            <dd class="m-0 mt-1 text-base tenue">Aparece en: {usos.get(t.data.id)!.map((u, i) => <>{i > 0 && ', '}<a href={`/${u.slug}/`}>{u.numero}</a></>)}</dd>
+          )}
+        </div>
+      ))}
+    </dl>
+  </div>
+</BaseLayout>
+<script>
+  const entrada = document.getElementById('filtro-glosario') as HTMLInputElement;
+  const items = [...document.querySelectorAll<HTMLElement>('[data-termino]')];
+  const vacio = document.getElementById('glosario-vacio')!;
+  const normalizar = (s: string) => s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
+  entrada.addEventListener('input', () => {
+    const q = normalizar(entrada.value.trim());
+    let visibles = 0;
+    items.forEach((it) => { const ok = !q || normalizar(it.dataset.termino!).includes(q); it.hidden = !ok; if (ok) visibles++; });
+    vacio.hidden = visibles > 0;
+  });
+</script>

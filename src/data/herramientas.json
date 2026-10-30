@@ -1,0 +1,137 @@
+[
+  {
+    "id": "cima", "nombre": "CIMA (AEMPS)", "url": "https://cima.aemps.es/cima/publico/home.html", "tareas": ["farmacologia"],
+    "descripcion": "Web y app oficiales de la Agencia Española de Medicamentos con las fichas técnicas y prospectos autorizados en España.",
+    "haceBien": ["Es la fuente oficial: lo que dice la ficha técnica manda", "Gratis, sin registro y en español", "Busca por principio activo o por nombre comercial"],
+    "haceMal": ["No resuelve casos: hay que leer la sección adecuada (4.2, 4.3, 4.5…)", "Cada presentación tiene su ficha y no todas se actualizan a la vez"],
+    "cuandoNoUsarla": "Nunca sobra; si buscas una revisión de toda la medicación de un paciente, combínala con criterios como STOPP/START.",
+    "gratis": true, "precio": "Gratuita", "idiomaEs": "sí", "disponibleEspana": "sí", "aptaDatosPacientes": "no-aplica", "registro": "no",
+    "fechaVerificacion": "2026-10-30", "estado": "verificado"
+  },
+  {
+    "id": "drugs-interacciones", "nombre": "Drugs.com · Drug Interaction Checker", "url": "https://www.drugs.com/drug_interactions.html", "tareas": ["interacciones"],
+    "descripcion": "Comprobador de interacciones gratuito: introduces la lista de fármacos y devuelve las interacciones clasificadas por gravedad.",
+    "haceBien": ["Gratis y sin registro", "Clasifica la gravedad y explica el mecanismo", "Revisa listas largas de una vez"],
+    "haceMal": ["Solo en inglés y con nombres de EE. UU. (p. ej., acetaminophen = paracetamol)", "Puede listar interacciones teóricas poco relevantes y abrumar"],
+    "cuandoNoUsarla": "Como fuente final: confirma cada interacción relevante en la sección 4.5 de la ficha técnica.",
+    "gratis": true, "precio": "Gratuita", "idiomaEs": "no", "disponibleEspana": "sí", "aptaDatosPacientes": "no-aplica", "registro": "no",
+    "fechaVerificacion": "2026-10-29", "estado": "verificado"
+  },
+  {
+    "id": "medscape-interacciones", "nombre": "Medscape · Drug Interaction Checker", "url": "https://reference.medscape.com/drug-interactionchecker", "tareas": ["interacciones"],
+    "descripcion": "Alternativa gratuita para comprobar interacciones entre varios fármacos.",
+    "haceBien": ["Gratis", "Muestra el mecanismo y la recomendación de manejo"],
+    "haceMal": ["Solo en inglés", "La web bloquea las comprobaciones automáticas; disponibilidad pendiente de confirmar a mano"],
+    "cuandoNoUsarla": "Como fuente final: confirma en la ficha técnica.",
+    "gratis": true, "precio": "Gratuita (puede pedir registro)", "idiomaEs": "no", "disponibleEspana": "por-verificar", "aptaDatosPacientes": "no-aplica", "registro": "gratuito",
+    "fechaVerificacion": "2026-10-29", "estado": "bloqueado-anti-bots"
+  },
+  {
+    "id": "acbcalc", "nombre": "ACB Calculator", "url": "https://www.acbcalc.com", "tareas": ["deprescripcion", "calculadoras"],
+    "descripcion": "Calcula la carga anticolinérgica total de una lista de fármacos según la escala ACB.",
+    "haceBien": ["Rápida y gratuita", "Pone en evidencia la suma de efectos anticolinérgicos"],
+    "haceMal": ["En inglés", "Distintas escalas anticolinérgicas puntúan distinto el mismo fármaco"],
+    "cuandoNoUsarla": "Para decidir por sí sola: es una alerta que se integra con la valoración clínica.",
+    "gratis": true, "precio": "Gratuita", "idiomaEs": "no", "disponibleEspana": "sí", "aptaDatosPacientes": "no-aplica", "registro": "no",
+    "fechaVerificacion": "2026-10-29", "estado": "verificado"
+  },
+  {
+    "id": "deprescribing-org", "nombre": "deprescribing.org", "url": "https://deprescribing.org/resources/deprescribing-guidelines-algorithms/", "tareas": ["deprescripcion"],
+    "descripcion": "Algoritmos de una página para retirar benzodiacepinas e hipnóticos, IBP, antipsicóticos, antidiabéticos y otros, basados en guías con metodología GRADE.",
+    "haceBien": ["Muy prácticos: indican cuándo y cómo reducir", "Gratuitos, con material para pacientes"],
+    "haceMal": ["En inglés (algunos en francés)", "Algunos algoritmos tienen varios años"],
+    "cuandoNoUsarla": "Sin valorar al paciente concreto y sin acordar la retirada con él o con su familia.",
+    "gratis": true, "precio": "Gratuita", "idiomaEs": "no", "disponibleEspana": "sí", "aptaDatosPacientes": "no-aplica", "registro": "no",
+    "fechaVerificacion": "2026-10-30", "estado": "verificado"
+  },
+  {
+    "id": "mdcalc", "nombre": "MDCalc", "url": "https://www.mdcalc.com", "tareas": ["calculadoras"],
+    "descripcion": "Colección de calculadoras y escalas clínicas, cada una con su referencia y con notas de uso.",
+    "haceBien": ["Incluye Cockcroft-Gault y CKD-EPI, entre cientos de escalas", "Cita la evidencia de cada calculadora"],
+    "haceMal": ["En inglés y con unidades de EE. UU. por defecto (revisa mg/dl frente a µmol/l)"],
+    "cuandoNoUsarla": "Si tu centro tiene una calculadora validada integrada en la historia clínica, usa esa en la práctica.",
+    "gratis": true, "precio": "Gratuita", "idiomaEs": "no", "disponibleEspana": "sí", "aptaDatosPacientes": "no-aplica", "registro": "no",
+    "fechaVerificacion": "2026-10-29", "estado": "verificado"
+  },
+  {
+    "id": "chatgpt", "nombre": "ChatGPT (OpenAI)", "url": "https://chatgpt.com", "tareas": ["asistente-general"],
+    "descripcion": "Asistente conversacional generalista. Tiene plan gratuito y planes de pago con modelos más capaces.",
+    "haceBien": ["Redacta, resume y explica con soltura en español", "Puede buscar en internet y citar fuentes en algunas funciones"],
+    "haceMal": ["Puede inventar datos y referencias con total seguridad", "Tiende a darte la razón si le das tu hipótesis"],
+    "cuandoNoUsarla": "Con datos identificables de pacientes desde una cuenta personal, o como fuente final de dosis.",
+    "gratis": true, "precio": "Plan gratuito; planes de pago: precio por verificar (Fase 4)", "idiomaEs": "sí", "disponibleEspana": "sí", "aptaDatosPacientes": "no", "registro": "gratuito",
+    "fechaVerificacion": "2026-10-29", "estado": "parcial", "notas": "Ajustes de privacidad y precios se detallarán en 3.0."
+  },
+  {
+    "id": "claude", "nombre": "Claude (Anthropic)", "url": "https://claude.ai", "tareas": ["asistente-general"],
+    "descripcion": "Asistente conversacional generalista. Tiene plan gratuito y planes de pago.",
+    "haceBien": ["Redacta y analiza textos largos con buen criterio", "Permite proyectos con tus propios documentos"],
+    "haceMal": ["Puede inventar datos y referencias con total seguridad", "Tiende a darte la razón si le das tu hipótesis"],
+    "cuandoNoUsarla": "Con datos identificables de pacientes desde una cuenta personal, o como fuente final de dosis.",
+    "gratis": true, "precio": "Plan gratuito; planes de pago: precio por verificar (Fase 4)", "idiomaEs": "sí", "disponibleEspana": "sí", "aptaDatosPacientes": "no", "registro": "gratuito",
+    "fechaVerificacion": "2026-10-29", "estado": "bloqueado-anti-bots", "notas": "La web bloquea las comprobaciones automáticas. Ajustes de privacidad y precios en 3.0."
+  },
+  {
+    "id": "gemini", "nombre": "Gemini (Google)", "url": "https://gemini.google.com", "tareas": ["asistente-general"],
+    "descripcion": "Asistente conversacional de Google, integrado con su ecosistema. Tiene plan gratuito y planes de pago.",
+    "haceBien": ["Se integra con documentos de Google", "Buen manejo de documentos largos"],
+    "haceMal": ["Puede inventar datos y referencias con total seguridad", "Tiende a darte la razón si le das tu hipótesis"],
+    "cuandoNoUsarla": "Con datos identificables de pacientes desde una cuenta personal, o como fuente final de dosis.",
+    "gratis": true, "precio": "Plan gratuito; planes de pago: precio por verificar (Fase 4)", "idiomaEs": "sí", "disponibleEspana": "sí", "aptaDatosPacientes": "no", "registro": "gratuito",
+    "fechaVerificacion": "2026-10-29", "estado": "parcial", "notas": "Ajustes de privacidad y precios en 3.0."
+  },
+  {
+    "id": "copilot", "nombre": "Microsoft Copilot", "url": "https://copilot.microsoft.com", "tareas": ["asistente-general"],
+    "descripcion": "Asistente conversacional de Microsoft. La versión de consumo es gratuita con una cuenta personal.",
+    "haceBien": ["Gratis con cuenta personal de Microsoft", "Suele buscar en internet y mostrar enlaces"],
+    "haceMal": ["Puede inventar datos y referencias con total seguridad", "La versión de consumo no es la misma que la de Microsoft 365 de un centro sanitario"],
+    "cuandoNoUsarla": "Con datos identificables de pacientes desde una cuenta personal, o como fuente final de dosis.",
+    "gratis": true, "precio": "Plan gratuito; planes de pago: precio por verificar (Fase 4)", "idiomaEs": "sí", "disponibleEspana": "sí", "aptaDatosPacientes": "no", "registro": "gratuito",
+    "fechaVerificacion": "2026-10-29", "estado": "parcial"
+  },
+  {
+    "id": "gemini-notebook", "nombre": "Gemini Notebook (antes NotebookLM)", "url": "https://notebook.google.com", "tareas": ["estudiar-documentos"],
+    "descripcion": "Cuaderno de Google en el que subes tus documentos (PDF, webs…) y la IA responde basándose en ellos, con citas al texto original.",
+    "haceBien": ["Responde a partir de tus fuentes y cita el fragmento exacto", "Genera resúmenes, preguntas de repaso y audios"],
+    "haceMal": ["Puede interpretar mal tablas y gráficos de los PDF", "Si la respuesta no está en tus documentos, puede rellenar huecos"],
+    "cuandoNoUsarla": "Con historias clínicas o documentos con datos de pacientes en una cuenta personal.",
+    "gratis": true, "precio": "Plan gratuito; funciones avanzadas en planes de pago", "idiomaEs": "sí", "disponibleEspana": "sí", "aptaDatosPacientes": "no", "registro": "gratuito",
+    "fechaVerificacion": "2026-10-29", "estado": "parcial", "notas": "Cambió de nombre el 16/07/2026; notebooklm.google.com redirige a notebook.google.com."
+  },
+  {
+    "id": "openevidence", "nombre": "OpenEvidence", "url": "https://www.openevidence.com", "tareas": ["evidencia-clinica"],
+    "descripcion": "Buscador de evidencia médica con IA muy usado en EE. UU. Desde finales de abril de 2026 bloquea el acceso desde la UE y el Reino Unido.",
+    "haceBien": ["En EE. UU. es una referencia para preguntas clínicas con citas"],
+    "haceMal": ["No disponible en España (a fecha de octubre de 2026)", "El registro estaba pensado para profesionales de EE. UU."],
+    "cuandoNoUsarla": "Desde España no es posible usarla; no intentes sortear el bloqueo con una VPN.",
+    "gratis": true, "precio": "Gratuita para profesionales verificados en EE. UU.", "idiomaEs": "parcial", "disponibleEspana": "no", "aptaDatosPacientes": "no", "registro": "profesional",
+    "fechaVerificacion": "2026-10-29", "estado": "no-disponible", "notas": "Retirada de la UE y el Reino Unido según Medscape (abril de 2026) y prensa sectorial; confirmación manual pendiente."
+  },
+  {
+    "id": "pubmed", "nombre": "PubMed", "url": "https://pubmed.ncbi.nlm.nih.gov", "tareas": ["bibliografia"],
+    "descripcion": "La base de datos de referencia de la literatura biomédica, de la Biblioteca Nacional de Medicina de EE. UU.",
+    "haceBien": ["Gratuita y exhaustiva", "Búsqueda con MeSH y alertas por correo"],
+    "haceMal": ["Requiere aprender a buscar bien", "No da acceso a todos los textos completos"],
+    "cuandoNoUsarla": "Nunca sobra: es el punto de partida y de verificación de cualquier referencia.",
+    "gratis": true, "precio": "Gratuita", "idiomaEs": "no", "disponibleEspana": "sí", "aptaDatosPacientes": "no-aplica", "registro": "no",
+    "fechaVerificacion": "2026-10-29", "estado": "verificado"
+  },
+  {
+    "id": "jamovi", "nombre": "jamovi", "url": "https://www.jamovi.org", "tareas": ["estadistica"],
+    "descripcion": "Programa estadístico gratuito y de código abierto, con menús parecidos a SPSS. Los datos no salen de tu ordenador.",
+    "haceBien": ["Gratis, en español y fácil para quien viene de SPSS", "Los datos se quedan en tu equipo"],
+    "haceMal": ["Hay que instalarlo", "Algunos análisis avanzados requieren módulos adicionales"],
+    "cuandoNoUsarla": "Si tu análisis necesita métodos muy especializados que no tiene; consúltalo con un estadístico.",
+    "gratis": true, "precio": "Gratuito", "idiomaEs": "sí", "disponibleEspana": "sí", "aptaDatosPacientes": "no-aplica", "registro": "no",
+    "fechaVerificacion": "2026-10-29", "estado": "verificado"
+  },
+  {
+    "id": "zotero", "nombre": "Zotero", "url": "https://www.zotero.org", "tareas": ["gestor-referencias"],
+    "descripcion": "Gestor de referencias bibliográficas gratuito y de código abierto, con extensión para el navegador y complemento para Word.",
+    "haceBien": ["Guarda referencias con un clic desde PubMed", "Inserta citas y bibliografía en Word en cualquier estilo"],
+    "haceMal": ["El espacio gratuito de sincronización en la nube es limitado"],
+    "cuandoNoUsarla": "No tiene contraindicaciones; solo es un gestor, no comprueba si una referencia dice lo que crees.",
+    "gratis": true, "precio": "Gratuito (almacenamiento extra de pago)", "idiomaEs": "sí", "disponibleEspana": "sí", "aptaDatosPacientes": "no-aplica", "registro": "gratuito",
+    "fechaVerificacion": "2026-10-29", "estado": "verificado"
+  }
+]

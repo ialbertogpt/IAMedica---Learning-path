@@ -1,0 +1,33 @@
+---
+import Icono from '../ui/Icono.astro';
+// Infografía: las secciones de la ficha técnica (estructura común en la UE) y cuáles mirar para cada duda.
+const secciones = [
+  { n: '1–3', t: 'Nombre, composición y forma farmacéutica', clave: false },
+  { n: '4.1', t: 'Indicaciones terapéuticas', clave: false },
+  { n: '4.2', t: 'Posología y forma de administración', clave: true, para: 'Dosis, dosis máxima y ajustes en insuficiencia renal o hepática y en edad avanzada.' },
+  { n: '4.3', t: 'Contraindicaciones', clave: true, para: 'Cuándo no se debe usar (p. ej., por debajo de cierto filtrado).' },
+  { n: '4.4', t: 'Advertencias y precauciones especiales de empleo', clave: true, para: 'Riesgos que obligan a vigilar o a ajustar.' },
+  { n: '4.5', t: 'Interacción con otros medicamentos', clave: true, para: 'Combinaciones que hay que evitar o en las que hay que limitar la dosis.' },
+  { n: '4.6–4.7', t: 'Embarazo y lactancia · Conducción', clave: false },
+  { n: '4.8', t: 'Reacciones adversas', clave: true, para: 'Efectos adversos y su frecuencia.' },
+  { n: '4.9', t: 'Sobredosis', clave: false },
+  { n: '5', t: 'Propiedades farmacológicas (5.2: farmacocinética, eliminación renal)', clave: false },
+  { n: '6–9', t: 'Datos farmacéuticos, titular y autorización', clave: false },
+  { n: '10', t: 'Fecha de la revisión del texto', clave: true, para: 'Cita siempre esta fecha cuando uses un dato de la ficha.' },
+];
+---
+<section class="interactivo" aria-labelledby="anatomia-ficha-t">
+  <h3 id="anatomia-ficha-t" class="interactivo-titulo"><Icono nombre="description" tam={20} />Anatomía de una ficha técnica: dónde mirar cada cosa</h3>
+  <ol class="list-none m-0 p-0 grid gap-1.5">
+    {secciones.map((s) => (
+      <li class:list={['grid grid-cols-[4.5rem_1fr] gap-3 rounded-lg px-3 py-2 border', s.clave ? 'border-[var(--l3)] bg-[var(--ok-fondo)]' : 'border-borde']}>
+        <span class="font-bold tabular-nums">{s.n}</span>
+        <span>
+          <span class:list={[s.clave && 'font-bold']}>{s.t}</span>
+          {s.para && <span class="block text-base tenue">{s.para}</span>}
+        </span>
+      </li>
+    ))}
+  </ol>
+  <p class="interactivo-nota">En verde, las secciones que más usarás para comprobar lo que te diga la IA. Estructura común de las fichas técnicas autorizadas en la UE; en CIMA puedes saltar a cada sección desde el índice de la ficha.</p>
+</section>

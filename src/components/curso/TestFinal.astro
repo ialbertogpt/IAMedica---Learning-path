@@ -1,0 +1,14 @@
+---
+import Icono from '../ui/Icono.astro';
+import { getEntry } from 'astro:content';
+import Test from '../interactivos/motores/Test.tsx';
+interface Props { id: string }
+const { id } = Astro.props;
+const t = await getEntry('tests', id);
+if (!t) throw new Error(`[tests] No existe src/content/tests/${id}.json`);
+---
+<section class="interactivo" aria-labelledby={`test-${id}-titulo`}>
+  <h3 id={`test-${id}-titulo`} class="interactivo-titulo"><Icono nombre="quiz" tam={20} />{t.data.titulo}</h3>
+  <p class="m-0 text-base tenue">Sin nota y sin penalización: puedes repetirlo tantas veces como quieras. Cada respuesta te explica por qué.</p>
+  <Test client:visible id={id} preguntas={t.data.preguntas} />
+</section>

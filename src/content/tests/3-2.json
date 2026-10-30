@@ -1,0 +1,54 @@
+{
+  "titulo": "Test · Farmacología con IA",
+  "preguntas": [
+    {
+      "tipo": "escenario",
+      "enunciado": "¿Qué falla en esta respuesta de la IA?",
+      "caso": "Paciente ficticia de 84 años con un FG estimado de 28 ml/min/1,73 m². La IA responde: «Metformina: reduce la dosis a 500 mg cada 12 horas para adaptarla a la función renal».",
+      "opciones": [
+        { "texto": "Nada: reducir la dosis es lo adecuado con insuficiencia renal.", "correcta": false, "explicacion": "Reducir sería razonable con un FG de 30–44 ml/min (dosis máxima de 1.000 mg al día), pero con menos de 30 ml/min la metformina está contraindicada." },
+        { "texto": "Con un filtrado inferior a 30 ml/min, la metformina está contraindicada: no se ajusta, se suspende.", "correcta": true, "explicacion": "Correcto. Lo indican las secciones 4.2 y 4.3 de la ficha técnica (y STOPP/START v3, criterio E6). Es un error típico: la IA aplica una regla general («ajustar a la función renal») en lugar del dato concreto." },
+        { "texto": "La dosis correcta sería 850 mg una vez al día.", "correcta": false, "explicacion": "Seguiría siendo un error: con un FG inferior a 30 ml/min, el problema no es la dosis, sino que el fármaco está contraindicado." },
+        { "texto": "Solo falla porque no cita la fuente.", "correcta": false, "explicacion": "Citar la fuente ayudaría a detectar el error, pero el problema de fondo es que la recomendación es incorrecta." }
+      ]
+    },
+    {
+      "tipo": "ordenar",
+      "enunciado": "Ordena los pasos para usar la IA en una revisión de medicación.",
+      "pasos": [
+        { "texto": "Anonimizar el caso: sin nombre, NHC, fechas exactas ni datos que identifiquen.", "porque": "Va siempre primero: lo que pegas en una IA con tu cuenta personal sale de tu control." },
+        { "texto": "Calcular o comprobar la función renal con la medida que usa cada ficha técnica.", "porque": "Muchos ajustes dependen de ella, y Cockcroft-Gault y el FG estimado pueden dar cifras distintas." },
+        { "texto": "Pedir a la IA una revisión estructurada, con el criterio concreto que aplica a cada fármaco.", "porque": "Una tabla con el criterio de cada fila (p. ej., «STOPP E6») se puede verificar; una opinión general, no." },
+        { "texto": "Verificar cada dosis en CIMA y cada criterio en su fuente original.", "porque": "Es el paso que convierte una propuesta en información fiable." },
+        { "texto": "Decidir un plan escalonado y acordarlo con la paciente o su familia.", "porque": "La decisión es tuya y de la paciente; la IA solo ha ayudado a organizar." }
+      ]
+    },
+    {
+      "tipo": "emparejar",
+      "enunciado": "Empareja cada pregunta con la fuente donde se responde.",
+      "pares": [
+        { "izquierda": "¿Qué dosis de apixabán corresponde con un aclaramiento de 22 ml/min?", "derecha": "Ficha técnica, sección 4.2", "porque": "Los ajustes de dosis por función renal están en la sección de posología." },
+        { "izquierda": "¿Hasta qué dosis de simvastatina puedo dar si toma amlodipino?", "derecha": "Ficha técnica, sección 4.5", "porque": "Es una interacción con límite de dosis (también se menciona en la 4.2)." },
+        { "izquierda": "¿Es adecuado el lorazepam en una mujer de 84 años que se cae?", "derecha": "Criterios STOPP/START v3 o Beers 2023", "porque": "No es una pregunta de dosis, sino de adecuación en una persona mayor (STOPP K1, D8 y D10)." },
+        { "izquierda": "¿Cómo retiro una benzodiacepina tras años de uso?", "derecha": "Algoritmo de deprescripción (deprescribing.org)", "porque": "Los algoritmos de deprescripción explican cómo reducir de forma gradual y qué vigilar." }
+      ]
+    },
+    {
+      "tipo": "vf",
+      "enunciado": "En una mujer mayor y de poco peso, el aclaramiento de creatinina por Cockcroft-Gault y el FG estimado por CKD-EPI siempre dan prácticamente la misma cifra, así que da igual cuál uses.",
+      "respuesta": false,
+      "explicacionVerdadero": "No. En la paciente del taller, CKD-EPI da unos 28 ml/min/1,73 m² y Cockcroft-Gault unos 22 ml/min. Con apixabán, por ejemplo, la ficha técnica usa el aclaramiento de creatinina. Mira siempre qué medida usa la ficha de cada fármaco.",
+      "explicacionFalso": "Correcto. Cockcroft-Gault incluye el peso y no se normaliza a 1,73 m²; en personas mayores y delgadas suele dar valores más bajos. En la paciente del taller: unos 22 ml/min frente a unos 28 ml/min/1,73 m². Usa la medida que indique la ficha técnica."
+    },
+    {
+      "tipo": "unica",
+      "enunciado": "Según este taller, ¿cuál es el mejor papel de la IA en farmacología?",
+      "opciones": [
+        { "texto": "Dar la dosis definitiva para que no tengas que consultar la ficha técnica.", "correcta": false, "explicacion": "Es justo lo que no debe hacer: la dosis se verifica siempre en la fuente oficial." },
+        { "texto": "Explicar, organizar y proponer (revisión estructurada, cálculos a la vista, explicación para la familia), mientras tú verificas y decides.", "correcta": true, "explicacion": "Exacto. Ahorra mucho tiempo en lo que hace bien, y la seguridad la pones tú con la verificación." },
+        { "texto": "Ninguno: la IA no sirve para nada en farmacología.", "correcta": false, "explicacion": "Sí sirve, siempre que la uses para organizar y explicar, y no como fuente final de dosis." },
+        { "texto": "Sustituir a los comprobadores de interacciones.", "correcta": false, "explicacion": "Los comprobadores y la ficha técnica son más fiables para las interacciones. La IA puede ayudarte a interpretarlas y priorizarlas." }
+      ]
+    }
+  ]
+}

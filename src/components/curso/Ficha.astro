@@ -1,0 +1,15 @@
+---
+import Icono from '../ui/Icono.astro';
+// Ficha de bolsillo: una página A4 imprimible con lo esencial del subcapítulo.
+interface Props { titulo: string }
+const { titulo } = Astro.props;
+---
+<section class="ficha scroll-mt-4" id="ficha" aria-labelledby="ficha-titulo">
+  <div class="flex flex-wrap items-center justify-between gap-2">
+    <p class="eyebrow m-0">Ficha de bolsillo · Mi IA Médica</p>
+    <button type="button" class="boton boton-sec boton-peq no-imprimir" data-imprimir-ficha><Icono nombre="print" tam={19} />Imprimir ficha</button>
+  </div>
+  <h3 id="ficha-titulo" class="mt-2">{titulo}</h3>
+  <div class="prosa ficha-contenido"><slot /></div>
+  <p class="text-sm tenue mt-3 mb-0">La IA no sustituye tu juicio clínico. Verifica siempre en la fuente oficial.</p>
+</section>

@@ -1,0 +1,16 @@
+---
+import Icono from '../ui/Icono.astro';
+// Los ejemplos se trocean aquí, en la compilación, con el tokenizador real (no se envía al navegador).
+import { encode, decode } from 'gpt-tokenizer/encoding/o200k_base';
+import Isla from './especificos/Tokenizador.tsx';
+import { trocear } from '../../lib/tokens';
+import { cargarDatos } from '../../lib/interactivos';
+interface Props { datos: string }
+const d = cargarDatos<{ titulo: string; nota: string; ejemplos: { titulo: string; texto: string }[] }>(Astro.props.datos);
+const ejemplos = d.ejemplos.map((e) => ({ ...e, ...trocear(e.texto, { encode, decode }) }));
+---
+<section class="interactivo" aria-label={d.titulo}>
+  <h3 class="interactivo-titulo"><Icono nombre="token" tam={20} />{d.titulo}</h3>
+  <Isla client:visible ejemplos={ejemplos} />
+  <p class="interactivo-nota">{d.nota}</p>
+</section>

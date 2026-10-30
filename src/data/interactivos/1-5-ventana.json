@@ -1,0 +1,21 @@
+{
+  "titulo": "Simulación: lo que cabe en la ventana de contexto",
+  "nota": "Simulación simplificada con un caso ficticio: los tokens de cada mensaje se han contado con un tokenizador real, pero la ventana es diminuta a propósito y la respuesta es ilustrativa. A fecha de octubre de 2026, los modelos punteros admiten un millón de tokens o más, así que esta conversación cabría entera. El riesgo reaparece en conversaciones muy largas o con muchos documentos, y se ha observado que los modelos aprovechan peor la información situada en mitad de textos largos.",
+  "turnos": [
+    { "rol": "usuario", "texto": "Vamos a preparar juntos el resumen de una paciente ficticia de 86 años. Dato importante: es alérgica a la penicilina (exantema generalizado hace años).", "clave": true },
+    { "rol": "asistente", "texto": "Entendido. Anoto: mujer de 86 años, alergia a la penicilina (exantema generalizado). ¿Qué más quieres incluir?" },
+    { "rol": "usuario", "texto": "Diagnósticos: hipertensión arterial, fibrilación auricular, diabetes tipo 2 y artrosis de rodillas." },
+    { "rol": "asistente", "texto": "Anotado. ¿Cuál es su situación funcional?" },
+    { "rol": "usuario", "texto": "Barthel de 75, camina con bastón, ha tenido dos caídas este año y vive con su hija, que es su cuidadora principal." },
+    { "rol": "asistente", "texto": "Perfecto. ¿Qué medicación toma ahora?" },
+    { "rol": "usuario", "texto": "Toma doce fármacos: un anticoagulante, dos antihipertensivos, un diurético, un antidiabético oral, un protector gástrico, una estatina, un hipnótico, un antidepresivo, un antigotoso, un antiinflamatorio a demanda y un digitálico." },
+    { "rol": "asistente", "texto": "He anotado los doce fármacos. Conviene revisar con detalle varios de ellos por la edad, las caídas y la función renal. ¿Tienes una analítica reciente?" },
+    { "rol": "usuario", "texto": "Sí: el filtrado glomerular estimado es de 28 ml/min/1,73 m² y el sodio está en el rango normal." },
+    { "rol": "asistente", "texto": "Anotado. Con ese filtrado habrá que comprobar en la ficha técnica la dosis de varios fármacos." },
+    { "rol": "usuario", "texto": "Redacta ahora unas recomendaciones de cuidados para su hija: hidratación, prevención de caídas en casa y signos de alarma por los que consultar." },
+    { "rol": "asistente", "texto": "Recomendaciones para la cuidadora: ofrezca agua con frecuencia, también sin sed, sobre todo con calor (salvo que su médico le haya indicado limitar los líquidos). Retire alfombras y cables del suelo, deje una luz encendida por la noche en el pasillo y el baño y procure que use calzado cerrado. Consulte si aparece confusión nueva, somnolencia excesiva, fiebre, una caída o si come y bebe mucho menos de lo habitual." }
+  ],
+  "pregunta": "Ahora hazme un resumen de cinco líneas con los datos clave de la paciente para el informe.",
+  "respuestaCon": "Mujer de 86 años. ALERGIA A LA PENICILINA (exantema). Hipertensión, fibrilación auricular, diabetes tipo 2 y artrosis. Barthel 75, bastón, dos caídas este año, vive con su hija. Doce fármacos; FG estimado 28 ml/min/1,73 m².",
+  "respuestaSin": "Mujer de 86 años con hipertensión, fibrilación auricular, diabetes tipo 2 y artrosis. Barthel 75, bastón, dos caídas este año, vive con su hija. Doce fármacos; FG estimado 28 ml/min/1,73 m². Sin alergias medicamentosas conocidas."
+}

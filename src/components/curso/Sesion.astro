@@ -1,0 +1,20 @@
+---
+// Una sesión de 15–25 minutos. Los atributos se escriben siempre en este orden:
+// <Sesion n={1} titulo="…" minutos={20}> (lo comprueba scripts/validar-contenido.mjs).
+interface Props { n: number; titulo: string; minutos: number }
+const { n, titulo, minutos } = Astro.props;
+---
+<section class="sesion" id={`sesion-${n}`} data-sesion={n} data-minutos={minutos} aria-labelledby={`sesion-${n}-titulo`}>
+  <header class="sesion-cabecera">
+    <p class="eyebrow m-0">Sesión {n} · {minutos} min</p>
+    <h2 id={`sesion-${n}-titulo`} class="mt-1">{titulo}</h2>
+  </header>
+  <div class="prosa">
+    <slot />
+  </div>
+  <footer class="sesion-pie no-imprimir" data-pagefind-ignore>
+    <button type="button" class="boton boton-sec" data-ir-sesion={n - 1} hidden={n === 1}>← Sesión anterior</button>
+    <span class="tenue text-base" data-estado-sesion={n}></span>
+    <button type="button" class="boton" data-completar-sesion={n}>Marcar como hecha y continuar →</button>
+  </footer>
+</section>

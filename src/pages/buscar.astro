@@ -1,0 +1,29 @@
+---
+import BaseLayout from '../components/layout/BaseLayout.astro';
+---
+<BaseLayout titulo="Buscar" seccion="buscar" sinIndexar descripcion="Buscador del curso.">
+  <div class="contenedor-lectura pt-7">
+    <h1>Buscar en el curso</h1>
+    <p class="tenue">Busca en los subcapítulos, el glosario, la biblioteca de prompts y el directorio de herramientas. La búsqueda funciona en tu navegador, sin conexión con servicios externos.</p>
+    <div id="buscador" class="mt-4"></div>
+    <p id="sin-indice" class="retro retro-neutra" hidden>El índice de búsqueda se genera al compilar la web (<code>npm run build</code>). En el modo de desarrollo no está disponible: usa <code>npm run build</code> y después <code>npm run preview</code>.</p>
+  </div>
+  <link rel="stylesheet" href="/pagefind/pagefind-ui.css" />
+</BaseLayout>
+<script>
+  const contenedor = document.getElementById('buscador')!;
+  const script = document.createElement('script');
+  script.src = '/pagefind/pagefind-ui.js';
+  script.onload = () => {
+    // @ts-expect-error PagefindUI se define en el script de Pagefind
+    const ui = new PagefindUI({ element: '#buscador', showSubResults: true, showImages: false, resetStyles: false, autofocus: true });
+    // La caja de búsqueda de la cabecera llega como ?q=…
+    const q = new URLSearchParams(location.search).get('q');
+    if (q) ui.triggerSearch(q);
+  };
+  script.onerror = () => { document.getElementById('sin-indice')!.hidden = false; contenedor.hidden = true; };
+  document.body.appendChild(script);
+</script>
+<style is:global>
+  #buscador { --pagefind-ui-scale: 1; --pagefind-ui-primary: var(--l1); --pagefind-ui-text: var(--tinta); --pagefind-ui-background: var(--superficie); --pagefind-ui-border: var(--borde); --pagefind-ui-tag: var(--superficie-2); --pagefind-ui-font: var(--font-sans); }
+</style>

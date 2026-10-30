@@ -1,0 +1,23 @@
+{
+  "titulo": "Encuentra el error: una respuesta aparentemente perfecta",
+  "pregunta": "Mujer de 84 años, 58 kg, creatinina 1,75 mg/dl (FG estimado 28 ml/min/1,73 m²). Toma metformina 850 mg/12 h, apixabán 5 mg/12 h por fibrilación auricular, alopurinol 300 mg/día, simvastatina 40 mg con amlodipino 10 mg e ibuprofeno a demanda. ¿Qué ajustes harías?",
+  "procedencia": "texto creado para este ejercicio imitando el estilo de un asistente de IA; contiene 3 errores intencionados. Caso ficticio",
+  "instrucciones": "Toca las frases que contengan errores de dosis o de seguridad y pulsa «Comprobar». Si quieres, abre antes las fichas técnicas en CIMA para comprobarlo.",
+  "parrafos": [
+    [
+      { "texto": "Con un FG estimado de 28 ml/min/1,73 m², la paciente tiene una enfermedad renal crónica en estadio G4.", "explicacion": "Correcto: el estadio G4 corresponde a un filtrado de 15 a 29 ml/min/1,73 m² (clasificación KDIGO)." },
+      { "texto": "Te propongo estos ajustes:", "explicacion": "" }
+    ],
+    [
+      { "texto": "• Metformina: reducir a 500 mg cada 12 horas para adaptarla a la función renal.", "error": true, "explicacion": "Error grave. Con un filtrado inferior a 30 ml/min, la metformina está CONTRAINDICADA (ficha técnica, secciones 4.2 y 4.3; también STOPP/START v3, criterio E6). No se ajusta: se suspende." },
+      { "texto": "• Apixabán: mantener 5 mg cada 12 horas, porque solo se reduce si el aclaramiento baja de 15 ml/min.", "error": true, "explicacion": "Error. En la fibrilación auricular, con un aclaramiento de creatinina de 15–29 ml/min, la dosis es de 2,5 mg cada 12 horas. Además, esta paciente cumple los tres criterios de reducción (edad de 80 años o más, peso de 60 kg o menos y creatinina de 1,5 mg/dl o más). Por debajo de 15 ml/min no se recomienda usarlo (ficha técnica de Eliquis, sección 4.2)." },
+      { "texto": "• Alopurinol: con insuficiencia renal, conviene empezar con un máximo de 100 mg al día y aumentar solo si la uricemia no se controla.", "explicacion": "Correcto: coincide con la sección 4.2 de la ficha técnica, que añade que en la insuficiencia renal grave pueden bastar menos de 100 mg al día." },
+      { "texto": "• Simvastatina 40 mg: sin cambios, ya que no interacciona con ninguno de sus fármacos.", "error": true, "explicacion": "Error. Con amlodipino, la simvastatina no debe superar los 20 mg al día por el riesgo de miopatía (ficha técnica, secciones 4.2 y 4.5). Además, con un aclaramiento inferior a 30 ml/min, las dosis de más de 10 mg al día deben considerarse con cuidado." },
+      { "texto": "• Ibuprofeno: está contraindicado con este filtrado y, además, junto con el anticoagulante aumenta el riesgo de hemorragia digestiva.", "explicacion": "Correcto: contraindicado en la insuficiencia renal grave (ficha técnica, sección 4.3), y la combinación AINE más anticoagulante es un criterio STOPP (C10)." }
+    ],
+    [
+      { "texto": "Recuerda comprobar todas las dosis en la ficha técnica antes de cambiar nada.", "explicacion": "Correcto… e irónico: la propia respuesta tenía tres errores. Este tipo de frase final no garantiza nada." }
+    ]
+  ],
+  "conclusion": "Dos aciertos de cinco y tres errores, todo con el mismo tono de seguridad. Los errores no se notan leyendo, solo comprobando. Por eso, en este taller, cada dosis se verifica en la ficha técnica de CIMA y cada criterio en su fuente."
+}

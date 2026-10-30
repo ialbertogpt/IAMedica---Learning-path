@@ -1,0 +1,20 @@
+---
+// Plantilla de prompt de la biblioteca (src/data/prompts.json) con botón de copiar.
+import { getEntry } from 'astro:content';
+interface Props { id: string }
+const { id } = Astro.props;
+const p = await getEntry('prompts', id);
+if (!p) throw new Error(`[prompts] La plantilla «${id}» no existe en src/data/prompts.json`);
+const uid = `plantilla-${id}`;
+---
+<figure class="tarjeta p-0 overflow-hidden m-0">
+  <figcaption class="flex flex-wrap items-center gap-2 justify-between px-4 py-2 bg-superficie-2 border-b border-borde">
+    <span class="font-bold">Plantilla · {p.data.titulo}</span>
+    <span class="flex items-center gap-2 no-imprimir">
+      <span class="sr-only" aria-live="polite" data-estado-copia></span>
+      <button type="button" class="boton boton-peq" data-copiar={uid}>Copiar</button>
+    </span>
+  </figcaption>
+  <pre id={uid} class="m-0 p-4 whitespace-pre-wrap break-words font-sans text-base leading-relaxed">{p.data.plantilla}</pre>
+  {p.data.notas && <p class="m-0 px-4 pb-4 text-base tenue"><strong>Después:</strong> {p.data.notas}</p>}
+</figure>

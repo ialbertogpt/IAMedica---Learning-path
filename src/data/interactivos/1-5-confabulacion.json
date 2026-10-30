@@ -1,0 +1,22 @@
+{
+  "titulo": "Juego: detecta la confabulación",
+  "pregunta": "¿Qué es el índice de Barthel, quién lo creó y qué evidencia hay sobre su valor pronóstico?",
+  "procedencia": "texto creado para este ejercicio imitando el estilo de un asistente de IA; contiene 3 errores intencionados",
+  "instrucciones": "Lee la respuesta y toca las frases que creas que son falsas o inventadas (se quedan resaltadas). Después pulsa «Comprobar».",
+  "parrafos": [
+    [
+      { "texto": "El índice de Barthel es una escala que mide la capacidad de una persona para realizar diez actividades básicas de la vida diaria, como comer, vestirse, asearse o desplazarse.", "explicacion": "Correcto: valora diez actividades básicas (alimentación, baño, aseo, vestido, deposición, micción, uso del retrete, traslados, deambulación y escaleras)." },
+      { "texto": "En su versión más usada, la puntuación va de 0 (dependencia total) a 100 (independencia en las actividades que valora).", "explicacion": "Correcto. También existe una versión de 0 a 20 puntos." },
+      { "texto": "Fue publicado en 1985 por Florence Mahoney y Dorothea Barthel en The Lancet.", "error": true, "explicacion": "Las autoras sí son Mahoney y Barthel, pero el artículo es de 1965 y se publicó en el Maryland State Medical Journal (PMID 14258950). Mezclar datos ciertos con un detalle falso es muy típico de la confabulación: lo cierto da credibilidad a lo falso." }
+    ],
+    [
+      { "texto": "Se usa mucho en geriatría y en rehabilitación para seguir la evolución funcional de los pacientes.", "explicacion": "Correcto." },
+      { "texto": "Además, es la escala que recomienda la OMS para diagnosticar la fragilidad.", "error": true, "explicacion": "Falso. El Barthel mide la dependencia en actividades básicas, que no es lo mismo que la fragilidad. El modelo ha «estirado» un dato plausible hasta convertirlo en una afirmación institucional que no existe." },
+      { "texto": "Un metaanálisis de 2019 (García-López et al., JAMA Geriatrics, PMID 31234567) concluyó que una puntuación inferior a 60 predice la mortalidad al año con una sensibilidad del 94 %.", "error": true, "explicacion": "Referencia inventada: la revista «JAMA Geriatrics» no existe y el PMID 31234567 corresponde a un artículo de ingeniería de 2019 sobre la humedad en materiales granulares. Las cifras exactas («94 %») dan una falsa sensación de rigor. Comprueba siempre el PMID o el DOI." }
+    ],
+    [
+      { "texto": "En resumen, es una herramienta sencilla, validada y muy utilizada.", "explicacion": "Correcto como valoración general." }
+    ]
+  ],
+  "conclusion": "Las tres señales de alerta: cifras muy precisas sin fuente comprobable, referencias que no puedes abrir y afirmaciones del tipo «la OMS recomienda». La respuesta suena igual de segura cuando acierta que cuando inventa: el tono no sirve para distinguirlas."
+}

@@ -1,0 +1,9 @@
+---
+import Icono from '../ui/Icono.astro';
+interface Props { tipo: 'ojo' | 'prueba' | 'analogia' | 'aviso' | 'caso'; titulo: string; icono: string }
+const { tipo, titulo, icono } = Astro.props;
+---
+<aside class={`cuadro cuadro-${tipo}`}>
+  <p class="cuadro-titulo"><Icono nombre={icono} tam={20} />{titulo}</p>
+  <slot />
+</aside>

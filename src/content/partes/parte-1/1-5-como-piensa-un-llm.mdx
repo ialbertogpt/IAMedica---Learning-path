@@ -1,0 +1,281 @@
+---
+id: "1-5"
+titulo: Cómo «piensa» ChatGPT o Claude (los LLM)
+parte: 1
+minutos: 120
+objetivos:
+  - Explicar que un LLM genera texto prediciendo la siguiente pieza (token) a partir de patrones aprendidos
+  - Describir qué son los tokens, la ventana de contexto y la temperatura, y cómo afectan a una respuesta
+  - Reconocer por qué un LLM confabula y detectar las señales de alerta en una respuesta
+  - Diferenciar el preentrenamiento, el ajuste fino, la búsqueda con fuentes, los modelos de razonamiento y los agentes
+gancho: "Preguntas a un asistente la dosis máxima de un fármaco para una paciente de 88 años. Te responde con un formato impecable, con total seguridad… y con un dato que no aparece en la ficha técnica. ¿Cómo puede equivocarse algo que escribe tan bien? En este subcapítulo vas a ver qué hay dentro de la caja."
+recursos:
+  - v-3b1b-llm
+  - v-dotcsv-llm
+paraSaberMas:
+  - v-dotcsv-transformer
+  - v-3b1b-gpt
+test: "1-5"
+fechaRevision: "2026-10-30"
+aFecha: octubre de 2026
+fuentes:
+  - texto: "Vaswani A, et al. Attention Is All You Need. NeurIPS 2017 (arXiv:1706.03762)"
+    url: https://arxiv.org/abs/1706.03762
+  - texto: "Ouyang L, et al. Training language models to follow instructions with human feedback. 2022 (arXiv:2203.02155)"
+    url: https://arxiv.org/abs/2203.02155
+  - texto: "Sharma M, et al. Towards Understanding Sycophancy in Language Models. 2023 (arXiv:2310.13548)"
+    url: https://arxiv.org/abs/2310.13548
+  - texto: "Kalai AT, et al. Why Language Models Hallucinate. 2025 (arXiv:2509.04664)"
+    url: https://arxiv.org/abs/2509.04664
+  - texto: "Bhattacharyya M, et al. High Rates of Fabricated and Inaccurate References in ChatGPT-Generated Medical Content. Cureus 2023;15:e39238"
+    pmid: "37337480"
+    doi: 10.7759/cureus.39238
+  - texto: "Liu NF, et al. Lost in the Middle: How Language Models Use Long Contexts. Trans Assoc Comput Linguist 2024 (arXiv:2307.03172)"
+    url: https://arxiv.org/abs/2307.03172
+  - texto: "Lewis P, et al. Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks. NeurIPS 2020 (arXiv:2005.11401)"
+    url: https://arxiv.org/abs/2005.11401
+  - texto: "DeepSeek-AI. DeepSeek-R1 incentivizes reasoning in LLMs through reinforcement learning. Nature 2025"
+    pmid: "40962978"
+    doi: 10.1038/s41586-025-09422-z
+  - texto: "Google AI for Developers. Long context (Gemini API), consultado el 30/10/2026"
+    url: https://ai.google.dev/gemini-api/docs/long-context
+  - texto: "Mahoney FI, Barthel DW. Functional evaluation: the Barthel Index. Md State Med J 1965;14:61-5 (ejercicio de confabulación)"
+    pmid: "14258950"
+---
+
+<Sesion n={1} titulo="Una máquina de predecir la siguiente palabra" minutos={20}>
+
+### Lo esencial en una frase
+
+ChatGPT, Claude, Gemini o Copilot funcionan con un <T id="llm">LLM</T>, un «modelo extenso de lenguaje». Por muy listo que parezca, hace una sola cosa: **predecir qué trozo de texto viene a continuación**, una y otra vez, hasta completar la respuesta.
+
+Escribe «La paciente refiere dolor en la rodilla…» y el <T id="modelo">modelo</T> calcula qué es probable que siga: «derecha», «izquierda», «desde»… Elige una opción, la añade y vuelve a calcular. Así, pieza a pieza, salen párrafos enteros.
+
+<Analogia>
+Piensa en un residente que ha leído **miles de informes**. Si le dictas «Paciente que acude por disnea de…», casi sin pensar completa «…moderados esfuerzos». No es que razone cada palabra: ha visto esa frase tantas veces que le sale sola. Un LLM es eso, llevado al extremo: ha «leído» una cantidad de texto imposible para una persona.
+</Analogia>
+
+### Las piezas se llaman tokens
+
+El modelo no trabaja con palabras enteras, sino con <T id="token">tokens</T>: trozos de texto que pueden ser una palabra corta, un fragmento de una palabra larga, un número o un signo. Cada familia de modelos usa su propio <T id="tokenizador">tokenizador</T> para trocear el texto.
+
+¿Por qué te importa? Por tres motivos prácticos:
+
+- **El tamaño de lo que puede manejar** se mide en tokens, no en páginas.
+- **Las palabras raras o largas** (muchos términos médicos) se trocean más. El modelo las conoce peor que las palabras comunes.
+- **Los números se trocean de forma extraña**, y esa es una de las razones por las que los LLM fallan a veces en cálculos sencillos.
+
+<Tokenizador datos="1-5-tokens" />
+
+Fíjate en dos cosas: «hiponatremia» se parte en varios trozos y **la misma nota en castellano necesita más tokens que en inglés**. Los modelos han leído mucho más inglés que español y sus tokenizadores están pensados sobre todo para el inglés.
+
+### Juega a ser un LLM
+
+Este minimodelo de juguete ha «leído» solo unas 130 frases ficticias de informes. Intenta adivinar qué palabra pondría a continuación y mira después sus probabilidades.
+
+<Minimodelo datos="1-5-minimodelo" modo="siguiente" />
+
+Lo que acabas de ver es la idea central: **probabilidades, no conocimiento verificado**. El minimodelo no sabe si «el riesgo de caídas disminuye con la edad» es verdad o mentira. Solo sabe qué palabras suelen ir juntas. Un LLM real es inmensamente más capaz, pero comparte ese origen.
+
+### En vídeo: la visión de conjunto
+
+<Video id="v-3b1b-llm" nota="cómo se pasa de «predecir la siguiente palabra» a un asistente que conversa, y qué significan «parámetros» y «atención»." />
+
+</Sesion>
+
+<Sesion n={2} titulo="De leer internet a conversar contigo" minutos={20}>
+
+### Primera fase: el preentrenamiento
+
+Antes de poder conversar, el modelo pasa por un <T id="preentrenamiento">preentrenamiento</T>. Se le dan cantidades enormes de texto (webs, libros, artículos, código) y se le pide **adivinar la siguiente palabra, una y otra vez**. Cada vez que falla, se ajustan ligeramente sus <T id="parametro">parámetros</T>, los miles de millones de números internos que guardan lo aprendido.
+
+Tras billones de intentos, el modelo ha absorbido gramática, datos, estilos y formas de razonar. Pero todavía **no es un asistente**: si le escribes una pregunta, igual la continúa con otra pregunta, como quien completa un examen tipo test.
+
+<Analogia>
+El preentrenamiento es **la carrera de Medicina**: una base enorme y general, todavía sin saber atender a un paciente concreto ni seguir el estilo de un servicio.
+</Analogia>
+
+### Segunda fase: aprender a ser útil
+
+Después viene el <T id="ajuste-fino">ajuste fino</T>: se entrena al modelo con ejemplos de conversaciones bien resueltas para que aprenda a responder, seguir instrucciones y negarse a ciertas peticiones. Es **la residencia**: el mismo conocimiento de base, ahora orientado a una forma de trabajar.
+
+Una parte clave es el <T id="rlhf">RLHF</T>: personas valoran varias respuestas del modelo y este aprende a producir las mejor valoradas. Esta técnica, popularizada con los modelos de OpenAI en 2022, es en gran parte la que convirtió a los LLM en asistentes amables y útiles.
+
+### El efecto secundario: la complacencia
+
+Las personas tendemos a valorar mejor las respuestas que nos dan la razón. Un estudio de 2023 mostró que **los asistentes con este entrenamiento tienden a la <T id="complacencia">complacencia</T>**: cambian una respuesta correcta si el usuario insiste, o confirman la hipótesis que se les sugiere.
+
+<Analogia titulo="Analogía médica: el residente complaciente">
+Si a un residente le dices «yo creo que es una infección urinaria, ¿no?», es más probable que te dé la razón que si le presentas el caso sin opinar. Con la IA pasa lo mismo: **presenta los casos de forma neutra** y pide que argumente a favor y en contra. Lo practicarás en el taller 3.1.
+</Analogia>
+
+### Lo que no sabe
+
+Al terminar el <T id="entrenamiento">entrenamiento</T>, el modelo se «congela». Lo que ocurrió después de su **fecha de corte** no lo sabe, salvo que pueda buscar en internet. Y no aprende de ti mientras conversáis: si mañana abres un chat nuevo, no recuerda lo de hoy, salvo que la aplicación tenga una función de «memoria» que guarde notas aparte.
+
+<Video id="v-dotcsv-llm" nota="por qué hacer los modelos cada vez más grandes hizo aparecer capacidades nuevas. Es de 2022: lo que cuenta del entrenamiento sigue vigente, pero los modelos actuales son mucho más capaces." />
+
+</Sesion>
+
+<Sesion n={3} titulo="Ventana de contexto y temperatura" minutos={20}>
+
+### Lo que el modelo tiene «delante»
+
+Cuando le escribes, el modelo no ve solo tu último mensaje. Ve **toda la conversación**: tus mensajes, sus respuestas y los documentos que hayas adjuntado. Ese espacio de trabajo tiene un límite, la <T id="ventana-contexto">ventana de contexto</T>, que se mide en tokens.
+
+<Analogia>
+La ventana de contexto es **lo que recuerdas de la consulta en curso**. Mientras atiendes a un paciente tienes todo presente; al pasar al siguiente, lo anterior desaparece de tu mesa. Y si la consulta dura tres horas, es fácil que se te escape algo que te dijeron al principio.
+</Analogia>
+
+A fecha de octubre de 2026, los modelos punteros manejan **un millón de tokens o más**, el equivalente a varios libros. Eso no elimina el problema:
+
+- En conversaciones muy largas o con muchos documentos, la aplicación **recorta o resume lo más antiguo**.
+- Aunque todo quepa, los modelos **aprovechan peor la información que está en mitad de un texto largo** que la del principio o el final. Es un fenómeno estudiado.
+
+<VentanaContexto datos="1-5-ventana" />
+
+**Consecuencia práctica:** para cada tarea nueva, abre una conversación nueva. Repite los datos clave en el mensaje en el que los necesitas.
+
+### La temperatura: cuánto se arriesga
+
+Recuerda que el modelo elige la siguiente palabra entre varias candidatas, cada una con su probabilidad. La <T id="temperatura">temperatura</T> regula **cuánto se arriesga** al elegir:
+
+- **Baja:** casi siempre elige la palabra más probable. Las respuestas son previsibles y repetitivas.
+- **Alta:** las palabras menos probables ganan opciones. Las respuestas son más variadas y creativas, y también tienen más errores.
+
+Muévela tú mismo en el minimodelo:
+
+<Minimodelo datos="1-5-minimodelo" modo="temperatura" />
+
+En los asistentes de uso diario no sueles poder tocar la temperatura: la fija la aplicación. Pero entender la idea explica dos cosas que ya habrás visto. **La misma pregunta puede dar respuestas distintas**, y **una respuesta única no es una verdad única**.
+
+<PruebaloTu minutos={4}>
+Abre tu asistente y hazle **dos veces** la misma pregunta no clínica en dos conversaciones nuevas, por ejemplo: «Dame tres ideas para una charla de 10 minutos sobre prevención de caídas en un centro de mayores». Compara las respuestas. ¿Coinciden? ¿Alguna te parece mejor? Así funciona la variabilidad.
+</PruebaloTu>
+
+</Sesion>
+
+<Sesion n={4} titulo="Confabulación: fluida, segura y falsa" minutos={20}>
+
+### Por qué inventa
+
+Ya tienes las piezas para entenderlo. Si el modelo genera la palabra más plausible en cada paso, **ante un hueco en lo que sabe no se detiene**: rellena con lo que suena bien. Así nacen las <T id="confabulacion">confabulaciones</T>, también llamadas «alucinaciones»: datos, citas o referencias inventadas, contadas con la misma seguridad que un dato cierto.
+
+<Analogia>
+Es la **confabulación del paciente con síndrome de Korsakoff**: ante una laguna de memoria, no dice «no lo sé»; construye un relato coherente, convincente y falso. No miente a propósito: es su forma de rellenar huecos.
+</Analogia>
+
+Un análisis de 2025 de investigadores de OpenAI lo explica así: el entrenamiento y las evaluaciones habituales **premian acertar y no premian decir «no lo sé»**. Como en un examen tipo test sin penalización, al modelo le «compensa» arriesgarse.
+
+### Las referencias, el punto más débil
+
+En un estudio de 2023, se pidió a ChatGPT (versión 3.5) que escribiera 30 textos médicos breves con bibliografía. De las 115 referencias que generó, **el 47 % eran inventadas** y **otro 46 % existían pero tenían errores**. Solo el 7 % eran correctas. El error más frecuente: un PMID equivocado.
+
+Los modelos actuales, sobre todo los que buscan en internet, fallan bastante menos. Pero el riesgo no ha desaparecido. Sigue siendo **el error más peligroso en medicina**, porque una cita da apariencia de rigor.
+
+### Ahora te toca a ti
+
+<EncuentraError datos="1-5-confabulacion" />
+
+### Señales de alerta
+
+<OjoCon titulo="Ojo con estas señales">
+- **Cifras muy precisas sin una fuente que puedas abrir** («reduce un 37 %», «sensibilidad del 94 %»).
+- **Referencias que no has comprobado.** Busca siempre el PMID o el DOI en PubMed.
+- **Afirmaciones de autoridad genéricas**: «la OMS recomienda», «según las guías», sin decir cuál.
+- **Respuestas que confirman exactamente lo que sugeriste.** Puede ser complacencia.
+- **Ningún matiz ni ninguna duda en un tema que sabes que es discutido.**
+</OjoCon>
+
+<PruebaloTu minutos={5}>
+Prueba la diferencia entre preguntar sin fuentes y exigirlas. Copia la plantilla, sustituye el tema y compara las dos respuestas. Después, **comprueba en PubMed al menos una referencia**.
+
+<Plantilla id="p-1-5-con-y-sin-fuentes" />
+</PruebaloTu>
+
+</Sesion>
+
+<Sesion n={5} titulo="Cómo se le ayuda: fuentes, razonamiento y agentes" minutos={20}>
+
+### Tres ideas para que falle menos
+
+La industria lleva años buscando formas de reducir las confabulaciones y los errores. Hoy hay tres muy extendidas, y casi todos los asistentes las combinan.
+
+**1. Búsqueda con fuentes.** La técnica se conoce como <T id="rag">RAG</T>, por sus siglas en inglés. Antes de responder, el sistema busca en documentos o en internet y se apoya en lo que encuentra, idealmente citándolo. Es como **consultar la guía antes de contestar la interconsulta**. Ayuda mucho con datos recientes, pero no es infalible: puede elegir una fuente mala o interpretarla mal.
+
+**2. Modelos de razonamiento.** Desde 2024 existen <T id="modelo-razonamiento">modelos de razonamiento</T>, entrenados para «pensar» por pasos antes de dar la respuesta final. Es **el diagnóstico diferencial en voz alta**. Rinden mejor en problemas de varios pasos (cálculos, lógica, casos complejos), a cambio de tardar más. Pero pueden razonar de forma impecable a partir de un dato falso.
+
+**3. Agentes.** Un <T id="agente">agente</T> encadena varias acciones por su cuenta: buscar, leer, usar herramientas y redactar. Es **el residente al que encargas una tarea de varios pasos**: muy útil, siempre que revises su trabajo, porque un error temprano se arrastra a todo lo demás.
+
+<TresAyudas />
+
+<Clasificador datos="1-5-ayudas" />
+
+### Y por dentro, un «transformer»
+
+Casi todos los LLM actuales comparten una misma arquitectura, el <T id="transformer">transformer</T>, presentada en 2017. Su pieza clave, la <T id="atencion">atención</T>, permite que cada palabra «se fije» en las demás palabras relevantes del texto. No necesitas más detalle para usar bien la IA. Si te pica la curiosidad, tienes dos vídeos opcionales en «Para saber más», al final de la página.
+
+<PruebaloTu minutos={5}>
+Pide a tu asistente que resuelva un problema numérico **mostrando cada paso**, y comprueba tú el resultado. Si tu asistente tiene un modo de «razonamiento» o «pensar más», prueba con y sin él.
+
+<Plantilla id="p-1-5-paso-a-paso" />
+</PruebaloTu>
+
+</Sesion>
+
+<Sesion n={6} titulo="Tu ficha de bolsillo y el test" minutos={20}>
+
+### Un último truco útil
+
+Muchas respuestas genéricas se deben a que el modelo **rellena por su cuenta lo que no le has contado**. Un remedio sencillo es pedirle que te pregunte antes de responder. Profundizarás en ello en el subcapítulo 1.6, El arte de preguntar.
+
+<PruebaloTu minutos={5}>
+<Plantilla id="p-1-5-que-te-falta" />
+</PruebaloTu>
+
+<OjoCon titulo="Ojo con… (repaso)">
+- **Fluidez no es exactitud.** El tono seguro no te dice nada sobre si el dato es cierto.
+- **Cada conversación nueva empieza de cero**, y en las muy largas el modelo puede perder datos del principio.
+- **No pegues datos identificables de pacientes** en un asistente con tu cuenta personal. Lo verás a fondo en 2.3 y en 3.0.
+- **Dosis, criterios y referencias se verifican siempre en la fuente**: la <T id="ficha-tecnica">ficha técnica</T> en <T id="cima">CIMA</T>, la guía original o PubMed.
+</OjoCon>
+
+<Resumen>
+- Un LLM **predice la siguiente pieza de texto** (token) a partir de patrones aprendidos de enormes cantidades de texto. No consulta una base de datos de verdades.
+- Se crea en fases: **preentrenamiento** (la carrera), **ajuste fino** (la residencia) y **valoraciones humanas**, que lo hacen útil y también algo **complaciente**.
+- Solo ve lo que cabe en su **ventana de contexto**. La **temperatura** regula cuánto se arriesga, y por eso la misma pregunta puede dar respuestas distintas.
+- **Confabula**: ante un hueco, rellena con algo verosímil. Las referencias y las cifras precisas son el punto más débil.
+- La **búsqueda con fuentes**, los **modelos de razonamiento** y los **agentes** reducen errores, pero ninguno sustituye tu verificación.
+</Resumen>
+
+<Ficha titulo="Cómo «piensa» un LLM">
+**Qué es:** una máquina de predecir la siguiente pieza de texto (token), entrenada con cantidades enormes de texto. Suena segura tanto cuando acierta como cuando se equivoca.
+
+**Antes de preguntar**
+- Conversación nueva para cada tarea.
+- Da el contexto necesario en el mismo mensaje.
+- Caso neutro: no le des tu hipótesis.
+- Nada que identifique a un paciente.
+
+**Pide**
+- «Cita la fuente con su PMID o DOI.»
+- «Razona paso a paso.»
+- «Dime qué datos te faltan.»
+- «Si no estás seguro, dilo.»
+
+**Desconfía de**
+- Cifras exactas sin fuente.
+- Referencias sin comprobar.
+- «La OMS recomienda…» sin decir dónde.
+- Que te dé la razón enseguida.
+
+**Verifica siempre**
+- Dosis: ficha técnica (CIMA).
+- Referencias: PubMed (PMID o DOI).
+- Recomendaciones: la guía original.
+- La decisión final es tuya.
+</Ficha>
+
+<TestFinal id="1-5" />
+
+</Sesion>

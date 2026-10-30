@@ -1,0 +1,28 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../components/layout/BaseLayout.astro';
+import Recurso from '../components/curso/Recurso.astro';
+import { subcapitulos } from '../lib/curso';
+
+const recursos = (await getCollection('recursos')).filter((r) => r.data.estado !== 'descartado');
+const subs = await subcapitulos();
+const grupos = subs
+  .map((s) => ({ s, lista: recursos.filter((r) => r.data.subcapitulos.includes(s.id)) }))
+  .filter((g) => g.lista.length);
+---
+<BaseLayout titulo="Recursos externos" seccion="recursos" descripcion="Vídeos, artículos y webs verificados, con la fecha de comprobación.">
+  <div class="contenedor-lectura pt-7">
+    <h1>Recursos externos</h1>
+    <p class="tenue">Todos los enlaces se han comprobado con una petición real y llevan su fecha de verificación. Los vídeos se reproducen en modo de privacidad mejorada y solo cuando tú pulsas.</p>
+    <ul class="text-base tenue">
+      <li><strong class="text-tinta">Con reservas:</strong> útil, pero con un matiz (antigüedad, enfoque, tono…) que se explica en la ficha.</li>
+      <li><strong class="text-tinta">Pendiente de comprobación manual:</strong> la web bloquea las comprobaciones automáticas.</li>
+    </ul>
+    {grupos.map(({ s, lista }) => (
+      <section class="mt-8 grid gap-3">
+        <h2 class="m-0">{s.construido ? <a href={`/${s.slug}/`}>{s.numero} · {s.titulo}</a> : <>{s.numero} · {s.titulo} <span class="text-base font-sans font-normal tenue">(en preparación)</span></>}</h2>
+        {lista.map((r) => <Recurso id={r.id} compacto />)}
+      </section>
+    ))}
+  </div>
+</BaseLayout>
