@@ -14,7 +14,8 @@
     "preview": "astro preview",
     "check-links": "node --use-system-ca --max-http-header-size=65536 scripts/check-links.mjs",
     "check-glosario": "node scripts/check-glosario.mjs",
-    "horas": "node scripts/horas.mjs"
+    "horas": "node scripts/horas.mjs",
+    "generar-dataset": "node scripts/generar-dataset.mjs"
   },
   "dependencies": {
     "@astrojs/mdx": "8.1.2",
@@ -29,6 +30,7 @@
   },
   "devDependencies": {
     "@material-symbols/svg-300": "0.48.2",
+    "exceljs": "^4.4.0",
     "mdast-util-from-markdown": "2.1.0",
     "mdast-util-mdx": "3.0.0",
     "micromark-extension-mdxjs": "3.0.0",

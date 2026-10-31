@@ -1,0 +1,23 @@
+{
+  "titulo": "¿Qué falla en esta interpretación de la IA?",
+  "pregunta": "Le has dado a un asistente solo los resultados agregados del análisis (sin datos individuales) y le pides que redacte la interpretación para el apartado de resultados.",
+  "procedencia": "texto creado para este ejercicio imitando el estilo de un asistente de IA; los resultados provienen del dataset sintético del taller (relaciones inventadas); contiene 4 errores intencionados",
+  "hallazgo": "errores",
+  "instrucciones": "Toca las frases que contengan un error de interpretación y pulsa «Comprobar». Algunas frases son correctas: no las marques.",
+  "parrafos": [
+    [
+      { "texto": "Entre los 240 pacientes con índice de Barthel, la media fue de 56,6 puntos en quienes ingresaron y de 71,1 en quienes no, con una diferencia de −14,6 puntos (IC 95 %: −20,3 a −8,8).", "explicacion": "Correcto: describe la diferencia observada con su intervalo de confianza." },
+      { "texto": "El valor de p fue de 0,0000016, por lo que existe una probabilidad del 99,99984 % de que la diferencia sea real.", "error": true, "explicacion": "Error clásico: el p-valor no es la probabilidad de que la hipótesis sea cierta. Es la probabilidad de observar una diferencia así o mayor si en realidad no hubiera ninguna." }
+    ],
+    [
+      { "texto": "El 31,2 % de los pacientes ingresó en los 12 meses siguientes (78 de 250).", "explicacion": "Correcto: es una frecuencia descriptiva." },
+      { "texto": "Haber sufrido al menos una caída se asoció a más ingresos (odds ratio 2,93; IC 95 %: 1,56 a 5,48), lo que demuestra que las caídas causan los ingresos.", "error": true, "explicacion": "Exagera la conclusión: una asociación observacional no demuestra causalidad. Las caídas y los ingresos pueden compartir causas (fragilidad, medicación)." },
+      { "texto": "En la regresión logística, cada fármaco adicional multiplicó por 1,21 el riesgo de ingreso (OR 1,206; IC 95 %: 1,025 a 1,419).", "error": true, "explicacion": "Confunde la odds ratio con el riesgo relativo: la OR multiplica las odds, no el riesgo. Con un evento frecuente (31 %), la OR exagera el aumento del riesgo." }
+    ],
+    [
+      { "texto": "La escala FRAIL no alcanzó la significación (OR 1,26; IC 95 %: 0,95 a 1,67), así que no tiene ninguna relación con el ingreso.", "error": true, "explicacion": "Error: no significativo no es igual a «sin efecto». El intervalo es compatible tanto con ninguna relación como con un aumento apreciable, y con estos pocos datos el estudio podría no tener potencia para detectarla." },
+      { "texto": "Los datos proceden de pacientes sintéticos, por lo que estos resultados no son hallazgos clínicos.", "explicacion": "Correcto: es la advertencia que debe acompañar a cualquier resultado de este taller." }
+    ]
+  ],
+  "conclusion": "Los cuatro errores son muy frecuentes, también en la literatura: confundir el p-valor con la probabilidad de la hipótesis, pasar de asociación a causa, leer una odds ratio como riesgo relativo y concluir «no hay efecto» de un resultado no significativo. Por eso la IA redacta, pero tú revisas cada frase contra tus resultados."
+}

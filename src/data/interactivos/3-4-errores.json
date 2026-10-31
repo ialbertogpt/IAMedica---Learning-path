@@ -1,0 +1,22 @@
+{
+  "titulo": "¿Qué problema de datos es este?",
+  "instrucciones": "Son errores reales del fichero «pacientes-sinteticos-con-errores». Clasifica cada uno según el problema.",
+  "categorias": [
+    { "id": "duplicado", "nombre": "Fila duplicada" },
+    { "id": "codificacion", "nombre": "Codificación inconsistente", "descripcion": "la misma categoría escrita de formas distintas" },
+    { "id": "imposible", "nombre": "Valor imposible o improbable", "descripcion": "fuera de rango" },
+    { "id": "ausente", "nombre": "Dato ausente" },
+    { "id": "tipo", "nombre": "Tipo equivocado", "descripcion": "texto en una columna numérica" }
+  ],
+  "items": [
+    { "texto": "El sexo aparece como «Mujer», «mujer», «M» y «Mujer » (con un espacio al final).", "categoria": "codificacion", "explicacion": "Un programa estadístico trata cada escritura como una categoría distinta. Hay que unificarlas." },
+    { "texto": "El índice de Barthel de un paciente es 900.", "categoria": "imposible", "explicacion": "El índice de Barthel va de 0 a 100. Probablemente es una errata de 90; si no puedes comprobarlo, se deja como dato ausente." },
+    { "texto": "La edad de un paciente figura como «84 años».", "categoria": "tipo", "explicacion": "El texto impide calcular la media. Hay que dejar solo el número." },
+    { "texto": "Varias celdas de la columna del test de Pfeiffer están vacías.", "categoria": "ausente", "explicacion": "Los datos ausentes hay que identificarlos y tratarlos de forma explícita; no se rellenan sin criterio." },
+    { "texto": "La fila completa del paciente P191 aparece dos veces.", "categoria": "duplicado", "explicacion": "Un paciente contado dos veces sesga las medias y los tamaños de muestra. Se elimina una de las filas." },
+    { "texto": "Un paciente toma 55 fármacos crónicos.", "categoria": "imposible", "explicacion": "Es improbable (probablemente, un 5 mal tecleado). Se comprueba y, si no se puede, se trata como dato ausente." },
+    { "texto": "En la columna de la escala FRAIL, dos pacientes tienen «NS/NC».", "categoria": "tipo", "explicacion": "Es texto en una columna numérica. Equivale a un dato ausente: hay que dejar la celda vacía." },
+    { "texto": "En la columna de ingreso, algunos pacientes tienen «Sí» y otros tienen 1.", "categoria": "codificacion", "explicacion": "Una variable binaria debe codificarse siempre igual (0/1). Se unifican." }
+  ],
+  "cierre": "Limpiar no es borrar lo que molesta: es documentar cada decisión. Anota qué cambiaste, cuántos casos y por qué. Esa lista es parte de tu método."
+}

@@ -1,0 +1,19 @@
+{
+  "titulo": "Ajustes de privacidad de los asistentes, a fecha de octubre de 2026",
+  "instrucciones": "Qué dice la página de ayuda oficial de cada empresa sobre el uso de tus conversaciones. Pulsa para ver el detalle. Los nombres de los ajustes cambian: búscalos en la configuración de tu cuenta.",
+  "modo": "tarjetas",
+  "categorias": [
+    { "id": "chatgpt", "nombre": "ChatGPT" },
+    { "id": "claude", "nombre": "Claude" },
+    { "id": "gemini", "nombre": "Gemini" },
+    { "id": "copilot", "nombre": "Copilot" }
+  ],
+  "items": [
+    { "id": "chatgpt-mejora", "titulo": "ChatGPT: «Improve the model for everyone»", "categoria": "chatgpt", "detalle": "En las cuentas personales (Free, Plus y Pro), el uso de tus conversaciones para mejorar los modelos está activado por defecto. Puedes desactivar el ajuste «Improve the model for everyone» y conservar tu historial.", "fuente": "OpenAI Help Center, «Data controls FAQ», consultado el 31/10/2026." },
+    { "id": "chatgpt-temporal", "titulo": "ChatGPT: chat temporal", "categoria": "chatgpt", "detalle": "Un chat temporal no aparece en tu historial y no se usa para mejorar los modelos mientras siga siendo temporal. OpenAI puede conservar una copia hasta 30 días por motivos de seguridad. Si lo guardas, se aplica tu ajuste de mejora del modelo.", "fuente": "OpenAI Help Center, «Temporary chat in ChatGPT», consultado el 31/10/2026." },
+    { "id": "claude-mejora", "titulo": "Claude: mejora del modelo en «Privacy Settings»", "categoria": "claude", "detalle": "En los productos de consumo (Free, Pro, Max), Anthropic usa tus conversaciones para mejorar sus modelos si tú lo permites. También puede usarlas si se marcan para revisión de seguridad. Los chats en modo incógnito no se usan para mejorar Claude, aunque lo tengas permitido. Si das tu opinión con el pulgar arriba o abajo, se guarda la conversación asociada hasta 5 años.", "fuente": "Anthropic Privacy Center, «Is my data used for model training?» (artículo del 16/03/2026), consultado el 31/10/2026." },
+    { "id": "gemini-actividad", "titulo": "Gemini: «Keep Activity» y revisores humanos", "categoria": "gemini", "detalle": "Con «Keep Activity» activado, tus chats y lo que compartes (archivos, capturas) se guardan en tu actividad, y Google los usa para desarrollar y mejorar sus servicios, incluido el entrenamiento de modelos de IA generativa, con ayuda de revisores humanos. Google pide no introducir información confidencial que no quieras que vea un revisor o que se use para mejorar sus servicios.", "fuente": "Google, «Gemini Apps Privacy Hub», consultado el 31/10/2026." },
+    { "id": "copilot", "titulo": "Copilot: pendiente de comprobar", "categoria": "copilot", "detalle": "No he podido consultar la página de ayuda de privacidad de Copilot de Microsoft (la dirección que probé devolvió un error 404). Revisa su configuración de privacidad y su declaración de privacidad antes de usarlo, y recuerda que la versión de consumo no es la de Microsoft 365 de un centro sanitario.", "fuente": "Sin verificar a fecha de 31/10/2026." }
+  ],
+  "nota": "Lo que ves aquí describe cómo se tratan tus datos, no que sea seguro introducir datos de pacientes: con una cuenta personal no lo es (2.3)."
+}

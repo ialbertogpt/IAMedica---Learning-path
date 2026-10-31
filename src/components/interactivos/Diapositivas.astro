@@ -1,0 +1,43 @@
+---
+// «Antes y después» de diapositivas: maquetas sencillas (sin imágenes) con una lista de cambios y su porqué.
+// Es estático: no hace falta JavaScript. Los textos de las maquetas son accesibles para lectores de pantalla.
+import Icono from '../ui/Icono.astro';
+import { cargarDatos } from '../../lib/interactivos';
+interface Diapo { titulo: string; puntos?: string[]; pie?: string; destacado?: string }
+interface Par { nombre: string; antes: Diapo; despues: Diapo; cambios: string[] }
+interface Datos { titulo: string; instrucciones?: string; pares: Par[]; nota?: string }
+const d = cargarDatos<Datos>(Astro.props.datos);
+---
+<section class="interactivo" aria-label={d.titulo}>
+  <h3 class="interactivo-titulo"><Icono nombre="slideshow" tam={20} />{d.titulo}</h3>
+  {d.instrucciones && <p class="m-0 mb-2">{d.instrucciones}</p>}
+  <div class="grid gap-6">
+    {d.pares.map((p) => (
+      <article class="grid gap-3">
+        <h4 class="m-0 text-[17px]">{p.nombre}</h4>
+        <div class="grid gap-3 md:grid-cols-2">
+          {[['Antes', p.antes, 'var(--mal)'], ['Después', p.despues, 'var(--l3)']].map(([etiqueta, diapo, color]) => (
+            <figure class="m-0 grid gap-1.5">
+              <figcaption class="eyebrow" style={`color:${color}`}>{etiqueta}</figcaption>
+              <div class="rounded-lg border-2 bg-white text-[#1a1a1a] p-4 grid gap-2 content-start min-h-48" style={`border-color:${color}`}>
+                <p class="m-0 font-bold leading-tight" style={(diapo as Diapo).puntos && (diapo as Diapo).puntos!.length > 4 ? 'font-size:15px' : 'font-size:20px'}>{(diapo as Diapo).titulo}</p>
+                {(diapo as Diapo).destacado && <p class="m-0 font-bold" style="font-size:36px;line-height:1.1;color:#0b5a82">{(diapo as Diapo).destacado}</p>}
+                {(diapo as Diapo).puntos && (
+                  <ul class="m-0 pl-4 grid gap-0.5" style={(diapo as Diapo).puntos!.length > 4 ? 'font-size:13px;line-height:1.25' : 'font-size:17px'}>
+                    {(diapo as Diapo).puntos!.map((t) => <li>{t}</li>)}
+                  </ul>
+                )}
+                {(diapo as Diapo).pie && <p class="m-0 mt-auto" style="font-size:12px;color:#555">{(diapo as Diapo).pie}</p>}
+              </div>
+            </figure>
+          ))}
+        </div>
+        <div>
+          <p class="m-0 font-semibold">Qué ha cambiado y por qué</p>
+          <ul class="m-0 pl-5 grid gap-1">{p.cambios.map((c) => <li>{c}</li>)}</ul>
+        </div>
+      </article>
+    ))}
+  </div>
+  {d.nota && <p class="interactivo-nota">{d.nota}</p>}
+</section>

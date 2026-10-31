@@ -9,11 +9,11 @@ import { archivosMDX, leerMDX, componentes, sesionesDe, contarPalabras, leerJSON
 const COMPONENTES = new Set([
   'Sesion', 'T', 'OjoCon', 'Analogia', 'PruebaloTu', 'AvisoClinico', 'Caso', 'Desplegable', 'Plantilla', 'Video', 'Recurso', 'Resumen', 'Ficha', 'PasoTaller', 'TestFinal',
   'Clasificador', 'EncuentraError', 'Tokenizador', 'Minimodelo', 'VentanaContexto', 'CalculadoraRenal', 'TresAyudas', 'AnatomiaFicha',
-  'Explorador', 'Comparador', 'Arbol', 'Autoevaluacion', 'ModeloSintetico', 'Neurona', 'ConstructorPrompt', 'Planificador', 'Munecas', 'CapasRed',
+  'Explorador', 'Comparador', 'Arbol', 'Autoevaluacion', 'ModeloSintetico', 'Neurona', 'ConstructorPrompt', 'Planificador', 'Munecas', 'CapasRed', 'ConstructorBusqueda', 'SimuladorIC', 'Diapositivas',
 ]);
 // Elementos visuales propios (al menos uno por subcapítulo)
-const VISUALES = new Set(['Clasificador', 'EncuentraError', 'Tokenizador', 'Minimodelo', 'VentanaContexto', 'CalculadoraRenal', 'TresAyudas', 'AnatomiaFicha', 'Explorador', 'Comparador', 'Arbol', 'Autoevaluacion', 'ModeloSintetico', 'Neurona', 'ConstructorPrompt', 'Planificador', 'Munecas', 'CapasRed']);
-const CON_DATOS = new Set(['Clasificador', 'EncuentraError', 'Tokenizador', 'Minimodelo', 'VentanaContexto', 'Explorador', 'Comparador', 'Arbol', 'Autoevaluacion', 'ConstructorPrompt']);
+const VISUALES = new Set(['Clasificador', 'EncuentraError', 'Tokenizador', 'Minimodelo', 'VentanaContexto', 'CalculadoraRenal', 'TresAyudas', 'AnatomiaFicha', 'Explorador', 'Comparador', 'Arbol', 'Autoevaluacion', 'ModeloSintetico', 'Neurona', 'ConstructorPrompt', 'Planificador', 'Munecas', 'CapasRed', 'ConstructorBusqueda', 'SimuladorIC', 'Diapositivas']);
+const CON_DATOS = new Set(['Clasificador', 'EncuentraError', 'Tokenizador', 'Minimodelo', 'VentanaContexto', 'Explorador', 'Comparador', 'Arbol', 'Autoevaluacion', 'ConstructorPrompt', 'ConstructorBusqueda', 'Diapositivas']);
 const MIN_SESION = 15, MAX_SESION = 25, MAX_PALABRAS_BLOQUE = 150;
 
 const curso = leerJSON(join(DIR_DATOS, 'curso.json'));

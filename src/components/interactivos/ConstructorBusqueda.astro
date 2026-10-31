@@ -1,0 +1,12 @@
+---
+import Icono from '../ui/Icono.astro';
+import Isla, { type DatosConstructorBusqueda } from './especificos/ConstructorBusqueda.tsx';
+import { cargarDatos } from '../../lib/interactivos';
+interface Props { datos: string }
+const d = cargarDatos<DatosConstructorBusqueda & { titulo: string; instrucciones?: string }>(Astro.props.datos);
+---
+<section class="interactivo" aria-label={d.titulo}>
+  <h3 class="interactivo-titulo"><Icono nombre="manage_search" tam={20} />{d.titulo}</h3>
+  {d.instrucciones && <p class="m-0 mb-2">{d.instrucciones}</p>}
+  <Isla client:visible datos={d} />
+</section>

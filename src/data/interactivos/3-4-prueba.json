@@ -1,0 +1,88 @@
+{
+  "titulo": "¿Qué prueba estadística uso?",
+  "instrucciones": "Es una guía de orientación para los casos más habituales, no sustituye la opinión de un estadístico. Responde y obtén la prueba y el aviso que la acompaña.",
+  "inicio": "resultado",
+  "nodos": {
+    "resultado": {
+      "tipo": "pregunta",
+      "texto": "¿Qué tipo de variable es el resultado que quieres explicar o comparar?",
+      "opciones": [
+        { "texto": "Una cantidad (Barthel, edad, número de fármacos)", "siguiente": "cant" },
+        { "texto": "Una categoría de dos opciones (ingreso sí/no, fallecimiento sí/no)", "siguiente": "bin" }
+      ]
+    },
+    "cant": {
+      "tipo": "pregunta",
+      "texto": "¿Qué quieres hacer con esa cantidad?",
+      "opciones": [
+        { "texto": "Compararla entre dos grupos distintos de pacientes (con y sin ingreso)", "siguiente": "dos" },
+        { "texto": "Compararla entre tres o más grupos", "siguiente": "tres" },
+        { "texto": "Compararla en los mismos pacientes en dos momentos (antes y después)", "siguiente": "apar" },
+        { "texto": "Ver si se relaciona con otra cantidad (edad y Barthel)", "siguiente": "corr" },
+        { "texto": "Explicarla con varias variables a la vez", "siguiente": "r-lineal" }
+      ]
+    },
+    "dos": {
+      "tipo": "pregunta",
+      "texto": "¿Es razonable suponer una distribución aproximadamente normal en cada grupo (o hay bastantes pacientes por grupo)?",
+      "ayuda": "Como orientación: con unos 30 o más pacientes por grupo, la t es bastante robusta; con pocos pacientes y una distribución muy asimétrica, mejor una prueba no paramétrica.",
+      "opciones": [
+        { "texto": "Sí", "siguiente": "r-welch" },
+        { "texto": "No (pocos pacientes y muy asimétrica)", "siguiente": "r-mw" }
+      ]
+    },
+    "tres": {
+      "tipo": "pregunta",
+      "texto": "¿Es razonable suponer una distribución aproximadamente normal en cada grupo?",
+      "opciones": [
+        { "texto": "Sí", "siguiente": "r-anova" },
+        { "texto": "No", "siguiente": "r-kw" }
+      ]
+    },
+    "apar": {
+      "tipo": "pregunta",
+      "texto": "¿Es razonable suponer que las diferencias entre los dos momentos siguen una distribución aproximadamente normal?",
+      "opciones": [
+        { "texto": "Sí", "siguiente": "r-tapar" },
+        { "texto": "No", "siguiente": "r-wilcoxon" }
+      ]
+    },
+    "corr": {
+      "tipo": "pregunta",
+      "texto": "¿La relación parece lineal y ambas variables son aproximadamente normales?",
+      "opciones": [
+        { "texto": "Sí", "siguiente": "r-pearson" },
+        { "texto": "No (o una es ordinal)", "siguiente": "r-spearman" }
+      ]
+    },
+    "bin": {
+      "tipo": "pregunta",
+      "texto": "¿Qué quieres hacer con ese resultado?",
+      "opciones": [
+        { "texto": "Compararlo entre dos grupos (caídas sí/no e ingreso sí/no)", "siguiente": "tabla" },
+        { "texto": "Explicarlo con varias variables a la vez", "siguiente": "r-logistica" }
+      ]
+    },
+    "tabla": {
+      "tipo": "pregunta",
+      "texto": "En la tabla 2×2, ¿todas las frecuencias esperadas son 5 o más?",
+      "ayuda": "Las frecuencias esperadas son las que habría en cada celda si no hubiera relación. Jamovi las puede mostrar.",
+      "opciones": [
+        { "texto": "Sí", "siguiente": "r-chi" },
+        { "texto": "No, alguna es menor de 5", "siguiente": "r-fisher" }
+      ]
+    },
+    "r-welch": { "tipo": "resultado", "titulo": "t de Student para muestras independientes (con la versión de Welch)", "detalle": "Compara las medias de dos grupos distintos. La versión de Welch no exige que las varianzas sean iguales, por lo que es una opción segura por defecto. Informa de la diferencia de medias con su intervalo de confianza, no solo del p-valor.", "ojo": "«Muestras independientes» significa pacientes distintos en cada grupo." },
+    "r-mw": { "tipo": "resultado", "titulo": "U de Mann-Whitney", "detalle": "Alternativa no paramétrica a la t de dos grupos independientes: compara el orden de los valores, no las medias. Útil con pocos pacientes o distribuciones muy asimétricas.", "ojo": "No es «una t sin supuestos»: contrasta algo distinto (si los valores de un grupo tienden a ser mayores)." },
+    "r-anova": { "tipo": "resultado", "titulo": "ANOVA de un factor", "detalle": "Compara las medias de tres o más grupos. Si es significativa, indica que alguna difiere, no cuál: para saberlo, hace falta una comparación a posteriori (p. ej., Tukey).", "ojo": "Hacer varias pruebas t por parejas aumenta el riesgo de falsos positivos: por eso existe el ANOVA." },
+    "r-kw": { "tipo": "resultado", "titulo": "Kruskal-Wallis", "detalle": "Alternativa no paramétrica al ANOVA para tres o más grupos.", "ojo": "Igual que con el ANOVA, indica que alguno difiere, no cuál." },
+    "r-tapar": { "tipo": "resultado", "titulo": "t de Student para muestras apareadas", "detalle": "Compara dos medidas de los mismos pacientes (antes y después). Analiza la diferencia de cada paciente.", "ojo": "No uses la t independiente con medidas repetidas: ignora que los datos están emparejados." },
+    "r-wilcoxon": { "tipo": "resultado", "titulo": "Prueba de rangos con signo de Wilcoxon", "detalle": "Alternativa no paramétrica a la t apareada.", "ojo": "Contrasta la tendencia de las diferencias, no la media." },
+    "r-pearson": { "tipo": "resultado", "titulo": "Correlación de Pearson", "detalle": "Mide la fuerza de la relación lineal entre dos cantidades (de −1 a 1).", "ojo": "Correlación no es causalidad, y una correlación débil puede ser «significativa» si hay muchos pacientes." },
+    "r-spearman": { "tipo": "resultado", "titulo": "Correlación de Spearman", "detalle": "Mide la relación monótona entre dos variables a partir de sus órdenes. Sirve para variables ordinales o poco normales.", "ojo": "Mismo aviso: correlación no es causalidad." },
+    "r-lineal": { "tipo": "resultado", "titulo": "Regresión lineal múltiple", "detalle": "Explica una cantidad con varias variables a la vez y estima el efecto de cada una ajustando por las demás.", "ojo": "No metas variables sin criterio clínico: con pocos pacientes y muchas variables, el modelo se sobreajusta (como en 1.3)." },
+    "r-chi": { "tipo": "resultado", "titulo": "χ² de Pearson (y odds ratio)", "detalle": "Contrasta si dos variables categóricas se asocian. Se acompaña de la odds ratio con su intervalo de confianza.", "ojo": "El p-valor no te dice la fuerza de la asociación: mira la odds ratio y su IC." },
+    "r-fisher": { "tipo": "resultado", "titulo": "Prueba exacta de Fisher", "detalle": "Alternativa al χ² cuando hay frecuencias esperadas pequeñas (menores de 5).", "ojo": "Con pocos eventos, desconfía de cualquier asociación." },
+    "r-logistica": { "tipo": "resultado", "titulo": "Regresión logística", "detalle": "Explica un resultado de dos opciones con varias variables a la vez. Da una odds ratio por variable, ajustada por las demás.", "ojo": "Necesitas suficientes eventos por variable; la odds ratio no es lo mismo que el riesgo relativo, sobre todo si el evento es frecuente." }
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "titulo": "¿Qué proyecto final elijo?",
+  "instrucciones": "Hay dos opciones. Responde y te orientamos. Las dos integran el flujo completo del curso: anonimizar, trabajar con la IA, verificar y decidir tú.",
+  "inicio": "interes",
+  "nodos": {
+    "interes": {
+      "tipo": "pregunta",
+      "texto": "¿Qué te apetece más practicar?",
+      "opciones": [
+        { "texto": "Presentar un caso clínico: diferencial, fuentes y una presentación", "siguiente": "r-a" },
+        { "texto": "Analizar datos: un mini estudio con el dataset sintético y un resumen tipo congreso", "siguiente": "tiempo" }
+      ]
+    },
+    "tiempo": {
+      "tipo": "pregunta",
+      "texto": "¿Has hecho ya el taller 3.4 (estadística) con el fichero limpio?",
+      "opciones": [
+        { "texto": "Sí", "siguiente": "r-b" },
+        { "texto": "No", "siguiente": "r-sin34" }
+      ]
+    },
+    "r-a": {
+      "tipo": "resultado",
+      "titulo": "Opción A: caso clínico completo, y presentación",
+      "detalle": "Partirás del caso ficticio de 3.1 (o de otro ficticio que inventes). Anonimizas y estructuras el caso, pides un diferencial razonado sin dar tu hipótesis, contrastas con fichas técnicas y guías (3.1 y 3.2), verificas las referencias (3.3) y lo conviertes en una presentación de diez diapositivas (3.6). Opcionalmente, redactas un caso clínico según CARE (3.5).",
+      "ojo": "Si usas un caso real, solo anonimizado y con tu centro de acuerdo; con una cuenta personal, mejor uno ficticio."
+    },
+    "r-sin34": {
+      "tipo": "resultado",
+      "titulo": "Haz primero el taller 3.4",
+      "detalle": "La opción B se apoya en lo que aprendes en 3.4: limpiar, elegir la prueba, analizar en jamovi y verificar por una segunda vía. Haz primero ese taller, o elige la opción A.",
+      "fuente": "Subcapítulo 3.4."
+    },
+    "r-b": {
+      "tipo": "resultado",
+      "titulo": "Opción B: mini estudio con el dataset sintético, resumen tipo congreso y presentación",
+      "detalle": "Formulas una pregunta con el dataset, eliges la prueba antes de ver los resultados, analizas en jamovi, reproduces un resultado por una segunda vía y redactas un resumen estructurado (objetivo, métodos, resultados, conclusiones) con ayuda de la IA y solo con resultados agregados. Terminas con una presentación breve (3.6). Recuerda en las conclusiones que los datos son sintéticos.",
+      "ojo": "Las relaciones del dataset las diseñó el generador: no son hallazgos clínicos y el resumen debe decirlo."
+    }
+  }
+}

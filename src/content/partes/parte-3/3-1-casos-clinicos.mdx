@@ -1,0 +1,282 @@
+---
+id: "3-1"
+titulo: Dudas sobre casos clínicos
+parte: 3
+minutos: 150
+objetivos:
+  - Presentar un caso clínico anonimizado y estructurado, como en una sesión clínica, para pedir una opinión a una IA
+  - Pedir un diagnóstico diferencial razonado, con lo que apoya y lo que refutaría cada opción y las pruebas que discriminan
+  - Reconocer la complacencia de una IA y presentar el caso de forma neutra, pidiendo que refute tu hipótesis
+  - Verificar la respuesta con una fuente de referencia y dejar constancia de que la decisión es tuya
+gancho: "Son las nueve de la noche, tienes una paciente de 86 años con caídas, confusión, el sodio bajo y once fármacos, y nadie a quien preguntar. Una IA puede ayudarte a pensar en voz alta, pero solo si sabes qué pedirle, qué no contarle y cómo comprobar lo que te dice. En este taller practicas con un caso ficticio, de principio a fin."
+recursos:
+  - r-omc-manual-ia-2026
+  - a-goh-2024
+  - a-bean-2026
+paraSaberMas:
+  - a-hiponatremia-2014
+  - a-hiponatremia-2024
+  - r-cima
+test: "3-1"
+fechaRevision: "2026-10-31"
+aFecha: octubre de 2026
+fuentes:
+  - texto: "Manual de Buenas Prácticas para la Inteligencia Artificial en Medicina. Organización Médica Colegial de España, 2026: principios 1, 2 y 3 para el médico (pp. 11-12) y deontología (p. 113)"
+    url: https://www.cgcom.es
+  - texto: "Goh E, et al. Large language model influence on diagnostic reasoning: a randomized clinical trial. JAMA Netw Open 2024;7:e2440969"
+    pmid: "39466245"
+  - texto: "Bean AM, et al. Reliability of LLMs as medical assistants for the general public. Nat Med 2026"
+    pmid: "41663592"
+  - texto: "Sharma M, et al. Towards understanding sycophancy in language models. arXiv:2310.13548 (2023)"
+    url: https://arxiv.org/abs/2310.13548
+  - texto: "Spasovski G, et al. Clinical practice guideline on diagnosis and treatment of hyponatraemia. Nephrol Dial Transplant 2014;29(Suppl 2):i1-i39"
+    pmid: "24569496"
+  - texto: "Hyponatraemia-treatment standard 2024. Nephrol Dial Transplant 2024"
+    pmid: "39009016"
+  - texto: "CIMA (AEMPS). Ficha técnica de sertralina Cinfa 100 mg (nº de registro 66058; sección 10: agosto de 2025), sección 4.4"
+    url: https://cima.aemps.es/cima/dochtml/ft/66058/FT_66058.html
+  - texto: "CIMA (AEMPS). Ficha técnica de Hidrosaluretil 25 mg (nº de registro 82547; sección 10: noviembre de 2023), sección 4.4"
+    url: https://cima.aemps.es/cima/dochtml/ft/82547/FT_82547.html
+  - texto: "CIMA (AEMPS). Ficha técnica de Ditropan 5 mg (nº de registro 57185; sección 10: junio de 2023), sección 4.4"
+    url: https://cima.aemps.es/cima/dochtml/ft/57185/FT_57185.html
+---
+
+<Sesion n={1} titulo="Para qué sirve y para qué no" minutos={20}>
+
+### La IA como compañera que piensa en voz alta
+
+Una IA puede ayudarte a **ordenar un caso, ampliar el diagnóstico diferencial, recordarte causas que no habías considerado y preparar una sesión clínica**. No puede explorar a la paciente, no conoce su historia, no asume la responsabilidad y, a veces, **se equivoca con total seguridad**.
+
+<Analogia>
+Es **un residente brillante, rápido y leído, que a veces se inventa un dato y que tiende a darte la razón**. Le pides que piense contigo; la decisión la sigues tomando tú.
+</Analogia>
+
+### Qué dice la evidencia
+
+Ya lo viste en 2.1. En un <T id="ensayo-aleatorizado">ensayo aleatorizado</T> con 50 médicos (Goh et al., 2024), el acceso a un <T id="modelo">modelo</T> de lenguaje **no mejoró de forma significativa** la puntuación de razonamiento diagnóstico (76 % frente a 74 %), aunque el modelo solo puntuó más que los médicos. Y en otro estudio (Bean et al., 2026), las personas que usaban un modelo no identificaban mejor el problema que sin él. Conclusión práctica: **no basta con tener la herramienta; hay que saber usarla**, y eso es lo que practicas aquí.
+
+### Para qué sí y para qué no
+
+| Sí | No |
+|---|---|
+| Ampliar el diagnóstico diferencial | Decidir un diagnóstico por ti |
+| Ordenar los datos de un caso | Sustituir la exploración y el juicio clínico |
+| Proponer qué pruebas discriminan | Dar una dosis sin verificarla en la <T id="ficha-tecnica">ficha técnica</T> |
+| Criticar tu razonamiento | Confirmar una sospecha que ya tienes |
+| Preparar una sesión clínica | Trabajar con datos identificables de la paciente |
+
+<AvisoClinico titulo="Antes de empezar">
+Todo el caso de este taller es **ficticio**. Las respuestas de IA que verás están **etiquetadas** como reales (con modelo y fecha) o como creadas para el ejercicio. Los datos clínicos citados están verificados en su fuente y fechados. **La decisión clínica es siempre tuya.**
+</AvisoClinico>
+
+<OjoCon>
+- **Una IA no es una segunda opinión.** Es una ayuda para pensar, sin responsabilidad ni exploración.
+- **La seguridad de la prosa no es una prueba.** Las respuestas erróneas suenan igual de bien.
+- **Tu decisión no se delega.** Si firmas, respondes.
+</OjoCon>
+
+</Sesion>
+
+<Sesion n={2} titulo="Anonimizar y estructurar el caso" minutos={20}>
+
+### El caso del taller (ficticio)
+
+<Caso titulo="Mujer de 86 años con caídas, confusión y sodio bajo">
+**Mujer de 86 años**, viuda, vive con su hija y era independiente para las actividades básicas. **Tres caídas en dos meses**; la última, hace cinco días, con golpe en la cabeza y sin pérdida de conciencia. **Desde hace cuatro días**, la hija la nota somnolienta y confusa de forma fluctuante. Sin fiebre.
+
+**TA 128/76 mmHg acostada y 102/60 de pie**; FC 78 lpm. **Sodio 124 mmol/l**, potasio 3,6 mmol/l, creatinina 1,2 mg/dl, glucosa 98 mg/dl.
+
+**Medicación (11 fármacos):** hidroclorotiazida 25 mg/día, enalapril 10 mg/día, amlodipino 5 mg/día, sertralina 100 mg/día, lorazepam 1 mg por la noche, oxibutinina 5 mg/12 h, omeprazol 20 mg/día, atorvastatina 20 mg/día, ácido acetilsalicílico 100 mg/día, paracetamol 1 g si dolor y levotiroxina 50 µg/día.
+
+*Caso inventado para este curso. Las dosis son las del caso, no recomendaciones.*
+</Caso>
+
+### Primero, los identificadores
+
+Si fuera una paciente tuya, antes de pegar nada tendrías que <T id="anonimizar">anonimizar</T> el texto con la checklist de 3.0: nombre, historia, fechas exactas, teléfono, dirección, profesionales y combinaciones. Este caso ya está **sin identificadores**: edades y tiempos relativos, y ningún dato personal.
+
+<PasoTaller id="3-1-anonimizar" tipo="anonimizar" texto="He aplicado la checklist de anonimización de 3.0 al caso (en este taller es ficticio) y no queda ningún dato que identifique a la persona." />
+
+### Después, estructurar
+
+Un caso bien presentado se parece a uno que cuentas en una sesión clínica: contexto, evolución, medicación, pruebas y, al final, la pregunta. Prueba a colocar cada fragmento.
+
+<Clasificador datos="3-1-estructura" />
+
+<Plantilla id="p-3-1-estructura-caso" />
+
+<OjoCon>
+- **Falta la lista de fármacos con dosis.** Es el dato que más cambia un diferencial en un mayor.
+- **Cuidado con el resumen que ya contiene tu conclusión.** «Paciente con confusión por la tiazida» es un diagnóstico, no un dato.
+- **Unidades siempre.** mmol/l frente a mg/dl evita errores.
+</OjoCon>
+
+</Sesion>
+
+<Sesion n={3} titulo="El diferencial razonado" minutos={22}>
+
+### Qué es un diferencial «razonado»
+
+Pedir «¿qué tiene?» da una etiqueta. Pedir un **diferencial razonado** da un mapa. Para cada opción debes obtener tres cosas:
+
+1. **Qué datos la apoyan.**
+2. **Qué datos o resultados la refutarían.**
+3. **Qué prueba o dato discrimina** entre esa opción y las demás.
+
+Y dos más: **qué es lo que «no debes perder»** y **qué no se puede saber** con lo que le has contado.
+
+<Analogia>
+Es **un diferencial en voz alta, como en la sesión clínica**: el adjunto no dice solo «es X», sino «pienso en X, Y y Z, y esto es lo que decidiría entre ellas».
+</Analogia>
+
+### Un encargo que falla
+
+Antes de pedir nada, practica a detectar un mal <T id="prompt">prompt</T>.
+
+<EncuentraError datos="3-1-prompt" />
+
+<Plantilla id="p-3-1-diferencial" />
+
+### Tu turno
+
+<PruebaloTu minutos={10}>
+Copia el caso de arriba, presenta los datos con la plantilla anterior en un asistente y pide el **diagnóstico diferencial razonado**. Sin dar tu hipótesis. Anota: ¿qué causas propone?, ¿considera la causa intracraneal?, ¿menciona más de un fármaco?, ¿señala lo que no puede saber? Si usas un asistente con razonamiento, compara su respuesta con la de un modelo rápido.
+</PruebaloTu>
+
+</Sesion>
+
+<Sesion n={4} titulo="La trampa de la complacencia" minutos={20}>
+
+### Cuando la IA te da la razón
+
+Los modelos entrenados con valoraciones humanas tienden a la <T id="complacencia">complacencia</T>: **adaptan su respuesta a lo que creen que quieres oír** (Sharma et al., 2023). Si le cuentas tu sospecha al principio, te la devolverá con otras palabras. Mira el mismo caso presentado de dos formas.
+
+<Comparador datos="3-1-complacencia" />
+
+### Cuatro reglas para no caer en la trampa
+
+1. **No des tu hipótesis al principio.** Presenta los datos y pide un diferencial.
+2. **Si la das, al final y pidiendo que la refute.**
+3. **Pide lo que contradiría cada opción**, no solo lo que la apoya.
+4. **Compara siempre con otra fuente** o, al menos, con otro modelo.
+
+<Plantilla id="p-3-1-refuta" />
+
+<Analogia>
+Es **el residente que da la razón al adjunto**: agradable, pero poco útil. Quieres al que te dice «¿y has pensado en el subdural?».
+</Analogia>
+
+<OjoCon>
+- **Cada reformulación puede cambiar la respuesta.** Si ves que cambia de opinión cuando insistes, no es un argumento: es complacencia.
+- **«Tu sospecha es muy razonable» es una señal de alarma**, no una validación.
+</OjoCon>
+
+</Sesion>
+
+<Sesion n={5} titulo="Tratamiento, seguimiento y autocrítica" minutos={22}>
+
+### Del diferencial al abordaje
+
+Una vez ordenado el diferencial, puedes pedir ideas de **abordaje y seguimiento**: qué parámetros vigilar, cuándo replantear el diagnóstico, qué signos de alarma explicar a la familia. Pídelo siempre **con la fuente a consultar** y **sin dosis**: las dosis se verifican en la ficha técnica (3.2).
+
+<Plantilla id="p-3-1-seguimiento" />
+
+### Que la IA critique su propia respuesta
+
+Una técnica útil: pedirle que revise lo que ha dicho como lo haría un adjunto exigente. **No es una verificación**, pero señala dónde mirar.
+
+<Plantilla id="p-3-1-autocritica" />
+
+### ¿Qué falla en esta respuesta?
+
+Aquí tienes una respuesta, escrita con total seguridad, sobre el mismo caso. Tiene errores. Puedes abrir las fuentes antes de decidir.
+
+<EncuentraError datos="3-1-respuesta" />
+
+<OjoCon>
+- **La autocrítica de la IA no sustituye a una fuente.** Puede «criticarse» y seguir equivocada.
+- **No pidas dosis.** Pide qué consultar y dónde.
+- **Cuidado con las referencias que cita.** Pueden no existir (3.3).
+</OjoCon>
+
+</Sesion>
+
+<Sesion n={6} titulo="Contrastar con una fuente de referencia" minutos={22}>
+
+### Cada afirmación, a su fuente
+
+Lo más importante de este taller es el hábito: **afirmación → fuente → comprobado**. Según lo que quieras comprobar:
+
+| Si quieres comprobar… | Fuente |
+|---|---|
+| Un efecto adverso, una contraindicación o una dosis | La **ficha técnica** en <T id="cima">CIMA</T> (sección 4.4, 4.3, 4.2…) |
+| Un criterio de prescripción en mayores | STOPP/START v3 o Beers 2023 (3.2) |
+| Una recomendación de tratamiento | La **guía de práctica clínica** de la sociedad científica |
+| Una cifra o una afirmación de un estudio | El **resumen en PubMed** (3.3) |
+
+### El caso, contrastado
+
+Estas son tres afirmaciones de la respuesta neutra del caso y dónde se comprueban:
+
+<Desplegable titulo="Ver qué dicen las fuentes (ábrelo después de buscar tú)">
+
+| Afirmación | Qué dice la fuente | Fuente |
+|---|---|---|
+| La sertralina puede producir hiponatremia, con más riesgo en mayores y con diuréticos | Sección 4.4: puede aparecer hiponatremia, en muchos casos por SIADH; los pacientes de edad avanzada y los que toman diuréticos tienen más riesgo | Ficha técnica de sertralina Cinfa 100 mg (nº de registro 66058; sección 10: agosto de 2025) |
+| Las tiazidas pueden producir o agravar una hiponatremia | Sección 4.4: los diuréticos tiazídicos pueden producir una nueva aparición de hiponatremia o exacerbar una preexistente | Ficha técnica de Hidrosaluretil 25 mg (nº de registro 82547; sección 10: noviembre de 2023) |
+| La oxibutinina puede causar confusión, sobre todo en mayores | Sección 4.4: se han notificado efectos anticolinérgicos del SNC (alucinaciones, agitación, confusión…); los mayores pueden ser más sensibles | Ficha técnica de Ditropan 5 mg (nº de registro 57185; sección 10: junio de 2023) |
+| Evitar una normalización rápida del sodio | Las guías prefieren una corrección gradual y con controles frecuentes antes que una normalización rápida | Spasovski et al., 2014 (PMID 24569496); revisión de 2024 (PMID 39009016) |
+| Retirar la sertralina de forma brusca puede dar síntomas de retirada | Sección 4.4: es frecuente que aparezcan síntomas de retirada, sobre todo si la suspensión es brusca; se aconseja reducir gradualmente | Ficha técnica de sertralina Cinfa 100 mg (nº de registro 66058) |
+
+</Desplegable>
+
+<PasoTaller id="3-1-verificar" tipo="verificar" texto="He abierto al menos una ficha técnica en CIMA y una guía o un resumen de PubMed y he comprobado dos afirmaciones de la respuesta de la IA, anotando cuáles se confirman y cuáles no." />
+
+<OjoCon>
+- **Las fichas técnicas se actualizan.** Mira la fecha de la sección 10.
+- **Contrastar no es releer la respuesta de la IA.** Es abrir otra fuente.
+- **Anota lo que la IA omitió**, no solo lo que se equivocó.
+</OjoCon>
+
+</Sesion>
+
+<Sesion n={7} titulo="Checklist y test" minutos={24}>
+
+### La checklist del caso clínico con IA
+
+Antes de dar por buena una ayuda de la IA en un caso, recorre la lista de la ficha de más abajo: puedes imprimirla.
+
+### Dejar constancia de que la decisión es tuya
+
+En la historia clínica, la decisión es tuya. Si la IA te ha ayudado a pensar, no hace falta mencionarlo en la decisión; si la usas de forma estructurada (por ejemplo, en una sesión docente), **indica la herramienta, la fecha y qué has verificado**. Recuerda que, con una cuenta personal, **no se introducen datos identificables**.
+
+<Resumen>
+- La IA es una ayuda para **pensar en voz alta**, no una segunda opinión. La evidencia muestra que **tener la herramienta no basta**: hay que saber usarla.
+- **Anonimiza y estructura** el caso: contexto, evolución, medicación completa, pruebas y la pregunta.
+- Pide un **diferencial razonado**: qué apoya, qué refuta y qué prueba discrimina cada opción, y qué no se puede saber.
+- **Evita la complacencia:** no des tu hipótesis al principio y, si la das, pide que la refute.
+- Pide la **fuente a consultar**, no dosis; la **autocrítica de la IA no sustituye** a una fuente.
+- **Contrasta** cada afirmación con la ficha técnica, la guía o el resumen en PubMed. La decisión es tuya.
+</Resumen>
+
+<Ficha titulo="Caso clínico con IA: checklist">
+**Antes**
+- ¿Anonimizado (3.0)? Sin nombre, HC, fechas exactas ni combinaciones.
+- ¿Con medicación completa, unidades y datos objetivos?
+
+**Cómo pedirlo**
+- Diferencial razonado: qué apoya, qué refuta, qué prueba discrimina; «no perder»; lo que no se sabe.
+- Tu hipótesis, al final y pidiendo que la refute.
+
+**Después**
+- Autocrítica de la IA → dónde mirar, no verificación.
+- Cada afirmación a su fuente (ficha técnica, guía, PubMed).
+- Dosis: solo de la ficha técnica.
+
+**Reglas**
+- La decisión es tuya. La IA no es una segunda opinión.
+</Ficha>
+
+<TestFinal id="3-1" />
+
+</Sesion>

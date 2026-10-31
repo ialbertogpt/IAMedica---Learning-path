@@ -1,0 +1,20 @@
+{
+  "titulo": "¿Referencia real, real pero mal citada, o inventada?",
+  "instrucciones": "Cada tarjeta es una referencia o una afirmación sobre un artículo, como las que puede darte una IA. Clasifícala. Las reales se han comprobado en PubMed el 31/10/2026; las inventadas se han creado para este ejercicio.",
+  "categorias": [
+    { "id": "real", "nombre": "Real y bien citada", "descripcion": "existe y dice lo que se afirma" },
+    { "id": "mal", "nombre": "Real, pero no dice eso", "descripcion": "existe, pero la afirmación es falsa" },
+    { "id": "inventada", "nombre": "Inventada", "descripcion": "no existe como se cita" }
+  ],
+  "items": [
+    { "texto": "Goh E, et al. Large language model influence on diagnostic reasoning: a randomized clinical trial. JAMA Netw Open 2024;7:e2440969. PMID 39466245.", "categoria": "real", "explicacion": "Existe: el PMID 39466245 lleva exactamente a ese artículo. Es el ensayo con 50 médicos que viste en 2.1." },
+    { "texto": "Wong A, et al. (JAMA Intern Med 2021, PMID 34152373) hallaron que el Epic Sepsis Model tenía un AUC de 0,63 en validación externa.", "categoria": "real", "explicacion": "Existe y la cifra es correcta: AUC de 0,63 en 38.455 ingresos de Michigan Medicine." },
+    { "texto": "Goh et al. (JAMA Netw Open 2024, PMID 39466245) demostraron que los médicos que usaron un modelo de lenguaje diagnosticaron significativamente mejor que los que no lo usaron.", "categoria": "mal", "explicacion": "El artículo existe, pero dice lo contrario: la diferencia entre los médicos con y sin el modelo fue de 2 puntos y no fue significativa (p = 0,60). Es el error más peligroso: una referencia real pegada a una conclusión falsa." },
+    { "texto": "Clegg et al. (Age Ageing 2016, PMID 26944937) demostraron que usar el índice electrónico de fragilidad reduce las hospitalizaciones en mayores frágiles.", "categoria": "mal", "explicacion": "El artículo existe, pero solo desarrolló y validó el índice como predictor (se asocia a más mortalidad, ingresos y ingreso en residencia). No probó que usarlo reduzca las hospitalizaciones." },
+    { "texto": "Domínguez-Castro R, Lara-Prieto E, et al. Inteligencia artificial para el cribado de fragilidad en hospitales españoles: validación multicéntrica prospectiva. Rev Esp Geriatr Gerontol 2024;59:112-20. PMID 99999999.", "categoria": "inventada", "explicacion": "Inventada: el PMID 99999999 no existe en PubMed. Cuando un PMID no devuelve nada, es una señal de alarma." },
+    { "texto": "Fernández-Soler A, et al. Deprescripción asistida por inteligencia artificial en residencias: ensayo aleatorizado. Salud Colect 2023;19:e9999. PMID 38000000.", "categoria": "inventada", "explicacion": "Inventada, y es la trampa más sutil: el PMID 38000000 existe, pero corresponde a otro artículo (un texto de Salud Colectiva de 2023 sobre dilemas éticos de la fertilización in vitro). Hay que comprobar que el PMID lleva al título citado." },
+    { "texto": "Pérez-Gil M, et al. Large language models in comprehensive geriatric assessment. Rev Esp Geriatr Gerontol 2024;59:101-9. doi:10.1016/j.regg.2024.999999.", "categoria": "inventada", "explicacion": "Inventada: el DOI no se resuelve (doi.org devuelve «no encontrado»). Un DOI inexistente es otra señal clara." },
+    { "texto": "Montero-Odasso M, et al. World guidelines for falls prevention and management for older adults: a global initiative. Age Ageing 2022;51:afac205. PMID 36178003.", "categoria": "real", "explicacion": "Existe: son las guías mundiales de caídas que viste en 2.5. El PMID lleva a ese título." }
+  ],
+  "cierre": "Tres comprobaciones, por este orden: ¿existe el PMID o el DOI?, ¿lleva al título y a los autores citados?, ¿dice el resumen lo que se afirma? Una referencia puede fallar en cualquiera de las tres."
+}

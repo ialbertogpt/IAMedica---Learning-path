@@ -1,0 +1,21 @@
+{
+  "titulo": "¿Delego esto en la IA?",
+  "instrucciones": "Para cada tarea de redacción científica, decide si puedes delegarla y con qué cautela.",
+  "categorias": [
+    { "id": "si", "nombre": "Delega y revisa", "descripcion": "tarea de lenguaje; tú revisas el resultado" },
+    { "id": "cuidado", "nombre": "Solo con mucho cuidado", "descripcion": "ayuda posible, pero verificando cada dato" },
+    { "id": "no", "nombre": "No lo delegues", "descripcion": "es tu responsabilidad como autor" }
+  ],
+  "items": [
+    { "texto": "Proponer un esquema (títulos y apartados) para un caso clínico.", "categoria": "si", "explicacion": "Es una tarea de estructura. Después tú lo adaptas a la guía que corresponda (CARE, STROBE…)." },
+    { "texto": "Mejorar la claridad y la gramática de un párrafo que has escrito tú.", "categoria": "si", "explicacion": "Es edición de estilo. Revisa que no cambie el sentido ni los datos." },
+    { "texto": "Traducir al inglés el resumen que has redactado.", "categoria": "si", "explicacion": "Útil, con revisión de los términos técnicos y las cifras. Declara el uso si la revista lo pide." },
+    { "texto": "Redactar un borrador de carta al editor con los datos que tú le das.", "categoria": "cuidado", "explicacion": "Puedes pedir un borrador, pero comprueba cada dato y el tono, y reescríbelo con tu voz." },
+    { "texto": "Redactar una respuesta a un revisor a partir de tus argumentos.", "categoria": "cuidado", "explicacion": "Ayuda con la cortesía y la estructura. El contenido científico lo pones tú." },
+    { "texto": "Resumir tres artículos para citarlos en la introducción.", "categoria": "cuidado", "explicacion": "Los resúmenes de IA se equivocan con datos y conclusiones: lee los artículos y comprueba cada cifra. Y no se cita a la IA como fuente." },
+    { "texto": "Inventar o completar datos o resultados del estudio.", "categoria": "no", "explicacion": "Es fabricación de datos: mala conducta científica. Los datos y los resultados son siempre reales y tuyos." },
+    { "texto": "Incluir referencias que la IA ha generado sin comprobarlas.", "categoria": "no", "explicacion": "Las referencias pueden no existir o no decir lo que se afirma (3.3). Cada una se verifica antes de citarla." },
+    { "texto": "Decidir las conclusiones y las implicaciones clínicas del trabajo.", "categoria": "no", "explicacion": "Es el núcleo del criterio de un autor, que responde de ellas. Puedes discutirlas con la IA, pero no delegarlas." }
+  ],
+  "cierre": "La regla del ICMJE es sencilla: los humanos son responsables de todo el material enviado. Si no puedes comprobar lo que la IA ha escrito, no lo firmes."
+}

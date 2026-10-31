@@ -1,0 +1,229 @@
+---
+id: "3-5"
+titulo: Escribir un artículo científico
+parte: 3
+minutos: 105
+objetivos:
+  - Aplicar las recomendaciones del ICMJE sobre autoría y uso de IA, incluida la declaración del uso en la carta de presentación y en el manuscrito
+  - Estructurar un manuscrito con la guía de comunicación que corresponde a su diseño (CARE, STROBE, CONSORT, PRISMA, STARD)
+  - Distinguir qué tareas de redacción puedes delegar en una IA y cuáles no
+  - Redactar un caso clínico siguiendo la lista CARE, con ayuda de la IA y con verificación de cada dato y referencia
+gancho: "Tu caso de la paciente con confusión y sodio bajo merece publicarse. Una IA puede ayudarte a escribirlo en la mitad de tiempo, pero las revistas tienen normas claras: la IA no puede ser autora, su uso se declara y tú respondes de cada frase. En este taller escribes un caso clínico completo, aprendes qué delegar y qué no, y cómo declararlo."
+recursos:
+  - r-icmje-ia
+  - r-equator-care
+  - r-icmje-autoria
+paraSaberMas:
+  - r-icmje-privacidad
+test: "3-5"
+fechaRevision: "2026-10-31"
+aFecha: octubre de 2026
+fuentes:
+  - texto: "ICMJE. Artificial Intelligence in Publishing: Use of AI by Authors, consultada el 31/10/2026"
+    url: https://www.icmje.org/recommendations/browse/artificial-intelligence/ai-use-by-authors.html
+  - texto: "ICMJE. Defining the Role of Authors and Contributors (criterios de autoría), consultada el 31/10/2026"
+    url: https://www.icmje.org/recommendations/browse/roles-and-responsibilities/defining-the-role-of-authors-and-contributors.html
+  - texto: "ICMJE. Protection of Research Participants (privacidad del paciente y consentimiento informado), consultada el 31/10/2026"
+    url: https://www.icmje.org/recommendations/browse/roles-and-responsibilities/protection-of-research-participants.html
+  - texto: "Red EQUATOR. The CARE Guidelines: Consensus-based Clinical Case Reporting Guideline Development, y lista de verificación CARE (PDF, 2013), consultadas el 31/10/2026"
+    url: https://www.equator-network.org/reporting-guidelines/care/
+  - texto: "Gagnier JJ, et al. The CARE Guidelines: consensus-based clinical case reporting guideline development. BMJ Case Rep 2013;2013:bcr2013201554"
+    pmid: "24155002"
+  - texto: "Riley DS, et al. CARE guidelines for case reports: explanation and elaboration document. J Clin Epidemiol 2017"
+    pmid: "28529185"
+---
+
+<Sesion n={1} titulo="Las reglas del juego: ICMJE y declaración de uso" minutos={20}>
+
+### Quién puede ser autor
+
+El Comité Internacional de Editores de Revistas Médicas (ICMJE) recomienda que la autoría se base en **cuatro criterios**, que deben cumplirse **todos**:
+
+1. Contribuciones sustanciales a la concepción o el diseño, o a la obtención, el análisis o la interpretación de los datos.
+2. Redactar el trabajo o revisarlo críticamente en cuanto a su contenido intelectual.
+3. Aprobar la versión final.
+4. Aceptar la **responsabilidad** de todos los aspectos del trabajo.
+
+Quien no cumpla los cuatro figura en los agradecimientos.
+
+### Y la IA
+
+Según el ICMJE, las **herramientas de IA** (chatbots como ChatGPT y otros) **no deben figurar como autoras**, porque no pueden responsabilizarse de la exactitud, la integridad y la originalidad del trabajo. Por tanto:
+
+- **Los humanos responden** de todo el material enviado, incluido el que usó IA.
+- Hay que **declarar el uso de IA** al enviar el trabajo, **en la carta de presentación y en el manuscrito**, en el apartado que corresponda, describiendo cómo se usó.
+- Hay que **revisar y editar con cuidado** lo que genera la IA: puede ser incorrecto, incompleto o sesgado.
+- Se debe poder **afirmar que no hay plagio**, ni en el texto ni en las imágenes producidas por la IA.
+- **Citar material generado por IA como fuente primaria no es aceptable.**
+- **No declararlo** puede exigir medidas correctoras y, en ocasiones, considerarse mala conducta.
+
+<Analogia>
+Es **el residente que redacta la historia y el adjunto que la firma**: puedes pedirle ayuda, pero la firma y la responsabilidad son tuyas, y quien lea la historia debe saber quién ha hecho qué.
+</Analogia>
+
+<AvisoClinico titulo="Mira las normas de tu revista">
+El ICMJE da recomendaciones generales. Cada revista tiene sus propias instrucciones para autores y puede ser **más restrictiva**. Léelas antes de empezar a escribir.
+</AvisoClinico>
+
+<OjoCon>
+- **La IA no puede ser autora.** Ni siquiera en «agradecimientos» sustituye tu responsabilidad.
+- **Declarar el uso no es una confesión.** Es lo que se pide y lo que protege.
+- **La revista manda.** Sus instrucciones pueden ser más estrictas que las del ICMJE.
+</OjoCon>
+
+</Sesion>
+
+<Sesion n={2} titulo="Estructura y guías de comunicación" minutos={20}>
+
+### IMRaD, con la guía adecuada
+
+Un artículo original sigue el esquema **IMRaD**: Introducción, Métodos, Resultados y Discusión. Cada tipo de estudio tiene además una **<T id="guia-de-comunicacion">guía de comunicación</T>** de la red EQUATOR, una lista de lo que debe contar. Las más habituales son **STROBE** (estudios observacionales), **CONSORT** (ensayos aleatorizados), **PRISMA** (revisiones sistemáticas), **STARD** (estudios diagnósticos) y **CARE** (casos clínicos).
+
+Estas guías no dicen cómo diseñar un estudio, sino **qué contar de él**. Muchas revistas piden la lista de verificación completada al enviar el manuscrito.
+
+<Clasificador datos="3-5-guia" />
+
+### El caso clínico según CARE
+
+La guía **CARE** se creó para comunicar casos clínicos con completitud y transparencia. Su lista de verificación tiene **13 apartados**:
+
+1. Título (el diagnóstico o la intervención de interés y «caso clínico»).
+2. Palabras clave.
+3. Resumen.
+4. Introducción: por qué este caso es único.
+5. Información del paciente (desidentificada).
+6. Hallazgos clínicos.
+7. Línea temporal.
+8. Evaluación diagnóstica (incluidos otros diagnósticos considerados).
+9. Intervención terapéutica.
+10. Seguimiento y resultados.
+11. Discusión (fortalezas, limitaciones y literatura relevante).
+12. Perspectiva del paciente.
+13. Consentimiento informado.
+
+<OjoCon>
+- **Una guía no es una garantía de calidad.** Asegura que lo cuentas, no que el trabajo esté bien diseñado.
+- **Elige la guía antes de escribir.** Úsala como lista de comprobación a lo largo del trabajo.
+- **Un caso clínico se publica con consentimiento.** Lo verás en la sesión 5.
+</OjoCon>
+
+</Sesion>
+
+<Sesion n={3} titulo="Qué delegar y qué no" minutos={20}>
+
+### Delegar el lenguaje, no el criterio
+
+La IA es útil para **tareas de lenguaje** (estructura, claridad, traducción) y peligrosa para **tareas de contenido** (datos, resultados, referencias, conclusiones). La regla: **delega lo que puedas comprobar y lo que no cambie el sentido; no delegues lo que te haga responsable sin que lo hayas verificado**.
+
+<Clasificador datos="3-5-delegar" />
+
+### Plantillas para las tareas que sí
+
+<Plantilla id="p-3-5-edicion" />
+
+<Plantilla id="p-3-5-traducir" />
+
+<Plantilla id="p-3-5-carta-editor" />
+
+<Plantilla id="p-3-5-respuesta-revisor" />
+
+<OjoCon>
+- **Nunca pegues datos identificativos.** Ni siquiera «para que lo redacte mejor» (3.0).
+- **Una IA puede cambiar una cifra al «mejorar» un párrafo.** Compara antes y después.
+- **Si no puedes comprobar lo que ha escrito, no lo firmes.**
+</OjoCon>
+
+</Sesion>
+
+<Sesion n={4} titulo="Taller: tu caso clínico, de principio a fin" minutos={25}>
+
+### El caso
+
+Parte del caso de 3.1 (la paciente de 86 años con caídas, confusión y sodio bajo). Es ficticio, así que puedes trabajar con él sin problema; con un caso real, tendrías que <T id="anonimizar">anonimizarlo</T> y pedir consentimiento.
+
+### Paso 1 · Antes de empezar: quitar los identificadores
+
+<PasoTaller id="3-5-anonimizar" tipo="anonimizar" texto="He desidentificado el caso (sin nombre, iniciales, número de historia, fechas exactas ni combinaciones que identifiquen) antes de escribir con ayuda de una IA; con un caso real, he comprobado que tengo o puedo obtener el consentimiento informado por escrito." />
+
+### Paso 2 · Pedir el esquema
+
+Pide a un asistente un esquema según CARE. **Solo el esquema**, no el texto.
+
+<Plantilla id="p-3-5-esquema" />
+
+### Paso 3 · Escribir tú los hechos
+
+Rellena cada apartado con los datos del caso: información de la paciente, hallazgos, línea temporal, evaluación diagnóstica, intervención y seguimiento. **Los datos y su redacción son tuyos.**
+
+### Paso 4 · Pulir con la IA
+
+Cuando tengas un borrador de un apartado, pide a la IA que mejore la claridad sin cambiar los datos. Compara el antes y el después.
+
+### Paso 5 · Verificar
+
+Comprueba cada dato contra tus notas y cada referencia en PubMed (3.3). Repasa la lista CARE apartado por apartado.
+
+<PruebaloTu minutos={12}>
+Redacta tú el apartado de **línea temporal** y el de **evaluación diagnóstica** del caso. Después pide a un asistente que mejore su claridad con la plantilla de edición. Compara el texto antes y después: ¿ha cambiado alguna cifra, algún tiempo o algún diagnóstico considerado? Anota los cambios que aceptas y los que rechazas.
+</PruebaloTu>
+
+<PasoTaller id="3-5-verificar" tipo="verificar" texto="He comparado el texto mejorado por la IA con el mío, he comprobado que no ha cambiado ningún dato, y he verificado en PubMed cada referencia que voy a citar." />
+
+<OjoCon>
+- **Escribe tú primero.** Es más fácil mejorar un texto propio que revisar uno ajeno.
+- **Compara siempre antes y después.** Un cambio sutil puede alterar un dato.
+- **La discusión es tuya.** Es donde más se ve el criterio del autor.
+</OjoCon>
+
+</Sesion>
+
+<Sesion n={5} titulo="Revisión, declaración y test" minutos={20}>
+
+### Revisa un borrador ajeno
+
+Un compañero te enseña un borrador y te pide opinión. Revísalo con las reglas del ICMJE y la lista CARE.
+
+<EncuentraError datos="3-5-borrador" />
+
+### Consentimiento informado
+
+El ICMJE recuerda que los pacientes tienen derecho a la privacidad, que no debe vulnerarse sin consentimiento informado. **Los nombres, las iniciales y los números de historia no deben publicarse** en descripciones escritas ni en fotografías, salvo que sean esenciales para el fin científico y el paciente (o su representante) dé su **consentimiento informado por escrito**. Ese consentimiento exige que el paciente identificable vea el manuscrito que se va a publicar, y se archiva según la normativa local.
+
+### Tu declaración de uso de IA
+
+Si has usado IA, la declaras donde pida la revista: normalmente, en la carta de presentación y en el apartado correspondiente del manuscrito. Esta plantilla te sirve de punto de partida.
+
+<Plantilla id="p-3-5-declaracion" />
+
+<Resumen>
+- El ICMJE exige **cuatro criterios** de autoría; **la IA no puede ser autora** y los humanos responden de todo el material.
+- El uso de IA se **declara** en la carta de presentación y en el manuscrito, y puede haber normas más estrictas en cada revista.
+- Cada diseño tiene su **guía de comunicación**: CARE para casos, STROBE, CONSORT, PRISMA, STARD. Usa la lista como comprobación.
+- **Delega el lenguaje** (esquema, claridad, traducción) y **no el criterio** (datos, resultados, conclusiones, referencias sin comprobar).
+- **Verifica** cada dato y cada referencia, y compara siempre el texto antes y después de que la IA lo toque.
+- Publicar un caso exige **desidentificar** y, si hay información que pueda identificar, **consentimiento informado por escrito**.
+</Resumen>
+
+<Ficha titulo="Escribir con IA: reglas del ICMJE">
+**Autoría**
+- 4 criterios, todos. La IA no es autora; los humanos responden.
+
+**Declaración**
+- Carta de presentación y manuscrito: qué herramienta, para qué y cuándo.
+- Revisar y editar siempre. No citar IA como fuente.
+
+**Guías**
+- Caso: CARE · Observacional: STROBE · Ensayo: CONSORT · Revisión: PRISMA · Diagnóstico: STARD.
+
+**Delega / no delegues**
+- Sí: esquema, claridad, traducción (con revisión).
+- Cuidado: carta al editor, respuesta a revisores, resúmenes.
+- No: datos, resultados, referencias sin verificar, conclusiones.
+
+**Paciente**
+- Sin nombre, iniciales ni número de historia. Consentimiento por escrito si hay datos que identifiquen.
+</Ficha>
+
+<TestFinal id="3-5" />
+
+</Sesion>

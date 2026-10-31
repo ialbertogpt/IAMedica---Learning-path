@@ -1,0 +1,54 @@
+{
+  "titulo": "Test · Dudas sobre casos clínicos",
+  "preguntas": [
+    {
+      "tipo": "ordenar",
+      "enunciado": "Ordena el flujo de trabajo para consultar un caso clínico a una IA.",
+      "pasos": [
+        { "texto": "Anonimizar el caso y estructurarlo (contexto, evolución, medicación, pruebas).", "porque": "Es el primer paso: ningún dato identificable debe salir de tu equipo, y un caso bien estructurado mejora la respuesta." },
+        { "texto": "Pedir un diagnóstico diferencial razonado, sin dar tu hipótesis.", "porque": "Si das tu sospecha al principio, la IA tiende a confirmarla (complacencia)." },
+        { "texto": "Pedir que refute tu hipótesis y que critique su propia respuesta.", "porque": "Es la vacuna contra la complacencia. La autocrítica de la IA indica dónde mirar, pero no verifica nada." },
+        { "texto": "Contrastar cada afirmación con la ficha técnica, la guía o PubMed y decidir tú.", "porque": "La verificación en una fuente es el paso que protege al paciente; la decisión sigue siendo tuya." }
+      ]
+    },
+    {
+      "tipo": "escenario",
+      "enunciado": "¿Qué falla en este prompt?",
+      "caso": "Un compañero escribe: «Paciente Carmen Ortega, 86 años, historia 7731904. Toma varios fármacos para la tensión. Seguro que la confusión es por la tiazida, ¿verdad? Dime solo la causa más probable».",
+      "opciones": [
+        { "texto": "Nada: es un prompt claro y directo.", "correcta": false, "explicacion": "Tiene varios fallos: lleva identificadores, no da la lista de fármacos, expone una hipótesis como cierta y pide una única causa." },
+        { "texto": "Incluye identificadores, no da la medicación completa, presenta su hipótesis como cierta y pide una única causa en lugar de un diferencial razonado.", "correcta": true, "explicacion": "Son los fallos que se trabajan en el taller: privacidad (3.0), información insuficiente, sesgo de confirmación y una pregunta cerrada." },
+        { "texto": "Solo falla que es demasiado corto.", "correcta": false, "explicacion": "La brevedad no es el problema principal: lo son los datos identificables, el sesgo y la pregunta cerrada." },
+        { "texto": "Falla que no usa un asistente de pago.", "correcta": false, "explicacion": "El plan no influye en estos fallos." }
+      ]
+    },
+    {
+      "tipo": "vf",
+      "enunciado": "Si una IA te responde «tu sospecha es muy razonable», puedes tomarlo como una validación de tu hipótesis.",
+      "respuesta": false,
+      "explicacionVerdadero": "No. Esa frase es una señal de complacencia: los modelos tienden a adaptar su respuesta a lo que creen que quieres oír. No valida nada.",
+      "explicacionFalso": "Correcto. Es el patrón de la complacencia (Sharma et al., 2023). Para evitarlo, no des tu hipótesis al principio y pide que la refute."
+    },
+    {
+      "tipo": "escenario",
+      "enunciado": "¿Qué es lo más adecuado?",
+      "caso": "La respuesta de la IA a un caso concluye: «No hace falta tener en cuenta la sertralina, porque no se asocia a hiponatremia». Tienes dudas.",
+      "opciones": [
+        { "texto": "Lo aceptas: la respuesta suena muy segura.", "correcta": false, "explicacion": "La seguridad de la prosa no es una prueba. Esta afirmación contradice la ficha técnica." },
+        { "texto": "Abres la ficha técnica de sertralina en CIMA y lees la sección 4.4: advierte de hiponatremia, con más riesgo en mayores y con diuréticos.", "correcta": true, "explicacion": "Contrastar con la fuente primaria es la vía correcta. Aquí la respuesta de la IA se equivoca." },
+        { "texto": "Preguntas a la misma IA si está segura y, si dice que sí, la das por buena.", "correcta": false, "explicacion": "Una IA que insiste no confirma nada. Los modelos pueden reafirmarse en un error." },
+        { "texto": "Pegas el informe completo de la paciente real para que lo revise mejor.", "correcta": false, "explicacion": "Introducir datos identificables con una cuenta personal no es aceptable, y no resuelve la duda." }
+      ]
+    },
+    {
+      "tipo": "unica",
+      "enunciado": "Para comprobar una dosis, un efecto adverso o una contraindicación, ¿qué fuente es la de referencia?",
+      "opciones": [
+        { "texto": "La respuesta de otro asistente de IA.", "correcta": false, "explicacion": "Otro asistente puede equivocarse igual. No es una fuente primaria." },
+        { "texto": "La ficha técnica autorizada, en CIMA, con su fecha de revisión.", "correcta": true, "explicacion": "Es la fuente oficial de la AEMPS: lo que dice la ficha técnica manda. Hay que mirar la fecha de la sección 10." },
+        { "texto": "Un foro de profesionales.", "correcta": false, "explicacion": "Un foro puede orientar, pero no es una fuente oficial verificable." },
+        { "texto": "La memoria, si lo has leído antes.", "correcta": false, "explicacion": "Las fichas se actualizan. Comprueba siempre la versión vigente." }
+      ]
+    }
+  ]
+}

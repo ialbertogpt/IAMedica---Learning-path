@@ -1,0 +1,53 @@
+{
+  "titulo": "Test · Búsqueda bibliográfica actualizada",
+  "preguntas": [
+    {
+      "tipo": "ordenar",
+      "enunciado": "Ordena los pasos de una búsqueda bibliográfica bien hecha con ayuda de una IA.",
+      "pasos": [
+        { "texto": "Formular la duda como pregunta PICO, sin datos de ningún paciente.", "porque": "La pregunta es lo que guía toda la búsqueda; sin ella, la estrategia es difusa." },
+        { "texto": "Pedir a la IA sinónimos y términos MeSH candidatos para cada bloque.", "porque": "La IA ayuda a ampliar el vocabulario, pero propone: no decide." },
+        { "texto": "Comprobar cada MeSH en el buscador de MeSH y ejecutar la búsqueda en PubMed.", "porque": "Las IA inventan descriptores que suenan bien; PubMed es la fuente que ejecuta y verifica." },
+        { "texto": "Cribar con criterios escritos, verificar cada referencia (PMID o DOI y resumen) y guardarla en Zotero.", "porque": "La verificación va antes de citar o usar un artículo, y el gestor te evita perder el hilo." }
+      ]
+    },
+    {
+      "tipo": "unica",
+      "enunciado": "Quieres que PubMed busque «delirium» y «hospitalized» juntos, y también encuentre «hospitalised» y «hospitalization». ¿Qué escribes?",
+      "opciones": [
+        { "texto": "delirium and hospital*", "correcta": false, "explicacion": "El operador debe escribirse en mayúsculas (AND): en minúsculas, PubMed no lo interpreta como tal. Además, sin etiquetas de campo, la búsqueda queda a merced del mapeo automático de términos." },
+        { "texto": "delirium[tiab] AND hospitali*[tiab]", "correcta": true, "explicacion": "AND en mayúsculas, etiquetas de campo para acotar título y resumen, y el comodín con más de cuatro caracteres antes del asterisco para cubrir las variantes." },
+        { "texto": "delirium OR hospitali", "correcta": false, "explicacion": "OR amplía en lugar de combinar y, sin asterisco, solo busca el texto «hospitali»." },
+        { "texto": "delirium NOT hospitalized", "correcta": false, "explicacion": "NOT excluye los artículos sobre hospitalizados, lo contrario de lo que quieres." }
+      ]
+    },
+    {
+      "tipo": "escenario",
+      "enunciado": "¿Qué haces?",
+      "caso": "Un asistente te devuelve cinco referencias sobre delirium en mayores, con autores, revista, año y PMID. Una de ellas tiene un PMID que sí existe en PubMed, pero al abrirlo ves que corresponde a un artículo de otro tema.",
+      "opciones": [
+        { "texto": "Das la referencia por buena: el PMID existe.", "correcta": false, "explicacion": "Que el PMID exista no basta: hay que comprobar que lleva al título y a los autores citados. Aquí, no." },
+        { "texto": "La descartas como referencia mal atribuida o inventada y no la citas.", "correcta": true, "explicacion": "Un PMID real que lleva a otro artículo es una señal de referencia inventada o mal citada. Se descarta y se busca la fuente correcta." },
+        { "texto": "Cambias el PMID por el del artículo que abriste, que parece parecido.", "correcta": false, "explicacion": "Cambiar el PMID sin leer el artículo es atribuir a ese artículo lo que no sabes que dice." },
+        { "texto": "Preguntas a la misma IA si está segura y, si dice que sí, la citas.", "correcta": false, "explicacion": "Una IA que insiste no confirma nada. La comprobación es en PubMed." }
+      ]
+    },
+    {
+      "tipo": "vf",
+      "enunciado": "Si una referencia generada por una IA existe en PubMed, puedes dar por bueno lo que la IA dice que concluye ese artículo.",
+      "respuesta": false,
+      "explicacionVerdadero": "No. Puede existir y no decir eso. Hay que leer el resumen: por ejemplo, el ensayo de Goh et al. (2024) existe, pero no demostró que los médicos con un modelo de lenguaje diagnosticaran significativamente mejor.",
+      "explicacionFalso": "Correcto. La tercera forma de fallar es la más peligrosa: una referencia real con una conclusión falsa. Solo se detecta leyendo el resumen."
+    },
+    {
+      "tipo": "emparejar",
+      "enunciado": "Empareja cada necesidad con la herramienta o la función adecuada.",
+      "pares": [
+        { "izquierda": "Recibir un correo con los nuevos artículos de tu búsqueda", "derecha": "«Create alert» en PubMed (con My NCBI)", "porque": "PubMed envía un correo automático con las novedades de una búsqueda; hace falta una cuenta gratuita de My NCBI." },
+        { "izquierda": "Insertar citas y bibliografía en Word", "derecha": "Zotero", "porque": "Es un gestor de referencias con complemento para Word." },
+        { "izquierda": "Buscar un descriptor controlado de un concepto", "derecha": "Buscador de MeSH", "porque": "El MeSH es el vocabulario controlado con el que se indexan las citas de PubMed." },
+        { "izquierda": "Comprobar que un PMID lleva al título citado", "derecha": "PubMed", "porque": "Es la base de datos que contiene la cita; es la forma de comprobar que el PMID coincide con el artículo." }
+      ]
+    }
+  ]
+}

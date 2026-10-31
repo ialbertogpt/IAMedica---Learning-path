@@ -59,7 +59,7 @@
     "haceBien": ["Redacta, resume y explica con soltura en español", "Puede buscar en internet y citar fuentes en algunas funciones"],
     "haceMal": ["Puede inventar datos y referencias con total seguridad", "Tiende a darte la razón si le das tu hipótesis"],
     "cuandoNoUsarla": "Con datos identificables de pacientes desde una cuenta personal, o como fuente final de dosis.",
-    "gratis": true, "precio": "Plan gratuito; planes de pago: precio por verificar (Fase 4)", "idiomaEs": "sí", "disponibleEspana": "sí", "aptaDatosPacientes": "no", "registro": "gratuito",
+    "gratis": true, "precio": "Planes Gratis, Go, Plus y Pro. El precio en euros se carga según tu país: consúltalo en chatgpt.com/pricing (31/10/2026)", "idiomaEs": "sí", "disponibleEspana": "sí", "aptaDatosPacientes": "no", "registro": "gratuito",
     "fechaVerificacion": "2026-10-29", "estado": "parcial", "notas": "Ajustes de privacidad y precios se detallarán en 3.0."
   },
   {
@@ -68,7 +68,7 @@
     "haceBien": ["Redacta y analiza textos largos con buen criterio", "Permite proyectos con tus propios documentos"],
     "haceMal": ["Puede inventar datos y referencias con total seguridad", "Tiende a darte la razón si le das tu hipótesis"],
     "cuandoNoUsarla": "Con datos identificables de pacientes desde una cuenta personal, o como fuente final de dosis.",
-    "gratis": true, "precio": "Plan gratuito; planes de pago: precio por verificar (Fase 4)", "idiomaEs": "sí", "disponibleEspana": "sí", "aptaDatosPacientes": "no", "registro": "gratuito",
+    "gratis": true, "precio": "Plan gratuito; Pro: 20 $ al mes (17 $ al mes con pago anual); Max: desde 100 $ al mes. Fuente: claude.com/pricing, 31/10/2026", "idiomaEs": "sí", "disponibleEspana": "sí", "aptaDatosPacientes": "no", "registro": "gratuito",
     "fechaVerificacion": "2026-10-29", "estado": "bloqueado-anti-bots", "notas": "La web bloquea las comprobaciones automáticas. Ajustes de privacidad y precios en 3.0."
   },
   {
@@ -77,7 +77,7 @@
     "haceBien": ["Se integra con documentos de Google", "Buen manejo de documentos largos"],
     "haceMal": ["Puede inventar datos y referencias con total seguridad", "Tiende a darte la razón si le das tu hipótesis"],
     "cuandoNoUsarla": "Con datos identificables de pacientes desde una cuenta personal, o como fuente final de dosis.",
-    "gratis": true, "precio": "Plan gratuito; planes de pago: precio por verificar (Fase 4)", "idiomaEs": "sí", "disponibleEspana": "sí", "aptaDatosPacientes": "no", "registro": "gratuito",
+    "gratis": true, "precio": "Planes Google AI Plus, Pro y Ultra. El precio en euros se carga según tu país: consúltalo en one.google.com/about/google-ai-plans (31/10/2026)", "idiomaEs": "sí", "disponibleEspana": "sí", "aptaDatosPacientes": "no", "registro": "gratuito",
     "fechaVerificacion": "2026-10-29", "estado": "parcial", "notas": "Ajustes de privacidad y precios en 3.0."
   },
   {

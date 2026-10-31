@@ -1,0 +1,15 @@
+{
+  "titulo": "Constructor de búsquedas para PubMed",
+  "instrucciones": "Cada concepto se rellena con términos MeSH (etiqueta [mh]) y palabras del título o resumen ([tiab]). Dentro de un concepto se unen con OR; los conceptos se unen entre sí con AND. Cambia los términos y observa la cadena. No se envía nada hasta que pulses «Abrir en PubMed».",
+  "conceptos": [
+    { "id": "edad", "nombre": "Población: personas mayores", "ayuda": "La edad de los pacientes.", "mesh": "Aged", "sinonimos": "older adult*\nelderly" },
+    { "id": "contexto", "nombre": "Contexto: hospitalizados", "ayuda": "Dónde están los pacientes.", "mesh": "Inpatients", "sinonimos": "hospitali*" },
+    { "id": "problema", "nombre": "Resultado: delirium", "ayuda": "El problema clínico que quieres evitar.", "mesh": "Delirium", "sinonimos": "delirium\nacute confusion*" },
+    { "id": "intervencion", "nombre": "Intervención", "ayuda": "Prevención multicomponente no farmacológica.", "mesh": "Primary Prevention", "sinonimos": "multicomponent\nnon-pharmacological\nprevention" }
+  ],
+  "filtros": [
+    { "id": "diseno", "nombre": "Solo ensayos aleatorizados o revisiones sistemáticas", "cadena": "(\"randomized controlled trial\"[pt] OR \"systematic review\"[pt])", "activo": true },
+    { "id": "fecha", "nombre": "Publicados en 2024 o después", "cadena": "2024:2026[dp]", "activo": true }
+  ],
+  "nota": "El asterisco (*) sustituye varias terminaciones (hospitali* encuentra hospitalized, hospitalised, hospitalization…) y exige al menos 4 letras antes. Las comillas dejan fija una frase. Con la cadena por defecto, el 31/10/2026 PubMed devolvía 29 resultados; el recuento cambia cada día."
+}

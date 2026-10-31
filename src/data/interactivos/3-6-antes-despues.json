@@ -1,0 +1,56 @@
+{
+  "titulo": "Antes y después: dos diapositivas rediseñadas",
+  "instrucciones": "Mira cada diapositiva de la izquierda y piensa qué le cambiarías. Después compara con la versión rediseñada y con los motivos.",
+  "pares": [
+    {
+      "nombre": "Una diapositiva sobrecargada",
+      "antes": {
+        "titulo": "Caso clínico: mujer de 86 años con caídas, confusión e hiponatremia",
+        "puntos": [
+          "Tres caídas en dos meses, la última con golpe en la cabeza",
+          "Confusión fluctuante desde hace cuatro días",
+          "TA 128/76 acostada y 102/60 de pie; FC 78",
+          "Sodio 124 mmol/l, potasio 3,6, creatinina 1,2, glucosa 98",
+          "Hidroclorotiazida, enalapril, amlodipino, sertralina, lorazepam, oxibutinina, omeprazol, atorvastatina, AAS, paracetamol, levotiroxina",
+          "Diagnóstico diferencial: delirium multifactorial, hiponatremia farmacológica, hematoma subdural, hipotensión ortostática, infección…",
+          "Plan: revisar fármacos, TC craneal, controles analíticos, valorar con la familia"
+        ]
+      },
+      "despues": {
+        "titulo": "Sodio en sangre",
+        "destacado": "124 mmol/l",
+        "puntos": ["Dos de sus fármacos pueden explicarlo: una tiazida y la sertralina"],
+        "pie": "Fuente: fichas técnicas de CIMA, sección 4.4. Caso ficticio."
+      },
+      "cambios": [
+        "**Una idea por diapositiva.** La de la izquierda mezcla historia, constantes, medicación, diferencial y plan: son al menos cuatro diapositivas.",
+        "**Un dato protagonista, grande.** El sodio es lo que la audiencia debe recordar; el resto va en las notas o en otras diapositivas.",
+        "**Letra legible desde el fondo.** Con más de cinco líneas, la letra se hace pequeña: señal de que hay que dividir.",
+        "**La fuente a la vista.** Una frase como esta, con su referencia, es defendible."
+      ]
+    },
+    {
+      "nombre": "Un título que es una etiqueta frente a un título que es un mensaje",
+      "antes": {
+        "titulo": "Resultados",
+        "puntos": [
+          "Barthel en ingresados: 56,6 (DE 20,6)",
+          "Barthel en no ingresados: 71,1 (DE 21,3)",
+          "Diferencia: −14,6; IC 95 %: −20,3 a −8,8",
+          "p = 1,6 × 10⁻⁶"
+        ]
+      },
+      "despues": {
+        "titulo": "Quienes ingresaron tenían menos independencia",
+        "destacado": "−14,6 puntos de Barthel",
+        "pie": "IC 95 %: −20,3 a −8,8. Datos sintéticos del taller 3.4: no son hallazgos clínicos."
+      },
+      "cambios": [
+        "**El título dice la conclusión.** «Resultados» es una etiqueta; el mensaje es lo que el público debe llevarse.",
+        "**Menos números, mejor elegidos.** La diferencia con su IC es lo que importa; las medias y el p-valor pueden ir en las notas o en una tabla de apoyo.",
+        "**La advertencia, visible.** Al ser datos sintéticos, la diapositiva lo dice."
+      ]
+    }
+  ],
+  "nota": "Las maquetas son sencillas a propósito: lo importante es la estructura, no la decoración."
+}

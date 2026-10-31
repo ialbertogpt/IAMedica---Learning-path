@@ -1,0 +1,38 @@
+{
+  "titulo": "La misma pregunta, sin material y con el material",
+  "instrucciones": "Se hizo la misma pregunta de detalle sobre un documento público (el Manual de Buenas Prácticas para la IA en Medicina de la OMC). Lee las dos respuestas antes de ver las observaciones.",
+  "pregunta": "¿Cuál de las dos respuestas puedes comprobar y cuál no?",
+  "versiones": [
+    {
+      "titulo": "Sin el documento",
+      "entrada": "¿Qué bloques tiene el checklist para evaluar herramientas de IA del Manual de Buenas Prácticas para la Inteligencia Artificial en Medicina de la OMC (2026) y en qué página está?",
+      "etiquetaEntrada": "Pregunta",
+      "respuesta": [
+        "No tengo ese documento a la vista, así que no puedo decirte con fiabilidad los bloques exactos de su checklist ni su página. Los checklists de evaluación de herramientas de IA suelen cubrir aspectos como la evidencia clínica, el cumplimiento regulatorio, la integración técnica, la calidad de los datos y del algoritmo, la seguridad y la ética, pero eso es una generalización, no el contenido de ese manual.",
+        "Si me pasas el texto del apartado, puedo ayudarte a resumirlo y citar el fragmento exacto."
+      ],
+      "procedencia": "texto redactado por Claude (claude-sonnet-5-5) al responder a esta pregunta exacta sin tener el documento, el 31/10/2026, durante la preparación del curso; no se repitió para elegir la mejor versión",
+      "observaciones": [
+        "Es honesta: dice que no tiene el documento. Otros modelos podrían responder con aplomo y rellenar los huecos.",
+        "No da la página ni los bloques exactos: no puedes usarla para estudiar el documento.",
+        "Lo que aporta es una generalización, no el contenido del manual."
+      ]
+    },
+    {
+      "titulo": "Con el documento cargado",
+      "entrada": "(Con el PDF del manual cargado como fuente.) ¿Qué bloques tiene el checklist para evaluar herramientas de IA y en qué página está? Responde solo con lo que diga el documento y cita la página.",
+      "etiquetaEntrada": "Pregunta",
+      "respuesta": [
+        "El apartado 3.10, «Checklist para la evaluación de herramientas de inteligencia artificial antes de su implementación», empieza en la página 44 y continúa en la 45. Tiene seis bloques: evaluación clínica, regulatoria, técnica, del algoritmo, operativa y de seguridad y ética.",
+        "Por ejemplo, el bloque clínico pregunta si existe una necesidad clínica real, si hay evidencia científica y si se han publicado estudios de validación clínica (p. 44)."
+      ],
+      "procedencia": "texto redactado por Claude (claude-sonnet-5-5) el 31/10/2026 a partir del texto del manual (pp. 44-45), que se le facilitaba; el contenido se comprobó contra el PDF",
+      "observaciones": [
+        "Da la página y los seis bloques, y puedes abrir el PDF y comprobarlo en un minuto.",
+        "Se apoya en el texto: no hay que fiarse de su memoria.",
+        "Aun así, hay que abrir la página citada: una cita sin comprobar sigue siendo una afirmación."
+      ]
+    }
+  ],
+  "conclusion": "Sin el material, lo mejor que puede hacer una IA es decir que no lo tiene; lo peor, inventar con seguridad. Con el material, la respuesta se vuelve comprobable: tiene página y fragmento. Eso es lo que debes exigir al estudiar con IA."
+}

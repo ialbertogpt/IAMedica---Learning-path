@@ -1,0 +1,29 @@
+{
+  "titulo": "Anonimizador de práctica: ¿qué identificadores quedan en este informe?",
+  "pregunta": "Vas a pegar este informe de alta en un asistente para que te ayude a redactar una carta a la familia. Antes, revisa qué datos permiten identificar a la paciente.",
+  "procedencia": "texto creado para este ejercicio; la paciente, la familia, los profesionales y el hospital son ficticios; contiene 8 identificadores intencionados",
+  "hallazgo": "identificadores",
+  "instrucciones": "Toca los fragmentos que contengan un dato identificativo, directo o por combinación, y pulsa «Comprobar». Un dato clínico necesario (edad, diagnósticos, pruebas) no es un identificador. Todo funciona en tu navegador: no se envía nada.",
+  "parrafos": [
+    [
+      { "texto": "INFORME DE ALTA · Unidad de Geriatría de Agudos del Hospital Universitario «Santa Clara» (ficticio).", "explicacion": "El nombre del hospital es ficticio en este ejercicio. En un caso real, el centro y el servicio concretos pueden contribuir a identificar a la persona; conviene generalizarlos («un hospital de tercer nivel») si no hacen falta." },
+      { "texto": "Paciente: Dña. Carmen Ortega Villalba, con DNI 12345678Z.", "error": true, "explicacion": "Nombre, apellidos y DNI: identificadores directos. Se eliminan siempre." },
+      { "texto": "Número de historia clínica: 7731904.", "error": true, "explicacion": "El número de historia identifica a la persona dentro del centro. Se elimina, aunque el nombre ya esté tapado." },
+      { "texto": "Teléfono de contacto: 600 11 22 33 (su hija, Marta).", "error": true, "explicacion": "Un teléfono y el nombre de un familiar son identificadores directos de la paciente y de un tercero." },
+      { "texto": "Domicilio: calle del Almendro, 14, 3.º B, Madrid.", "error": true, "explicacion": "La dirección completa es un identificador directo. Si importa el entorno, se escribe «vive sola en un piso sin ascensor»." }
+    ],
+    [
+      { "texto": "Fecha de nacimiento: 14/03/1939.", "error": true, "explicacion": "La fecha de nacimiento exacta se sustituye por la edad («87 años»)." },
+      { "texto": "Mujer de 87 años, viuda, que vive sola y es independiente para las actividades básicas de la vida diaria.", "explicacion": "La edad, la situación de convivencia y la funcionalidad son datos clínicos relevantes y, por sí solos, poco identificativos. Se mantienen." },
+      { "texto": "Ingresó el 3 de marzo de 2026 por una caída en su domicilio.", "error": true, "explicacion": "Una fecha exacta permite cruzar con otros datos. Se sustituye por «día 1 del ingreso» o por «hace unas 2 semanas»." },
+      { "texto": "Es jubilada, antigua directora del colegio del barrio, y su hijo es concejal del municipio.", "error": true, "explicacion": "Ningún dato es un identificador por sí solo, pero la combinación (profesión singular, barrio, familiar con cargo público) señala a una persona concreta. Se generaliza o se elimina si no es clínicamente relevante." }
+    ],
+    [
+      { "texto": "Antecedentes: hipertensión arterial, fibrilación auricular y artrosis de rodilla.", "explicacion": "Diagnósticos frecuentes y necesarios para el caso: se mantienen." },
+      { "texto": "Durante el ingreso presentó un episodio de delirium, resuelto con medidas no farmacológicas.", "explicacion": "Dato clínico necesario. Se mantiene." },
+      { "texto": "Su médica de cabecera, la Dra. Pilar Romero, fue informada del alta.", "error": true, "explicacion": "El nombre de un profesional también es un dato personal y, además, sitúa a la paciente en un centro de salud concreto. Se sustituye por «su médica de atención primaria»." },
+      { "texto": "Se acuerda una revisión en consulta de geriatría a los 3 meses.", "explicacion": "Un intervalo relativo es aceptable. Es la forma de expresar tiempo sin fechas exactas." }
+    ]
+  ],
+  "conclusion": "Quitar solo el nombre habría dejado en pie el DNI y otros siete fragmentos identificativos. Anonimizar bien es revisar nombres, números, contactos, direcciones, fechas, familiares y profesionales, y también las combinaciones que señalan a una persona. Ante la duda, quita o generaliza; y si el texto es tan singular que sigue identificando, no lo pegues."
+}

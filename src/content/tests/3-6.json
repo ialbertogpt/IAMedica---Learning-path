@@ -1,0 +1,43 @@
+{
+  "titulo": "Test · Presentaciones con IA",
+  "preguntas": [
+    {
+      "tipo": "ordenar",
+      "enunciado": "Ordena el flujo para preparar una presentación con ayuda de una IA.",
+      "pasos": [
+        { "texto": "Definir el objetivo, la audiencia y la duración.", "porque": "Es el motivo de consulta de la presentación: sin él, todo lo demás es genérico." },
+        { "texto": "Pedir un guion con título-mensaje, una idea por diapositiva y notas del ponente.", "porque": "El guion fija el mensaje antes del diseño." },
+        { "texto": "Generar las diapositivas con una herramienta a partir del guion resumido.", "porque": "La herramienta maqueta lo que ya has decidido." },
+        { "texto": "Revisar el diseño y verificar cada dato contra su fuente.", "porque": "La IA llena y puede inventar: tú quitas y compruebas." }
+      ]
+    },
+    {
+      "tipo": "escenario",
+      "enunciado": "¿Qué falla en esta diapositiva?",
+      "caso": "Una diapositiva se titula «Resultados» y contiene nueve líneas de texto con medias, desviaciones, p-valores y una tabla pequeña, en letra de 12 puntos.",
+      "opciones": [
+        { "texto": "Nada: cuanta más información, mejor.", "correcta": false, "explicacion": "Desde el fondo de la sala no se lee, y la audiencia no sabe qué debe recordar." },
+        { "texto": "Tiene un título-etiqueta, demasiado texto y varias ideas: conviene dividirla, poner la conclusión en el título y subir la letra.", "correcta": true, "explicacion": "Una idea por diapositiva, título-mensaje y letra legible son las reglas básicas de revisión." },
+        { "texto": "Falla solo que no lleva imágenes.", "correcta": false, "explicacion": "Añadir imágenes no resuelve el exceso de texto ni la falta de mensaje." },
+        { "texto": "Falla que no está generada con IA.", "correcta": false, "explicacion": "El problema es de diseño, no de la herramienta." }
+      ]
+    },
+    {
+      "tipo": "vf",
+      "enunciado": "Si tu presentación es para una sesión interna, puedes pegar una captura de la historia clínica electrónica de un paciente real, siempre que no se proyecte el nombre.",
+      "respuesta": false,
+      "explicacionVerdadero": "No. La captura contiene identificadores en la cabecera y datos de salud, y no debe ir a una presentación creada en un equipo o una herramienta personales.",
+      "explicacionFalso": "Correcto. Una captura de la historia clínica no es aceptable en una presentación personal, aunque tapes el nombre."
+    },
+    {
+      "tipo": "unica",
+      "enunciado": "La IA te devuelve un guion con una tasa de mortalidad del 12,4 % que tú no le habías dado. ¿Qué haces?",
+      "opciones": [
+        { "texto": "La dejas: parece razonable.", "correcta": false, "explicacion": "Una cifra que no diste es inventada. Parecer razonable no la hace cierta." },
+        { "texto": "La quitas o la sustituyes por un dato que puedas justificar con una fuente.", "correcta": true, "explicacion": "Todo dato de la presentación debe poder respaldarse con una fuente verificable." },
+        { "texto": "Le preguntas a la misma IA si es correcta.", "correcta": false, "explicacion": "Una IA que insiste no confirma nada; la comprobación es en la fuente." },
+        { "texto": "La pones en letra pequeña.", "correcta": false, "explicacion": "Esconder el dato no lo hace correcto." }
+      ]
+    }
+  ]
+}

@@ -254,5 +254,189 @@
     "subcapitulo": "3-1",
     "plantilla": "Con el caso anterior, propón un esquema de seguimiento para discutir con el equipo: qué parámetros vigilar y con qué frecuencia, qué cambios obligarían a replantear el diagnóstico y qué signos de alarma habría que explicar a la familia.\n\nReglas: no des dosis. Indica qué guía o fuente debería consultar para cada punto y marca lo que no sea seguro. Máximo 200 palabras.",
     "notas": "Pide siempre la fuente a consultar, y consúltala. No incluyas datos identificativos."
+  },
+  {
+    "id": "p-3-3-pico",
+    "titulo": "Convertir una duda clínica en pregunta PICO",
+    "tarea": "bibliografia",
+    "subcapitulo": "3-3",
+    "plantilla": "Tengo esta duda clínica: [describe la duda sin datos de ningún paciente].\n\nConviértela en una pregunta PICO: Población, Intervención, Comparación y Resultado (outcome). Si falta algún elemento, pregúntame antes de inventarlo. Después, reformula la pregunta en una sola frase y dime qué tipo de estudio respondería mejor (ensayo aleatorizado, cohortes, revisión sistemática…).",
+    "notas": "Plantea la duda como un tipo de paciente, nunca como una persona concreta."
+  },
+  {
+    "id": "p-3-3-estrategia",
+    "titulo": "Estrategia de búsqueda para PubMed",
+    "tarea": "bibliografia",
+    "subcapitulo": "3-3",
+    "plantilla": "Esta es mi pregunta PICO: [pega tu PICO].\n\nPropón una estrategia de búsqueda para PubMed con un bloque por concepto. Para cada bloque, da: (1) los términos MeSH que crees adecuados, (2) sinónimos y variantes para buscar en título y resumen con [tiab], y (3) la unión con OR dentro del bloque. Une los bloques con AND.\n\nReglas: indica qué términos MeSH no estás seguro de que existan, para que yo los compruebe en el buscador de MeSH. No inventes términos.",
+    "notas": "Comprueba cada término MeSH en el buscador MeSH de PubMed antes de usarlo: las IA se inventan descriptores que suenan bien."
+  },
+  {
+    "id": "p-3-3-cribar",
+    "titulo": "Cribar títulos y resúmenes con criterios",
+    "tarea": "bibliografia",
+    "subcapitulo": "3-3",
+    "plantilla": "Voy a pegarte, uno a uno, el título y el resumen públicos de varios artículos. Para cada uno, dime si cumple estos criterios y por qué.\n\nInclusión: [tus criterios, p. ej. mayores de 65 años, ingresados, ensayo aleatorizado o revisión sistemática, delirium como resultado].\nExclusión: [tus criterios].\n\nResponde con: 'Incluir', 'Excluir' o 'Dudoso', y una frase con la razón, citando la parte del resumen en que te basas. Si el resumen no basta, di 'Dudoso'. No uses información que no esté en el texto que te doy.",
+    "notas": "Usa solo resúmenes públicos. La decisión final de incluir o excluir es tuya: revisa también los 'Excluir'."
+  },
+  {
+    "id": "p-3-3-referencias",
+    "titulo": "Preparar una lista de referencias para verificarla",
+    "tarea": "bibliografia",
+    "subcapitulo": "3-3",
+    "plantilla": "Te pego una lista de referencias. No las corrijas ni las completes.\n\nOrganízalas en una tabla con las columnas: autores, año, revista, título, PMID o DOI (solo si aparece en el texto que te doy) y una columna final 'qué debo comprobar yo'. Marca como 'no consta' lo que falte. No añadas ningún dato que no esté en la lista.",
+    "notas": "Sirve para ordenar la comprobación, no para hacerla: tú abres cada PMID o DOI."
+  },
+  {
+    "id": "p-3-3-tabla-evidencia",
+    "titulo": "Tabla de evidencia a partir de resúmenes",
+    "tarea": "bibliografia",
+    "subcapitulo": "3-3",
+    "plantilla": "Te pego los resúmenes públicos de varios artículos. Construye una tabla de evidencia con una fila por artículo y las columnas: referencia (autor, año), diseño del estudio, población, intervención o exposición, comparación, resultado principal con su cifra, y limitaciones señaladas por los autores.\n\nReglas: usa solo lo que dice cada resumen. Si algo no consta, escribe 'no consta'. No mezcles datos de artículos distintos.",
+    "notas": "Después, comprueba tú cada cifra contra el resumen original. Es frecuente que mezclen datos o redondeen."
+  },
+  {
+    "id": "p-3-4-elegir-prueba",
+    "titulo": "Elegir la prueba estadística sin pasar datos",
+    "tarea": "estadistica",
+    "subcapitulo": "3-4",
+    "plantilla": "Voy a analizar una base de datos y quiero que me ayudes a elegir la prueba estadística, sin ver los datos.\n\nPregunta de investigación: [tu pregunta].\nVariable resultado: [tipo: cantidad, categoría de dos opciones…].\nVariable explicativa o de agrupación: [tipo y número de grupos].\nTamaño de la muestra aproximado: [número].\nLos grupos son [independientes / los mismos pacientes medidos dos veces].\n\nDime qué prueba usarías, qué supuestos debo comprobar y qué alternativa tendría si no se cumplen. Indica qué no puedes saber sin ver los datos.",
+    "notas": "No pegues datos. Describe solo el tipo de variables y la pregunta."
+  },
+  {
+    "id": "p-3-4-interpretar",
+    "titulo": "Interpretar resultados agregados",
+    "tarea": "estadistica",
+    "subcapitulo": "3-4",
+    "plantilla": "Te pego los resultados de mi análisis (solo estadísticos agregados, sin datos individuales). Ayúdame a interpretarlos.\n\nContexto: datos sintéticos de un ejercicio, [N] pacientes.\nResultados: [pega aquí la tabla de resultados: medias, diferencias, IC 95 %, p-valores, odds ratio…].\n\nExplica, con frases cortas: (1) qué dicen los números, (2) qué NO se puede concluir (causalidad, ausencia de efecto si no hay significación), (3) una limitación del análisis. Usa solo los números que te he dado; si falta un dato, dilo.",
+    "notas": "Pega solo estadísticos agregados. Comprueba cada número de la interpretación contra tu tabla."
+  },
+  {
+    "id": "p-3-4-metodos",
+    "titulo": "Redactar el apartado de métodos estadísticos",
+    "tarea": "estadistica",
+    "subcapitulo": "3-4",
+    "plantilla": "Redacta un párrafo de 'Métodos estadísticos' para un artículo, a partir de lo que he hecho. No inventes nada que no te diga.\n\nVariables: [lista].\nDescriptivos: [medias y desviaciones típicas / medianas y rangos intercuartílicos].\nComparaciones: [pruebas usadas y para qué].\nModelos: [regresión usada y variables incluidas].\nNivel de significación: [p. ej. 0,05, bilateral].\nSoftware: [jamovi, versión].\nDatos ausentes: [cómo los tratamos].",
+    "notas": "Revisa que cada frase coincida con lo que hiciste de verdad. Indica la versión del programa."
+  },
+  {
+    "id": "p-3-4-revisar-redaccion",
+    "titulo": "Revisar una interpretación estadística",
+    "tarea": "estadistica",
+    "subcapitulo": "3-4",
+    "plantilla": "Revisa este párrafo de resultados como lo haría un estadístico exigente. Busca errores de interpretación: confundir el p-valor con la probabilidad de la hipótesis, concluir causalidad de una asociación, leer una odds ratio como riesgo relativo, o concluir que no hay efecto de un resultado no significativo.\n\nPárrafo: [pega el párrafo].\n\nPara cada problema: cita la frase, explica el error y propón una redacción corregida. Si no ves ninguno, dilo.",
+    "notas": "La IA puede dejarse errores sin señalar: úsala como segunda lectura, no como única."
+  },
+  {
+    "id": "p-3-5-esquema",
+    "titulo": "Esquema de un caso clínico según la guía CARE",
+    "tarea": "articulos",
+    "subcapitulo": "3-5",
+    "plantilla": "Voy a escribir un caso clínico para una revista, siguiendo la guía CARE. Propón un esquema con los apartados que pide: título, palabras clave, resumen, introducción, información del paciente, hallazgos clínicos, línea temporal, evaluación diagnóstica, intervención terapéutica, seguimiento y resultados, discusión, perspectiva del paciente y consentimiento informado.\n\nPara cada apartado, indica en una línea qué debo incluir y qué datos tengo que reunir yo. No redactes el contenido ni inventes datos del caso.",
+    "notas": "Pide el esquema, no el texto. Los datos y la redacción del caso son tuyos."
+  },
+  {
+    "id": "p-3-5-edicion",
+    "titulo": "Mejorar la claridad de un párrafo sin cambiar los datos",
+    "tarea": "articulos",
+    "subcapitulo": "3-5",
+    "plantilla": "Te paso un párrafo que he escrito yo. Mejora la claridad, la gramática y el orden de las ideas, sin cambiar ninguna cifra, ningún dato ni el sentido.\n\nReglas: mantén mi vocabulario técnico; marca entre corchetes cualquier cambio que afecte al significado; si algo no se entiende, pregúntame en vez de suponerlo. Devuelve el texto corregido y una lista de los cambios.\n\nPárrafo: [pega tu párrafo, sin datos identificativos].",
+    "notas": "Revisa que no haya cambiado una cifra o un dato. Anota el uso de IA para la declaración."
+  },
+  {
+    "id": "p-3-5-traducir",
+    "titulo": "Traducir un resumen conservando los términos técnicos",
+    "tarea": "articulos",
+    "subcapitulo": "3-5",
+    "plantilla": "Traduce al inglés el siguiente resumen científico, que he escrito yo. Mantén los términos técnicos, las siglas y las cifras exactamente como están. Usa un registro académico y frases claras.\n\nSi un término técnico tiene más de una traducción posible, indícamelo entre corchetes para que yo elija.\n\nResumen: [pega tu resumen].",
+    "notas": "Comprueba los términos clínicos y las cifras. Si la revista lo pide, declara el uso."
+  },
+  {
+    "id": "p-3-5-carta-editor",
+    "titulo": "Borrador de carta de presentación a la revista",
+    "tarea": "articulos",
+    "subcapitulo": "3-5",
+    "plantilla": "Redacta un borrador de carta de presentación a la revista [nombre] para un manuscrito de tipo [caso clínico / artículo original].\n\nDatos que te doy: título [título], por qué es relevante [dos frases], confirmación de que no se ha enviado a otra revista, y que se ha obtenido el consentimiento informado [sí/no].\n\nNo inventes datos ni afirmaciones que yo no te haya dado. Deja entre corchetes lo que falte. Tono formal y breve.",
+    "notas": "Reescríbela con tu voz y añade en ella la declaración del uso de IA, si procede."
+  },
+  {
+    "id": "p-3-5-respuesta-revisor",
+    "titulo": "Respuesta educada a un comentario de revisor",
+    "tarea": "articulos",
+    "subcapitulo": "3-5",
+    "plantilla": "Un revisor ha escrito este comentario sobre mi manuscrito: [pega el comentario].\n\nMi respuesta científica es: [tu argumento, con los datos].\n\nRedacta una respuesta formal y cortés a ese comentario que incluya mi argumento y, si procede, indique qué cambio he hecho en el manuscrito (en [corchetes] cuando no te lo haya dicho). No añadas argumentos ni datos nuevos.",
+    "notas": "El contenido científico es tuyo. La IA solo ayuda con el tono y la estructura."
+  },
+  {
+    "id": "p-3-5-declaracion",
+    "titulo": "Declaración de uso de herramientas de IA",
+    "tarea": "articulos",
+    "subcapitulo": "3-5",
+    "plantilla": "Declaración de uso de herramientas de inteligencia artificial.\n\nEn la preparación de este manuscrito se utilizó [nombre de la herramienta y versión o modelo] el [fecha] para [tarea concreta, p. ej. mejorar la claridad del texto en español, traducir el resumen al inglés, proponer un esquema]. No se utilizó para [generar datos, resultados ni referencias].\n\nLos autores revisaron y editaron todo el contenido generado y asumen la plena responsabilidad del manuscrito.",
+    "notas": "Es una plantilla de declaración, no un prompt. Adáptala a lo que has hecho de verdad, y colócala donde pida la revista (carta de presentación y apartado correspondiente del manuscrito)."
+  },
+  {
+    "id": "p-3-6-objetivo",
+    "titulo": "Aclarar objetivo, audiencia y duración antes de empezar",
+    "tarea": "presentaciones",
+    "subcapitulo": "3-6",
+    "plantilla": "Voy a preparar una presentación de [duración] minutos para [audiencia: residentes, equipo de planta, sesión general…] sobre [tema, sin datos de pacientes].\n\nHazme las preguntas que necesites para fijar: (1) el objetivo, una sola frase que describa qué quiero que la audiencia sepa o haga al terminar; (2) lo que ya sabe la audiencia; (3) los tres mensajes que deberían recordar. Hazme las preguntas de una en una y, al final, resume lo que hemos acordado.",
+    "notas": "Un buen guion empieza por el objetivo, no por las diapositivas."
+  },
+  {
+    "id": "p-3-6-guion",
+    "titulo": "Guion con notas del ponente",
+    "tarea": "presentaciones",
+    "subcapitulo": "3-6",
+    "plantilla": "Con este objetivo y esta audiencia: [pega lo acordado], propón un guion de [n.º] diapositivas.\n\nPara cada diapositiva dame: un título que sea un mensaje (no una etiqueta), una idea principal, el dato o la imagen que la ilustraría y las notas del ponente (lo que diría yo en voz alta, en 2 o 3 frases).\n\nReglas: una idea por diapositiva; no inventes datos ni cifras; si hace falta un dato, escribe [dato] para que yo lo añada; no incluyas datos de pacientes.",
+    "notas": "Los datos los pones tú. Si ves una cifra que no has dado, es inventada."
+  },
+  {
+    "id": "p-3-6-diapositivas",
+    "titulo": "Pasar el guion a diapositivas",
+    "tarea": "presentaciones",
+    "subcapitulo": "3-6",
+    "plantilla": "Convierte este guion en el contenido de las diapositivas, listo para pegar en una herramienta de presentaciones.\n\nPara cada diapositiva: título (máximo 10 palabras), como mucho 3 puntos de máximo 10 palabras cada uno, y las notas del ponente aparte. Indica qué imagen o gráfico pondrías, sin inventar el contenido. Formato: 'Diapositiva 1: …'.\n\nGuion: [pega tu guion].",
+    "notas": "Después, revisa el diseño tú: una idea por diapositiva y letra legible."
+  },
+  {
+    "id": "p-3-6-revision",
+    "titulo": "Revisar el diseño de una presentación",
+    "tarea": "presentaciones",
+    "subcapitulo": "3-6",
+    "plantilla": "Revisa el contenido de estas diapositivas como un docente exigente. Dime, para cada una: (1) si tiene más de una idea, (2) si el título es un mensaje o una etiqueta, (3) si hay demasiado texto para leerlo desde el fondo, y (4) qué quitarías.\n\nNo cambies los datos. Diapositivas: [pega el contenido de las diapositivas, sin datos de pacientes].",
+    "notas": "Es una segunda lectura. La decisión de diseño es tuya."
+  },
+  {
+    "id": "p-3-7-con-material",
+    "titulo": "Responder solo con el material cargado",
+    "tarea": "estudiar",
+    "subcapitulo": "3-7",
+    "plantilla": "Responde solo con lo que dicen los documentos que he cargado como fuentes. Para cada afirmación, indica la página o el apartado y copia el fragmento literal en el que te basas.\n\nSi la respuesta no está en los documentos, dilo claramente («no consta en las fuentes») y no completes con tu conocimiento general. No interpretes tablas o gráficos: si la información está en una tabla, copia las filas relevantes y dime que debo comprobarlas.\n\nPregunta: [tu pregunta].",
+    "notas": "Carga solo documentos públicos, sin datos de pacientes. Abre siempre la página citada."
+  },
+  {
+    "id": "p-3-7-preguntas-repaso",
+    "titulo": "Preguntas de repaso con la explicación de cada opción",
+    "tarea": "estudiar",
+    "subcapitulo": "3-7",
+    "plantilla": "Con los documentos cargados, crea [5] preguntas de opción múltiple (4 opciones) para repasar el apartado [apartado o tema].\n\nPara cada pregunta: indica la opción correcta, explica por qué es correcta y por qué cada una de las otras es incorrecta, y cita la página o el apartado donde está la respuesta.\n\nUsa solo el contenido de los documentos. Si el apartado no da para tantas preguntas, haz menos.",
+    "notas": "Comprueba al menos dos respuestas contra el documento: puede inventar distractores plausibles o equivocarse en la correcta."
+  },
+  {
+    "id": "p-3-7-tarjetas",
+    "titulo": "Tarjetas de estudio (anverso y reverso)",
+    "tarea": "estudiar",
+    "subcapitulo": "3-7",
+    "plantilla": "Con los documentos cargados, crea [10] tarjetas de estudio sobre [tema]. Formato: 'Anverso: pregunta breve · Reverso: respuesta en una o dos frases · Fuente: página'.\n\nSolo conceptos que estén en el documento; nada de tu conocimiento general. Ordénalas de lo más básico a lo más detallado.",
+    "notas": "Pásalas a tu herramienta de tarjetas o imprímelas. Verifica las cifras."
+  },
+  {
+    "id": "p-3-8-resumen-congreso",
+    "titulo": "Resumen estructurado tipo congreso con resultados agregados",
+    "tarea": "articulos",
+    "subcapitulo": "3-8",
+    "plantilla": "Redacta un resumen estructurado de máximo 250 palabras para una comunicación a un congreso, con los apartados Objetivo, Métodos, Resultados y Conclusiones.\n\nUsa solo estos datos, que te doy agregados: [pega aquí tus resultados: tamaño de la muestra, pruebas usadas, diferencias con IC 95 %, p-valores, odds ratio].\n\nReglas: no añadas ninguna cifra que no esté en mis datos; no concluyas causalidad de una asociación; no digas que no hay efecto si un resultado no es significativo; indica que los datos son sintéticos y que no son hallazgos clínicos. Si falta algo, escribe [dato].",
+    "notas": "Revisa cada cifra contra tu tabla y cada conclusión contra lo que realmente muestran tus datos."
   }
 ]

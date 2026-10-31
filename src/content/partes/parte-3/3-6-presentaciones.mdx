@@ -1,0 +1,176 @@
+---
+id: "3-6"
+titulo: Presentaciones en PowerPoint
+parte: 3
+minutos: 75
+objetivos:
+  - Formular el objetivo y la audiencia de una presentación antes de abrir ninguna herramienta
+  - Pedir a una IA un guion con la estructura y las notas del ponente, sin datos inventados
+  - Generar las diapositivas con una herramienta y revisar el diseño (una idea por diapositiva)
+  - Decidir qué imágenes clínicas se pueden usar, con anonimización y consentimiento
+gancho: "Tienes diez minutos en la sesión clínica y un caso que cuenta una historia. Una IA puede darte en un minuto diez diapositivas con buen aspecto, pero un buen aspecto no es un buen mensaje, y una imagen mal elegida puede ser un problema de privacidad. En este taller preparas la presentación de tu caso: primero el mensaje, después las diapositivas, y siempre las imágenes con cuidado."
+recursos:
+  - v-utrera-gamma
+  - r-canva-presentaciones
+paraSaberMas:
+  - r-icmje-privacidad
+test: "3-6"
+fechaRevision: "2026-10-31"
+aFecha: octubre de 2026
+fuentes:
+  - texto: "Canva. Crear presentaciones (canva.com/es_es/presentaciones), consultada el 31/10/2026"
+    url: https://www.canva.com/es_es/presentaciones/
+  - texto: "Anthropic. Precios de Claude: la comparación de planes incluye «Claude Slides» (claude.com/pricing), consultada el 31/10/2026"
+    url: https://claude.com/pricing
+  - texto: "Gamma (gamma.app): su web bloqueó las comprobaciones automáticas el 31/10/2026; el vídeo de la sesión 2 confirma su existencia y su uso"
+  - texto: "ICMJE. Protection of Research Participants: los nombres, las iniciales, los números de historia y las fotografías con información identificativa requieren consentimiento por escrito para publicarse"
+    url: https://www.icmje.org/recommendations/browse/roles-and-responsibilities/protection-of-research-participants.html
+---
+
+<Sesion n={1} titulo="Objetivo, audiencia y guion" minutos={18}>
+
+### Antes de abrir ninguna herramienta
+
+Casi todos los problemas de una presentación nacen de empezar por las diapositivas. Primero hay que responder tres preguntas:
+
+1. **¿Cuál es el objetivo?** Una frase: qué quieres que la audiencia sepa o haga al terminar.
+2. **¿Quién es la audiencia?** Residentes, el equipo de planta, la sesión general… Cada una necesita un nivel distinto.
+3. **¿Cuánto tiempo hay?** Como orientación, una diapositiva por minuto es mucho; una idea por diapositiva es la regla.
+
+<Analogia>
+Es **el motivo de consulta**: antes de pedir pruebas, hay que saber para qué se consulta. Una presentación sin objetivo es una batería de pruebas sin pregunta.
+</Analogia>
+
+<Plantilla id="p-3-6-objetivo" />
+
+### El guion
+
+Un guion bueno tiene para cada diapositiva **un título que es un mensaje**, **una idea**, **el dato o la imagen que la ilustra** y **las notas del ponente** (lo que dirás en voz alta).
+
+<Plantilla id="p-3-6-guion" />
+
+<PasoTaller id="3-6-anonimizar" tipo="anonimizar" texto="He comprobado que ni el guion ni las diapositivas contienen datos de pacientes reales (o, si los hay, que están anonimizados y que mi centro permite usarlos en esta herramienta)." />
+
+<OjoCon>
+- **No pidas «hazme una presentación sobre…» a secas.** Sin objetivo ni audiencia, sale genérica.
+- **Si el guion tiene una cifra que no diste, es inventada.** Pide que marque [dato] lo que falte.
+- **Las notas del ponente son parte del trabajo.** Si no puedes explicar la diapositiva, no la pongas.
+</OjoCon>
+
+</Sesion>
+
+<Sesion n={2} titulo="De guion a diapositivas" minutos={20}>
+
+### Elegir herramienta
+
+Hay varias opciones, y cambian a menudo. A fecha de octubre de 2026:
+
+- **Presentaciones con IA, como Gamma.** Genera diapositivas a partir de un texto. Su web bloqueó las comprobaciones automáticas, así que consulta tú sus planes y límites.
+- **Canva.** Software de presentaciones en línea, con plantillas y una biblioteca de imágenes; su página indica que ofrece plantillas gratuitas.
+- **Un asistente de IA que genera presentaciones.** La página de planes de Claude, por ejemplo, incluye «Claude Slides» en su comparación.
+- **Copilot en PowerPoint, si tu centro lo ofrece.** Es una herramienta distinta de las anteriores, con otras condiciones; este curso no depende de ella.
+
+Con una cuenta personal, **ninguna de ellas es apta para datos de pacientes**.
+
+<Video id="v-utrera-gamma" nota="un tutorial en español para crear una presentación con Gamma. Es de febrero de 2025, tiene tono comercial y un enlace de afiliado en la descripción: úsalo solo como ejemplo del flujo y consulta la web actual de la herramienta." />
+
+### Del guion a la herramienta
+
+Pide a la IA el contenido de las diapositivas ya **resumido**: título corto, pocos puntos y notas aparte. Después pégalo en la herramienta que elijas.
+
+<Plantilla id="p-3-6-diapositivas" />
+
+<OjoCon>
+- **Una herramienta que «diseña sola» no piensa por ti.** El mensaje sigue siendo tuyo.
+- **Cuidado con los datos.** Lo que generas con IA puede ser plausible y falso: revisa cada cifra.
+- **Los planes cambian.** Confirma precios y límites en la web oficial.
+</OjoCon>
+
+</Sesion>
+
+<Sesion n={3} titulo="Revisión de diseño" minutos={17}>
+
+### Una idea por diapositiva
+
+Casi toda presentación mejora si **reduces el texto, subes la letra y pones el mensaje en el título**. Compara estas dos diapositivas con sus rediseños.
+
+<Diapositivas datos="3-6-antes-despues" />
+
+### Lista rápida de revisión
+
+- **¿Una sola idea?** Si necesitas «y además», son dos diapositivas.
+- **¿El título es un mensaje?** Si es «Resultados» o «Discusión», es una etiqueta.
+- **¿Se lee desde el fondo?** Más de cinco líneas de texto es una señal de alarma.
+- **¿Contraste suficiente?** Texto oscuro sobre fondo claro (o al revés), nunca sobre una imagen compleja.
+- **¿Cada gráfico tiene un mensaje y una fuente?**
+
+<Plantilla id="p-3-6-revision" />
+
+<OjoCon>
+- **La IA tiende a llenar las diapositivas.** Quita antes de añadir.
+- **Un gráfico sin mensaje no ayuda.** Titula con la conclusión.
+- **Prueba la presentación en voz alta** y con la pantalla a la distancia de la sala.
+</OjoCon>
+
+</Sesion>
+
+<Sesion n={4} titulo="Taller final: tu caso en diez diapositivas" minutos={20}>
+
+### Las imágenes clínicas
+
+En una presentación es tentador poner una imagen del paciente. Antes, decide qué es posible.
+
+<Clasificador datos="3-6-imagenes" />
+
+<AvisoClinico titulo="Una regla simple">
+Con tu equipo y tus cuentas personales, **no pongas imágenes de pacientes reales**. Para ensayar usa casos ficticios, ilustraciones o gráficos propios.
+</AvisoClinico>
+
+### El taller
+
+Prepara una presentación de **diez diapositivas** del caso de la paciente de 86 años con caídas, confusión y sodio bajo (3.1). Sigue el flujo del curso:
+
+1. **Objetivo y audiencia**, con la plantilla de la sesión 1.
+2. **Guion** con título-mensaje y notas del ponente.
+3. **Contenido de las diapositivas** con la plantilla de la sesión 2 y la herramienta que elijas.
+4. **Revisión** con la lista rápida y la plantilla de revisión.
+5. **Verificación**: cada dato del caso contra el caso original y cada afirmación clínica contra su fuente (la <T id="ficha-tecnica">ficha técnica</T> en <T id="cima">CIMA</T>, la guía).
+
+<PruebaloTu minutos={10}>
+Genera el guion de las diez diapositivas con un asistente. Después, **marca todo lo que ha inventado** (cifras, diagnósticos, referencias) y compáralo con el caso original. Quédate con tres diapositivas y revisa su diseño con la lista rápida: ¿una idea, título-mensaje, letra legible?
+</PruebaloTu>
+
+<PasoTaller id="3-6-verificar" tipo="verificar" texto="He comprobado cada dato y cada afirmación clínica de mi presentación contra el caso original y contra una fuente (ficha técnica, guía o PubMed), y no queda ninguna cifra que no pueda justificar." />
+
+<Resumen>
+- **Primero objetivo, audiencia y tiempo**; después el guion; las diapositivas, lo último.
+- Un buen guion tiene **título-mensaje, una idea, el dato o la imagen y las notas del ponente**; pide a la IA que marque [dato] lo que falte.
+- **Una idea por diapositiva**, poco texto, letra legible y contraste suficiente. La IA tiende a llenar: quita antes de añadir.
+- Las herramientas **cambian**: confirma planes y límites; ninguna es apta para datos de pacientes con una cuenta personal.
+- **Imágenes clínicas:** solo anonimizadas y con consentimiento; con equipo personal, no pongas imágenes de pacientes reales.
+- **Verifica** cada dato del guion: lo que la IA no recibió de ti, lo ha inventado.
+</Resumen>
+
+<Ficha titulo="Presentación con IA">
+**Antes**
+- Objetivo (una frase) · audiencia · tiempo.
+
+**Guion**
+- Título-mensaje · una idea · dato o imagen · notas del ponente.
+- Pide que marque [dato] lo que falte.
+
+**Diseño**
+- Una idea por diapositiva · ≤ 5 líneas · letra legible · contraste.
+- Quita antes de añadir.
+
+**Imágenes**
+- Gráficos propios: sí. Figuras publicadas: con cita y permiso.
+- Pacientes reales: anonimizadas y con permiso; nunca en herramientas personales.
+
+**Verificar**
+- Cada cifra y cada afirmación clínica contra su fuente.
+</Ficha>
+
+<TestFinal id="3-6" />
+
+</Sesion>

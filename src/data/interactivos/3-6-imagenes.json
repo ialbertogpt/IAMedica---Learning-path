@@ -1,0 +1,19 @@
+{
+  "titulo": "¿Puedo poner esta imagen en mi presentación?",
+  "instrucciones": "Decide qué hacer con cada imagen. Piensa en tu audiencia y en que la presentación puede acabar circulando.",
+  "categorias": [
+    { "id": "si", "nombre": "Sí", "descripcion": "sin problema especial" },
+    { "id": "condiciones", "nombre": "Solo con condiciones", "descripcion": "anonimizada, con permiso o con la fuente" },
+    { "id": "no", "nombre": "No", "descripcion": "no con una cuenta ni un ordenador personales" }
+  ],
+  "items": [
+    { "texto": "Un gráfico que has hecho tú con datos sintéticos o con resultados agregados.", "categoria": "si", "explicacion": "Es tuyo y no contiene datos de personas. Indica que los datos son sintéticos, si lo son." },
+    { "texto": "Una figura de un artículo publicado.", "categoria": "condiciones", "explicacion": "Cita siempre la fuente y comprueba la licencia o los permisos de reproducción: no todo se puede copiar." },
+    { "texto": "Una radiografía de un paciente real, para una sesión clínica interna.", "categoria": "condiciones", "explicacion": "Solo anonimizada (nombre, número de historia y fechas en la imagen y en sus metadatos) y según la política de tu centro. Con tu ordenador personal, no." },
+    { "texto": "Una fotografía de una lesión cutánea, sin cara ni rasgos identificables.", "categoria": "condiciones", "explicacion": "Requiere consentimiento del paciente y revisar que no haya tatuajes, joyas ni metadatos que identifiquen. Para publicar, el ICMJE exige consentimiento escrito cuando hay información identificable." },
+    { "texto": "Una ilustración creada con IA que representa una lesión, etiquetada como tal.", "categoria": "condiciones", "explicacion": "Puede servir como ilustración, siempre indicando que está generada por IA y sin hacerla pasar por una imagen clínica real: podría inducir a error." },
+    { "texto": "Una captura de pantalla de la historia clínica electrónica.", "categoria": "no", "explicacion": "Contiene identificadores en la cabecera y datos de salud. No va nunca a una presentación hecha en un equipo o una herramienta personales." },
+    { "texto": "La fotografía de la cara de un paciente.", "categoria": "no", "explicacion": "Un rostro identifica directamente. Solo con consentimiento explícito y por un motivo clínico y científico claro; y no en una herramienta personal." }
+  ],
+  "cierre": "La presentación se proyecta, se envía por correo y se archiva: asume que circulará. Si no estás seguro de que una imagen sea inocua, no la pongas."
+}

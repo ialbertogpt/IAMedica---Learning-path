@@ -1,0 +1,11 @@
+---
+import Icono from '../ui/Icono.astro';
+import Isla from './especificos/SimuladorIC.tsx';
+interface Props { titulo: string; nota?: string }
+const { titulo, nota } = Astro.props;
+---
+<section class="interactivo" aria-label={titulo}>
+  <h3 class="interactivo-titulo"><Icono nombre="monitoring" tam={20} />{titulo}</h3>
+  <Isla client:visible titulo={titulo} />
+  {nota && <p class="interactivo-nota">{nota}</p>}
+</section>

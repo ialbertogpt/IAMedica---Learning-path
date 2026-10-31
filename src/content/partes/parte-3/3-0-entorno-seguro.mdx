@@ -1,0 +1,188 @@
+---
+id: "3-0"
+titulo: Tu entorno de trabajo seguro
+parte: 3
+minutos: 60
+objetivos:
+  - Configurar los ajustes de privacidad de al menos un asistente de IA con una cuenta personal
+  - Decidir si te basta el plan gratuito o si compensa un plan de pago, con la información oficial de precios y su fecha
+  - Anonimizar un texto clínico con una checklist, quitando o generalizando los identificadores directos y las combinaciones que identifican
+  - Localizar la política de IA de tu centro y saber a quién preguntar antes de usar una herramienta con datos de pacientes
+gancho: "Antes de pedirle nada a una IA, conviene tener claro con qué cuenta entras, qué se hace con lo que escribes y qué datos no deben salir de tu cabeza. Esta es la parte menos vistosa del curso y la que más te protege: a ti y a tus pacientes. Son 60 minutos que te ahorran los errores más caros."
+recursos:
+  - r-omc-manual-ia-2026
+  - r-aepd-rgpd-ia
+  - v-redsanitaria-privacidad
+paraSaberMas: []
+test: "3-0"
+fechaRevision: "2026-10-31"
+aFecha: octubre de 2026
+fuentes:
+  - texto: "OpenAI Help Center. Data controls FAQ y Temporary chat in ChatGPT, consultados el 31/10/2026"
+    url: https://help.openai.com/en/articles/7730893-data-controls-faq
+  - texto: "Anthropic Privacy Center. Is my data used for model training? (artículo del 16/03/2026), consultado el 31/10/2026"
+    url: https://privacy.claude.com/en/articles/10023580-is-my-data-used-for-model-training
+  - texto: "Google. Gemini Apps Privacy Hub, consultado el 31/10/2026"
+    url: https://support.google.com/gemini/answer/13594961
+  - texto: "Anthropic. Precios de Claude (claude.com/pricing), consultados el 31/10/2026"
+    url: https://claude.com/pricing
+  - texto: "OpenAI. Precios de ChatGPT (chatgpt.com/pricing): los precios en euros se cargan según el país y no se han podido leer; consultada el 31/10/2026"
+    url: https://chatgpt.com/es-ES/pricing/
+  - texto: "Reglamento (UE) 2016/679 (RGPD): art. 9, art. 28 y considerando 26"
+    url: https://eur-lex.europa.eu/legal-content/ES/TXT/?uri=CELEX:32016R0679
+  - texto: "AEPD. Adecuación al RGPD de tratamientos que incorporan Inteligencia Artificial. Una introducción (2020)"
+    url: https://www.aepd.es/guias/adecuacion-rgpd-ia.pdf
+  - texto: "Manual de Buenas Prácticas para la Inteligencia Artificial en Medicina. Organización Médica Colegial de España, 2026"
+    url: https://www.cgcom.es
+---
+
+<Sesion n={1} titulo="Cuentas, planes y ajustes" minutos={20}>
+
+### Tu cuenta es tuya, y el curso, aparte
+
+Estudias en casa, con tus dispositivos y cuentas personales, y quieres mantener el curso separado de tu trabajo. Es una buena decisión de partida:
+
+- **Usa un correo personal**, no el de tu centro.
+- **No mezcles** el curso con la herramienta de tu servicio de salud. Si tu centro ofrece alguna, es otra cosa, con otras reglas (lo verás en la sesión 3).
+- **Ninguna cuenta personal es apta para datos de pacientes** (2.3). Lo que sigue te ayuda a usar bien el resto.
+
+### Qué hace cada asistente con tus conversaciones
+
+Las empresas lo explican en sus páginas de ayuda. Esto es lo que dicen a fecha de octubre de 2026, con la fuente:
+
+<Explorador datos="3-0-ajustes" />
+
+Fíjate en lo que **no** hace un ajuste de privacidad:
+
+- Desactivar la mejora del <T id="modelo">modelo</T> no impide que una empresa **conserve una copia** unos días por seguridad (ChatGPT, hasta 30 días en un chat temporal).
+- Una conversación **marcada para revisión de seguridad** puede usarse aunque hayas dicho que no (Claude).
+- Algunas empresas usan **revisores humanos** (Gemini).
+
+<Analogia>
+Es **cerrar la puerta de la consulta, pero no el expediente en la mesa**: ayuda, y está bien hacerlo, pero la regla de fondo sigue siendo no dejar sobre la mesa lo que no debe verse.
+</Analogia>
+
+### ¿Pago o no pago?
+
+Casi todos tienen plan gratuito. Antes de suscribirte a nada, responde con sinceridad.
+
+<Arbol datos="3-0-plan" />
+
+<PasoTaller id="3-0-ajustes" tipo="otro" texto="He abierto la configuración de privacidad de al menos un asistente y he comprobado qué hace con mis conversaciones." />
+
+<OjoCon>
+- **Los precios y los ajustes cambian.** Confírmalos en la web oficial el día que los necesites.
+- **Pagar no te protege.** Un plan de pago no hace apta una cuenta personal para datos de pacientes.
+- **«No se usa para entrenar» no es «no se guarda».** Y no es lo mismo que «es seguro».
+</OjoCon>
+
+</Sesion>
+
+<Sesion n={2} titulo="La regla de oro: anonimizar" minutos={20}>
+
+### Qué es anonimizar
+
+<T id="anonimizar">Anonimizar</T> es dejar un texto de modo que **nadie pueda reconocer a la persona**, ni con lo que ve ni combinándolo con otros datos razonablemente accesibles. Ya lo viste en 2.3: borrar el nombre no basta, y los datos solo <T id="seudonimizar">seudonimizados</T> siguen siendo personales.
+
+Una buena anonimización revisa **nueve cosas**:
+
+1. **Nombres y apellidos** (del paciente, de familiares, de profesionales).
+2. **Números identificativos:** historia clínica, DNI, CIP, tarjeta sanitaria, Seguridad Social.
+3. **Contactos:** teléfonos, correos.
+4. **Direcciones**, incluso parciales (calle, barrio, centro de salud).
+5. **Fechas exactas:** nacimiento, ingreso, alta, pruebas. Se sustituyen por edades o por tiempos relativos («día 3 del ingreso»).
+6. **Centros y servicios concretos**, si no hacen falta.
+7. **Profesiones, cargos o rasgos singulares**, solos o en combinación.
+8. **Imágenes y audios:** caras, tatuajes, voz, metadatos de la imagen.
+9. **Combinaciones:** varios datos corrientes que, juntos, señalan a una persona.
+
+<Analogia>
+Es la **prueba del vecino**: si alguien que conoce a la persona pudiera reconocerla leyendo el texto, no está anonimizado.
+</Analogia>
+
+### Practica
+
+Este informe es ficticio. Marca los fragmentos con datos identificativos y comprueba cuántos se te escapan. Todo ocurre en tu navegador.
+
+<EncuentraError datos="3-0-informe" />
+
+### Quitar, generalizar o mantener
+
+No todo se borra. Lo clínicamente necesario se mantiene; lo identificativo se quita o se generaliza.
+
+<Clasificador datos="3-0-que-hago" />
+
+### Un detalle importante
+
+**No le pidas a un asistente que anonimice un texto real**: para hacerlo tendrías que pegárselo, y ya habrías enviado los datos. Anonimiza tú, en tu ordenador, con buscar y reemplazar y una lectura atenta.
+
+<PasoTaller id="3-0-anonimizar" tipo="anonimizar" texto="He aplicado la checklist de nueve puntos a un texto antes de pegarlo en un asistente, y no queda ningún dato que permita identificar a la persona." />
+
+<OjoCon>
+- **Las fechas se olvidan mucho.** Una fecha exacta basta para cruzar datos.
+- **La combinación identifica.** Profesión rara + barrio + familiar con cargo es suficiente.
+- **Si el caso es tan singular que sigue identificando, no lo pegues.** Cámbialo por uno ficticio.
+</OjoCon>
+
+</Sesion>
+
+<Sesion n={3} titulo="La política de tu centro y tu checklist" minutos={20}>
+
+### Si tu centro ofrece herramientas
+
+Es posible que tu centro o tu servicio de salud ofrezcan alguna herramienta de IA autorizada, con contrato con el proveedor y evaluación de impacto. Si es así, **no es la misma cosa** que tu cuenta personal, y se rige por su propia política. Lo que conviene hacer:
+
+1. **Pregunta qué política existe**: qué herramientas están autorizadas, para qué y con qué datos.
+2. **Pregunta a quién dirigirte**: normalmente, la unidad o el delegado de protección de datos del centro.
+3. **No des por hecho** que lo permitido en una herramienta lo está en otra.
+
+Este curso no se apoya en ellas: todo lo que practicas funciona con tus cuentas personales y datos ficticios.
+
+### Para saber más
+
+<Video id="v-redsanitaria-privacidad" desde="6:42" hasta="12:55" nota="un médico explica qué sí y qué no se debe subir a una IA en la nube, cómo anonimizar y cómo usar datos sintéticos. Es opcional: el canal es pequeño y el autor aclara que no es un dictamen legal." />
+
+### Practica con un caso inventado
+
+Para ensayar sin riesgo, pide a un asistente que **invente** un informe con identificadores y practica a anonimizarlo.
+
+<PruebaloTu minutos={10}>
+Pide a un asistente un informe de alta **totalmente ficticio** con identificadores inventados. Cópialo en un documento tuyo, **marca y quita los identificadores** con la checklist y léelo como si fueras un vecino de la paciente. No uses nunca un informe real.
+
+<Plantilla id="p-3-0-caso-ficticio" />
+</PruebaloTu>
+
+<PasoTaller id="3-0-verificar" tipo="verificar" texto="He releído el texto anonimizado como si fuera un vecino de la persona y he comprobado la checklist punto por punto." />
+
+<Resumen>
+- Usa **cuentas y dispositivos personales**, separados de tu centro, y **nunca datos identificables de pacientes** con ellos.
+- Los ajustes de privacidad **ayudan, pero no bastan**: pueden quedar copias, revisión de seguridad o revisores humanos.
+- **El plan gratuito suele bastar.** Si pagas, un solo plan estándar, y confirma el precio en la web oficial.
+- **Anonimizar es revisar nueve cosas**: nombres, números, contactos, direcciones, fechas, centros, rasgos singulares, imágenes y combinaciones.
+- **Anonimiza tú**, en tu ordenador: pedirle a una IA que lo haga implica pegarle el texto.
+- Si tu centro ofrece herramientas, **pregunta por su política** y por el delegado de protección de datos.
+</Resumen>
+
+<Ficha titulo="Checklist de anonimización">
+**Antes de pegar nada en un asistente, revisa**
+1. Nombres y apellidos (paciente, familia, profesionales).
+2. HC, DNI, CIP, tarjeta sanitaria, Seguridad Social.
+3. Teléfonos y correos.
+4. Direcciones, calle, barrio, centro de salud.
+5. Fechas exactas → edad o «día 3 del ingreso».
+6. Centro y servicio, si no hacen falta.
+7. Profesión, cargo o rasgo singular.
+8. Imágenes, audio, metadatos.
+9. Combinaciones que señalen a una persona.
+
+**Prueba final**
+- ¿Podría un vecino reconocer a la persona? Si «quizá», quita más.
+
+**Reglas**
+- Con una cuenta personal, nunca datos identificables.
+- Anonimiza tú, no la IA.
+</Ficha>
+
+<TestFinal id="3-0" />
+
+</Sesion>

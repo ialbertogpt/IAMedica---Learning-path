@@ -1,0 +1,43 @@
+{
+  "titulo": "¿Qué camino sigo para analizar mis datos?",
+  "instrucciones": "Hay tres caminos para analizar una base de datos. Responde según los datos que tengas.",
+  "inicio": "reales",
+  "nodos": {
+    "reales": {
+      "tipo": "pregunta",
+      "texto": "¿Tus datos son de pacientes reales?",
+      "opciones": [
+        { "texto": "No: son sintéticos o de un ejercicio", "siguiente": "r-sinteticos" },
+        { "texto": "Sí, o proceden de pacientes reales", "siguiente": "anonimos" }
+      ]
+    },
+    "r-sinteticos": {
+      "tipo": "resultado",
+      "titulo": "Puedes usar cualquiera de los tres caminos",
+      "detalle": "Con datos inventados no hay problema de privacidad. En este taller lo ideal es hacer el análisis en un programa local (camino 1) y usar la IA para aprender y para interpretar (camino 3). Pedir a una IA que calcule directamente (camino 2) es lo menos recomendable: puede equivocarse y no deja un proceso que puedas revisar.",
+      "ojo": "Aun con datos ficticios, practica el hábito: tus datos reales no irán a una IA.",
+      "fuente": "Criterio del curso; privacidad: 2.3 y 3.0."
+    },
+    "anonimos": {
+      "tipo": "pregunta",
+      "texto": "¿Tienes autorización para usarlos (comité de ética, tu centro) y están bien anonimizados?",
+      "opciones": [
+        { "texto": "Sí: autorizados y anonimizados", "siguiente": "r-local" },
+        { "texto": "No, o no estoy seguro", "siguiente": "r-no" }
+      ]
+    },
+    "r-no": {
+      "tipo": "resultado",
+      "titulo": "Antes de analizar nada, resuelve la autorización y la anonimización",
+      "detalle": "Los datos de pacientes con fines de investigación necesitan su base jurídica, la autorización de tu centro o comité y una buena anonimización. Habla con la unidad de investigación o con el delegado de protección de datos. Mientras tanto, practica con datos sintéticos, como los de este taller.",
+      "fuente": "RGPD, arts. 9 y 89; Manual de la OMC (2026); 2.3 y 3.0."
+    },
+    "r-local": {
+      "tipo": "resultado",
+      "titulo": "Camino 1 o 3: programa local y, si quieres, IA solo con resultados",
+      "detalle": "Analiza en un programa que funcione en tu ordenador (jamovi o JASP): los datos individuales no salen de él. Si quieres ayuda para interpretar, pasa a la IA solo los resultados agregados (tablas de medias, p-valores, intervalos), nunca la base de datos. Así tienes un proceso revisable y los datos de los pacientes quedan en tu equipo.",
+      "ojo": "Una tabla pequeña con celdas de 1 o 2 pacientes también puede identificar. Agrupa o suprime esas celdas.",
+      "fuente": "jamovi y JASP: webs oficiales, consultadas el 31/10/2026."
+    }
+  }
+}

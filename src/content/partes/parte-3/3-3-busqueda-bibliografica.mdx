@@ -1,0 +1,302 @@
+---
+id: "3-3"
+titulo: Búsqueda bibliográfica actualizada
+parte: 3
+minutos: 150
+objetivos:
+  - Formular una pregunta PICO a partir de una duda clínica y construir una estrategia de búsqueda con MeSH, [tiab] y operadores booleanos
+  - Ejecutar y refinar una búsqueda en PubMed y crear una alerta por correo
+  - Usar una IA para proponer sinónimos, cribar resúmenes y explorar citas sin perder la trazabilidad
+  - Verificar cada referencia por PMID o DOI y detectar las inventadas o mal atribuidas
+gancho: "Le pides a una IA «cinco artículos recientes sobre delirium en mayores» y te devuelve cinco referencias perfectas, con autores, revista y año. Cuando intentas abrirlas, dos no existen y una dice lo contrario de lo que afirma. Este taller te enseña a buscar bien en PubMed, a usar la IA para ahorrar tiempo y a comprobar siempre lo que te devuelve."
+recursos:
+  - r-pubmed-ayuda
+  - v-ua-mesh
+  - v-ua-avanzada
+paraSaberMas:
+  - v-us-pubmed
+  - v-us-mesh
+  - v-calimaco-zotero
+test: "3-3"
+fechaRevision: "2026-10-31"
+aFecha: octubre de 2026
+fuentes:
+  - texto: "Biblioteca Nacional de Medicina de EE. UU. PubMed User Guide: operadores booleanos, etiquetas de campo, comodines, mapeo automático de términos y alertas (pubmed.ncbi.nlm.nih.gov/help), consultada el 31/10/2026"
+    url: https://pubmed.ncbi.nlm.nih.gov/help/
+  - texto: "NCBI. Ejecución de la búsqueda de ejemplo con E-utilities (esearch) el 31/10/2026: 29 resultados"
+  - texto: "Goh E, et al. Large language model influence on diagnostic reasoning: a randomized clinical trial. JAMA Netw Open 2024;7:e2440969"
+    pmid: "39466245"
+  - texto: "Wong A, et al. External validation of a widely implemented proprietary sepsis prediction model. JAMA Intern Med 2021;181:1065-70"
+    pmid: "34152373"
+  - texto: "Clegg A, et al. Development and validation of an electronic frailty index using routine primary care electronic health record data. Age Ageing 2016;45:353-60"
+    pmid: "26944937"
+  - texto: "Montero-Odasso M, et al. World guidelines for falls prevention and management for older adults: a global initiative. Age Ageing 2022;51:afac205"
+    pmid: "36178003"
+  - texto: "Lozano-Vicario L, et al. Effects of exercise intervention for the management of delirium in hospitalized older adults: a randomized clinical trial. J Am Med Dir Assoc 2024"
+    pmid: "38593983"
+  - texto: "Hsiao CC, et al. Comparative efficacy of nonpharmacological interventions for preventing postoperative delirium in hospitalized older adults: a systematic review and network meta-analysis. Age Ageing 2025"
+    pmid: "41004133"
+  - texto: "Prandeh Afshar P, et al. Non-pharmacological interventions for managing acute pain and delirium in hospitalized older patients: a systematic review. BMC Geriatr 2025"
+    pmid: "41444505"
+  - texto: "Wu CR, et al. Global incidence and prevalence of delirium and its risk factors in medically hospitalized older patients: a systematic review and meta-analysis. Int J Nurs Stud 2025"
+    pmid: "39602991"
+  - texto: "Pérez-Ros P, et al. Mortality risk following delirium in older inpatients: a systematic review and meta-analysis. Worldviews Evid Based Nurs 2025"
+    pmid: "40369782"
+---
+
+<Sesion n={1} titulo="De la duda a la PICO" minutos={20}>
+
+### Una buena pregunta ahorra horas
+
+Buscar «delirium en mayores» devuelve miles de resultados. Una pregunta bien formulada los reduce a decenas. La herramienta clásica es la **pregunta PICO**:
+
+- **P**: población (quiénes son los pacientes).
+- **I**: intervención (qué se hace).
+- **C**: comparación (frente a qué).
+- **O**: resultado, *outcome* (qué se mide).
+
+<Analogia>
+Es **la historia clínica de una pregunta**: igual que no ingresas a alguien sin motivo de consulta ni antecedentes, no buscas sin saber a quién, qué y para qué.
+</Analogia>
+
+### Ejemplo
+
+*«En personas de 75 años o más ingresadas en un hospital (P), ¿una intervención multicomponente no farmacológica (I), frente a la atención habitual (C), reduce la aparición de delirium (O)?»*
+
+Esta pregunta nos acompañará todo el taller. Practica a separar sus piezas.
+
+<Clasificador datos="3-3-pico" />
+
+<Plantilla id="p-3-3-pico" />
+
+<PasoTaller id="3-3-anonimizar" tipo="anonimizar" texto="He formulado mi pregunta como un tipo de paciente, sin ningún dato de una persona concreta, antes de escribirla en una herramienta." />
+
+<OjoCon>
+- **Una duda no es una pregunta.** «¿Qué hago con la confusión?» es una duda; la PICO es la pregunta.
+- **No metas pacientes en la búsqueda.** Pregunta por tipos de paciente, no por personas.
+- **No todas necesitan las cuatro letras.** Lo habitual es buscar con P, I y O.
+</OjoCon>
+
+</Sesion>
+
+<Sesion n={2} titulo="PubMed bien hecho: MeSH y booleanos" minutos={22}>
+
+### Las reglas del juego
+
+PubMed es la base de datos de referencia de la literatura biomédica. Algunas reglas de su guía oficial:
+
+- Los operadores **AND, OR y NOT** se escriben **en mayúsculas**. AND exige todos los términos, OR al menos uno y NOT excluye.
+- PubMed procesa de **izquierda a derecha**; los **paréntesis** agrupan conceptos.
+- El **asterisco (\*)** sustituye varias terminaciones, pero hacen falta **al menos 4 caracteres** antes: *hospitali\** encuentra *hospitalized*, *hospitalised*…
+- Las **comillas** fijan una frase y evitan el mapeo automático de términos.
+- Las **etiquetas de campo** acotan dónde se busca: **[mh]** (término MeSH), **[tiab]** (título o resumen), **[pt]** (tipo de publicación), **[dp]** (fecha de publicación).
+
+### MeSH y palabras libres
+
+El **MeSH** (*Medical Subject Headings*) es el vocabulario controlado de la Biblioteca Nacional de Medicina con el que se indexan las citas de PubMed: asigna un mismo descriptor a artículos que usan palabras distintas. Esa indexación es, según el artículo, automática, revisada por una persona o manual, y no todo artículo la tiene. Por eso se combina con palabras libres en título y resumen:
+
+> **(Delirium[mh] OR delirium[tiab] OR "acute confusion\*"[tiab])**
+
+<Analogia>
+Es como **buscar un diagnóstico por su código CIE y por las palabras que usa cada médico en el informe**: el código agrupa, y las palabras recogen lo que aún no está codificado.
+</Analogia>
+
+### Construye tu búsqueda
+
+Este constructor monta la cadena con los bloques de la PICO. Cambia términos, añade sinónimos y abre el resultado en PubMed.
+
+<ConstructorBusqueda datos="3-3-busqueda" />
+
+### En vídeo
+
+<Video id="v-ua-mesh" nota="una biblioteca universitaria explica cómo buscar con términos MeSH en PubMed. Es breve; contenido comprobado por título y descripción." />
+
+<Video id="v-ua-avanzada" nota="cómo combinar búsquedas con el historial de PubMed. Contenido comprobado por título y descripción." />
+
+<OjoCon>
+- **Los operadores en minúscula no funcionan como esperas.** Escribe AND, OR y NOT en mayúsculas.
+- **MeSH solo no basta.** Combínalo con palabras libres.
+- **Más filtros no siempre mejoran la búsqueda.** Pueden dejar fuera lo que buscas.
+</OjoCon>
+
+</Sesion>
+
+<Sesion n={3} titulo="La IA como ayudante de estrategia" minutos={20}>
+
+### Qué puede hacer por ti
+
+Una IA es útil para **proponer sinónimos, variantes de palabras y términos MeSH candidatos**, y para ordenar bloques. No es una fuente: **puede inventar descriptores MeSH que suenan bien pero no existen**.
+
+<Plantilla id="p-3-3-estrategia" />
+
+### El flujo, en tres pasos
+
+1. **Pide la estrategia** con la plantilla y exige que marque lo que no está segura.
+2. **Comprueba cada MeSH** en el buscador MeSH de PubMed: si no existe, descártalo.
+3. **Ejecuta la búsqueda en PubMed** y compara con la que montaste tú en el constructor: ¿cuántos resultados da cada una? ¿Qué artículos aparecen solo en una?
+
+<PruebaloTu minutos={10}>
+Con tu pregunta PICO, pide a un asistente una estrategia de búsqueda para PubMed con la plantilla anterior. **Comprueba cada término MeSH** en el buscador MeSH. Ejecútala y anota el número de resultados. Compárala con la del constructor: ¿qué ha aportado la IA que a ti no se te había ocurrido? ¿Qué ha inventado?
+</PruebaloTu>
+
+<OjoCon>
+- **Un MeSH que «suena bien» puede no existir.** Compruébalo siempre.
+- **La IA no ve PubMed en tiempo real.** Propone; tú ejecutas y compruebas.
+- **No pegues tu pregunta clínica con datos de un paciente.** Una PICO es sobre tipos de paciente.
+</OjoCon>
+
+</Sesion>
+
+<Sesion n={4} titulo="Cribar y resumir con IA" minutos={22}>
+
+### Cribar es decidir qué leer
+
+Tras la búsqueda, hay que decidir qué artículos merecen leerse. Cribar se hace con **criterios de inclusión y exclusión** escritos de antemano. Una IA puede ayudarte con los **títulos y resúmenes públicos**: clasificar cada uno y decir en qué parte del resumen se basa.
+
+<Plantilla id="p-3-3-cribar" />
+
+### Con cuidado
+
+- **La decisión es tuya.** Revisa también los «Excluir»: si la IA se equivoca ahí, pierdes un artículo sin saberlo.
+- **Pide siempre la razón y la cita del resumen.** Es la forma de comprobar si se basa en lo que dice el texto.
+- **Usa solo resúmenes públicos.** No subas textos completos con derechos ni datos de pacientes.
+
+### Tabla de evidencia
+
+Para resumir varios estudios, una tabla es más útil que un párrafo: una fila por artículo y una columna por dato clave.
+
+<Plantilla id="p-3-3-tabla-evidencia" />
+
+<OjoCon>
+- **Resumir con IA es rápido y falible.** Comprueba cada cifra contra el resumen original.
+- **Mezclar datos de artículos distintos es un fallo típico.** Pide una fila por artículo, y revisa.
+- **Los criterios se escriben antes de cribar**, no después de ver los resultados.
+</OjoCon>
+
+</Sesion>
+
+<Sesion n={5} titulo="Mapas de citas y alertas" minutos={20}>
+
+### Para no perder el hilo
+
+Una vez tienes unos artículos clave, hay herramientas que **dibujan quién cita a quién** y te ayudan a encontrar estudios relacionados que no habías visto. Y PubMed puede avisarte cuando aparezcan artículos nuevos sobre tu búsqueda.
+
+### Alertas en PubMed
+
+Desde los resultados de una búsqueda, la opción **«Create alert»** (bajo la barra de búsqueda) envía un correo automático con las novedades. Hace falta iniciar sesión en **My NCBI**, una cuenta gratuita.
+
+<Analogia>
+Es **suscribirte al sumario de las revistas que importan**, pero filtrado por tu pregunta: te llega solo lo que encaja.
+</Analogia>
+
+### El mapa de herramientas
+
+Estas son las herramientas del plan, con lo que dice su página oficial. Pocas tienen todos sus datos verificados: te lo indicamos.
+
+<Explorador datos="3-3-herramientas" />
+
+<OjoCon>
+- **Ninguna de estas herramientas es apta para datos de pacientes** con una cuenta personal.
+- **Una herramienta con IA puede citar con aplomo y equivocarse.** Verifica siempre en PubMed.
+- **Los planes y los límites cambian.** Confirma en la web oficial.
+</OjoCon>
+
+</Sesion>
+
+<Sesion n={6} titulo="¿Real o inventada? Verificar referencias" minutos={22}>
+
+### Tres formas de fallar
+
+Una referencia que te da una IA puede fallar de tres maneras:
+
+1. **No existe.** El PMID no devuelve nada, o el DOI no se resuelve.
+2. **Existe otra cosa.** El PMID es real, pero lleva a un artículo distinto del citado.
+3. **Existe, pero no dice eso.** La referencia es real y la conclusión es falsa.
+
+La tercera es la más peligrosa, porque la referencia «pasa» la primera comprobación.
+
+<Analogia>
+Es **comprobar una filiación y un cultivo**: que el paciente existe (el PMID), que es el que dice ser (el título) y que el resultado dice lo que le atribuyen (el resumen).
+</Analogia>
+
+### El juego
+
+Clasifica estas ocho referencias. Las reales se han comprobado en PubMed; las inventadas, no existen.
+
+<Clasificador datos="3-3-real-inventada" />
+
+### Cómo se comprueba, paso a paso
+
+1. **Pega el PMID** en PubMed (o en la barra de búsqueda con `PMID`). Si no devuelve nada, es una señal de alarma.
+2. **Compara título, autores, revista y año** con la referencia.
+3. **Lee el resumen** y comprueba que dice lo que se afirma.
+4. Si solo hay DOI, ábrelo en **doi.org**.
+
+<Plantilla id="p-3-3-referencias" />
+
+<PasoTaller id="3-3-verificar" tipo="verificar" texto="He comprobado en PubMed, por PMID o DOI, todas las referencias de una respuesta de IA y he anotado cuáles existían, cuáles eran otra cosa y cuáles no decían lo afirmado." />
+
+<OjoCon>
+- **Que el PMID exista no basta.** Comprueba que lleva al título citado.
+- **Lee el resumen.** La tercera trampa (real, pero no dice eso) solo se detecta leyendo.
+- **Una IA «con acceso a internet» también inventa.** Verifica igual.
+</OjoCon>
+
+</Sesion>
+
+<Sesion n={7} titulo="Zotero, tabla de evidencia y test" minutos={24}>
+
+### Guardar bien lo que encuentras
+
+**Zotero** es un gestor de referencias gratuito y de código abierto. Guarda con un clic una referencia desde PubMed, organiza carpetas y te inserta las citas y la bibliografía en Word en el estilo que pida la revista. No comprueba si una referencia dice lo que crees: eso sigue siendo cosa tuya.
+
+<Video id="v-calimaco-zotero" nota="tutorial breve de Zotero: instalación, conector del navegador, importación de referencias y citas en Word. Contenido comprobado por título, descripción y capítulos; no visto." />
+
+### Una tabla de evidencia, de ejemplo
+
+Estos cinco artículos son reales y salen de la búsqueda de ejemplo. Aquí solo se indica su diseño, según el título. **El resultado principal lo rellenas tú**, leyendo cada resumen.
+
+<Desplegable titulo="Ver los cinco artículos del ejemplo">
+
+| Referencia | PMID | Diseño (según el título) | Población y tema |
+|---|---|---|---|
+| Lozano-Vicario L, et al. J Am Med Dir Assoc 2024 | 38593983 | Ensayo clínico aleatorizado | Mayores hospitalizados; ejercicio para el manejo del delirium |
+| Hsiao CC, et al. Age Ageing 2025 | 41004133 | Revisión sistemática y metaanálisis en red | Mayores hospitalizados; prevención del delirium posoperatorio con intervenciones no farmacológicas |
+| Prandeh Afshar P, et al. BMC Geriatr 2025 | 41444505 | Revisión sistemática | Mayores hospitalizados; intervenciones no farmacológicas para el dolor agudo y el delirium |
+| Wu CR, et al. Int J Nurs Stud 2025 | 39602991 | Revisión sistemática y metaanálisis | Mayores ingresados por causas médicas; incidencia y frecuencia del delirium y factores de riesgo |
+| Pérez-Ros P, et al. Worldviews Evid Based Nurs 2025 | 40369782 | Revisión sistemática y metaanálisis | Mayores ingresados; riesgo de mortalidad tras el delirium |
+
+</Desplegable>
+
+<Resumen>
+- Una **pregunta PICO** (población, intervención, comparación, resultado) convierte una duda en una búsqueda. Sin datos de ningún paciente.
+- En PubMed, **AND, OR y NOT van en mayúsculas**; los paréntesis agrupan; **[mh]** busca MeSH y **[tiab]** busca en título y resumen. Combina ambos.
+- Una IA puede **proponer sinónimos y MeSH candidatos**, pero **puede inventarlos**: compruébalos en el buscador MeSH.
+- Para **cribar**, escribe los criterios antes, pide la razón citada del resumen y revisa también los «Excluir».
+- Una referencia puede **no existir**, **existir como otra cosa** o **existir y no decir eso**: comprueba PMID o DOI, título y resumen.
+- **PubMed te avisa de las novedades** con «Create alert» (My NCBI); **Zotero** guarda y cita.
+</Resumen>
+
+<Ficha titulo="Búsqueda bibliográfica con IA">
+**Pregunta**
+- PICO: Población · Intervención · Comparación · Resultado. Sin datos de pacientes.
+
+**PubMed**
+- AND · OR · NOT en mayúsculas. Paréntesis para agrupar.
+- [mh] MeSH · [tiab] título y resumen · [pt] tipo · [dp] fecha.
+- hospitali* (≥ 4 letras antes del *). Comillas: frase exacta.
+- «Create alert» con My NCBI.
+
+**Con IA**
+- Pide sinónimos y MeSH candidatos → compruébalos.
+- Cribar: criterios escritos, razón citada, revisa los «Excluir».
+
+**Verificar una referencia**
+1. ¿Existe el PMID o el DOI?
+2. ¿Lleva al título y a los autores?
+3. ¿El resumen dice lo que se afirma?
+</Ficha>
+
+<TestFinal id="3-3" />
+
+</Sesion>

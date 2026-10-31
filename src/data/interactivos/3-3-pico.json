@@ -1,0 +1,18 @@
+{
+  "titulo": "De la duda a la pregunta PICO",
+  "instrucciones": "Pregunta: «En personas de 75 años o más ingresadas en un hospital, ¿una intervención multicomponente no farmacológica, frente a la atención habitual, reduce la aparición de delirium?». Asigna cada fragmento a su letra.",
+  "categorias": [
+    { "id": "p", "nombre": "P · Población", "descripcion": "quiénes son los pacientes" },
+    { "id": "i", "nombre": "I · Intervención", "descripcion": "qué se hace" },
+    { "id": "c", "nombre": "C · Comparación", "descripcion": "frente a qué" },
+    { "id": "o", "nombre": "O · Resultado (outcome)", "descripcion": "qué se mide" }
+  ],
+  "items": [
+    { "texto": "Personas de 75 años o más ingresadas en un hospital.", "categoria": "p", "explicacion": "La población: edad y contexto. Es lo que luego se traduce a MeSH como «Aged» e «Inpatients»." },
+    { "texto": "Una intervención multicomponente no farmacológica (orientación, movilización, hidratación, sueño…).", "categoria": "i", "explicacion": "La intervención. Cuanto más concreta, mejor búsqueda: «multicomponent» y «non-pharmacological»." },
+    { "texto": "La atención habitual.", "categoria": "c", "explicacion": "Con qué se compara. En muchas búsquedas la comparación no se incluye en la cadena, porque restringe demasiado." },
+    { "texto": "La aparición de delirium durante el ingreso.", "categoria": "o", "explicacion": "El resultado clínico que importa. Se traduce a MeSH como «Delirium»." },
+    { "texto": "Un mayor ingresado en tu planta que tuvo un delirium la semana pasada.", "categoria": "p", "explicacion": "Un ejemplo de población: describe a quién se aplicaría el resultado. Una pregunta PICO parte de un tipo de paciente, no de una persona." }
+  ],
+  "cierre": "Una buena PICO te ahorra horas: convierte una duda difusa («¿hacer algo contra el delirium?») en cuatro conceptos que se pueden buscar. No todas las preguntas necesitan las cuatro letras: lo habitual es buscar P, I y O."
+}

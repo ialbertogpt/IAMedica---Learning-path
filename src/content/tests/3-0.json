@@ -1,0 +1,43 @@
+{
+  "titulo": "Test · Tu entorno de trabajo seguro",
+  "preguntas": [
+    {
+      "tipo": "emparejar",
+      "enunciado": "Empareja cada dato con lo que debes hacer antes de pegar un texto en un asistente con una cuenta personal.",
+      "pares": [
+        { "izquierda": "Número de historia clínica", "derecha": "Quitarlo", "porque": "Es un identificador directo y único: se elimina siempre." },
+        { "izquierda": "Fecha exacta del ingreso", "derecha": "Generalizarlo («día 1 del ingreso»)", "porque": "Una fecha exacta permite cruzar datos; el tiempo relativo conserva lo clínicamente útil." },
+        { "izquierda": "Creatinina 1,7 mg/dl", "derecha": "Mantenerlo", "porque": "Es un dato clínico necesario que, sin nombre ni fechas, no identifica." },
+        { "izquierda": "Teléfono de un familiar", "derecha": "Quitarlo", "porque": "Identifica a un tercero y, a través de él, a la paciente." }
+      ]
+    },
+    {
+      "tipo": "vf",
+      "enunciado": "Si desactivas la opción de que usen tus conversaciones para mejorar el modelo, puedes pegar datos identificables de pacientes sin problema.",
+      "respuesta": false,
+      "explicacionVerdadero": "No. El ajuste reduce el uso de tus conversaciones, pero la empresa puede conservar copias o revisar conversaciones por seguridad, y una cuenta personal no es un canal autorizado para datos de pacientes.",
+      "explicacionFalso": "Correcto. Desactivar la mejora del modelo no hace segura una cuenta personal: pueden quedar copias, hay revisión de seguridad y no hay contrato del centro con el proveedor."
+    },
+    {
+      "tipo": "escenario",
+      "enunciado": "¿Qué es lo más adecuado?",
+      "caso": "Tienes un informe real y quieres usarlo en un asistente. Se te ocurre pegarlo entero y pedirle a la IA: «anonimiza este informe antes de seguir».",
+      "opciones": [
+        { "texto": "Es buena idea: la IA anonimiza mejor que una persona.", "correcta": false, "explicacion": "Para anonimizar, tendrías que pegarle el informe con todos los datos: ya los habrías enviado." },
+        { "texto": "No: anonimizas tú, en tu ordenador, con la checklist, antes de pegar nada.", "correcta": true, "explicacion": "La anonimización debe hacerse antes de que el texto salga de tu equipo. Si el caso sigue siendo identificable, usa uno ficticio." },
+        { "texto": "Sí, pero solo si tienes el plan de pago.", "correcta": false, "explicacion": "El plan de pago no cambia el problema: los datos ya se habrían enviado." },
+        { "texto": "Sí, pero borrando antes solo el nombre.", "correcta": false, "explicacion": "Quitar solo el nombre deja el número de historia, las fechas, los teléfonos y las combinaciones que identifican." }
+      ]
+    },
+    {
+      "tipo": "unica",
+      "enunciado": "Estás dudando entre seguir con el plan gratuito de un asistente o pagar uno. ¿Qué criterio es más razonable?",
+      "opciones": [
+        { "texto": "Pagar el más caro: así tienes lo mejor.", "correcta": false, "explicacion": "Los planes más caros están pensados para un uso muy intensivo y no aportan nada especial para estudiar o redactar." },
+        { "texto": "Seguir con el gratuito hasta que sus límites te estorben de verdad; si pagas, un solo plan estándar y con el precio confirmado en la web oficial.", "correcta": true, "explicacion": "Con un uso moderado, el plan gratuito basta. Si compensa pagar, basta un escalón estándar de un solo asistente." },
+        { "texto": "Pagar tres asistentes distintos para comparar siempre.", "correcta": false, "explicacion": "Pagar varios multiplica el coste sin ventaja clara. Puedes comparar con los planes gratuitos." },
+        { "texto": "Pagar porque así tus datos están protegidos.", "correcta": false, "explicacion": "Un plan de pago de una cuenta personal no hace apta la herramienta para datos de pacientes." }
+      ]
+    }
+  ]
+}

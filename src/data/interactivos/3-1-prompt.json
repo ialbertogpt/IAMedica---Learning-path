@@ -1,0 +1,21 @@
+{
+  "titulo": "¿Qué falla en este prompt?",
+  "pregunta": "Un compañero te enseña el prompt con el que ha consultado un caso a un asistente de IA y te pregunta qué te parece.",
+  "procedencia": "texto creado para este ejercicio; el caso es ficticio; contiene 5 fallos intencionados",
+  "hallazgo": "fallos",
+  "instrucciones": "Toca los fragmentos que debilitan el prompt (por privacidad, por sesgo o por falta de información) y pulsa «Comprobar». Algunos fragmentos están bien: no los marques.",
+  "parrafos": [
+    [
+      { "texto": "Paciente: Carmen Ortega, 86 años, historia 7731904, planta 4.ª.", "error": true, "explicacion": "Nombre, número de historia y planta: identificadores que no deben salir de tu equipo (3.0). La edad basta." },
+      { "texto": "Tres caídas en dos meses y, desde hace cuatro días, confusión que fluctúa a lo largo del día.", "explicacion": "Evolución clara, con tiempos relativos. Está bien." },
+      { "texto": "Toma varios fármacos para la tensión y alguno para el ánimo.", "error": true, "explicacion": "Falta la lista de fármacos con sus dosis. Sin ella, la IA no puede valorar una causa farmacológica, que es muy frecuente en este cuadro." }
+    ],
+    [
+      { "texto": "Sodio 124 mmol/l, creatinina 1,2 mg/dl y TA 128/76 acostada y 102/60 de pie.", "explicacion": "Datos objetivos con sus unidades. Está bien." },
+      { "texto": "Seguro que es un problema de la tiazida, ¿verdad?", "error": true, "explicacion": "Pregunta sesgada: presenta tu hipótesis como cierta y pide confirmación. Favorece la complacencia." },
+      { "texto": "Dime solo la causa más probable, sin dar muchas vueltas.", "error": true, "explicacion": "Pide una respuesta única y rápida. Un diferencial razonado (con lo que apoya y refuta cada opción) es más útil y más seguro." },
+      { "texto": "Respóndeme como un especialista y sin avisos.", "error": true, "explicacion": "Pedir «sin avisos» elimina las salvaguardas que te ayudan a no equivocarte (incertidumbre, límites, qué comprobar). Pide lo contrario: que señale lo que no sabe." }
+    ]
+  ],
+  "conclusion": "Un buen prompt de caso clínico no lleva identificadores, incluye la lista de fármacos, plantea una pregunta abierta (un diferencial razonado) y, si das tu hipótesis, la pone al final y pide que se refute."
+}

@@ -1,0 +1,364 @@
+---
+id: "3-4"
+titulo: Análisis estadístico de una base de datos en Excel
+parte: 3
+minutos: 180
+objetivos:
+  - Comparar los tres caminos para analizar datos (programa local, IA con análisis de datos, híbrido) y elegir el adecuado según la privacidad
+  - Preparar un Excel con datos sintéticos, limpiándolo, documentándolo con un diccionario de variables y anonimizándolo
+  - Elegir la prueba estadística adecuada con un árbol de decisión y entender qué dicen el p-valor y el intervalo de confianza
+  - Analizar los datos en jamovi, usar la IA solo con resultados agregados para interpretarlos y reproducir un resultado clave por una segunda vía
+gancho: "Tienes una hoja de cálculo con 250 pacientes y una pregunta: ¿se parecen los que ingresan a los que no? La tentación es subir el Excel a una IA y pedirle «analízalo». Aquí aprenderás un camino mejor: limpiar los datos, elegir la prueba, analizar en un programa que funciona en tu ordenador y usar la IA solo para entender e interpretar los resultados, no para calcularlos ni para recibir datos de pacientes."
+recursos:
+  - r-jamovi
+  - v-medina-jamovi
+  - v-iadaniel-jamovi
+paraSaberMas:
+  - r-jasp
+test: "3-4"
+fechaRevision: "2026-10-31"
+aFecha: octubre de 2026
+fuentes:
+  - texto: "Dataset sintético del taller: generado con el script scripts/generar-dataset.mjs (semilla fija 20261031), 250 pacientes ficticios; las relaciones entre variables son inventadas"
+  - texto: "Resultados de referencia: calculados por dos vías independientes (Python y Node, sin librerías estadísticas) con coincidencia en todas las cifras; 31/10/2026"
+  - texto: "jamovi project. jamovi: free and open statistical software (jamovi.org), consultada el 31/10/2026"
+    url: https://www.jamovi.org/
+  - texto: "JASP. JASP: free, friendly and flexible statistics (jasp-stats.org), consultada el 31/10/2026"
+    url: https://jasp-stats.org/
+  - texto: "Reglamento (UE) 2016/679 (RGPD): arts. 9 y 89 (tratamiento con fines de investigación científica y garantías)"
+    url: https://eur-lex.europa.eu/legal-content/ES/TXT/?uri=CELEX:32016R0679
+---
+
+<Sesion n={1} titulo="Tres caminos para analizar datos" minutos={20}>
+
+### Un mismo Excel, tres formas de analizarlo
+
+1. **Programa estadístico local** (jamovi o JASP). Los datos están en tu ordenador. Es gratuito y deja un proceso que puedes revisar y repetir.
+2. **IA con análisis de datos.** Subes el fichero a un asistente y le pides que lo analice. Es rápido, pero **los datos salen de tu equipo**, puede equivocarse al calcular y el proceso es difícil de revisar.
+3. **Híbrido.** Analizas en el programa local y pasas a la IA **solo los resultados agregados** (tablas de medias, p-valores, intervalos) para que te ayude a interpretarlos y a redactarlos.
+
+<Analogia>
+Es la diferencia entre **mandar tus muestras a un laboratorio externo con todos los datos del paciente** y **procesarlas en tu laboratorio y consultar el resultado**. Con el camino 3, los datos individuales nunca salen.
+</Analogia>
+
+### Qué camino te conviene
+
+<Arbol datos="3-4-camino" />
+
+### Dos programas gratuitos
+
+**jamovi** se presenta como un programa estadístico gratuito y de código abierto, con una hoja de cálculo y menús sencillos, basado en R; su versión de escritorio es siempre gratuita, según su web. **JASP** es otra alternativa de código abierto, con interfaz gráfica, para análisis clásicos y bayesianos. En este taller usamos jamovi.
+
+<OjoCon>
+- **Pedirle a una IA que calcule no es verificable.** Si no ves el proceso, no puedes repetirlo.
+- **Subir el Excel a un asistente con datos reales no es aceptable** con una cuenta personal (2.3 y 3.0).
+- **El camino 3 es el que combina lo mejor de ambos:** programa local para calcular, IA para entender.
+</OjoCon>
+
+</Sesion>
+
+<Sesion n={2} titulo="Preparar el Excel I: limpieza" minutos={20}>
+
+### Los datos del taller
+
+Trabajarás con un fichero de **250 pacientes ficticios** (generado por un script con semilla fija: todos los datos son inventados y las relaciones entre variables también). Descárgalo, con errores intencionados para limpiar:
+
+- [pacientes-sinteticos-con-errores.xlsx](/descargas/pacientes-sinteticos-con-errores.xlsx) (Excel)
+- [pacientes-sinteticos-con-errores.csv](/descargas/pacientes-sinteticos-con-errores.csv) (texto, el formato más seguro para abrirlo en jamovi)
+
+Incluye la edad, el sexo, el **índice de Barthel**, el **test de Pfeiffer**, el **número de fármacos**, la **escala FRAIL**, las **caídas** de los 12 meses previos y los **ingresos** y **fallecimientos** a los 12 meses. La hoja «Diccionario» describe cada variable.
+
+<AvisoClinico titulo="Datos ficticios">
+Ningún paciente es real y las relaciones entre variables las ha **diseñado el generador**: no son hallazgos clínicos. Sirven para aprender el método.
+</AvisoClinico>
+
+### Los cinco problemas habituales
+
+Antes de analizar, hay que inspeccionar. Estos son los tipos de problema que encontrarás. Practica a reconocerlos en ejemplos del fichero.
+
+<Clasificador datos="3-4-errores" />
+
+### Cómo limpiar en Excel
+
+- **Filtros** (Datos → Filtro): ordena cada columna de menor a mayor y busca valores fuera de rango y textos.
+- **Quitar duplicados** (Datos → Quitar duplicados): elimina filas idénticas.
+- **Reemplazar** (Inicio → Buscar y seleccionar → Reemplazar): unifica codificaciones («M» y «mujer» → «Mujer»).
+- **Decide cada caso:** si un valor imposible parece una errata clara, corrígelo y anótalo; si no puedes comprobarlo, déjalo vacío (dato ausente).
+
+<Desplegable titulo="Ver la lista de errores intencionados (ábrela cuando hayas limpiado)">
+
+| Problema | Casos | Pacientes |
+|---|---:|---|
+| Sexo con codificación inconsistente | 12 | P097, P074, P133, P003, P215, P156, P007, P139, P005, P035, P208, P113 |
+| Edad guardada como texto («84 años») | 3 | P134, P101, P241 |
+| Edad imposible (9 y 840) | 2 | P148, P153 |
+| Barthel fuera de rango (150 y 900) | 2 | P143, P029 |
+| Pfeiffer fuera de rango (11 y 12) | 2 | P071, P018 |
+| Número de fármacos improbable (55) | 1 | P106 |
+| Barthel sin dato | 8 | P145, P093, P236, P180, P015, P077, P011, P174 |
+| Pfeiffer sin dato | 6 | P025, P182, P216, P088, P243, P008 |
+| FRAIL con «NS/NC» | 2 | P169, P032 |
+| Ingreso con «Sí» en lugar de 1 | 4 | P023, P171, P020, P045 |
+| Filas duplicadas | 3 | P191, P131, P123 |
+
+El fichero tiene 253 filas; sin duplicados, 250.
+
+</Desplegable>
+
+<PasoTaller id="3-4-descarga" tipo="otro" texto="He descargado el fichero, he localizado en él al menos cinco de los problemas de la lista y he anotado qué hice con cada uno." />
+
+<OjoCon>
+- **Limpiar no es borrar lo que molesta.** Anota qué cambiaste, cuántos casos y por qué.
+- **Guarda una copia del original.** Trabaja siempre sobre una copia.
+- **Un valor imposible no se «arregla» a ojo.** Si no puedes comprobarlo, mejor dato ausente.
+</OjoCon>
+
+</Sesion>
+
+<Sesion n={3} titulo="Preparar el Excel II: diccionario y anonimización" minutos={20}>
+
+### El diccionario de variables
+
+Un buen diccionario dice, para cada columna: **qué mide, en qué unidades, qué valores admite y cómo se codifica**. Es lo primero que necesita quien reciba tus datos (y tú dentro de seis meses). La hoja «Diccionario» del fichero es un <T id="modelo">modelo</T>.
+
+<Analogia>
+Es **la leyenda de un mapa**: sin ella, los números no se pueden leer, ni por ti, ni por otro colega, ni por una IA.
+</Analogia>
+
+### Proteger la base de datos
+
+En 3.0 aprendiste a <T id="anonimizar">anonimizar</T> un texto. En una base de datos, el principio es el mismo: nadie debe poder reconocer a una persona. Para una base de análisis, decide qué hacer con cada variable.
+
+<Clasificador datos="3-4-variables" />
+
+Con fines de investigación, el RGPD (art. 89) exige garantías adecuadas, con medidas técnicas y organizativas, en particular para garantizar la **minimización** de los datos; entre ellas puede incluirse la seudonimización. Es decir: **solo las variables que necesitas**, y con el menor nivel de detalle posible.
+
+<PasoTaller id="3-4-anonimizar" tipo="anonimizar" texto="He revisado la base de datos antes de analizarla o compartir ningún resultado: no hay identificadores directos, las fechas se han convertido en edades o tiempos relativos y no quedan combinaciones raras." />
+
+<OjoCon>
+- **Una tabla con celdas de 1 o 2 pacientes puede identificar.** Agrupa o suprime esas celdas antes de compartir.
+- **Los códigos del estudio no son anónimos** si guardas la tabla de equivalencias: protégela aparte.
+- **Variables que no necesitas, fuera.** La minimización es una obligación, no un detalle.
+</OjoCon>
+
+</Sesion>
+
+<Sesion n={4} titulo="¿Qué prueba uso?" minutos={20}>
+
+### La pregunta antes que la prueba
+
+Cada análisis empieza por saber **qué tipo de variable es el resultado** (una cantidad, una categoría), **cuántos grupos** compara y **si los datos están emparejados**. A partir de ahí, la prueba es casi automática. Este árbol cubre los casos más habituales. Úsalo como orientación: ante la duda, consulta a un estadístico.
+
+<Arbol datos="3-4-prueba" />
+
+<Plantilla id="p-3-4-elegir-prueba" />
+
+### Con nuestros datos
+
+Con el fichero limpio, estas serían las preguntas y las pruebas:
+
+| Pregunta | Resultado | Prueba |
+|---|---|---|
+| ¿El Barthel difiere entre quienes ingresan y quienes no? | Cantidad, dos grupos independientes | t de Student (Welch) |
+| ¿Las caídas previas se asocian al ingreso? | Categoría con dos opciones, dos grupos | χ² y odds ratio |
+| ¿La edad se relaciona con el Barthel? | Dos cantidades | Correlación de Pearson |
+| ¿Qué variables explican el ingreso, a la vez? | Categoría con dos opciones, varias variables | Regresión logística |
+
+<OjoCon>
+- **No elijas la prueba por el resultado que te gusta.** Se elige antes de ver los datos.
+- **Un árbol no es un estadístico.** En un estudio real, consulta con uno.
+- **Los supuestos importan.** Comprueba la normalidad y la independencia de las observaciones.
+</OjoCon>
+
+</Sesion>
+
+<Sesion n={5} titulo="p-valor e intervalo de confianza, sin fórmulas" minutos={20}>
+
+### Qué dicen (y qué no)
+
+- El **p-valor** es la probabilidad de obtener una diferencia como la observada, o mayor, **si en realidad no hubiera ninguna**. No es la probabilidad de que la hipótesis sea cierta.
+- El **intervalo de confianza (IC) del 95 %** es un rango de valores compatibles con los datos. Su significado exacto: si repitieras el estudio muchas veces, **alrededor del 95 % de los intervalos contendrían el valor real**.
+
+<Analogia>
+Es **la precisión de una medida**: no basta con decir «la tensión es de 130»; hay que decir «130, con un margen de ±10». El IC es ese margen, y un estudio pequeño tiene un margen grande.
+</Analogia>
+
+### Míralo en acción
+
+Este simulador repite 50 «estudios» con la misma diferencia real. Cambia el número de pacientes y la diferencia real, y observa qué ocurre con los intervalos y con los resultados «significativos».
+
+<SimuladorIC titulo="Repite el estudio 50 veces" nota="Simulación con datos inventados: dos grupos con la misma desviación típica (10 puntos). Sirve para entender los conceptos; no representa ningún estudio real." />
+
+### Lo que se debe llevar
+
+1. Con **pocos pacientes**, los IC son anchos y muchos estudios no detectan una diferencia que sí existe: que no salga significativo **no significa que no haya diferencia**.
+2. Con **diferencia real cero**, algunos estudios salen «significativos» por azar (alrededor del 5 %).
+3. Un **p muy pequeño** no dice si la diferencia importa clínicamente: mira el **tamaño** de la diferencia y su IC.
+
+<OjoCon>
+- **El p-valor no es la probabilidad de que tu hipótesis sea cierta.**
+- **«No significativo» no es «no hay diferencia».** Puede ser falta de potencia.
+- **Significativo no es importante.** Con muchos pacientes, una diferencia mínima puede dar un p minúsculo.
+</OjoCon>
+
+</Sesion>
+
+<Sesion n={6} titulo="jamovi: preparar y describir" minutos={20}>
+
+### Instalar y abrir
+
+En su web, jamovi indica que la versión de escritorio es siempre gratuita. Descarga el programa, instálalo y abre el fichero **limpio** de referencia, que es el resultado de aplicar la limpieza de la sesión 2 (los duplicados eliminados, los textos pasados a número, las categorías unificadas y los valores imposibles dejados vacíos):
+
+- [pacientes-sinteticos-limpio.csv](/descargas/pacientes-sinteticos-limpio.csv)
+- [pacientes-sinteticos-limpio.xlsx](/descargas/pacientes-sinteticos-limpio.xlsx)
+
+El **CSV** es el formato más seguro para abrirlo en jamovi. Los nombres exactos de los menús pueden variar según la versión y el idioma del programa.
+
+<Video id="v-medina-jamovi" nota="introducción a los menús y a la estructura de jamovi, en español. Contenido comprobado por título y descripción; es de 2022 y la interfaz puede haber cambiado." />
+
+### Describir antes de comparar
+
+Lo primero es **mirar**: cuántos pacientes hay, cómo se distribuyen las variables, cuántos datos faltan. En jamovi, el análisis de **Exploración → Descriptivas** te da las medias, las desviaciones típicas y los gráficos. Comprueba también el **tipo de cada variable** (continua, ordinal o nominal).
+
+<Video id="v-iadaniel-jamovi" desde="0:42" hasta="6:06" nota="limpieza de la base de datos, descriptivas, normalidad y tablas de frecuencias. Es un fragmento de un vídeo más largo de un canal con un curso de pago; contenido comprobado por título, descripción y capítulos." />
+
+<Desplegable titulo="Resultados de referencia: descriptivos (ábrelo cuando hayas hecho los tuyos)">
+
+Con el fichero limpio de referencia (250 pacientes), deberías obtener:
+
+| Variable | n con dato | Media | Desviación típica |
+|---|---:|---:|---:|
+| Edad (años) | 248 | 82,3 | 5,5 |
+| Índice de Barthel | 240 | 66,6 | 22,1 |
+| Test de Pfeiffer (errores) | 242 | 2,45 | 1,81 |
+| Número de fármacos | 249 | 7,88 | 1,88 |
+| Escala FRAIL | 248 | 1,60 | 1,26 |
+| Caídas en 12 meses | 250 | 1,05 | 1,06 |
+
+**Mujeres:** 163 de 250. **Ingresos a los 12 meses:** 78 (31,2 %). **Fallecimientos:** 28 (11,2 %).
+
+Las tres primeras variables tienen datos ausentes (los ausentes de verdad y los valores imposibles que se dejaron vacíos).
+
+</Desplegable>
+
+<OjoCon>
+- **Mira los datos antes de analizar.** Un gráfico delata lo que una tabla esconde.
+- **Los datos ausentes no son cero.** Comprueba cómo los trata el programa.
+- **Una media sin su desviación típica no dice mucho.**
+</OjoCon>
+
+</Sesion>
+
+<Sesion n={7} titulo="jamovi: comparaciones y regresión" minutos={20}>
+
+### Tres análisis con los datos del taller
+
+Con el fichero limpio, haz estos tres análisis. Los resultados de referencia están abajo; si los tuyos no coinciden, revisa el tipo de las variables y los datos ausentes.
+
+**1. Barthel según el ingreso (t de Student, versión de Welch).** Compara las medias de dos grupos independientes. En jamovi, la prueba t para muestras independientes ofrece, entre otras, la versión de Welch.
+
+<Video id="v-iadaniel-jamovi" desde="6:06" hasta="9:45" nota="prueba t de Student y muestras apareadas. Fragmento de un vídeo de un canal con un curso de pago; contenido comprobado por capítulos, no visto." />
+
+**2. Caídas e ingreso (χ² y odds ratio).** En las tablas de contingencia (análisis de frecuencias), pide el χ² y la odds ratio.
+
+<Video id="v-iadaniel-jamovi" desde="12:16" hasta="14:09" nota="chi-cuadrado en jamovi. Fragmento; contenido comprobado por capítulos, no visto." />
+
+**3. Regresión logística del ingreso.** Con el Barthel, el número de fármacos, las caídas y la escala FRAIL como variables explicativas.
+
+<Video id="v-iadaniel-jamovi" desde="19:38" nota="regresión binomial (logística) en jamovi, hasta el final del vídeo. Fragmento; contenido comprobado por capítulos, no visto." />
+
+<Desplegable titulo="Resultados de referencia (ábrelo cuando hayas hecho los tuyos)">
+
+| Análisis | Resultado de referencia |
+|---|---|
+| Barthel según ingreso (Welch) | Con ingreso (n = 74): 56,6 (DE 20,6). Sin ingreso (n = 166): 71,1 (DE 21,3). Diferencia −14,6 puntos (IC 95 %: −20,3 a −8,8); t = −5,00; gl = 144,8; p = 1,6 × 10⁻⁶ |
+| Caídas (≥ 1) × ingreso | Tabla: con caídas, 62 ingresan y 98 no; sin caídas, 16 ingresan y 74 no. χ² = 11,80 (1 gl, sin corrección de continuidad), p = 0,0006. Odds ratio 2,93 (IC 95 %: 1,56 a 5,48) |
+| Correlación edad–Barthel | Pearson r = −0,35 (n = 238), p < 0,0001 |
+| Regresión logística (n = 237) | Barthel: OR 0,978 por punto (IC 95 %: 0,962 a 0,995; p = 0,010). Fármacos: OR 1,206 (1,025 a 1,419; p = 0,024). Caídas: OR 1,402 (1,052 a 1,868; p = 0,021). FRAIL: OR 1,260 (0,949 a 1,671; p = 0,110) |
+
+Estas cifras se han calculado por dos vías de cálculo independientes (sin librerías estadísticas) y coinciden. Las relaciones las ha diseñado el generador: **no son hallazgos clínicos**.
+
+</Desplegable>
+
+<OjoCon>
+- **Analiza solo con el fichero limpio.** Con los errores, tus resultados no coincidirán.
+- **Mira el tamaño y el IC, no solo el p.** Una diferencia de 14,6 puntos de Barthel tiene sentido clínico; un p pequeño por sí solo, no.
+- **La odds ratio no es el riesgo relativo.** Se interpreta con cuidado cuando el evento es frecuente.
+</OjoCon>
+
+</Sesion>
+
+<Sesion n={8} titulo="La IA como tutor e intérprete" minutos={20}>
+
+### Qué sí y qué no
+
+La IA te sirve para **entender** un concepto («explícame qué es una odds ratio con un ejemplo de mi planta»), para **elegir una prueba sin pasarle datos**, para **redactar la sección de métodos** y para **interpretar resultados agregados**. No te sirve para calcular, ni para recibir la base de datos.
+
+<Plantilla id="p-3-4-interpretar" />
+
+<Plantilla id="p-3-4-metodos" />
+
+### ¿Qué falla en esta interpretación?
+
+Aquí tienes una interpretación de los resultados del taller, escrita por una «IA» con total seguridad. Tiene errores muy frecuentes.
+
+<EncuentraError datos="3-4-interpretacion" />
+
+<Plantilla id="p-3-4-revisar-redaccion" />
+
+<PruebaloTu minutos={10}>
+Pasa a un asistente **solo la tabla de resultados de referencia** de la sesión 7 (nada de datos individuales) con la plantilla de interpretación. Después revisa su texto **frase a frase contra la tabla**: ¿cada número coincide?, ¿ha dado un p-valor como probabilidad de la hipótesis?, ¿ha pasado de asociación a causa? Anota cuántos errores había.
+</PruebaloTu>
+
+<OjoCon>
+- **Pasa solo estadísticos agregados.** Ni siquiera con datos sintéticos subas la base: practica el buen reflejo.
+- **La IA puede inventar un número.** Contrasta cada cifra con tu tabla.
+- **La redacción es suya; la responsabilidad, tuya.**
+</OjoCon>
+
+</Sesion>
+
+<Sesion n={9} titulo="Verificar por una segunda vía y test" minutos={20}>
+
+### El hábito de la segunda vía
+
+Un resultado clave no se da por bueno si solo lo has obtenido de una manera. **Reprodúcelo por otra vía.** Para el Barthel medio de quienes ingresaron, por ejemplo, puedes usar Excel (el valor de referencia es 56,6 en quienes ingresan y 71,1 en quienes no):
+
+- En el fichero limpio, el Barthel está en la columna D y el ingreso en la columna I. La media de Barthel de quienes ingresaron es `=PROMEDIO.SI(I:I;1;D:D)`; la de quienes no, `=PROMEDIO.SI(I:I;0;D:D)`. Las celdas vacías se ignoran.
+- La desviación típica de la columna del Barthel es `=DESVEST.M(D2:D251)`.
+
+Si el resultado de Excel y el de jamovi coinciden con la tabla de referencia, puedes fiarte. Si no, **busca el motivo**: datos ausentes, un duplicado que no quitaste, un tipo de variable.
+
+<PasoTaller id="3-4-verificar" tipo="verificar" texto="He reproducido por una segunda vía (Excel u otro programa) al menos un resultado clave, y coincide con jamovi y con la tabla de referencia, o he encontrado el motivo de la diferencia." />
+
+<Resumen>
+- Hay tres caminos: programa local, IA con análisis de datos e híbrido. Con datos de pacientes, **el programa local** y, si quieres, la IA **solo con resultados agregados**.
+- **Limpia** (duplicados, codificación, valores imposibles, ausentes, tipos), **documenta** con un diccionario y **anonimiza** antes de analizar.
+- La prueba se elige **antes de ver los resultados**, según el tipo de variable, los grupos y el emparejamiento.
+- El **p-valor** no es la probabilidad de la hipótesis; el **IC del 95 %** te dice entre qué valores es plausible el efecto. «No significativo» no es «no hay efecto».
+- La IA ayuda a **entender, elegir y redactar**, pero **comete errores de interpretación** frecuentes: revisa cada frase contra tus resultados.
+- **Reproduce por una segunda vía** al menos un resultado clave.
+</Resumen>
+
+<Ficha titulo="Estadística con datos de pacientes">
+**Camino**
+- Calcula en un programa local (jamovi). IA solo con resultados agregados.
+- Nunca subas la base de datos con datos reales.
+
+**Preparar**
+- Copia del original → limpiar (duplicados, codificación, imposibles, ausentes, tipos) → diccionario → anonimizar.
+
+**Elegir la prueba (orientación)**
+- 2 grupos, cantidad: t (Welch) o Mann-Whitney · 3+ grupos: ANOVA o Kruskal-Wallis · antes/después: t apareada o Wilcoxon.
+- 2 categorías: χ² (o Fisher) · varias variables: regresión lineal o logística.
+
+**Interpretar**
+- p ≠ probabilidad de la hipótesis · IC = rango plausible · no significativo ≠ no efecto · asociación ≠ causa · OR ≠ riesgo relativo.
+
+**Verificar**
+- Reproduce un resultado clave por otra vía.
+</Ficha>
+
+<TestFinal id="3-4" />
+
+</Sesion>

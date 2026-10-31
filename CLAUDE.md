@@ -8,7 +8,7 @@ Convenciones del proyecto para que todas las sesiones de trabajo sean coherentes
 - **El alumno estudia en casa, con dispositivos y cuentas personales**, y quiere mantener el curso separado de su trabajo (Servicio Madrileño de Salud). No construyas el curso sobre herramientas corporativas: como mucho, menciónalas con un «si tu centro las ofrece».
 - De momento **solo se usa en local** (`npm run build` + `npm run preview -- --host` para la tablet en la wifi de casa). No hay despliegue público.
 - **Se trabaja por fases con parada obligatoria**: al terminar cada fase, commit, informe en `informes/fase-N.md` y **esperar la aprobación del usuario**. No avances de fase sin ella.
-- Estado: Fases 0 y 1 cerradas. **El usuario autorizó el 31/10/2026 ejecutar las fases 2 a 5 en secuencia**, con revisión de coherencia al final de cada una (compilación, validación, enlaces, glosario, horas, pruebas en móvil y `REVISION_CLINICA.md`) y un informe en `informes/fase-N.md`. Fase 2 (M0 + Parte 1) y Fase 3 (Parte 2: 2.1–2.5) cerradas el 31/10/2026. Siguiente: Fase 4 (Parte 3).
+- Estado: Fases 0 y 1 cerradas. **El usuario autorizó el 31/10/2026 ejecutar las fases 2 a 5 en secuencia**, con revisión de coherencia al final de cada una (compilación, validación, enlaces, glosario, horas, pruebas en móvil y `REVISION_CLINICA.md`) y un informe en `informes/fase-N.md`. Fases 2 (M0 + Parte 1), 3 (Parte 2) y 4 (Parte 3 completa) cerradas el 31/10/2026. Siguiente: Fase 5 (revisión final y entrega).
 
 ## Idioma y tono
 
@@ -81,10 +81,13 @@ Para añadir un componente nuevo: créalo, añádelo a `src/components/curso/ind
 
 ## Notas de trabajo
 
-- **Finales de línea:** `recursos.json`, `glosario.json`, `prompts.json` y `curso.json` están en CRLF; los MDX, los tests y los demás JSON, en LF. En Windows, Python reescribe en CRLF por defecto: abre y guarda con `newline=''` para no ensuciar el diff.
+- **Finales de línea:** `recursos.json`, `glosario.json`, `prompts.json`, `curso.json`, `src/components/curso/index.ts` y `scripts/validar-contenido.mjs` están en CRLF; los MDX, los tests y los demás ficheros, en LF. En Windows, Python reescribe en CRLF por defecto: abre y guarda con `newline=''` para no ensuciar el diff.
 - **Un término del glosario con paréntesis** en `termino` (p. ej. «Benchmark (prueba de rendimiento)») se empareja también por la palabra entre paréntesis: evita palabras comunes que den falsos positivos en `check-glosario`.
 - **`<T>` fuera de encabezados y de celdas de tabla:** `check-glosario --arreglar` los inserta donde aparece la primera vez; revisa que no queden dentro de un encabezado o de una tabla.
 - **Las cifras de un estudio** se leen en el resumen **completo** (incluida la sección de métodos). Un extractor que corta en «RESULTS» pierde el tamaño de la muestra.
+
+- **Dataset del taller 3.4:** `npm run generar-dataset` (necesita `exceljs`, solo de desarrollo) regenera los cuatro ficheros de `public/descargas/`. Si cambias el generador, recalcula los resultados de referencia de 3.4 (`REVISION_CLINICA.md`, RC-3.4-02) y el texto.
+- **Objetivos de cada subcapítulo:** entre 2 y 4, empezando por un verbo de la lista de `content.config.ts` (la compilación falla si no).
 
 ## Comandos
 

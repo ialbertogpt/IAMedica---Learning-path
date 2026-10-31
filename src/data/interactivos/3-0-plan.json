@@ -1,0 +1,51 @@
+{
+  "titulo": "¿Te basta el plan gratuito?",
+  "instrucciones": "Sirve para una cuenta personal y para uso fuera de la atención directa (estudio, redacción, bibliografía). Responde con sinceridad sobre lo que haces.",
+  "inicio": "uso",
+  "nodos": {
+    "uso": {
+      "tipo": "pregunta",
+      "texto": "¿Con qué frecuencia usas un asistente de IA?",
+      "opciones": [
+        { "texto": "De vez en cuando: unas pocas consultas a la semana", "siguiente": "r-gratis" },
+        { "texto": "A diario, con conversaciones largas o documentos extensos", "siguiente": "limite" }
+      ]
+    },
+    "r-gratis": {
+      "tipo": "resultado",
+      "titulo": "Quédate con el plan gratuito",
+      "detalle": "Con un uso ocasional, el plan gratuito de cualquiera de los grandes asistentes suele bastar. Los planes gratuitos tienen límites de uso: si ves que te quedas corto, entonces compensa pensar en un plan de pago, no antes. Empieza con uno y compara con otro si quieres.",
+      "ojo": "Pagar no cambia lo más importante: no mejora tu privacidad con los datos de pacientes ni evita que el asistente se equivoque.",
+      "fuente": "Páginas de precios de Anthropic y OpenAI, consultadas el 31/10/2026."
+    },
+    "limite": {
+      "tipo": "pregunta",
+      "texto": "¿Te encuentras con los límites del plan gratuito (mensajes limitados, esperas)?",
+      "opciones": [
+        { "texto": "No, me alcanza", "siguiente": "r-gratis" },
+        { "texto": "Sí, con frecuencia me quedo sin mensajes", "siguiente": "pago" }
+      ]
+    },
+    "pago": {
+      "tipo": "pregunta",
+      "texto": "¿Usarías el plan de pago lo bastante para que compense su coste mensual?",
+      "opciones": [
+        { "texto": "Sí, varias veces por semana y con un beneficio claro", "siguiente": "r-estandar" },
+        { "texto": "No estoy seguro", "siguiente": "r-prueba" }
+      ]
+    },
+    "r-estandar": {
+      "tipo": "resultado",
+      "titulo": "Un plan estándar de pago, de un solo asistente",
+      "detalle": "Si compensas, el escalón estándar es suficiente. A fecha de 31/10/2026, la página oficial de Anthropic indica para Claude Pro 20 $ al mes (17 $ al mes con pago anual). Para ChatGPT (Go, Plus, Pro) y Google (AI Plus, AI Pro, AI Ultra) los precios en euros se cargan según tu país y no he podido leerlos: consulta su web oficial. Los escalones superiores (por ejemplo, el plan Max de Claude, desde 100 $ al mes) están pensados para uso muy intensivo y no tienen sentido para estudiar.",
+      "ojo": "Contrata solo uno a la vez, con pago mensual, y puedes cancelarlo en cuanto no lo uses.",
+      "fuente": "claude.com/pricing y chatgpt.com/pricing, consultadas el 31/10/2026."
+    },
+    "r-prueba": {
+      "tipo": "resultado",
+      "titulo": "Prueba un mes y decide con datos",
+      "detalle": "Si no lo tienes claro, usa el plan gratuito hasta que los límites te estorben de verdad. Si decides probar un plan de pago, hazlo un mes y anota cuánto lo usas. Así decides con datos y no por la novedad.",
+      "fuente": "Criterio del curso."
+    }
+  }
+}

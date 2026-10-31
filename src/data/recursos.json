@@ -1615,5 +1615,274 @@
     "estado": "verificado",
     "contenido": "titulo-descripcion",
     "notas": "Se ha leído el resumen de PubMed."
+  },
+  {
+    "id": "v-ua-avanzada",
+    "tipo": "video",
+    "titulo": "Búsqueda avanzada en PubMed",
+    "autor": "Biblioteca de la Universidad de Alicante",
+    "url": "https://www.youtube.com/watch?v=m8aSV9QXJls",
+    "youtubeId": "m8aSV9QXJls",
+    "idioma": "es-ES",
+    "subtitulos": "español (manuales y automáticos)",
+    "duracion": "3:17",
+    "publicado": "2023-02-13",
+    "subcapitulos": [
+      "3-3"
+    ],
+    "porQue": "Una biblioteca universitaria enseña, en tres minutos, a combinar búsquedas con el historial de PubMed.",
+    "fechaVerificacion": "2026-10-31",
+    "estado": "verificado",
+    "contenido": "titulo-descripcion"
+  },
+  {
+    "id": "v-ua-mesh",
+    "tipo": "video",
+    "titulo": "Búsqueda en PubMed con términos MeSH",
+    "autor": "Biblioteca de la Universidad de Alicante",
+    "url": "https://www.youtube.com/watch?v=22Ao6KHfC4Y",
+    "youtubeId": "22Ao6KHfC4Y",
+    "idioma": "es-ES",
+    "subtitulos": "español (automáticos)",
+    "duracion": "3:42",
+    "publicado": "2023-01-24",
+    "subcapitulos": [
+      "3-3"
+    ],
+    "porQue": "Cómo localizar información en PubMed con términos MeSH, explicado por una biblioteca universitaria.",
+    "fechaVerificacion": "2026-10-31",
+    "estado": "verificado",
+    "contenido": "titulo-descripcion"
+  },
+  {
+    "id": "v-calimaco-zotero",
+    "tipo": "video",
+    "titulo": "Un tutorial corto de Zotero en 2026",
+    "autor": "Calímaco Digital",
+    "url": "https://www.youtube.com/watch?v=RhYRYvgLloU",
+    "youtubeId": "RhYRYvgLloU",
+    "idioma": "es-ES",
+    "subtitulos": "español (automáticos)",
+    "duracion": "8:46",
+    "publicado": "2026-07-13",
+    "subcapitulos": [
+      "3-3"
+    ],
+    "porQue": "Tutorial breve de Zotero: instalación, conector del navegador, carpetas, importación de metadatos y citas en Word.",
+    "fechaVerificacion": "2026-10-31",
+    "estado": "verificado",
+    "contenido": "capitulos",
+    "notas": "Comprobado por título, descripción y capítulos; no visto."
+  },
+  {
+    "id": "v-iadaniel-jamovi",
+    "tipo": "video",
+    "titulo": "Curso JAMOVI desde 0 para principiantes",
+    "autor": "IA con Daniel",
+    "url": "https://www.youtube.com/watch?v=EQTXO6-tvmA",
+    "youtubeId": "EQTXO6-tvmA",
+    "idioma": "es-ES",
+    "subtitulos": "español (automáticos)",
+    "duracion": "21:49",
+    "publicado": "2024-05-26",
+    "subcapitulos": [
+      "3-4"
+    ],
+    "porQue": "Recorrido en español por jamovi: limpieza de datos, descriptivos, t de Student, ANOVA, chi cuadrado y correlaciones.",
+    "fechaVerificacion": "2026-10-31",
+    "estado": "con-reservas",
+    "contenido": "capitulos",
+    "notas": "El título es comercial y el canal promociona un curso de pago. Se propone usar solo por capítulos, no entero."
+  },
+  {
+    "id": "v-utrera-gamma",
+    "tipo": "video",
+    "titulo": "Tutorial Gamma App 2026",
+    "autor": "Franco Utrera Digital",
+    "url": "https://www.youtube.com/watch?v=WHW4VK_leqI",
+    "youtubeId": "WHW4VK_leqI",
+    "idioma": "es-ES",
+    "subtitulos": "español (automáticos)",
+    "duracion": "10:17",
+    "publicado": "2025-02-28",
+    "subcapitulos": [
+      "3-6"
+    ],
+    "porQue": "Tutorial en español para crear una presentación con Gamma, una herramienta de presentaciones con IA.",
+    "fechaVerificacion": "2026-10-31",
+    "estado": "con-reservas",
+    "contenido": "capitulos",
+    "notas": "Tono comercial y enlace de afiliado en la descripción; publicado en febrero de 2025, la herramienta puede haber cambiado."
+  },
+  {
+    "id": "v-udia-notebooklm",
+    "tipo": "video",
+    "titulo": "Domina NotebookLM en menos de 7 minutos",
+    "autor": "UDIA",
+    "url": "https://www.youtube.com/watch?v=Xv5ZrnzA2DA",
+    "youtubeId": "Xv5ZrnzA2DA",
+    "idioma": "es-ES",
+    "subtitulos": "español (automáticos)",
+    "duracion": "6:57",
+    "publicado": "2025-01-28",
+    "subcapitulos": [
+      "3-7"
+    ],
+    "porQue": "Introducción breve en español a NotebookLM, el cuaderno de Google que responde desde tus propios documentos.",
+    "fechaVerificacion": "2026-10-31",
+    "estado": "con-reservas",
+    "contenido": "titulo-descripcion",
+    "notas": "Anterior al cambio de nombre de la herramienta (hoy, Gemini Notebook, desde el 16/07/2026) y con tono comercial."
+  },
+  {
+    "id": "v-redsanitaria-notebooklm",
+    "tipo": "video",
+    "titulo": "NotebookLM para médicos: tu asistente de estudio con IA",
+    "autor": "Red_SanitarIA (Dr. Ignacio Alcalá)",
+    "url": "https://www.youtube.com/watch?v=1VanWwX3Ec8",
+    "youtubeId": "1VanWwX3Ec8",
+    "idioma": "es-ES",
+    "subtitulos": "español (automáticos)",
+    "duracion": "11:26",
+    "publicado": "2026-06-26",
+    "subcapitulos": [
+      "3-7"
+    ],
+    "porQue": "Tutorial en español pensado para médicos: crear un cuaderno, subir fuentes, chatear con citas y generar guías de estudio.",
+    "fechaVerificacion": "2026-10-31",
+    "estado": "con-reservas",
+    "contenido": "capitulos",
+    "notas": "Anterior al cambio de nombre de la herramienta. La descripción incluye un enlace de descuento de afiliado a otra herramienta (Consensus). Contenido comprobado por capítulos; no visto."
+  },
+  {
+    "id": "r-pubmed-ayuda",
+    "tipo": "web",
+    "titulo": "PubMed User Guide (ayuda)",
+    "autor": "Biblioteca Nacional de Medicina de EE. UU. (NLM)",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/help/",
+    "idioma": "en",
+    "minutosLectura": 20,
+    "subcapitulos": [
+      "3-3"
+    ],
+    "porQue": "La guía oficial de PubMed: operadores booleanos, etiquetas de campo ([tiab], [mh]…), truncamiento, mapeo automático de términos y alertas.",
+    "fechaVerificacion": "2026-10-31",
+    "estado": "verificado",
+    "contenido": "completo",
+    "notas": "Se han leído las secciones sobre operadores, etiquetas, comodines, mapeo automático y alertas."
+  },
+  {
+    "id": "r-icmje-ia",
+    "tipo": "web",
+    "titulo": "ICMJE: Use of AI by Authors",
+    "autor": "International Committee of Medical Journal Editors",
+    "url": "https://www.icmje.org/recommendations/browse/artificial-intelligence/ai-use-by-authors.html",
+    "idioma": "en",
+    "minutosLectura": 3,
+    "subcapitulos": [
+      "3-5"
+    ],
+    "porQue": "La norma de referencia de las revistas biomédicas sobre el uso de IA por los autores: declaración obligatoria, la IA no puede ser autora y la responsabilidad es humana.",
+    "fechaVerificacion": "2026-10-31",
+    "estado": "verificado",
+    "contenido": "completo"
+  },
+  {
+    "id": "r-equator-care",
+    "tipo": "web",
+    "titulo": "The CARE Guidelines: Consensus-based Clinical Case Reporting Guideline Development",
+    "autor": "Red EQUATOR",
+    "url": "https://www.equator-network.org/reporting-guidelines/care/",
+    "idioma": "en",
+    "minutosLectura": 5,
+    "subcapitulos": [
+      "3-5"
+    ],
+    "porQue": "La guía CARE para comunicar casos clínicos, con su lista de verificación.",
+    "fechaVerificacion": "2026-10-31",
+    "estado": "verificado",
+    "contenido": "completo",
+    "notas": "Se ha leído la página y la lista de verificación CARE (PDF de la red EQUATOR, 2013): 13 apartados, de título a consentimiento informado."
+  },
+  {
+    "id": "r-jamovi",
+    "tipo": "web",
+    "titulo": "jamovi: software estadístico abierto y gratuito",
+    "autor": "jamovi project",
+    "url": "https://www.jamovi.org/",
+    "idioma": "en",
+    "minutosLectura": 5,
+    "subcapitulos": [
+      "3-4"
+    ],
+    "porQue": "Programa estadístico gratuito y de código abierto con una hoja de cálculo y menús, basado en R. La versión de escritorio es siempre gratuita, según su web.",
+    "fechaVerificacion": "2026-10-31",
+    "estado": "verificado",
+    "contenido": "titulo-descripcion"
+  },
+  {
+    "id": "r-jasp",
+    "tipo": "web",
+    "titulo": "JASP: estadística gratuita, amigable y flexible",
+    "autor": "Universidad de Ámsterdam y colaboradores",
+    "url": "https://jasp-stats.org/",
+    "idioma": "en",
+    "minutosLectura": 5,
+    "subcapitulos": [
+      "3-4"
+    ],
+    "porQue": "Alternativa a jamovi: programa de código abierto con interfaz gráfica, para análisis clásicos y bayesianos, según su web.",
+    "fechaVerificacion": "2026-10-31",
+    "estado": "verificado",
+    "contenido": "titulo-descripcion"
+  },
+  {
+    "id": "r-icmje-autoria",
+    "tipo": "web",
+    "titulo": "ICMJE: Defining the role of authors and contributors",
+    "autor": "International Committee of Medical Journal Editors",
+    "url": "https://www.icmje.org/recommendations/browse/roles-and-responsibilities/defining-the-role-of-authors-and-contributors.html",
+    "idioma": "en",
+    "minutosLectura": 8,
+    "subcapitulos": [
+      "3-5"
+    ],
+    "porQue": "Los cuatro criterios de autoría que aplican las revistas biomédicas: quién puede ser autor y quién debe figurar en los agradecimientos.",
+    "fechaVerificacion": "2026-10-31",
+    "estado": "verificado",
+    "contenido": "completo"
+  },
+  {
+    "id": "r-icmje-privacidad",
+    "tipo": "web",
+    "titulo": "ICMJE: Protection of research participants",
+    "autor": "International Committee of Medical Journal Editors",
+    "url": "https://www.icmje.org/recommendations/browse/roles-and-responsibilities/protection-of-research-participants.html",
+    "idioma": "en",
+    "minutosLectura": 4,
+    "subcapitulos": [
+      "3-5"
+    ],
+    "porQue": "Qué dicen las revistas biomédicas sobre la privacidad del paciente y el consentimiento informado para publicar información que pueda identificarlo.",
+    "fechaVerificacion": "2026-10-31",
+    "estado": "verificado",
+    "contenido": "completo"
+  },
+  {
+    "id": "r-canva-presentaciones",
+    "tipo": "web",
+    "titulo": "Canva: crear presentaciones",
+    "autor": "Canva",
+    "url": "https://www.canva.com/es_es/presentaciones/",
+    "idioma": "es-ES",
+    "minutosLectura": 3,
+    "subcapitulos": [
+      "3-6"
+    ],
+    "porQue": "Software de presentaciones en línea, con plantillas y biblioteca de imágenes; su página indica que ofrece plantillas gratuitas.",
+    "fechaVerificacion": "2026-10-31",
+    "estado": "verificado",
+    "contenido": "titulo-descripcion",
+    "notas": "Se ha comprobado que la página responde y su descripción oficial. Funciones y planes de pago: consulta su web."
   }
 ]

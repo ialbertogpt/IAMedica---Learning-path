@@ -1,0 +1,131 @@
+---
+id: "3-7"
+titulo: "Cursos de formación continuada: estudiar con IA"
+parte: 3
+minutos: 60
+objetivos:
+  - Utilizar un cuaderno de estudio con IA cargando el material de un curso y exigiendo respuestas basadas en él, con cita de página
+  - Generar preguntas de repaso y tarjetas con la explicación de cada opción, y verificarlas contra el documento
+  - Reconocer que una IA sin el material falla o inventa en las preguntas de detalle
+  - Aplicar las normas de evaluación de cada curso acreditado al decidir cuándo usar la IA
+gancho: "Tienes un curso acreditado con una guía de 120 páginas y un examen en dos semanas. Una IA puede convertirte esa guía en preguntas de repaso y tarjetas, pero solo si la obligas a responder desde el documento y le exiges la página. Sin eso, lo que estudiarás será su memoria, no la guía."
+recursos:
+  - v-redsanitaria-notebooklm
+  - v-udia-notebooklm
+  - r-omc-manual-ia-2026
+paraSaberMas: []
+test: "3-7"
+fechaRevision: "2026-10-31"
+aFecha: octubre de 2026
+fuentes:
+  - texto: "Directorio de herramientas de este curso: Gemini Notebook (antes NotebookLM), verificado el 29/10/2026; cambió de nombre el 16/07/2026"
+  - texto: "Manual de Buenas Prácticas para la Inteligencia Artificial en Medicina. Organización Médica Colegial de España, 2026: apartado 3.10 (pp. 44-45), usado como documento de ejemplo"
+    url: https://www.cgcom.es
+---
+
+<Sesion n={1} titulo="Con y sin el material" minutos={20}>
+
+### Un cuaderno que responde desde tus documentos
+
+Herramientas como **Gemini Notebook** (antes NotebookLM) permiten subir tus documentos (PDF, páginas web…) y hacer preguntas a una IA que **responde basándose en ellos y cita el fragmento**. Según el directorio de este curso, cambió de nombre el 16 de julio de 2026, y su dirección actual es notebook.google.com. Otros asistentes ofrecen algo parecido con «proyectos» o «documentos adjuntos».
+
+<Analogia>
+Es **estudiar con la guía abierta frente a estudiar de memoria**. Quien responde con el documento delante puede decirte dónde lo ha leído; quien responde de memoria, no.
+</Analogia>
+
+### La prueba
+
+Se hizo la misma pregunta de detalle, sin el documento y con él cargado. Compara.
+
+<Comparador datos="3-7-con-sin" />
+
+### En vídeo
+
+<Video id="v-redsanitaria-notebooklm" nota="tutorial en español de NotebookLM pensado para médicos (crear un cuaderno, subir fuentes, chatear con citas, guías de estudio). Es anterior al cambio de nombre y su descripción incluye un enlace de descuento de afiliado a otra herramienta; contenido comprobado por título, descripción y capítulos, no visto." />
+
+<OjoCon>
+- **Sin el material, una IA puede responder con aplomo y equivocarse.** Lo que has visto es lo mejor que puede pasar.
+- **Un documento cargado no hace infalible la respuesta.** Puede interpretar mal tablas y gráficos y, si el dato no está, rellenar el hueco.
+- **Carga solo material público**, sin datos de pacientes: con una cuenta personal, es la regla de siempre.
+</OjoCon>
+
+</Sesion>
+
+<Sesion n={2} titulo="Preguntas de repaso y tarjetas" minutos={20}>
+
+### Exigir la cita
+
+La instrucción más útil es pedirle que **responda solo con el material y cite la página y el fragmento**. Si el dato no está, debe decirlo.
+
+<Plantilla id="p-3-7-con-material" />
+
+### ¿Qué hago con la respuesta?
+
+<Clasificador datos="3-7-citas" />
+
+### De la guía al estudio
+
+Con el material cargado puedes generar **preguntas de repaso con la explicación de cada opción** y **tarjetas** de estudio.
+
+<Plantilla id="p-3-7-preguntas-repaso" />
+
+<Plantilla id="p-3-7-tarjetas" />
+
+<OjoCon>
+- **Los distractores de una pregunta pueden ser inventados.** Comprueba al menos dos respuestas contra el documento.
+- **Cada tarjeta, con su página.** Sin fuente, es una afirmación más.
+- **Si ves que la IA «sabe» algo que no está en el documento, desconfía.** Quizá lo ha sacado de su memoria.
+</OjoCon>
+
+</Sesion>
+
+<Sesion n={3} titulo="Taller y test" minutos={20}>
+
+### El taller
+
+Descarga un documento público que te interese (por ejemplo, una guía de práctica clínica de una sociedad científica, o el propio [Manual de la OMC](https://www.cgcom.es/media/7247/download) que hemos usado de ejemplo). Cárgalo en un cuaderno de estudio y:
+
+1. Haz **tres preguntas de detalle** con la plantilla «solo con el material» y comprueba las citas.
+2. Pide **cinco preguntas de repaso** y comprueba al menos **dos** respuestas en el documento.
+3. Pide una pregunta cuya respuesta **no esté** en el documento y observa qué hace.
+
+<PruebaloTu minutos={10}>
+Haz el taller anterior y **anota cuántas citas comprobaste, cuántas eran correctas y cuántas veces la IA admitió que algo no constaba**. Si puedes, repite una de las preguntas sin cargar el documento y compara.
+</PruebaloTu>
+
+<PasoTaller id="3-7-anonimizar" tipo="anonimizar" texto="He comprobado que el documento que cargo es público y no contiene datos de pacientes ni información que no pueda compartir." />
+
+<PasoTaller id="3-7-verificar" tipo="verificar" texto="He abierto el documento y he comprobado las páginas y los fragmentos citados por la IA en al menos tres respuestas." />
+
+### Las normas de cada curso
+
+Los cursos acreditados tienen sus propias **normas de evaluación**. Léelas antes de usar la IA: si prohíben herramientas externas durante el examen, o piden trabajo propio en las tareas, **no las uses para eso**. Estudiar con IA es una cosa; resolver la evaluación con ella, otra.
+
+<Resumen>
+- Un **cuaderno de estudio con IA** responde desde tus documentos y cita el fragmento; sin el material, la IA responde de memoria y puede inventar.
+- Exige **página y fragmento**, y que diga «no consta» si no está.
+- Genera **preguntas de repaso y tarjetas**, y verifica al menos algunas contra el documento.
+- Los cuadernos **pueden interpretar mal tablas y gráficos** y rellenar huecos: con cifras, manda el original.
+- Carga **solo material público**, sin datos de pacientes.
+- **Respeta las normas** de evaluación de cada curso.
+</Resumen>
+
+<Ficha titulo="Estudiar con IA y tu material">
+**Antes**
+- Solo documentos públicos. Sin datos de pacientes.
+
+**Cómo preguntar**
+- «Responde solo con el material; página y fragmento literal; si no consta, dilo».
+
+**Después**
+- Abre la página citada. Comprueba al menos dos respuestas de las preguntas de repaso.
+- Con tablas y cifras, manda el original.
+
+**Cuidado**
+- Sin el material, puede inventar. Con el material, puede rellenar huecos.
+- Normas del curso: léelas antes.
+</Ficha>
+
+<TestFinal id="3-7" />
+
+</Sesion>

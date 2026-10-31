@@ -1,0 +1,54 @@
+{
+  "titulo": "Test · Escribir un artículo científico",
+  "preguntas": [
+    {
+      "tipo": "emparejar",
+      "enunciado": "Empareja cada trabajo con la guía de comunicación que le corresponde.",
+      "pares": [
+        { "izquierda": "Un caso clínico", "derecha": "CARE", "porque": "La guía CARE se creó para comunicar casos clínicos con completitud y transparencia." },
+        { "izquierda": "Un estudio de cohortes (observacional)", "derecha": "STROBE", "porque": "STROBE es la guía de los estudios observacionales." },
+        { "izquierda": "Un ensayo aleatorizado", "derecha": "CONSORT", "porque": "CONSORT es la guía de los ensayos aleatorizados." },
+        { "izquierda": "Una revisión sistemática", "derecha": "PRISMA", "porque": "PRISMA es la guía de las revisiones sistemáticas." }
+      ]
+    },
+    {
+      "tipo": "vf",
+      "enunciado": "Si una IA ha redactado una parte importante de tu manuscrito, es aceptable incluirla como coautora siempre que la menciones en la lista de autores.",
+      "respuesta": false,
+      "explicacionVerdadero": "No. El ICMJE indica que los chatbots no deben figurar como autores, porque no pueden responsabilizarse de la exactitud, la integridad y la originalidad del trabajo.",
+      "explicacionFalso": "Correcto. La IA no puede ser autora. Lo que corresponde es declarar su uso en la carta de presentación y en el manuscrito, y que los humanos respondan de todo el contenido."
+    },
+    {
+      "tipo": "escenario",
+      "enunciado": "¿Qué es lo más adecuado?",
+      "caso": "Has usado un asistente para mejorar la claridad de tu discusión y para traducir el resumen al inglés. Vas a enviar el manuscrito a una revista.",
+      "opciones": [
+        { "texto": "No decir nada: solo has usado la IA para mejorar el lenguaje.", "correcta": false, "explicacion": "El ICMJE recomienda que las revistas pidan declarar el uso de IA, con independencia de la tarea, y no hacerlo puede considerarse mala conducta en algunos casos." },
+        { "texto": "Declarar el uso en la carta de presentación y en el manuscrito, indicando la herramienta y para qué la usaste, y revisar la normativa concreta de la revista.", "correcta": true, "explicacion": "Es lo que recomienda el ICMJE. Además, la revista puede tener instrucciones más estrictas que conviene leer." },
+        { "texto": "Añadir la herramienta como coautora.", "correcta": false, "explicacion": "La IA no puede ser autora." },
+        { "texto": "Citar la IA como fuente de los datos del caso.", "correcta": false, "explicacion": "Citar material generado por IA como fuente primaria no es aceptable." }
+      ]
+    },
+    {
+      "tipo": "unica",
+      "enunciado": "¿Cuál de estas tareas es la más adecuada para delegar en una IA, siempre con revisión?",
+      "opciones": [
+        { "texto": "Redactar las conclusiones clínicas del estudio.", "correcta": false, "explicacion": "Las conclusiones son el núcleo del criterio del autor, que responde de ellas." },
+        { "texto": "Mejorar la claridad de un párrafo que has escrito tú, sin cambiar los datos.", "correcta": true, "explicacion": "Es una tarea de lenguaje sobre un texto propio, que puedes comparar antes y después." },
+        { "texto": "Generar las referencias que respaldan tu discusión.", "correcta": false, "explicacion": "Las referencias generadas pueden no existir o no decir lo afirmado; hay que buscarlas y comprobarlas tú." },
+        { "texto": "Completar los datos que te faltan en la tabla de resultados.", "correcta": false, "explicacion": "Inventar o completar datos es fabricación de datos." }
+      ]
+    },
+    {
+      "tipo": "escenario",
+      "enunciado": "¿Qué falla en este fragmento?",
+      "caso": "En un caso clínico se escribe: «La paciente, M. L. G., con número de historia 4829105, ingresó en nuestro hospital…». No se pidió consentimiento porque «el caso es anónimo».",
+      "opciones": [
+        { "texto": "Nada: las iniciales no identifican.", "correcta": false, "explicacion": "El ICMJE indica que nombres, iniciales y números de historia no deben publicarse salvo que sean esenciales y con consentimiento informado por escrito." },
+        { "texto": "Incluye iniciales y número de historia, que no deben publicarse, y no es cierto que el caso sea anónimo: hace falta desidentificar y, si hay información que identifique, consentimiento informado por escrito.", "correcta": true, "explicacion": "Es lo que indican el ICMJE y la guía CARE (que pregunta explícitamente si hubo consentimiento informado)." },
+        { "texto": "Falla solo que no menciona el hospital.", "correcta": false, "explicacion": "Mencionar el hospital tampoco es lo que falla; el problema son los identificadores y el consentimiento." },
+        { "texto": "Falla que debería citar a la IA como fuente.", "correcta": false, "explicacion": "No se cita a la IA como fuente." }
+      ]
+    }
+  ]
+}

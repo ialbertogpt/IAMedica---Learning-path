@@ -1,0 +1,20 @@
+{
+  "titulo": "Identificador, cuasi-identificador o variable de análisis",
+  "instrucciones": "Antes de compartir o analizar una base de datos, decide qué hacer con cada variable.",
+  "categorias": [
+    { "id": "directo", "nombre": "Identificador directo", "descripcion": "se elimina siempre" },
+    { "id": "cuasi", "nombre": "Cuasi-identificador", "descripcion": "se generaliza (en tramos) o se elimina si no hace falta" },
+    { "id": "analisis", "nombre": "Variable de análisis", "descripcion": "se mantiene" }
+  ],
+  "items": [
+    { "texto": "Nombre y apellidos.", "categoria": "directo", "explicacion": "Identifica a la persona. No va nunca en una base de análisis." },
+    { "texto": "Número de historia clínica o DNI.", "categoria": "directo", "explicacion": "Identificadores únicos. Se sustituyen por un código del estudio (P001, P002…), con la tabla de equivalencias guardada aparte y protegida, si es imprescindible." },
+    { "texto": "Fecha de nacimiento.", "categoria": "cuasi", "explicacion": "Se convierte en edad (o en un tramo de edad). La fecha exacta, combinada con otros datos, puede identificar." },
+    { "texto": "Código postal o municipio pequeño.", "categoria": "cuasi", "explicacion": "Se generaliza (área sanitaria, provincia) o se elimina si no se necesita para el análisis." },
+    { "texto": "Fecha de ingreso.", "categoria": "cuasi", "explicacion": "Se sustituye por un tiempo relativo (días desde el ingreso) o por el mes si hace falta estacionalidad." },
+    { "texto": "Profesión poco frecuente.", "categoria": "cuasi", "explicacion": "Una profesión rara, combinada con otros datos, puede señalar a una persona. Se generaliza o se elimina." },
+    { "texto": "Índice de Barthel, test de Pfeiffer y número de fármacos.", "categoria": "analisis", "explicacion": "Son las variables del análisis. Por sí solas, no identifican." },
+    { "texto": "Ingreso y fallecimiento a los 12 meses.", "categoria": "analisis", "explicacion": "Son los resultados del estudio. Se mantienen." }
+  ],
+  "cierre": "Una base «sin nombres» no está anonimizada si quedan fechas, códigos postales o combinaciones raras. Pregúntate siempre: ¿se podría reconocer a alguien por la combinación de estas columnas?"
+}

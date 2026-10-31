@@ -1,0 +1,44 @@
+{
+  "titulo": "Test · Estudiar con IA y tu material",
+  "preguntas": [
+    {
+      "tipo": "escenario",
+      "enunciado": "¿Te fías de esta respuesta?",
+      "caso": "Has cargado una guía en un cuaderno y le preguntas por una cifra de una tabla. Responde con seguridad: «Según el documento, el valor es 4,7 %», sin indicar página.",
+      "opciones": [
+        { "texto": "Sí: dice «según el documento».", "correcta": false, "explicacion": "Sin página ni fragmento, no puedes comprobarla; con tablas, además, hay riesgo de interpretación errónea." },
+        { "texto": "No todavía: pides la página y el fragmento, abres la tabla y comparas la cifra con el original.", "correcta": true, "explicacion": "Con cifras de tablas, manda el original. La cita es lo que convierte la respuesta en comprobable." },
+        { "texto": "Sí, porque la IA tiene el documento cargado.", "correcta": false, "explicacion": "Tener el documento no impide interpretar mal una tabla ni rellenar huecos." },
+        { "texto": "Le preguntas a otra IA sin el documento.", "correcta": false, "explicacion": "Sin el documento, solo tendrías otra respuesta de memoria." }
+      ]
+    },
+    {
+      "tipo": "vf",
+      "enunciado": "Una IA sin el material de tu curso responde con la misma fiabilidad a las preguntas de detalle que una IA con el material cargado.",
+      "respuesta": false,
+      "explicacionVerdadero": "No. Sin el material, la IA responde de memoria: puede no saber el dato o inventarlo. Con el material, puede citar la página.",
+      "explicacionFalso": "Correcto. La diferencia es la cita comprobable: con el material, la respuesta se apoya en el texto; sin él, solo en la memoria del modelo."
+    },
+    {
+      "tipo": "unica",
+      "enunciado": "Un cuaderno de estudio te responde: «esa información no consta en los documentos cargados». ¿Cómo lo valoras?",
+      "opciones": [
+        { "texto": "Es un fallo: debería haberlo respondido igualmente.", "correcta": false, "explicacion": "Responder lo que no está en el material sería inventar." },
+        { "texto": "Es una buena respuesta: es honesta y evita que estudies un dato inventado.", "correcta": true, "explicacion": "Admitir que algo no consta es lo que quieres de una herramienta de estudio." },
+        { "texto": "Significa que el documento está mal cargado.", "correcta": false, "explicacion": "Puede ser simplemente que el dato no esté en ese documento." },
+        { "texto": "Significa que debes pasar a otra herramienta.", "correcta": false, "explicacion": "No hace falta cambiar de herramienta para una pregunta que el documento no responde." }
+      ]
+    },
+    {
+      "tipo": "escenario",
+      "enunciado": "¿Qué haces?",
+      "caso": "Un curso acreditado incluye un examen con la norma «no se permite el uso de herramientas de IA durante la evaluación». Has estudiado con un cuaderno de IA y durante el examen puedes abrirlo en otra pestaña.",
+      "opciones": [
+        { "texto": "Lo usas: lo has cargado tú y es tu material.", "correcta": false, "explicacion": "La norma del curso lo prohíbe expresamente, con independencia de quién cargó el material." },
+        { "texto": "No lo usas: estudiar con IA es una cosa y resolver la evaluación con ella, otra; se respetan las normas del curso.", "correcta": true, "explicacion": "Hay que leer y respetar las normas de evaluación de cada curso." },
+        { "texto": "Lo usas solo para las preguntas difíciles.", "correcta": false, "explicacion": "La norma no distingue por dificultad: prohíbe su uso." },
+        { "texto": "Lo usas si nadie lo ve.", "correcta": false, "explicacion": "Incumplir la norma es incumplir la norma, aunque nadie lo vea." }
+      ]
+    }
+  ]
+}

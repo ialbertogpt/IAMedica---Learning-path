@@ -1,0 +1,19 @@
+{
+  "titulo": "¿Qué guía de comunicación corresponde a cada estudio?",
+  "instrucciones": "Las guías de la red EQUATOR indican qué debe contar cada tipo de estudio. Asigna a cada trabajo la que le corresponde.",
+  "categorias": [
+    { "id": "care", "nombre": "CARE", "descripcion": "casos clínicos" },
+    { "id": "strobe", "nombre": "STROBE", "descripcion": "estudios observacionales" },
+    { "id": "consort", "nombre": "CONSORT", "descripcion": "ensayos aleatorizados" },
+    { "id": "prisma", "nombre": "PRISMA", "descripcion": "revisiones sistemáticas" },
+    { "id": "stard", "nombre": "STARD", "descripcion": "estudios diagnósticos" }
+  ],
+  "items": [
+    { "texto": "Describes el caso de una paciente de 86 años con delirium e hiponatremia por fármacos, con su evolución.", "categoria": "care", "explicacion": "Es un caso clínico: la guía CARE se creó para comunicar casos con completitud y transparencia." },
+    { "texto": "Estudias, en una cohorte de tus pacientes, qué factores se asocian al ingreso a los 12 meses.", "categoria": "strobe", "explicacion": "Es un estudio observacional: STROBE." },
+    { "texto": "Asignas al azar a dos grupos de pacientes a una intervención o a la atención habitual y comparas los resultados.", "categoria": "consort", "explicacion": "Es un ensayo aleatorizado: CONSORT (y su extensión CONSORT-AI si la intervención es una IA)." },
+    { "texto": "Reúnes, con una búsqueda sistemática, todos los ensayos sobre la prevención del delirium y los combinas.", "categoria": "prisma", "explicacion": "Es una revisión sistemática de ensayos: PRISMA." },
+    { "texto": "Evalúas la precisión de una prueba para diagnosticar delirium frente a una referencia en 300 pacientes.", "categoria": "stard", "explicacion": "Es un estudio de precisión diagnóstica: STARD (STARD-AI si la prueba usa IA)." }
+  ],
+  "cierre": "La guía no decide cómo diseñar el estudio, sino qué contar de él. Elige la tuya antes de empezar a escribir y úsala como lista de comprobación; muchas revistas piden la lista completada."
+}

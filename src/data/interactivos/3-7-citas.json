@@ -1,0 +1,18 @@
+{
+  "titulo": "¿Qué hago con esta respuesta de un cuaderno de estudio?",
+  "instrucciones": "Has cargado una guía en un cuaderno con IA y le haces preguntas. Decide qué haces con cada tipo de respuesta.",
+  "categorias": [
+    { "id": "comprobar", "nombre": "Comprobar la cita", "descripcion": "abrir el documento y verlo" },
+    { "id": "pedir", "nombre": "Pedir la cita", "descripcion": "reformular la pregunta" },
+    { "id": "descartar", "nombre": "Descartarla", "descripcion": "no sirve como estudio" },
+    { "id": "aceptar", "nombre": "Aceptarla", "descripcion": "es una buena respuesta" }
+  ],
+  "items": [
+    { "texto": "Responde con un fragmento literal y la página, y el fragmento coincide con lo que dice la pregunta.", "categoria": "comprobar", "explicacion": "Es lo que quieres, pero igualmente abre la página: una cita se comprueba, no se supone." },
+    { "texto": "Responde con mucha seguridad pero sin citar ninguna página ni fragmento.", "categoria": "pedir", "explicacion": "Pídele la página y el fragmento exacto. Si no puede darlos, la respuesta no es fiable." },
+    { "texto": "Dice «según el documento…», pero al abrir la página citada ese fragmento no aparece.", "categoria": "descartar", "explicacion": "Ha rellenado un hueco. Descarta la respuesta y revisa la pregunta; esto pasa con tablas y gráficos mal interpretados." },
+    { "texto": "Responde «esa información no consta en los documentos cargados».", "categoria": "aceptar", "explicacion": "Es la respuesta honesta cuando el dato no está. Es mucho mejor que inventarlo." },
+    { "texto": "Resume una tabla de la guía con cifras que no coinciden con las de la tabla original.", "categoria": "descartar", "explicacion": "Los modelos pueden interpretar mal tablas y gráficos de un PDF. Con cifras, el original manda." }
+  ],
+  "cierre": "El valor de estos cuadernos está en la cita: sin ella, es una IA más que habla con aplomo. Pide siempre página y fragmento, y compruébalos."
+}

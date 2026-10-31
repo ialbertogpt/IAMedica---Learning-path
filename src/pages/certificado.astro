@@ -1,0 +1,87 @@
+---
+// Certificado NO oficial: se genera en el navegador con tu progreso y el nombre que escribas.
+// Nada se envía a ningún sitio; el nombre se guarda solo en este dispositivo.
+import BaseLayout from '../components/layout/BaseLayout.astro';
+import { subcapitulos } from '../lib/curso';
+import { cargarDatos } from '../lib/interactivos';
+const subs = (await subcapitulos()).filter((s) => s.construido).map((s) => ({ id: s.id, numero: s.numero, titulo: s.titulo, sesiones: s.sesiones.length }));
+const ae = cargarDatos<{ items: { id: string; texto: string }[] }>('3-8-autoevaluacion-final');
+const datos = { subs, items: ae.items };
+---
+<BaseLayout titulo="Certificado de finalización (no oficial)" seccion="progreso" sinIndexar descripcion="Un certificado personal y no oficial, generado en tu navegador.">
+  <div class="contenedor-lectura pt-7">
+    <h1 class="no-imprimir">Tu certificado (no oficial)</h1>
+    <p class="tenue no-imprimir">Es un documento <strong class="text-tinta">personal y no oficial</strong>, generado en tu navegador con tu progreso. El curso no está acreditado como formación continuada. Escribe tu nombre (se guarda solo en este dispositivo), revisa el resumen e imprime o guarda en PDF.</p>
+
+    <section class="tarjeta mt-5 grid gap-3 no-imprimir" aria-labelledby="nombre-t">
+      <h2 id="nombre-t" class="text-xl m-0">Tu nombre</h2>
+      <label class="grid gap-1" for="nombre"><span class="font-bold">Nombre que aparecerá en el certificado</span>
+        <input id="nombre" type="text" autocomplete="name" class="w-full rounded-lg border border-borde bg-superficie p-2 text-base min-h-11" maxlength="80" />
+      </label>
+      <div class="flex flex-wrap gap-2">
+        <button type="button" class="boton" id="imprimir">Imprimir o guardar en PDF</button>
+        <a class="boton boton-sec" href="/progreso/">Ver mi progreso</a>
+      </div>
+    </section>
+
+    <article class="tarjeta mt-5 grid gap-4" id="certificado" aria-label="Certificado">
+      <p class="eyebrow m-0">Mi IA Médica · Learning path</p>
+      <h2 class="text-2xl m-0">Certificado de finalización <span class="tenue text-base">(no oficial)</span></h2>
+      <p class="m-0 text-lg">Este documento recoge que <strong id="c-nombre" class="text-tinta">[tu nombre]</strong> ha realizado el curso <em>Mi IA Médica</em>, con el siguiente progreso a fecha de <strong id="c-fecha"></strong>:</p>
+      <ul class="m-0 pl-5 grid gap-1" id="c-resumen"></ul>
+
+      <div>
+        <h3 class="text-lg m-0">Autoevaluación: al empezar y ahora</h3>
+        <p class="m-0 text-sm tenue">Confianza declarada de 1 (ninguna) a 5 (mucha). Gris: al empezar; color: ahora.</p>
+        <ol class="list-none p-0 m-0 mt-2 grid gap-2" id="c-ae"></ol>
+        <p class="m-0 mt-2" id="c-ae-media"></p>
+      </div>
+
+      <p class="m-0 text-sm tenue border-t border-borde pt-3">Documento personal generado en el navegador a partir del progreso guardado en este dispositivo. No está emitido ni avalado por ninguna institución, no es una acreditación de formación continuada y no certifica competencias clínicas. Los casos y datos del curso son ficticios y la decisión clínica es siempre del profesional.</p>
+    </article>
+  </div>
+  <script type="application/json" id="datos-cert" set:html={JSON.stringify(datos)} />
+</BaseLayout>
+<script>
+  import { leer, guardar } from '../lib/progreso';
+  const d: { subs: { id: string; numero: string; titulo: string; sesiones: number }[]; items: { id: string; texto: string }[] } = JSON.parse(document.getElementById('datos-cert')!.textContent!);
+  const entrada = document.getElementById('nombre') as HTMLInputElement;
+  const fmt = (n: number) => n.toLocaleString('es-ES', { maximumFractionDigits: 1 });
+
+  function pintar() {
+    const p = leer();
+    entrada.value = entrada.value || p.nombreCertificado || '';
+    document.getElementById('c-nombre')!.textContent = entrada.value.trim() || '[tu nombre]';
+    document.getElementById('c-fecha')!.textContent = new Date().toLocaleDateString('es-ES', { day: 'numeric', month: 'long', year: 'numeric' });
+    const sesiones = d.subs.reduce((a, s) => a + (p.sesiones[s.id]?.length ?? 0), 0);
+    const total = d.subs.reduce((a, s) => a + s.sesiones, 0);
+    const tests = d.subs.filter((s) => p.tests[s.id]?.superado).length;
+    const pasos = Object.keys(p.pasos).length;
+    const anon = Object.keys(p.pasos).filter((k) => /anonimizar/.test(k)).length;
+    const verif = Object.keys(p.pasos).filter((k) => /verificar/.test(k)).length;
+    document.getElementById('c-resumen')!.innerHTML = [
+      `${sesiones} de ${total} sesiones completadas en los subcapítulos disponibles.`,
+      `${tests} de ${d.subs.length} tests superados.`,
+      `${pasos} pasos de taller marcados (${anon} de anonimización y ${verif} de verificación).`,
+    ].map((t) => `<li>${t}</li>`).join('');
+
+    const ini = p.autoevaluacion.inicial ?? {}, fin = p.autoevaluacion.final ?? {};
+    const lista = document.getElementById('c-ae')!;
+    if (!Object.keys(ini).length || !Object.keys(fin).length) {
+      lista.innerHTML = '<li class="tenue">Completa la autoevaluación inicial (Módulo 0) y la final (3.8) para ver aquí la comparación.</li>';
+      document.getElementById('c-ae-media')!.textContent = '';
+    } else {
+      lista.innerHTML = d.items.map((it) => {
+        const a = ini[it.id] ?? 0, b = fin[it.id] ?? 0;
+        return `<li class="grid gap-1"><span class="text-sm">${it.texto}</span><span class="grid gap-0.5" aria-label="Al empezar ${a}, ahora ${b}"><span class="block h-2.5 rounded bg-tinta-3" style="width:${a * 20}%"></span><span class="block h-2.5 rounded" style="width:${b * 20}%;background:var(--l3)"></span></span><span class="text-sm tenue">Al empezar: ${a} · Ahora: ${b}</span></li>`;
+      }).join('');
+      const media = (r: Record<string, number>) => { const v = d.items.map((i) => r[i.id]).filter(Boolean); return v.length ? v.reduce((x, y) => x + y, 0) / v.length : 0; };
+      document.getElementById('c-ae-media')!.textContent = `Confianza media: ${fmt(media(ini))} al empezar y ${fmt(media(fin))} ahora.`;
+    }
+  }
+  pintar();
+  entrada.addEventListener('input', () => {
+    const p = leer(); p.nombreCertificado = entrada.value.trim().slice(0, 80); guardar(p); pintar();
+  });
+  document.getElementById('imprimir')!.addEventListener('click', () => window.print());
+</script>

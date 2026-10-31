@@ -1,0 +1,27 @@
+{
+  "titulo": "Herramientas para buscar y explorar literatura, a fecha de octubre de 2026",
+  "instrucciones": "Qué dice la página oficial de cada herramienta. Para el resto (precios, límites, funciones), consulta su web: cambian a menudo.",
+  "modo": "tarjetas",
+  "categorias": [
+    { "id": "base", "nombre": "Bases de datos" },
+    { "id": "ia", "nombre": "Buscadores con IA" },
+    { "id": "mapas", "nombre": "Mapas de citas" },
+    { "id": "gestor", "nombre": "Gestor de referencias" }
+  ],
+  "items": [
+    { "id": "pubmed", "titulo": "PubMed", "categoria": "base", "detalle": "La base de datos de referencia de la literatura biomédica, gratuita, de la Biblioteca Nacional de Medicina de EE. UU. Permite búsquedas con MeSH y etiquetas de campo, y crear alertas por correo («Create alert», con una cuenta gratuita de My NCBI). Es el punto de partida y de verificación de cualquier referencia.", "fuente": "PubMed User Guide, consultada el 31/10/2026." },
+    { "id": "epistemonikos", "titulo": "Epistemonikos", "categoria": "base", "detalle": "Se presenta como un buscador de evidencia en salud que combina la atención sanitaria basada en la evidencia y las tecnologías de la información para quien decide sobre cuestiones clínicas o de política sanitaria. Su web está disponible en español.", "fuente": "Web oficial, consultada el 31/10/2026. No se ha comprobado su cobertura." },
+    { "id": "trip", "titulo": "Trip", "categoria": "base", "detalle": "Se presenta como «respuestas basadas en la evidencia para profesionales de la salud», con fuentes como revisiones sistemáticas, guías de práctica clínica y ensayos aleatorizados. Interfaz en inglés.", "fuente": "Web oficial, consultada el 31/10/2026. No se han comprobado sus planes." },
+    { "id": "cochrane", "titulo": "Cochrane Library", "categoria": "base", "detalle": "La biblioteca de las revisiones Cochrane. Su web bloquea las comprobaciones automáticas, así que su disponibilidad se comprobó solo de forma parcial; ábrela tú en el navegador.", "fuente": "Respuesta de la web el 31/10/2026 (bloqueo anti-bots)." },
+    { "id": "consensus", "titulo": "Consensus", "categoria": "ia", "detalle": "Se presenta como un buscador académico con IA para literatura revisada por pares. Dispone de una página de planes («Pricing»). Interfaz en inglés. Como toda herramienta con IA, verifica cada afirmación y cada referencia en PubMed.", "fuente": "Web oficial, consultada el 31/10/2026. No se han comprobado límites ni precios." },
+    { "id": "elicit", "titulo": "Elicit", "categoria": "ia", "detalle": "Se presenta como una herramienta de IA para sintetizar evidencia y revisar literatura. En su web ofrece «Try Elicit for free». Interfaz en inglés. Verifica cada afirmación y cada referencia.", "fuente": "Web oficial, consultada el 31/10/2026. No se han comprobado límites ni precios." },
+    { "id": "scite", "titulo": "Scite", "categoria": "ia", "detalle": "Se presenta como una plataforma que busca en más de 300 millones de artículos y muestra si cada afirmación está apoyada o cuestionada por otras citas. Ofrece una prueba gratuita («Start Free Trial»). Interfaz en inglés.", "fuente": "Web oficial, consultada el 31/10/2026." },
+    { "id": "semantic", "titulo": "Semantic Scholar", "categoria": "ia", "detalle": "Se presenta como una herramienta gratuita, con IA, para la literatura científica, que permite crear una cuenta gratuita. Interfaz en inglés.", "fuente": "Web oficial, consultada el 31/10/2026." },
+    { "id": "perplexity", "titulo": "Perplexity", "categoria": "ia", "detalle": "Buscador conversacional con citas. Su web bloqueó las comprobaciones automáticas (Cloudflare), así que no he podido verificar sus planes ni su disponibilidad: consúltala tú. Aunque cite fuentes, comprueba que existen y que dicen lo que se afirma.", "fuente": "Respuesta de la web el 31/10/2026 (bloqueo anti-bots)." },
+    { "id": "connected", "titulo": "Connected Papers", "categoria": "mapas", "detalle": "Se presenta como una herramienta visual para encontrar y explorar artículos académicos relevantes en tu campo. Interfaz en inglés.", "fuente": "Web oficial, consultada el 31/10/2026. No se han comprobado límites ni precios." },
+    { "id": "litmaps", "titulo": "Litmaps", "categoria": "mapas", "detalle": "Se presenta como un asistente de revisión de literatura con visualizaciones dinámicas. Su página de precios incluye un plan gratuito («Free») con búsqueda básica, hasta 20 artículos de partida, 2 mapas y 100 artículos. Interfaz en inglés.", "fuente": "Web oficial y página de precios, consultadas el 31/10/2026." },
+    { "id": "rabbit", "titulo": "ResearchRabbit", "categoria": "mapas", "detalle": "Se presenta como una herramienta de IA para revisiones de literatura más rápidas. Interfaz en inglés.", "fuente": "Web oficial, consultada el 31/10/2026. No se han comprobado límites ni precios." },
+    { "id": "zotero", "titulo": "Zotero", "categoria": "gestor", "detalle": "Gestor de referencias gratuito y de código abierto, con extensión para el navegador y complemento para Word. Guarda referencias con un clic desde PubMed. No comprueba si una referencia dice lo que crees.", "fuente": "Directorio de herramientas del curso, verificado el 29/10/2026." }
+  ],
+  "nota": "OpenEvidence no se incluye porque desde finales de abril de 2026 bloquea el acceso desde la UE (2.4). Ninguna de estas herramientas es apta para introducir datos de pacientes con una cuenta personal."
+}

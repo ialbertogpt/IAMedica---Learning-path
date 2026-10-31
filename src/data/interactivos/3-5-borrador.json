@@ -1,0 +1,24 @@
+{
+  "titulo": "¿Qué falla en este borrador de un caso clínico?",
+  "pregunta": "Un compañero te enseña la portada y la primera página de un caso clínico que quiere enviar a una revista y te pide que lo revises antes de enviarlo.",
+  "procedencia": "texto creado para este ejercicio; el caso, los autores y la revista son ficticios; contiene 5 fallos intencionados",
+  "hallazgo": "fallos",
+  "instrucciones": "Toca los fragmentos que incumplen las recomendaciones del ICMJE o de la guía CARE y pulsa «Comprobar». Algunos fragmentos están bien: no los marques.",
+  "parrafos": [
+    [
+      { "texto": "Título: Hiponatremia y delirium en una paciente de 86 años con polimedicación.", "error": true, "explicacion": "Según la guía CARE, el título debe nombrar el diagnóstico o la intervención de interés seguido de las palabras «caso clínico» (case report). Aquí no lo indica." },
+      { "texto": "Autores: M. Pérez, A. Ruiz y ChatGPT.", "error": true, "explicacion": "Los chatbots no pueden figurar como autores porque no pueden responsabilizarse de la exactitud, la integridad y la originalidad del trabajo. Son requisitos de la autoría según el ICMJE." }
+    ],
+    [
+      { "texto": "Introducción: se presenta un caso de hiponatremia por fármacos en una paciente mayor con caídas, un cuadro frecuente pero poco comunicado en este contexto.", "explicacion": "Correcto: una o dos frases que explican por qué el caso es relevante, como pide la guía CARE." },
+      { "texto": "La paciente, E. O. V., historia clínica 7731904, ingresó en nuestra planta tras tres caídas.", "error": true, "explicacion": "Las iniciales y el número de historia son datos identificativos. El ICMJE indica que no deben publicarse salvo que sean esenciales y con el consentimiento informado por escrito de la paciente; lo habitual es desidentificarlos." },
+      { "texto": "El texto de la discusión se generó con un asistente de IA, que también proporcionó las diez referencias.", "error": true, "explicacion": "Dos problemas: el uso de IA debe declararse en la carta de presentación y en el manuscrito, y las referencias generadas por una IA deben comprobarse una a una (pueden no existir o no decir lo que se afirma)." }
+    ],
+    [
+      { "texto": "Línea temporal: caídas a lo largo de dos meses; confusión fluctuante durante los cuatro últimos días antes del ingreso.", "explicacion": "Correcto: la guía CARE pide organizar la información del episodio en una línea temporal, con tiempos relativos." },
+      { "texto": "Consentimiento informado: no se ha solicitado porque el caso es anónimo.", "error": true, "explicacion": "La guía CARE pregunta si la paciente dio su consentimiento informado, y el ICMJE exige consentimiento escrito cuando se publica información que pueda identificarla. «Anónimo» no basta: las combinaciones de datos pueden identificar. Hay que obtenerlo y archivarlo." },
+      { "texto": "Seguiremos las instrucciones para autores de la revista en cuanto a formato y uso de IA.", "explicacion": "Correcto: las instrucciones para autores de la revista concreta mandan sobre el formato y también sobre el uso de IA." }
+    ]
+  ],
+  "conclusion": "Estos fragmentos reúnen los fallos más habituales: un título sin «caso clínico», una IA como autora, datos identificativos, una IA sin declarar con referencias sin comprobar y un consentimiento que se da por innecesario. Revisar un borrador con la guía CARE y el ICMJE en la mano evita los más graves."
+}

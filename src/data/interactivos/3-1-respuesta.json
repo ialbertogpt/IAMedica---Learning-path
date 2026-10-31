@@ -1,0 +1,23 @@
+{
+  "titulo": "¿Qué falla en esta respuesta de la IA?",
+  "pregunta": "Mismo caso: mujer de 86 años, caídas repetidas con golpe en la cabeza, confusión fluctuante, sodio 124 mmol/l y 11 fármacos (hidroclorotiazida, sertralina, lorazepam, oxibutinina, ácido acetilsalicílico…). Pides un diagnóstico diferencial y un plan inicial.",
+  "procedencia": "texto creado para este ejercicio imitando el estilo de un asistente de IA; contiene 3 errores intencionados. Caso ficticio",
+  "hallazgo": "errores",
+  "instrucciones": "Toca las frases que contengan un error o una recomendación insegura y pulsa «Comprobar». Puedes consultar la ficha técnica de sertralina en CIMA y la guía de hiponatremia antes de decidir.",
+  "parrafos": [
+    [
+      { "texto": "Se trata de un cuadro probablemente multifactorial, compatible con un delirium, con tres focos principales: la hiponatremia, los fármacos de efecto central y una posible causa intracraneal tras el golpe en la cabeza.", "explicacion": "Planteamiento razonable: un delirium en una persona mayor suele ser multifactorial, y el traumatismo craneal con antiagregante obliga a considerar una causa intracraneal." }
+    ],
+    [
+      { "texto": "La hidroclorotiazida puede producir o agravar una hiponatremia, por lo que conviene valorar su suspensión.", "explicacion": "Correcto: la ficha técnica de las tiazidas advierte de que pueden producir o exacerbar una hiponatremia." },
+      { "texto": "La sertralina no se asocia a hiponatremia, así que no hace falta tenerla en cuenta.", "error": true, "explicacion": "Error: la ficha técnica de sertralina (sección 4.4) advierte de hiponatremia, a menudo por SIADH, con más riesgo en mayores y en quienes toman diuréticos, como esta paciente." },
+      { "texto": "La oxibutinina, por su efecto anticolinérgico, puede contribuir a la confusión, sobre todo en personas mayores.", "explicacion": "Correcto: su ficha técnica (4.4) describe efectos anticolinérgicos del sistema nervioso central, como confusión, y mayor sensibilidad en mayores." }
+    ],
+    [
+      { "texto": "Hay que normalizar el sodio lo antes posible, aunque la corrección sea rápida.", "error": true, "explicacion": "Error grave: las guías prefieren una corrección gradual y con controles frecuentes antes que una normalización rápida del sodio, por el riesgo de sobrecorrección. Incluso cuando se trata con urgencia, se hace con vigilancia analítica estrecha." },
+      { "texto": "Dado que toma 11 fármacos, lo más seguro es suspenderlos todos de golpe hasta aclarar la causa.", "error": true, "explicacion": "Error: no se suspenden todos los fármacos de golpe. Algunos, como la sertralina, producen síntomas de retirada si se suspenden bruscamente (ficha técnica, 4.4). La revisión es selectiva y escalonada." },
+      { "texto": "Antes de decidir, conviene valorar a la paciente, contrastar estas indicaciones con las fichas técnicas y las guías, y hacer una prueba de imagen craneal.", "explicacion": "Correcto: es la actitud segura. La decisión final es tuya, con tu valoración y las fuentes." }
+    ]
+  ],
+  "conclusion": "Las tres frases erróneas suenan plausibles y están escritas con seguridad. Dos contradicen una fuente que puedes abrir en un minuto (CIMA y la guía), y la tercera propone una retirada masiva y brusca. Esa es la razón de contrastar siempre: no por desconfiar de la IA, sino porque la seguridad de la prosa no es una prueba."
+}

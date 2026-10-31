@@ -1,0 +1,43 @@
+{
+  "titulo": "Test · Proyecto final",
+  "preguntas": [
+    {
+      "tipo": "ordenar",
+      "enunciado": "Ordena el flujo de un proyecto con IA que respeta todo lo aprendido.",
+      "pasos": [
+        { "texto": "Asegurar que los datos son ficticios o están anonimizados y autorizados.", "porque": "Es la condición previa: sin ella, nada de lo demás es aceptable." },
+        { "texto": "Escribir lo que vas a hacer y elegir el método antes de pedirle nada a la IA.", "porque": "Así la IA ayuda a tu plan en lugar de dirigirlo." },
+        { "texto": "Trabajar con la IA como ayudante y pedir una segunda lectura o una crítica.", "porque": "Reduce el riesgo de complacencia y de errores sin detectar." },
+        { "texto": "Verificar cada dato y cada afirmación contra su fuente y declarar qué hizo la IA.", "porque": "La verificación y la transparencia protegen al paciente y al autor." }
+      ]
+    },
+    {
+      "tipo": "escenario",
+      "enunciado": "¿Qué falla en este resumen de congreso?",
+      "caso": "Un resumen del mini estudio dice: «Las caídas previas causan un 193 % más de ingresos (OR 2,93). La escala FRAIL no se relaciona con el ingreso (p = 0,11)». No menciona que los datos son sintéticos.",
+      "opciones": [
+        { "texto": "Nada: está bien redactado.", "correcta": false, "explicacion": "Tiene varios errores de interpretación y una omisión importante." },
+        { "texto": "Interpreta una odds ratio como riesgo, concluye causalidad de una asociación, concluye «no relación» de un resultado no significativo y omite que los datos son sintéticos.", "correcta": true, "explicacion": "Son los errores clásicos de interpretación, más la falta de honestidad sobre el origen de los datos." },
+        { "texto": "Falla solo que no incluye el p-valor de las caídas.", "correcta": false, "explicacion": "El problema no es el p-valor: es la interpretación y la omisión." },
+        { "texto": "Falla que no está en inglés.", "correcta": false, "explicacion": "El idioma no es el problema." }
+      ]
+    },
+    {
+      "tipo": "vf",
+      "enunciado": "El certificado que genera el curso es una acreditación oficial de formación continuada.",
+      "respuesta": false,
+      "explicacionVerdadero": "No. Es un documento personal y no oficial, generado en tu navegador; el curso no está acreditado como formación continuada.",
+      "explicacionFalso": "Correcto. El certificado es personal y no oficial; no certifica competencias clínicas ni está avalado por ninguna institución."
+    },
+    {
+      "tipo": "unica",
+      "enunciado": "Al comparar tu autoevaluación final con la inicial, ¿cuál es el mejor uso de esa comparación?",
+      "opciones": [
+        { "texto": "Presumir de la nota que sacas.", "correcta": false, "explicacion": "La autoevaluación no puntúa: sirve para reflexionar." },
+        { "texto": "Ver qué afirmaciones han cambiado más y cuáles siguen bajas, y volver a las sesiones correspondientes.", "correcta": true, "explicacion": "Es una herramienta de reflexión: indica dónde has avanzado y qué conviene repasar." },
+        { "texto": "Compararla con la de otras personas.", "correcta": false, "explicacion": "Es personal y se guarda solo en tu dispositivo." },
+        { "texto": "Ignorarla si el resultado no te gusta.", "correcta": false, "explicacion": "Los resultados bajos son justo los que más información dan." }
+      ]
+    }
+  ]
+}

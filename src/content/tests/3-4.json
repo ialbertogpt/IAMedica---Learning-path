@@ -1,0 +1,54 @@
+{
+  "titulo": "Test · Análisis estadístico de una base de datos",
+  "preguntas": [
+    {
+      "tipo": "ordenar",
+      "enunciado": "Ordena el flujo de trabajo con una base de datos de pacientes.",
+      "pasos": [
+        { "texto": "Guardar una copia del original y limpiar la base (duplicados, codificación, valores imposibles, ausentes).", "porque": "Se trabaja siempre sobre una copia y se documenta cada cambio." },
+        { "texto": "Escribir el diccionario de variables y anonimizar la base.", "porque": "Antes de analizar o compartir nada, hay que documentar y proteger los datos." },
+        { "texto": "Elegir la prueba estadística según el tipo de variable y los grupos, y analizar en un programa local.", "porque": "La prueba se elige antes de ver los resultados, y los cálculos se hacen donde los datos no salen." },
+        { "texto": "Pasar a la IA solo los resultados agregados para interpretarlos y reproducir un resultado clave por una segunda vía.", "porque": "La IA no recibe datos individuales y el resultado clave se confirma por otra vía." }
+      ]
+    },
+    {
+      "tipo": "escenario",
+      "enunciado": "¿Qué prueba usas?",
+      "caso": "Quieres saber si el índice de Barthel medio es distinto en los pacientes que sufrieron una caída y en los que no. Hay unos 120 pacientes en cada grupo y la distribución es aproximadamente normal.",
+      "opciones": [
+        { "texto": "t de Student para muestras independientes (con la versión de Welch).", "correcta": true, "explicacion": "Comparas la media de una cantidad entre dos grupos de pacientes distintos, con una muestra razonable y una distribución aproximadamente normal." },
+        { "texto": "χ² de Pearson.", "correcta": false, "explicacion": "El χ² compara categorías, no la media de una cantidad como el Barthel." },
+        { "texto": "t de Student para muestras apareadas.", "correcta": false, "explicacion": "Las muestras apareadas son para los mismos pacientes medidos dos veces. Aquí los grupos son distintos." },
+        { "texto": "Regresión logística.", "correcta": false, "explicacion": "La regresión logística explica un resultado de dos opciones; aquí el resultado es una cantidad y solo comparas dos grupos." }
+      ]
+    },
+    {
+      "tipo": "vf",
+      "enunciado": "Un p-valor de 0,03 significa que hay un 97 % de probabilidad de que la hipótesis del investigador sea cierta.",
+      "respuesta": false,
+      "explicacionVerdadero": "No. El p-valor es la probabilidad de obtener un resultado como el observado, o más extremo, si en realidad no hubiera ningún efecto. No es la probabilidad de la hipótesis.",
+      "explicacionFalso": "Correcto. Es uno de los errores de interpretación más frecuentes: el p-valor se calcula suponiendo que no hay efecto; no dice qué probabilidad tiene la hipótesis."
+    },
+    {
+      "tipo": "escenario",
+      "enunciado": "¿Qué falla en esta interpretación?",
+      "caso": "Una IA redacta: «La diferencia entre los dos tratamientos fue de 3,6 puntos (IC 95 %: −1,2 a 8,4; p = 0,14); por tanto, no existe ninguna diferencia entre ellos».",
+      "opciones": [
+        { "texto": "Nada: con un p de 0,14 no hay diferencia.", "correcta": false, "explicacion": "Un resultado no significativo no demuestra ausencia de diferencia." },
+        { "texto": "Concluye que no hay diferencia a partir de un resultado no significativo, cuando el intervalo es ancho y compatible tanto con ninguna diferencia como con una diferencia apreciable.", "correcta": true, "explicacion": "El IC va de −1,2 a 8,4: incluye el cero, pero también diferencias que podrían ser clínicamente relevantes. Habría que decir que el estudio no permite concluir y que quizá no tenía potencia." },
+        { "texto": "Falta calcular la odds ratio.", "correcta": false, "explicacion": "La odds ratio no es lo que falla; la diferencia de medias y su IC ya están dados." },
+        { "texto": "Falla que da un intervalo de confianza.", "correcta": false, "explicacion": "El intervalo de confianza es precisamente lo que debe darse junto al p-valor." }
+      ]
+    },
+    {
+      "tipo": "emparejar",
+      "enunciado": "Empareja cada situación con la prueba que suele convenirle.",
+      "pares": [
+        { "izquierda": "Comparar si hay relación entre caídas (sí/no) e ingreso (sí/no)", "derecha": "χ² de Pearson (o Fisher si hay pocas frecuencias esperadas)", "porque": "Son dos variables categóricas: se contrasta la asociación en una tabla." },
+        { "izquierda": "Comparar una cantidad entre dos grupos con pocos pacientes y muy asimétrica", "derecha": "U de Mann-Whitney", "porque": "Es la alternativa no paramétrica a la t de dos grupos independientes." },
+        { "izquierda": "Comparar el Barthel de los mismos pacientes al ingreso y al alta", "derecha": "t de Student para muestras apareadas", "porque": "Son medidas repetidas de los mismos pacientes: se analiza la diferencia de cada uno." },
+        { "izquierda": "Explicar el ingreso (sí/no) con el Barthel, los fármacos, las caídas y la fragilidad a la vez", "derecha": "Regresión logística", "porque": "Explica un resultado de dos opciones con varias variables simultáneamente, con una odds ratio por variable." }
+      ]
+    }
+  ]
+}

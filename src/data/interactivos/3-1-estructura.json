@@ -1,0 +1,21 @@
+{
+  "titulo": "Estructura tu caso: ¿en qué apartado va cada dato?",
+  "instrucciones": "Un caso bien presentado se parece a uno que cuentas en una sesión clínica. Asigna cada fragmento al apartado que le corresponde. El caso es ficticio.",
+  "categorias": [
+    { "id": "paciente", "nombre": "Paciente y contexto", "descripcion": "edad, convivencia, situación funcional (anonimizado)" },
+    { "id": "evolucion", "nombre": "Motivo y evolución", "descripcion": "qué ocurre y desde cuándo" },
+    { "id": "medicacion", "nombre": "Medicación", "descripcion": "lista completa, con dosis" },
+    { "id": "pruebas", "nombre": "Exploración y pruebas", "descripcion": "constantes, analítica, imagen" },
+    { "id": "pregunta", "nombre": "Tu pregunta", "descripcion": "lo que quieres que haga la IA" },
+    { "id": "hipotesis", "nombre": "Tu hipótesis", "descripcion": "al final, y pidiendo que la refute" }
+  ],
+  "items": [
+    { "texto": "Mujer de 86 años, viuda, que vive con su hija y era independiente para las actividades básicas.", "categoria": "paciente", "explicacion": "Edad, convivencia y funcionalidad son contexto clínico relevante y poco identificativo." },
+    { "texto": "Tres caídas en dos meses; la última, hace cinco días, con golpe en la cabeza. Desde hace cuatro días, somnolencia y confusión que fluctúan a lo largo del día.", "categoria": "evolucion", "explicacion": "Describe qué ocurre y su cronología, con tiempos relativos y sin fechas exactas." },
+    { "texto": "Hidroclorotiazida 25 mg/día, enalapril 10 mg/día, amlodipino 5 mg/día, sertralina 100 mg/día, lorazepam 1 mg por la noche, oxibutinina 5 mg/12 h y cinco más.", "categoria": "medicacion", "explicacion": "La lista completa de fármacos, con dosis, es esencial: muchos casos de confusión y caídas tienen una causa farmacológica." },
+    { "texto": "TA 128/76 mmHg acostada y 102/60 de pie; sodio 124 mmol/l; creatinina 1,2 mg/dl.", "categoria": "pruebas", "explicacion": "Constantes y resultados de pruebas, con sus unidades." },
+    { "texto": "Dame un diagnóstico diferencial razonado: qué datos apoyan y cuáles refutarían cada opción, y qué pruebas discriminan entre ellas.", "categoria": "pregunta", "explicacion": "Una petición concreta y abierta (un diferencial razonado), no «dime qué tiene»." },
+    { "texto": "Mi primera impresión es que la causa es la tiazida; dime si hay algún dato que la contradiga.", "categoria": "hipotesis", "explicacion": "Si das tu hipótesis, hazlo al final y pide que la refute: así reduces el riesgo de complacencia." }
+  ],
+  "cierre": "El orden importa: primero los datos, después la pregunta y, al final, tu hipótesis con una petición de refutación. Presentar tu sospecha al principio sesga la respuesta."
+}

@@ -1,0 +1,21 @@
+{
+  "titulo": "¿Qué hago con este dato: quitar, generalizar o mantener?",
+  "instrucciones": "Cada tarjeta es un dato que puede aparecer en un texto clínico. Decide qué hacer con él antes de pegarlo en un asistente.",
+  "categorias": [
+    { "id": "quitar", "nombre": "Quitar", "descripcion": "se elimina del todo" },
+    { "id": "generalizar", "nombre": "Generalizar", "descripcion": "se sustituye por una versión menos precisa" },
+    { "id": "mantener", "nombre": "Mantener", "descripcion": "es clínicamente necesario y poco identificativo" }
+  ],
+  "items": [
+    { "texto": "Nombre y apellidos del paciente.", "categoria": "quitar", "explicacion": "Identificador directo. Se elimina; si necesitas referirte a la persona, usa «la paciente»." },
+    { "texto": "Número de historia clínica, DNI o CIP.", "categoria": "quitar", "explicacion": "Identificadores directos y únicos. Se eliminan siempre." },
+    { "texto": "Fecha de nacimiento: 14/03/1939.", "categoria": "generalizar", "explicacion": "Se sustituye por la edad («87 años»), que es lo clínicamente relevante." },
+    { "texto": "Fecha de ingreso: 3 de marzo de 2026.", "categoria": "generalizar", "explicacion": "Se sustituye por un tiempo relativo («día 1 del ingreso», «hace 2 semanas»)." },
+    { "texto": "Dirección completa del domicilio.", "categoria": "quitar", "explicacion": "Si importa el entorno, se describe sin localizar («vive sola en un piso sin ascensor»)." },
+    { "texto": "Profesión muy singular y cargo de un familiar.", "categoria": "generalizar", "explicacion": "La combinación puede identificar. Si es relevante, se generaliza («profesión liberal»); si no lo es, se quita." },
+    { "texto": "Diagnósticos frecuentes: hipertensión arterial, fibrilación auricular.", "categoria": "mantener", "explicacion": "Son el contenido clínico del caso y, por sí solos, no identifican." },
+    { "texto": "Valores de analítica: creatinina 1,7 mg/dl, sodio 128 mEq/l.", "categoria": "mantener", "explicacion": "Datos clínicos necesarios. Sin fechas exactas ni nombres asociados, no identifican." },
+    { "texto": "Nombre y apellidos de la médica de atención primaria.", "categoria": "quitar", "explicacion": "Es un dato personal del profesional y sitúa a la paciente en un centro concreto. Se sustituye por el rol («su médica de atención primaria»)." }
+  ],
+  "cierre": "Una regla útil: pregúntate si alguien que conozca a la persona podría reconocerla con lo que queda. Si la respuesta es «quizá», quita o generaliza un poco más."
+}

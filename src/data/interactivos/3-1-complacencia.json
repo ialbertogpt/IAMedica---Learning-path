@@ -1,0 +1,45 @@
+{
+  "titulo": "Complacencia en un caso real de tu planta (ficticio): tu sospecha, o el caso neutro",
+  "instrucciones": "El mismo caso ficticio, presentado de dos formas. Antes de ver qué ha cambiado, lee las dos respuestas y piensa cuál te ayudaría más a no equivocarte.",
+  "pregunta": "¿Con cuál de las dos respuestas tomarías mejor la decisión sobre una paciente real?",
+  "versiones": [
+    {
+      "titulo": "Presentado con tu sospecha",
+      "entrada": "Mujer de 86 años con caídas repetidas, confusión fluctuante y sodio de 124 mmol/l. Toma hidroclorotiazida, sertralina y otros nueve fármacos. Creo que la causa es la tiazida, ¿no?",
+      "etiquetaEntrada": "Prompt",
+      "respuesta": [
+        "Tu sospecha es muy razonable: las tiazidas son una causa clásica de hiponatremia en personas mayores y un sodio de 124 mmol/l explica la confusión y las caídas.",
+        "Lo más importante es suspender la hidroclorotiazida y corregir el sodio cuanto antes hasta la normalidad. Con eso, el cuadro debería resolverse."
+      ],
+      "procedencia": "texto creado para este ejercicio, que imita el patrón de complacencia descrito en la literatura (Sharma et al., 2023); no es una salida real de un modelo; contiene un consejo inseguro intencionado (corregir el sodio con rapidez)",
+      "observaciones": [
+        "Confirma tu hipótesis sin cuestionarla y cierra el caso con una sola causa.",
+        "No considera una causa intracraneal tras el golpe en la cabeza, en una paciente que toma antiagregante.",
+        "No menciona otros fármacos con efecto central (lorazepam, oxibutinina) ni la sertralina, que también puede causar hiponatremia.",
+        "Aconseja corregir el sodio «cuanto antes hasta la normalidad»: las guías prefieren una corrección gradual y controlada antes que una normalización rápida, por el riesgo de sobrecorrección."
+      ]
+    },
+    {
+      "titulo": "Presentado de forma neutra",
+      "entrada": "Mujer de 86 años con caídas repetidas (la última, hace cinco días, con golpe en la cabeza), confusión fluctuante desde hace cuatro días, sodio 124 mmol/l, creatinina 1,2 mg/dl y TA 128/76 acostada y 102/60 de pie. Toma 11 fármacos: hidroclorotiazida 25 mg, enalapril 10 mg, amlodipino 5 mg, sertralina 100 mg, lorazepam 1 mg por la noche, oxibutinina 5 mg/12 h, omeprazol 20 mg, atorvastatina 20 mg, ácido acetilsalicílico 100 mg, paracetamol 1 g si dolor y levotiroxina 50 µg. Dame un diagnóstico diferencial razonado: qué datos apoyan y cuáles refutarían cada opción, y qué pruebas discriminan entre ellas. Indica lo que no puedas saber.",
+      "etiquetaEntrada": "Prompt",
+      "respuesta": [
+        "Confusión fluctuante con caídas, hiponatremia y 11 fármacos en una mujer de 86 años: hasta que se demuestre lo contrario, es un delirium, casi siempre multifactorial. Diferencial razonado:",
+        "1. Hiponatremia de origen farmacológico. A favor: sodio 124 mmol/l, hidroclorotiazida y sertralina (las fichas técnicas de ambas advierten de hiponatremia; la de sertralina señala más riesgo en mayores y con diuréticos). Por aclarar: no explica por sí sola las caídas previas. Discriminan: volemia clínica, osmolalidad plasmática y urinaria, sodio urinario, TSH y cortisol.",
+        "2. Causa intracraneal tras el golpe en la cabeza, con ácido acetilsalicílico: por ejemplo, un hematoma subdural. A favor: caídas repetidas, antiagregante y curso fluctuante. Se aclara con una prueba de imagen craneal.",
+        "3. Fármacos con efecto central: lorazepam, oxibutinina (anticolinérgico) y la propia sertralina. Su ajuste forma parte del tratamiento, pero se decide tras valorar a la paciente.",
+        "4. Descenso tensional al ponerse de pie (128/76 → 102/60): puede contribuir a las caídas. Conviene medir el ortostatismo de forma estandarizada y revisar amlodipino, enalapril y la tiazida.",
+        "5. Otras causas de delirium: infección, retención urinaria, estreñimiento, dolor, hipoglucemia y alteración tiroidea (toma levotiroxina).",
+        "Cautela: el tratamiento de la hiponatremia exige vigilancia analítica estrecha y evitar una normalización rápida del sodio (riesgo de sobrecorrección). Esto no es una indicación: contrástalo con las fichas técnicas y las guías, y decide con tu valoración clínica."
+      ],
+      "procedencia": "texto redactado por Claude (claude-sonnet-5-5) al responder a este prompt exacto, el 31/10/2026, durante la preparación del curso; no se repitió para elegir la mejor versión",
+      "observaciones": [
+        "Ordena las causas y dice qué apoya cada una.",
+        "Propone pruebas que discriminan, y no una única causa.",
+        "Incluye la causa intracraneal y varios fármacos, no solo la tiazida.",
+        "Advierte del riesgo de corregir el sodio con rapidez y recuerda que la decisión es tuya. Aun así, hay que comprobar cada dato en su fuente."
+      ]
+    }
+  ],
+  "conclusion": "La respuesta de la izquierda se parece a un residente que da la razón al adjunto: te devuelve tu hipótesis con otras palabras. La de la derecha te amplía el campo. Para evitar la complacencia: no des tu sospecha al principio, pide un diferencial razonado, pide lo que refutaría cada opción y contrasta siempre con una fuente."
+}
