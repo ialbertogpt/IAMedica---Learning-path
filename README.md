@@ -57,6 +57,19 @@ npm run dev          # servidor de desarrollo con recarga automática (el buscad
 
 Cada vez que cambies una dosis, un criterio o un dato clínico, actualiza **`REVISION_CLINICA.md`**.
 
+## Mantenimiento: qué revisar cada pocos meses
+
+El curso está **completo** (36 h, 104 sesiones). Lo que caduca es lo sensible al tiempo; revísalo con esta lista y cambia la fecha («a fecha de…») al hacerlo:
+
+1. **Modelos y empresas (1.8):** nombres de modelos, planes y disponibilidad. Fuente: la web de cada empresa.
+2. **Herramientas y precios (2.4, 3.0, 3.3, directorio):** `src/data/herramientas.json` y los mapas de 2.4, 3.0 y 3.3. Comprueba también los ajustes de privacidad de 3.0 en las páginas de ayuda de cada empresa.
+3. **Regulación (2.3):** calendario del Reglamento de IA (Reglamento (UE) 2026/1744 y posteriores) y estado del proyecto de ley español de IA.
+4. **Fichas técnicas (3.1, 3.2):** vuelve a mirar la sección 10 (fecha de revisión) de cada ficha citada en CIMA y actualiza `REVISION_CLINICA.md`.
+5. **Enlaces y vídeos:** `npm run check-links` (con `-- --actualizar` para fechar los correctos). Los enlaces «en revisión manual» ábrelos en el navegador.
+6. **Estudios de 2.1 y 2.5:** si aparece un ensayo nuevo importante en un área, añádelo al mapa con su nivel de evidencia.
+
+Si cambias el dataset de 3.4 (`npm run generar-dataset`, necesita `exceljs`, solo de desarrollo), recalcula los resultados de referencia del taller.
+
 ## Privacidad
 
 - La web no usa cookies ni analítica. El progreso se guarda solo en el navegador (`localStorage`).
@@ -82,3 +95,5 @@ La carpeta `dist/` que genera `npm run build` se puede subir tal cual a cualquie
 - Iconos Material Symbols de Google (Apache 2.0), paquete `@material-symbols/svg-300`: se insertan como SVG solo los que se usan.
 - Tokenizador `gpt-tokenizer` (MIT).
 - Criterios STOPP/START v3 (O'Mahony et al., 2023; CC BY 4.0): citados y parafraseados.
+- `exceljs` (MIT), solo para generar los ficheros de ejemplo del taller 3.4; no forma parte del sitio publicado.
+- El dataset de 3.4 es sintético y propio: no contiene datos de ninguna persona.

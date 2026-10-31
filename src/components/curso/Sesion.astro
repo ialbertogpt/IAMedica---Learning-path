@@ -4,7 +4,7 @@
 interface Props { n: number; titulo: string; minutos: number }
 const { n, titulo, minutos } = Astro.props;
 ---
-<section class="sesion" id={`sesion-${n}`} data-sesion={n} data-minutos={minutos} aria-labelledby={`sesion-${n}-titulo`}>
+<section class={n === 1 ? "sesion activa" : "sesion"} id={`sesion-${n}`} data-sesion={n} data-minutos={minutos} aria-labelledby={`sesion-${n}-titulo`}>
   <header class="sesion-cabecera">
     <p class="eyebrow m-0">Sesión {n} · {minutos} min</p>
     <h2 id={`sesion-${n}-titulo`} class="mt-1">{titulo}</h2>

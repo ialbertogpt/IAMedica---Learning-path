@@ -72,6 +72,8 @@
   h3 { font-size: 1.2rem; font-weight: 600; letter-spacing: -0.01em; }
   h4 { font-weight: 600; letter-spacing: 0; }
   a { color: var(--l1); text-underline-offset: .15em; }
+  /* Los enlaces dentro de texto se distinguen por algo más que el color (WCAG 1.4.1) */
+  :where(main p, main li, footer p) a:not(.boton):not(.no-underline) { text-decoration: underline; }
   :focus-visible { outline: 3px solid var(--l1); outline-offset: 2px; border-radius: 6px; }
   button { font: inherit; color: inherit; }
   .icono { flex: none; display: inline-block; vertical-align: middle; }

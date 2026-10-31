@@ -8,7 +8,7 @@ Convenciones del proyecto para que todas las sesiones de trabajo sean coherentes
 - **El alumno estudia en casa, con dispositivos y cuentas personales**, y quiere mantener el curso separado de su trabajo (Servicio Madrileño de Salud). No construyas el curso sobre herramientas corporativas: como mucho, menciónalas con un «si tu centro las ofrece».
 - De momento **solo se usa en local** (`npm run build` + `npm run preview -- --host` para la tablet en la wifi de casa). No hay despliegue público.
 - **Se trabaja por fases con parada obligatoria**: al terminar cada fase, commit, informe en `informes/fase-N.md` y **esperar la aprobación del usuario**. No avances de fase sin ella.
-- Estado: Fases 0 y 1 cerradas. **El usuario autorizó el 31/10/2026 ejecutar las fases 2 a 5 en secuencia**, con revisión de coherencia al final de cada una (compilación, validación, enlaces, glosario, horas, pruebas en móvil y `REVISION_CLINICA.md`) y un informe en `informes/fase-N.md`. Fases 2 (M0 + Parte 1), 3 (Parte 2) y 4 (Parte 3 completa) cerradas el 31/10/2026. Siguiente: Fase 5 (revisión final y entrega).
+- Estado: Fases 0 y 1 cerradas. **El usuario autorizó el 31/10/2026 ejecutar las fases 2 a 5 en secuencia**, con revisión de coherencia al final de cada una (compilación, validación, enlaces, glosario, horas, pruebas en móvil y `REVISION_CLINICA.md`) y un informe en `informes/fase-N.md`. Fases 2 (M0 + Parte 1), 3 (Parte 2) y 4 (Parte 3 completa) cerradas el 31/10/2026. Fase 5 (revisión final) cerrada el 31/10/2026: **el curso está completo**. Pendiente solo la revisión clínica humana de `REVISION_CLINICA.md` y el mantenimiento periódico (ver README).
 
 ## Idioma y tono
 

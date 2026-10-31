@@ -86,7 +86,7 @@
     "haceBien": ["Gratis con cuenta personal de Microsoft", "Suele buscar en internet y mostrar enlaces"],
     "haceMal": ["Puede inventar datos y referencias con total seguridad", "La versión de consumo no es la misma que la de Microsoft 365 de un centro sanitario"],
     "cuandoNoUsarla": "Con datos identificables de pacientes desde una cuenta personal, o como fuente final de dosis.",
-    "gratis": true, "precio": "Plan gratuito; planes de pago: precio por verificar (Fase 4)", "idiomaEs": "sí", "disponibleEspana": "sí", "aptaDatosPacientes": "no", "registro": "gratuito",
+    "gratis": true, "precio": "Versión de consumo gratuita con cuenta personal de Microsoft; otros planes: consulta su web (sin verificar a 31/10/2026)", "idiomaEs": "sí", "disponibleEspana": "sí", "aptaDatosPacientes": "no", "registro": "gratuito",
     "fechaVerificacion": "2026-10-29", "estado": "parcial"
   },
   {
