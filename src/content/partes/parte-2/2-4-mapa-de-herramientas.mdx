@@ -1,0 +1,154 @@
+---
+id: "2-4"
+titulo: Mapa de herramientas
+parte: 2
+minutos: 60
+objetivos:
+  - Distinguir las seis familias de herramientas de IA y de apoyo que usa un médico, y para qué sirve cada una
+  - Elegir la familia de herramienta adecuada para una tarea concreta
+  - Aplicar un esquema de preguntas y el checklist de la OMC antes de adoptar una herramienta nueva
+  - Valorar con criterio la disponibilidad, los datos y la verificabilidad de una herramienta
+gancho: "Cada semana aparece una herramienta «revolucionaria» para médicos. Algunas son muy buenas; otras, humo; y a veces la mejor herramienta para lo que necesitas ni siquiera es una IA. Este subcapítulo te da un mapa de familias y una lista de preguntas para decidir con calma, sin depender de la marca del momento."
+recursos:
+  - r-omc-manual-ia-2026
+  - a-scribes-nejmai-2025
+paraSaberMas:
+  - r-oms-lmm-2024
+test: "2-4"
+fechaRevision: "2026-10-31"
+aFecha: octubre de 2026
+fuentes:
+  - texto: "Moya García MI, et al. Manual de Buenas Prácticas para la Inteligencia Artificial en Medicina. Organización Médica Colegial de España, 2026: productos sanitarios (p. 24); checklist para la evaluación de herramientas de IA, apartado 3.10 (pp. 44-45)"
+    url: https://www.cgcom.es
+  - texto: "Directorio de herramientas de este curso (ver «Herramientas»): descripciones y fechas de verificación del 29 y 30/10/2026"
+  - texto: "Ambient AI scribes in clinical practice: a randomized trial. NEJM AI 2025 (UCLA)"
+    pmid: "41497288"
+    doi: 10.1056/aioa2501000
+  - texto: "FDA. Registro De Novo DEN180001 (IDx-DR), decisión del 11/04/2018"
+    url: https://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfpmn/denovo.cfm?ID=DEN180001
+---
+
+<Sesion n={1} titulo="Las familias de herramientas" minutos={20}>
+
+### No todo es un chatbot
+
+Cuando se dice «IA en medicina» muchos piensan en un asistente al que se le escribe. Pero lo que usa un médico se reparte en **seis familias**, con funciones, riesgos y reglas distintas:
+
+1. **Asistentes generales** (ChatGPT, Claude, Gemini, Copilot): redactar, resumir, explicar.
+2. **Literatura y evidencia** (PubMed y buscadores con IA): encontrar estudios.
+3. **Estudiar tus documentos**: preguntar a tus PDF y que cite el fragmento.
+4. **Fuentes oficiales y calculadoras** (<T id="cima">CIMA</T>, calculadoras validadas): dosis, interacciones, escalas.
+5. **Estadística y referencias** (jamovi, Zotero): analizar datos y citar.
+6. **IA clínica de un centro** (escribas ambientales, software que es <T id="producto-sanitario">producto sanitario</T>): lo incorpora el centro.
+
+<Analogia>
+Es como **el armario de un servicio**: no usas el mismo instrumento para explorar, para medir y para operar. La destreza está en saber cuál sacar.
+</Analogia>
+
+### El mapa
+
+Recorre las familias. Cada ficha resume lo que el directorio del curso ha comprobado y la fecha de verificación.
+
+<Explorador datos="2-4-familias" />
+
+### Una nota sobre OpenEvidence
+
+OpenEvidence es un buscador de evidencia con IA muy usado en EE. UU. Desde finales de abril de 2026 bloquea el acceso desde la UE y el Reino Unido, según Medscape y la prensa sectorial. Lo traemos como **ejemplo de que la disponibilidad cambia**: una herramienta que hoy usan tus colegas de otros países puede no estar disponible aquí. No intentes sortear el bloqueo con una VPN.
+
+<OjoCon>
+- **Las herramientas con IA no son todas iguales.** Un asistente general puede inventar; una <T id="ficha-tecnica">ficha técnica</T> no.
+- **Las marcas caducan.** Aprende las familias; las marcas cambian.
+- **La disponibilidad en España no es automática.** Comprueba que puedes usarla aquí.
+</OjoCon>
+
+</Sesion>
+
+<Sesion n={2} titulo="Elegir y evaluar" minutos={20}>
+
+### Primero la tarea, luego la herramienta
+
+El error más común es elegir la herramienta y después buscarle una tarea. Hazlo al revés: **¿qué necesito hacer y cuál es la forma más fiable de hacerlo?** Clasifica estas seis tareas.
+
+<Clasificador datos="2-4-tarea" />
+
+### Cinco preguntas para una herramienta que usarás tú
+
+Antes de adoptar una herramienta para tu uso personal, hazte estas cinco preguntas:
+
+1. **¿Qué hace y para qué la necesito?** Si no sabes explicarlo en una frase, no la necesitas.
+2. **¿Con qué datos funciona?** ¿Dónde se procesan? ¿Se usan para entrenar? ¿Qué cuenta uso?
+3. **¿Puedo verificar lo que me da?** Si no puedes comprobarlo contra una fuente, úsala solo para borradores.
+4. **¿Está disponible y funciona en español, en España?**
+5. **¿Cuánto cuesta y de qué depende?** Muchas ofrecen un plan gratuito; el de pago solo compensa si llegas al límite.
+
+### El checklist de la OMC, para herramientas de un centro
+
+Si es tu centro quien va a incorporar una herramienta, el Manual de la OMC (2026) propone un **checklist de evaluación estructurada** con seis bloques. Los resumimos en nuestras palabras:
+
+- **Clínico:** ¿hay una necesidad real? ¿hay evidencia y estudios de validación clínica?
+- **Regulatorio:** ¿es producto sanitario? ¿tiene marcado CE y clasificación de riesgo?
+- **Técnico:** ¿es interoperable con la historia clínica? ¿usa estándares sanitarios? ¿cómo afecta a la infraestructura?
+- **Algoritmo:** ¿se conoce el tipo de <T id="modelo">modelo</T>, los datos de <T id="entrenamiento">entrenamiento</T> y las limitaciones?
+- **Operativo:** ¿se integra en el flujo de trabajo? ¿hay formación y monitorización del rendimiento?
+- **Seguridad y ética:** ¿cómo se gestionan los datos? ¿hay supervisión humana? ¿se ha evaluado el riesgo de sesgos?
+
+<Analogia>
+Es **el checklist de quirófano, pero antes de incorporar la herramienta**: no es burocracia, es lo que evita descubrir los problemas con el paciente delante.
+</Analogia>
+
+</Sesion>
+
+<Sesion n={3} titulo="Tu mapa personal" minutos={20}>
+
+### Una herramienta nueva, paso a paso
+
+Imagina que alguien te propone una herramienta. Sigue las preguntas y observa cómo cambia la respuesta según los datos y la función clínica.
+
+<Arbol datos="2-4-nueva" />
+
+### Tu ficha de evaluación
+
+Elige **una herramienta que ya uses o que quieras probar** y rellena su ficha. El [directorio de herramientas](/herramientas/) del curso te sirve de modelo: cada ficha incluye lo que hace bien, lo que hace mal y cuándo no usarla.
+
+<PruebaloTu minutos={10}>
+Escoge una herramienta (de las del mapa o una que te hayan recomendado) y pide a un asistente que te ayude a **preparar su ficha con estas preguntas**. Después **verifica cada afirmación en la web oficial de la herramienta**: los asistentes se equivocan con precios, funciones y disponibilidad. Anota qué has comprobado y qué no.
+
+<Plantilla id="p-2-4-ficha-herramienta" />
+</PruebaloTu>
+
+<OjoCon>
+- **Una buena herramienta mal elegida es una mala herramienta.** Empieza por la tarea.
+- **No todo se resuelve con IA.** Una ficha técnica o una calculadora validada suele ser más fiable que un asistente.
+- **Lo que ve tu centro no es lo que ves tú.** Una versión gratuita personal no es la versión corporativa: tienen condiciones distintas.
+- **Documenta lo que decides.** Una nota con la fecha y las razones te ahorrará dudas dentro de seis meses.
+</OjoCon>
+
+<Resumen>
+- Las herramientas se agrupan en **seis familias**: asistentes generales, literatura y evidencia, estudiar tus documentos, fuentes oficiales y calculadoras, estadística y referencias, e IA clínica de un centro.
+- **Primero la tarea, luego la herramienta.** A menudo, la más fiable no es un asistente (una ficha técnica, una calculadora validada).
+- Para tu uso personal, hazte **cinco preguntas**: qué hace, con qué datos, si puedes verificarlo, disponibilidad y coste.
+- Para herramientas de un centro, el **checklist de la OMC** tiene seis bloques: clínico, regulatorio, técnico, algoritmo, operativo y seguridad y ética.
+- La **disponibilidad cambia**: OpenEvidence dejó de estar accesible desde la UE en abril de 2026.
+</Resumen>
+
+<Ficha titulo="Mapa de herramientas">
+**Seis familias**
+- Asistentes generales · Literatura y evidencia · Estudiar tus documentos · Fuentes oficiales y calculadoras · Estadística y referencias · IA clínica de un centro.
+
+**Cinco preguntas (uso personal)**
+1. ¿Qué hace y para qué la necesito?
+2. ¿Con qué datos? ¿Qué cuenta?
+3. ¿Puedo verificar lo que da?
+4. ¿Disponible y en español en España?
+5. ¿Cuánto cuesta y de qué depende?
+
+**Checklist de la OMC (centro)**
+- Clínico · Regulatorio · Técnico · Algoritmo · Operativo · Seguridad y ética.
+
+**Regla**
+- Con una cuenta personal, nunca datos identificables de pacientes.
+</Ficha>
+
+<TestFinal id="2-4" />
+
+</Sesion>

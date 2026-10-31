@@ -1,0 +1,20 @@
+{
+  "titulo": "¿Qué familia de herramienta conviene a cada tarea?",
+  "instrucciones": "Asigna cada tarea a la familia de herramienta más adecuada. Todas las tareas son hipotéticas y sin datos de pacientes.",
+  "categorias": [
+    { "id": "asistente", "nombre": "Asistente general", "descripcion": "redactar, resumir, reformular" },
+    { "id": "literatura", "nombre": "PubMed y literatura", "descripcion": "encontrar estudios" },
+    { "id": "documentos", "nombre": "Estudiar tus documentos", "descripcion": "preguntar a tus PDF con citas" },
+    { "id": "oficial", "nombre": "Fuente oficial o calculadora validada", "descripcion": "dosis, interacciones, escalas" },
+    { "id": "estadistica", "nombre": "Software estadístico", "descripcion": "analizar datos" }
+  ],
+  "items": [
+    { "texto": "Reformular un correo difícil para que suene más cordial.", "categoria": "asistente", "explicacion": "Es redacción: un asistente general lo hace bien. Revisa el tono y cualquier dato antes de enviarlo." },
+    { "texto": "Comprobar la dosis máxima autorizada de un fármaco en mayores con insuficiencia renal.", "categoria": "oficial", "explicacion": "La ficha técnica (CIMA) es la fuente oficial. Un asistente puede ayudarte a entenderla, pero no es la fuente." },
+    { "texto": "Encontrar los ensayos aleatorizados de los últimos cinco años sobre una intervención.", "categoria": "literatura", "explicacion": "Se hace con una búsqueda estructurada en PubMed. Un asistente puede ayudarte a preparar la búsqueda, pero comprueba cada referencia en PubMed." },
+    { "texto": "Preguntar a tres guías de práctica clínica en PDF que ya has descargado.", "categoria": "documentos", "explicacion": "Una herramienta que responde desde tus propios documentos y cita el fragmento reduce el riesgo de invención, aunque puede interpretar mal tablas." },
+    { "texto": "Comparar la mediana de una variable entre dos grupos en una base de datos anonimizada.", "categoria": "estadistica", "explicacion": "Los cálculos los hace un programa estadístico (los datos se quedan en tu ordenador), no un asistente que puede equivocarse al calcular." },
+    { "texto": "Estimar el aclaramiento de creatinina de un paciente ficticio con la fórmula de Cockcroft-Gault.", "categoria": "oficial", "explicacion": "Una calculadora validada, con su referencia, es más fiable que pedir el cálculo a un asistente de texto. Verifica unidades y datos de entrada." }
+  ],
+  "cierre": "La pregunta no es «¿qué IA uso?», sino «¿qué necesito hacer y qué herramienta es la más fiable para eso?». A menudo, la respuesta no es un asistente."
+}

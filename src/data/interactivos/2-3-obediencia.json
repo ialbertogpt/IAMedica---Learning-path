@@ -1,0 +1,50 @@
+{
+  "titulo": "El semáforo dice «riesgo bajo»: ¿qué haces?",
+  "instrucciones": "Caso ficticio. Tu hospital ha incorporado una herramienta de apoyo que calcula cada mañana el riesgo de delirium de los pacientes ingresados.",
+  "inicio": "p1",
+  "nodos": {
+    "p1": {
+      "tipo": "pregunta",
+      "texto": "La herramienta marca «riesgo bajo de delirium» para un paciente de 86 años (ficticio). Pero esta mañana lo ves más desorientado que ayer y con dificultad para mantener la atención. ¿Qué haces?",
+      "opciones": [
+        { "texto": "Me fío de la herramienta: es un sistema validado y, si dice riesgo bajo, no hace falta nada más.", "siguiente": "r-obedece" },
+        { "texto": "Lo valoro clínicamente con mi exploración y una escala validada, y decido según mi juicio.", "siguiente": "p2" },
+        { "texto": "Desactivo la herramienta: no me aporta nada.", "siguiente": "r-desactiva" }
+      ]
+    },
+    "r-obedece": {
+      "tipo": "resultado",
+      "titulo": "Es la «obediencia algorítmica»",
+      "detalle": "El Manual de la OMC describe el riesgo de aceptar las recomendaciones computacionales como si fueran neutrales y superiores, sobre todo con presión de tiempo o miedo a la responsabilidad. Un cálculo de riesgo previo no sustituye lo que ves hoy: la herramienta no sabe que el paciente ha cambiado desde esta mañana.",
+      "ojo": "Una supervisión que solo es una formalidad no es supervisión humana significativa.",
+      "fuente": "Manual de Buenas Prácticas para la IA en Medicina (OMC, 2026): principio 2 para el médico y capítulo de deontología (p. 113)."
+    },
+    "r-desactiva": {
+      "tipo": "resultado",
+      "titulo": "Tampoco es la respuesta",
+      "detalle": "Desactivar una herramienta por una discrepancia aislada no resuelve nada, y puede privar al equipo de una ayuda útil. Lo adecuado es valorar al paciente, tomar la decisión clínica y comunicar la discrepancia a quien gestiona la herramienta, para que se registre y se evalúe.",
+      "fuente": "Manual de la OMC (2026): principios 2 y 10 para el médico (supervisión humana; registro de incidencias y criterios de retirada)."
+    },
+    "p2": {
+      "tipo": "pregunta",
+      "texto": "Tu valoración sugiere un delirium incipiente, en contra de la herramienta. ¿Qué haces además de tratar al paciente?",
+      "opciones": [
+        { "texto": "Dejo constancia en la historia de mi valoración y notifico la discrepancia a quien gestiona la herramienta.", "siguiente": "r-bien" },
+        { "texto": "Nada más: lo importante es el paciente.", "siguiente": "r-incompleto" }
+      ]
+    },
+    "r-bien": {
+      "tipo": "resultado",
+      "titulo": "Supervisión humana significativa",
+      "detalle": "Has contrastado la recomendación con tu juicio, has decidido por el paciente y has dejado constancia. El Manual de la OMC pide también registro de incidencias y trazabilidad: tu aviso ayuda a que el centro detecte si la herramienta falla en pacientes mayores.",
+      "ojo": "Y el Reglamento europeo de IA exige a quien despliega un sistema de alto riesgo que la supervisión humana la ejerzan personas con competencia, formación y autoridad.",
+      "fuente": "Manual de la OMC (2026), principios 2 y 10; Reglamento (UE) 2024/1689, art. 26.2."
+    },
+    "r-incompleto": {
+      "tipo": "resultado",
+      "titulo": "Bien por el paciente, pero se pierde una oportunidad",
+      "detalle": "Atender bien al paciente es lo primero. Pero si la discrepancia no se registra ni se comunica, el centro no puede saber que la herramienta ha fallado, y a otros pacientes les pasará lo mismo. La vigilancia continua del rendimiento depende de que los profesionales notifiquen estas discrepancias.",
+      "fuente": "Manual de la OMC (2026), principio 10 para el médico: registro de incidencias y criterios de retirada."
+    }
+  }
+}

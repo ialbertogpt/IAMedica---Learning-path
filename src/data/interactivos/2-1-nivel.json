@@ -1,0 +1,19 @@
+{
+  "titulo": "¿Qué nivel de evidencia tiene este estudio?",
+  "instrucciones": "Clasifica cada estudio según la escala didáctica de esta sesión.",
+  "categorias": [
+    { "id": "n1", "nombre": "N1 · Retrospectivo en un centro" },
+    { "id": "n2", "nombre": "N2 · Validación externa retrospectiva" },
+    { "id": "n3", "nombre": "N3 · Prospectivo no aleatorizado" },
+    { "id": "n4", "nombre": "N4 · Ensayo aleatorizado" }
+  ],
+  "items": [
+    { "texto": "Un modelo se entrena y se evalúa con datos históricos del mismo hospital.", "categoria": "n1", "explicacion": "Es el nivel más bajo: demuestra que el modelo funciona donde se creó, con datos que ya existían." },
+    { "texto": "Un modelo de sepsis desarrollado en una empresa se prueba con datos históricos de otro hospital distinto (estudio de Wong et al.).", "categoria": "n2", "explicacion": "Es una validación externa, pero retrospectiva: no se usó en tiempo real con pacientes." },
+    { "texto": "Un sistema de alerta funciona en tiempo real en cinco hospitales y se comparan los resultados de los pacientes según si el clínico confirma la alerta (TREWS).", "categoria": "n3", "explicacion": "Es prospectivo y multicéntrico, pero no hay asignación al azar: la comparación puede estar confundida (p. ej., los clínicos confirman antes en los casos más claros)." },
+    { "texto": "Mujeres de un programa de cribado se asignan al azar a lectura asistida por IA o a la doble lectura habitual (MASAI).", "categoria": "n4", "explicacion": "Ensayo aleatorizado: el nivel más alto de la escala. Aun así, mide detección y carga de trabajo, no mortalidad por cáncer de mama." },
+    { "texto": "Se prueba un dispositivo en 900 personas con diabetes de consultas de atención primaria, comparando con un centro de lectura de referencia, sin asignación al azar (IDx-DR).", "categoria": "n3", "explicacion": "Estudio pivotal prospectivo y no aleatorizado: suficiente para la autorización de la FDA, pero no demuestra que mejore los resultados en salud." },
+    { "texto": "120 equipos de atención primaria se asignan al azar a recibir o no los resultados de un ECG con IA, y se mide cuántos diagnósticos nuevos de fracción de eyección baja hay (EAGLE).", "categoria": "n4", "explicacion": "Ensayo aleatorizado por conglomerados. Mide un resultado intermedio (más diagnósticos), no la supervivencia." }
+  ],
+  "cierre": "Cuanto más alto el nivel, más confianza. Pero incluso un N4 puede medir un resultado intermedio. La pregunta final es siempre la misma: ¿mejora los resultados de mis pacientes?"
+}

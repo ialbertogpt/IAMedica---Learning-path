@@ -1,0 +1,53 @@
+{
+  "titulo": "Test · IA y geriatría",
+  "preguntas": [
+    {
+      "tipo": "escenario",
+      "enunciado": "¿Cuál es la lectura más ajustada de este resultado?",
+      "caso": "En el ensayo OPERAM, la optimización de la medicación por un médico y un farmacéutico, con apoyo de un sistema informático basado en STOPP/START, logró que el 62,2 % de los participantes del grupo de intervención tuviera al menos una recomendación aplicada. Los ingresos hospitalarios relacionados con fármacos fueron del 21,9 % frente al 22,4 % en el grupo control (HR 0,95; IC 95 %: 0,77–1,17).",
+      "opciones": [
+        { "texto": "La intervención redujo de forma significativa los ingresos relacionados con fármacos.", "correcta": false, "explicacion": "La diferencia fue pequeña y el IC 95 % incluye el 1: no es significativa." },
+        { "texto": "La intervención redujo la prescripción inapropiada, pero no se demostró una reducción de los ingresos relacionados con fármacos.", "correcta": true, "explicacion": "Es lo que concluyen los autores: se mejoró el proceso, pero no el resultado principal. Un resultado intermedio favorable no prueba un beneficio en el paciente." },
+        { "texto": "El ensayo demuestra que revisar la medicación no sirve para nada.", "correcta": false, "explicacion": "No: demuestra que esa intervención concreta no redujo los ingresos relacionados con fármacos. No dice nada sobre otros resultados que no fueron el principal." },
+        { "texto": "El resultado es inválido porque el sistema no era un modelo de lenguaje.", "correcta": false, "explicacion": "El tipo de sistema no invalida el ensayo. Precisamente sirve de ejemplo de cómo evaluar una ayuda informática." }
+      ]
+    },
+    {
+      "tipo": "vf",
+      "enunciado": "Un metaanálisis de modelos de aprendizaje automático para predecir el delirium posoperatorio obtuvo un AUC agrupado de 0,756 con una heterogeneidad muy alta (I² de 95,7 %), así que puede aplicarse directamente a los pacientes ingresados en una planta de geriatría.",
+      "respuesta": false,
+      "explicacionVerdadero": "No. El rendimiento es moderado, los estudios son muy distintos entre sí y se refiere a delirium posoperatorio en pacientes quirúrgicos, no al de una planta de geriatría.",
+      "explicacionFalso": "Correcto. Además de un rendimiento moderado y mucha heterogeneidad, es otro contexto (pacientes quirúrgicos): requeriría validación local antes de aplicarse."
+    },
+    {
+      "tipo": "emparejar",
+      "enunciado": "Empareja cada aplicación con lo que muestran los estudios.",
+      "pares": [
+        { "izquierda": "Índice electrónico de fragilidad (eFI)", "derecha": "Fuerte asociación con mortalidad e ingreso en 931.541 pacientes, pero calibración baja", "porque": "Se validó con datos rutinarios y validación externa; los autores comunican discriminación de buena a moderada y calibración baja." },
+        { "izquierda": "Sensores de detección de caídas", "derecha": "Métricas técnicas; los sensores vestibles fueron los de peor rendimiento", "porque": "La revisión de 80 estudios midió exactitud, sensibilidad y similares, no si se evitan caídas." },
+        { "izquierda": "Análisis de la voz y el habla en Alzheimer", "derecha": "AUC superiores a 0,80 frente a controles, pero con datos pequeños y sin validación externa", "porque": "Es una señal prometedora con evidencia preliminar y un posible sesgo de edad entre pacientes y controles." },
+        { "izquierda": "Robots sociales y agentes artificiales", "derecha": "Reducen la soledad, pero no mejoran la calidad de vida", "porque": "El metaanálisis halló reducción de la soledad (SMD −0,69) y ningún efecto significativo en calidad de vida ni felicidad." }
+      ]
+    },
+    {
+      "tipo": "unica",
+      "enunciado": "Un estudio de voz con IA para detectar Alzheimer compara pacientes de 73 años de media con controles de 67. ¿Qué problema debes sospechar?",
+      "opciones": [
+        { "texto": "Ninguno: 6 años de diferencia no importan.", "correcta": false, "explicacion": "La edad influye en la voz y el habla; si los grupos difieren, el modelo podría estar aprendiendo la edad." },
+        { "texto": "Un sesgo de confusión: parte de lo que distingue a los grupos podría ser la edad y no la enfermedad.", "correcta": true, "explicacion": "Es el mismo razonamiento que en un estudio clínico: si casos y controles difieren en un factor relacionado con el resultado, la comparación está confundida." },
+        { "texto": "Que el estudio es demasiado grande.", "correcta": false, "explicacion": "El tamaño grande no es el problema. Lo es la comparabilidad de los grupos." },
+        { "texto": "Que la voz no sirve para nada.", "correcta": false, "explicacion": "Los estudios sugieren una señal prometedora; el problema son las limitaciones metodológicas, no el concepto." }
+      ]
+    },
+    {
+      "tipo": "ordenar",
+      "enunciado": "Ordena los pasos para ofrecer a una persona mayor una tecnología de seguimiento.",
+      "pasos": [
+        { "texto": "Escuchar qué le preocupa y qué prefiere.", "porque": "Es el punto de partida: la tecnología se ofrece con la persona, no para ella." },
+        { "texto": "Valorar si hay evidencia en personas como ella (edad, fragilidad, entorno).", "porque": "Un estudio en adultos jóvenes o sanos no basta para una persona mayor frágil." },
+        { "texto": "Explicarle qué hace y qué no hace la tecnología, y decidir juntos, con su familia si ella quiere.", "porque": "El paciente tiene derecho a conocer cuándo y para qué se usa IA en su atención." },
+        { "texto": "Acordar quién recibe las alertas, qué datos se guardan y cuándo se revisa si sirve, y retirarla si no funciona.", "porque": "Sin un plan de seguimiento, la tecnología solo da una falsa sensación de protección." }
+      ]
+    }
+  ]
+}

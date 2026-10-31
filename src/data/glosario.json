@@ -560,5 +560,114 @@
     "ver": [
       "red-neuronal"
     ]
+  },
+  {
+    "id": "ensayo-aleatorizado",
+    "termino": "Ensayo aleatorizado",
+    "definicion": "Estudio en el que se asigna al azar a los participantes a recibir una intervención o la alternativa, para comparar los resultados de forma justa.",
+    "analogia": "Es el ensayo clínico de toda la vida, aplicado ahora a una herramienta de IA en lugar de a un fármaco.",
+    "ver": [
+      "validacion-prospectiva"
+    ]
+  },
+  {
+    "id": "validacion-prospectiva",
+    "termino": "Validación prospectiva",
+    "definicion": "Probar un modelo en tiempo real con pacientes nuevos, en lugar de con datos históricos. Es más exigente y más cercana a la práctica.",
+    "analogia": "Es la diferencia entre un estudio de cohortes retrospectivo y uno prospectivo.",
+    "ver": [
+      "validacion-externa"
+    ]
+  },
+  {
+    "id": "fatiga-de-alertas",
+    "termino": "Fatiga de alertas",
+    "definicion": "Cuando un sistema avisa demasiado, con muchas alertas falsas, el equipo deja de hacerles caso, también a las verdaderas.",
+    "analogia": "La alarma del monitor que salta por cualquier cosa y acaba silenciada.",
+    "ver": [
+      "vpp"
+    ]
+  },
+  {
+    "id": "cancer-de-intervalo",
+    "termino": "Cáncer de intervalo",
+    "definicion": "Cáncer que aparece entre dos cribados, tras un resultado negativo. Es la medida más exigente de si el cribado no deja escapar casos.",
+    "analogia": "El diagnóstico que llega entre dos revisiones: señala lo que el cribado no vio.",
+    "ver": [
+      "sensibilidad"
+    ]
+  },
+  {
+    "id": "calibracion",
+    "termino": "Calibración",
+    "definicion": "Grado en que el riesgo que da un modelo coincide con lo que ocurre de verdad: si dice «30 %», lo deberían desarrollar unos 30 de cada 100.",
+    "analogia": "Una escala de riesgo que dice «bajo» y resulta que 1 de cada 3 pacientes así se complica.",
+    "ver": [
+      "curva-roc"
+    ]
+  },
+  {
+    "id": "fuga-de-datos",
+    "termino": "Fuga de datos",
+    "definicion": "Cuando información de los casos de prueba se cuela en el entrenamiento (p. ej., el mismo paciente en ambos grupos) y el resultado parece mejor de lo real.",
+    "analogia": "El residente que ha visto las preguntas del examen antes de hacerlo.",
+    "ver": [
+      "sobreajuste",
+      "validacion-externa"
+    ]
+  },
+  {
+    "id": "guia-de-comunicacion",
+    "termino": "Guía de comunicación (reporting guideline)",
+    "definicion": "Lista de verificación de lo que debe contar un tipo de estudio, para que se pueda valorar y repetir. Ejemplos: CONSORT para ensayos, STARD para diagnóstico.",
+    "analogia": "El checklist de quirófano, pero para el artículo.",
+    "ver": [
+      "ensayo-aleatorizado"
+    ]
+  },
+  {
+    "id": "categoria-especial",
+    "termino": "Datos de categoría especial",
+    "definicion": "Datos personales especialmente protegidos por el RGPD, como los de salud, genéticos o biométricos. Su tratamiento está prohibido salvo excepciones concretas.",
+    "analogia": "El secreto profesional, llevado a la ley de protección de datos.",
+    "ver": [
+      "anonimizar"
+    ]
+  },
+  {
+    "id": "producto-sanitario",
+    "termino": "Producto sanitario",
+    "definicion": "Un software que diagnostica, apoya decisiones, recomienda tratamientos o monitoriza pacientes es un producto sanitario y debe llevar el marcado CE.",
+    "analogia": "Como un fármaco, necesita autorización antes de usarse en pacientes.",
+    "ver": [
+      "validacion-externa"
+    ]
+  },
+  {
+    "id": "obediencia-algoritmica",
+    "termino": "Obediencia algorítmica",
+    "definicion": "Tendencia a aceptar las recomendaciones de un sistema como neutrales y superiores, sobre todo con prisa o miedo a la responsabilidad.",
+    "analogia": "El residente que da la razón al adjunto aunque vea algo distinto.",
+    "ver": [
+      "complacencia"
+    ]
+  },
+  {
+    "id": "fragilidad",
+    "termino": "Fragilidad",
+    "definicion": "Estado de vulnerabilidad ante pequeños estresores por la pérdida acumulada de reserva funcional; predice caídas, ingresos y mortalidad. Se mide con escalas o índices de déficits.",
+    "analogia": "Una reserva fisiológica agotada: la misma infección que otra persona supera, a ella la descompensa.",
+    "ver": [
+      "polifarmacia"
+    ]
+  },
+  {
+    "id": "edadismo",
+    "termino": "Edadismo",
+    "definicion": "Estereotipos, prejuicios y discriminación por la edad. En la IA aparece cuando los datos o el diseño dejan fuera a las personas mayores.",
+    "analogia": "El ensayo que excluyó a los mayores de 75 años, repetido por un algoritmo.",
+    "ver": [
+      "sesgo"
+    ]
   }
 ]

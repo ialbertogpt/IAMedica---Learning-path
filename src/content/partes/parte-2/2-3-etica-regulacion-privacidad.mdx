@@ -1,0 +1,225 @@
+---
+id: "2-3"
+titulo: Ética, regulación y privacidad
+parte: 2
+minutos: 90
+objetivos:
+  - Explicar por qué los datos de salud son de categoría especial y por qué quitar el nombre no basta para anonimizar
+  - Decidir si un texto puede pegarse en un asistente de IA con una cuenta personal, usando el semáforo de datos
+  - Describir el esquema del Reglamento europeo de IA, los productos sanitarios con IA y las fechas que te afectan
+  - Aplicar los principios de supervisión humana de la OMC y del Código de Deontología ante una recomendación de un sistema de IA
+gancho: "Un colega te cuenta que pega informes de alta en un asistente gratuito, «sin el nombre, para ahorrar tiempo». Otro dice que, como ahora hay una ley europea de IA, «ya está todo regulado». Ninguno de los dos tiene razón del todo. Este subcapítulo te da el mapa mínimo para decidir con criterio qué puedes hacer, qué te protege y qué sigue dependiendo de ti."
+recursos:
+  - r-omc-manual-ia-2026
+  - r-aepd-rgpd-ia
+  - v-seram-regulacion
+paraSaberMas:
+  - r-aiact-explorer-omnibus
+  - r-ley-ia-espana-2026
+  - r-aesia
+  - r-boe-lopdgdd
+  - r-oms-lmm-2024
+  - v-civio-sanidad
+test: "2-3"
+fechaRevision: "2026-10-31"
+aFecha: octubre de 2026
+fuentes:
+  - texto: "Reglamento (UE) 2016/679 (RGPD): art. 4.15 (datos relativos a la salud), art. 9 (categorías especiales), art. 28 (encargado del tratamiento), art. 35 (evaluación de impacto), considerando 26 y art. 99"
+    url: https://eur-lex.europa.eu/legal-content/ES/TXT/?uri=CELEX:32016R0679
+  - texto: "Ley Orgánica 3/2018, de 5 de diciembre, de Protección de Datos Personales y garantía de los derechos digitales"
+    url: https://www.boe.es/buscar/doc.php?id=BOE-A-2018-16673
+  - texto: "Reglamento (UE) 2024/1689 (Reglamento de IA): arts. 4, 26, 50 y 113 y anexo I"
+    url: https://artificialintelligenceact.eu/ai-act-explorer/
+  - texto: "Reglamento (UE) 2026/1744 (Ómnibus digital sobre IA), DOUE L, 24.7.2026: fechas de aplicación del Reglamento de IA y nueva redacción del art. 4"
+    url: https://eur-lex.europa.eu/legal-content/ES/TXT/?uri=CELEX:32026R1744
+  - texto: "Reglamento (UE) 2017/745 sobre los productos sanitarios (MDR), citado en el anexo I del Reglamento de IA"
+    url: https://artificialintelligenceact.eu/annex/1/
+  - texto: "Moya García MI, et al. Manual de Buenas Prácticas para la Inteligencia Artificial en Medicina. Organización Médica Colegial de España, 2026: diez principios para el médico (pp. 11-13), diez garantías para el paciente (pp. 14-15), productos sanitarios (p. 24), deontología (p. 113)"
+    url: https://www.cgcom.es
+  - texto: "Ministerio para la Transformación Digital y de la Función Pública. El Gobierno aprueba el proyecto de ley que garantizará una supervisión humana y un uso confiable de la IA (mayo de 2026)"
+    url: https://digital.gob.es/comunicacion/notas-prensa/mtdfp/2026/05/el-gobierno-aprueba-el-proyecto-de-ley-que-garantizara-una-super
+  - texto: "OMS. Ethics and governance of artificial intelligence for health: Guidance on large multi-modal models (2024)"
+    url: https://www.who.int/publications/i/item/9789240084759
+---
+
+<Sesion n={1} titulo="Tus datos y los de tus pacientes" minutos={22}>
+
+### Los datos de salud son de categoría especial
+
+El Reglamento General de Protección de Datos (RGPD) define los **datos relativos a la salud** como los que se refieren a la salud física o mental de una persona, incluida la prestación de asistencia sanitaria, y que revelan información sobre su estado de salud. Son <T id="categoria-especial">datos de categoría especial</T>: su tratamiento está **prohibido**, salvo que se dé alguna de las excepciones del artículo 9.2, como la asistencia sanitaria o el consentimiento explícito.
+
+<Analogia>
+Es **el secreto profesional llevado a la ley**: lo que sabes de un paciente lo sabes para atenderlo, no para otra cosa, y no sale de ese circuito sin una razón y un permiso claros.
+</Analogia>
+
+### Quitar el nombre no basta
+
+<T id="anonimizar">Anonimizar</T> no es borrar el nombre. Un dato es personal si la persona es **identificable**, directa o indirectamente. El considerando 26 del RGPD indica que, para saberlo, se deben tener en cuenta **todos los medios que razonablemente pueda utilizar** el responsable o cualquier otra persona, como la singularización. Y añade que los datos <T id="seudonimizar">**seudonimizados**</T> (que se pueden atribuir a una persona con información adicional) **siguen siendo personales**.
+
+En la práctica, «varón de 82 años, infección urinaria y delirium, planta 3, ingresado el 3 de marzo» puede identificar a alguien aunque no lleve nombre.
+
+### ¿Y si desactivo el uso de mis conversaciones?
+
+Desactivar que tus conversaciones se usen para el <T id="entrenamiento">entrenamiento</T> del <T id="modelo">modelo</T> reduce lo que la empresa conserva, pero **no convierte una cuenta personal en un canal autorizado**. Para que un servicio trate datos de pacientes por cuenta de tu centro, hace falta lo que exige el RGPD: un **contrato con el encargado del tratamiento** (art. 28) y, cuando el riesgo es alto, una **evaluación de impacto** (art. 35). Eso lo contrata tu centro, no tú con tu correo personal.
+
+<AvisoClinico titulo="Una regla simple">
+Con tus dispositivos y cuentas personales, **no introduzcas datos que puedan identificar a un paciente**. Si tu centro ofrece una herramienta autorizada, consulta su política y a su delegado de protección de datos. En 3.0 practicarás la anonimización.
+</AvisoClinico>
+
+### El semáforo
+
+Clasifica estos diez casos. Todos son ficticios.
+
+<Clasificador datos="2-3-semaforo" />
+
+<OjoCon>
+- **«Sin nombre» no es «anónimo».** Edad, fechas, servicio, cama o iniciales pueden bastar para identificar.
+- **Cuenta personal no es canal autorizado.** Lo que autoriza es un contrato de tu centro con el proveedor.
+- **La duda se resuelve con prudencia.** Si no sabes si puedes, no pegues.
+</OjoCon>
+
+</Sesion>
+
+<Sesion n={2} titulo="El Reglamento de IA y los productos sanitarios" minutos={22}>
+
+### Una norma por niveles de riesgo
+
+El **Reglamento (UE) 2024/1689** es la primera norma general sobre IA. En lugar de regular «la IA» en bloque, la clasifica **por riesgo**:
+
+- **Prácticas prohibidas.** Usos que se consideran inaceptables.
+- **Alto riesgo.** Sistemas con requisitos estrictos (gestión de riesgos, calidad de los datos, documentación, supervisión humana, exactitud y robustez).
+- **Transparencia.** Por ejemplo, un sistema que interactúa con personas debe informar de que es una IA (art. 50).
+- **Resto.** Requisitos mínimos.
+
+<Analogia>
+Es como **la clasificación de los riesgos en un proceso asistencial**: no se vigila igual un cribado de bajo riesgo que una intervención de alto riesgo.
+</Analogia>
+
+### La IA clínica es, casi siempre, un producto sanitario
+
+Según el Manual de la OMC, un software es **<T id="producto-sanitario">producto sanitario</T>** cuando su función es diagnosticar, apoyar decisiones diagnósticas, recomendar tratamientos, monitorizar pacientes o predecir la evolución clínica. Debe cumplir el Reglamento de productos sanitarios (MDR, 2017/745) y llevar **marcado CE**.
+
+El Reglamento de IA incluye el MDR y el de diagnóstico in vitro en su anexo I. Así, la IA clínica que es producto sanitario y necesita la evaluación de un tercero (un organismo notificado) se considera de **alto riesgo**.
+
+### ¿Qué le exige a quien lo usa?
+
+Quien pone en funcionamiento un sistema de alto riesgo, el **responsable del despliegue** (normalmente, el centro sanitario), debe usarlo **conforme a las instrucciones** del fabricante y asignar la **supervisión humana** a personas con **competencia, formación y autoridad** (art. 26). Es decir, a profesionales como tú. Ya no basta con «hay un sistema»: se necesita alguien capaz de entenderlo y de contradecirlo.
+
+### Y la formación
+
+El artículo 4 exige a proveedores y responsables del despliegue medidas para **apoyar la alfabetización en IA** de su personal. Desde julio de 2026 se formula como un deber de apoyar y promover, sin garantizar un nivel concreto a cada persona. Este curso es una forma de tomarte esa alfabetización en serio.
+
+### El calendario, a fecha de octubre de 2026
+
+Lo que más ha cambiado en 2026 son las fechas. Explóralas: el Reglamento (UE) 2026/1744 retrasó la aplicación de los requisitos de alto riesgo.
+
+<Explorador datos="2-3-calendario" />
+
+### En vídeo
+
+<Video id="v-seram-regulacion" nota="una conversación con un jurista sobre la regulación legal de la IA en medicina. Es anterior al Reglamento (UE) 2026/1744: las fechas que cite pueden estar desfasadas. Quédate con los conceptos y consulta el calendario de arriba." />
+
+<OjoCon>
+- **Que exista el Reglamento no significa que todo esté regulado.** Los requisitos de alto riesgo aún no se aplican (2027–2028) y España tramita su ley.
+- **Marcado CE no es igual a evidencia.** Certifica que el producto cumple unos requisitos, no que mejore los resultados en tus pacientes (lo viste en 2.1).
+- **Las fechas son sensibles al tiempo.** Confírmalas siempre en las fuentes oficiales.
+</OjoCon>
+
+</Sesion>
+
+<Sesion n={3} titulo="Ética y deontología: lo que dice tu profesión" minutos={22}>
+
+### Diez principios para el médico
+
+El **Manual de Buenas Prácticas para la IA en Medicina** de la Organización Médica Colegial (2026) resume en diez principios lo que todo médico debe tener presente. Aquí van, **en nuestras palabras** (pp. 11–13 del manual):
+
+1. **La IA no sustituye al médico.** La decisión final sigue siendo humana.
+2. **Supervisión humana significativa:** poder comprender, revisar, matizar y rechazar la recomendación, no una mera formalidad.
+3. **Validación suficiente antes de usar una herramienta**, incluida la validación local y la evaluación del impacto en la salud.
+4. **Datos de calidad y bien protegidos.**
+5. **Equidad vigilada de forma activa:** comprobar el rendimiento en distintos subgrupos.
+
+### Los otros cinco
+
+6. **La ética y la deontología guían la implementación**, desde el principio y no al final.
+7. **Información clara al paciente** cuando la IA participa de forma relevante en su atención.
+8. **Garantías profesionales para el médico:** formación, condiciones seguras, información sobre la herramienta y capacidad real de discrepar.
+9. **IA en investigación sin perder la integridad científica.**
+10. **Trazabilidad, gobernanza y formación continua:** registro de incidencias y criterios de retirada.
+
+El manual añade **diez garantías para el paciente** (pp. 14–15), entre ellas: saber cuándo y para qué se usa IA en su atención, poder pedir explicaciones y que los centros supervisen estas herramientas de forma continua.
+
+<Analogia>
+Son **los criterios de seguridad del paciente aplicados a la IA**: lo que ya haces con un fármaco nuevo (indicación, evidencia, vigilancia, retirada), ahora con un algoritmo.
+</Analogia>
+
+### La obediencia algorítmica
+
+El capítulo de deontología del manual señala un riesgo que va más allá del error puntual: la <T id="obediencia-algoritmica">obediencia algorítmica</T>, la tendencia a aceptar las recomendaciones como si fueran neutrales y superiores, sobre todo con prisa o por miedo a la responsabilidad. Se parece a la <T id="complacencia">complacencia</T> de los modelos, pero al revés: aquí quien se acomoda eres tú.
+
+<AvisoClinico titulo="Un caso ficticio">
+El caso siguiente es **ficticio**. Su finalidad es ensayar la decisión, no ilustrar una práctica clínica real.
+</AvisoClinico>
+
+<Arbol datos="2-3-obediencia" />
+
+### La mirada internacional
+
+La OMS publicó en 2024 una guía de 98 páginas sobre ética y gobernanza de los **grandes modelos multimodales** en salud (los que aceptan texto, imagen, audio…, como los de 1.7). Es una referencia internacional para quien quiera profundizar; no hace falta leerla entera.
+
+</Sesion>
+
+<Sesion n={4} titulo="Tu código personal de uso responsable" minutos={24}>
+
+### De los principios a tu práctica
+
+Los principios sirven si se traducen en **hábitos concretos**. Esta sesión es para que los conviertas en tu propio código, corto y que puedas cumplir.
+
+Un buen código personal responde a cinco preguntas:
+
+1. **¿Qué datos nunca introduzco?** (Por ejemplo, ninguno que pueda identificar a un paciente.)
+2. **¿Qué tareas hago con IA y cuáles no?** (Redactar y estudiar, sí; decidir un tratamiento sin revisar, no.)
+3. **¿Cómo verifico?** (Siempre contra una fuente: <T id="ficha-tecnica">ficha técnica</T>, guía, artículo.)
+4. **¿Qué le cuento al paciente?** (Si la IA participa de forma relevante en su atención, que lo sepa.)
+5. **¿Cuándo paro?** (Si no entiendo la recomendación o no encaja con el paciente.)
+
+<PruebaloTu minutos={10}>
+Pide a un asistente que te ayude a redactar tu código personal. **No incluyas datos de pacientes**: solo tus preferencias. Revisa el resultado, recorta lo que no cumplirías y quédate con **cinco reglas que puedas seguir**. Guárdalas: las usarás como punto de partida en la Parte 3.
+
+<Plantilla id="p-2-3-codigo-personal" />
+</PruebaloTu>
+
+<OjoCon>
+- **Un código largo no se cumple.** Cinco reglas claras valen más que veinte.
+- **La responsabilidad no se delega.** Si firmas, respondes. La IA es una ayuda, no un cómplice.
+- **La regulación es el suelo, no el techo.** Que algo sea legal no lo hace prudente.
+</OjoCon>
+
+<Resumen>
+- Los **datos de salud** son de categoría especial (RGPD, art. 9). **Quitar el nombre no basta**: los datos seudonimizados siguen siendo personales.
+- Una **cuenta personal** de un asistente no es un canal autorizado para datos de pacientes, aunque desactives el entrenamiento: hace falta un contrato de tu centro con el proveedor (art. 28 RGPD).
+- El **Reglamento de IA** clasifica por riesgo. La IA clínica suele ser un **producto sanitario** con marcado CE; las fechas de alto riesgo son el 2 de diciembre de 2027 (anexo III) y el 2 de agosto de 2028 (anexo I).
+- El Manual de la OMC pide **supervisión humana significativa**, validación local, equidad, información al paciente y trazabilidad.
+- Cuidado con la **obediencia algorítmica**: contrasta siempre la recomendación con tu valoración y deja constancia de las discrepancias.
+</Resumen>
+
+<Ficha titulo="Ética, regulación y privacidad">
+**Datos**
+- Salud = categoría especial (RGPD art. 9).
+- «Sin nombre» no es anónimo. Si dudas, no pegues.
+- Cuenta personal ≠ canal autorizado.
+
+**Regulación (a fecha de octubre de 2026)**
+- IA clínica = normalmente producto sanitario (MDR, marcado CE).
+- Alto riesgo: 2/12/2027 (anexo III) y 2/8/2028 (anexo I).
+- España: proyecto de ley orgánica en tramitación.
+
+**Tu responsabilidad**
+- Supervisión humana significativa.
+- Valida, documenta y notifica discrepancias.
+- Informa al paciente cuando la IA participe de forma relevante.
+</Ficha>
+
+<TestFinal id="2-3" />
+
+</Sesion>

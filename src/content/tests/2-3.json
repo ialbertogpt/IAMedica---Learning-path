@@ -1,0 +1,53 @@
+{
+  "titulo": "Test · Ética, regulación y privacidad",
+  "preguntas": [
+    {
+      "tipo": "escenario",
+      "enunciado": "¿Qué falla en esta decisión?",
+      "caso": "Una compañera pega en un asistente de IA, con su cuenta personal y con el entrenamiento desactivado, un informe de alta en el que ha borrado el nombre pero ha dejado el número de historia clínica y las fechas.",
+      "opciones": [
+        { "texto": "Nada: al borrar el nombre, los datos ya son anónimos.", "correcta": false, "explicacion": "Quitar el nombre no anonimiza: el número de historia y las fechas identifican al paciente, y los datos seudonimizados siguen siendo personales (considerando 26 del RGPD)." },
+        { "texto": "Los datos siguen siendo identificables y de categoría especial, y una cuenta personal no es un canal autorizado: no hay contrato de tu centro con el proveedor.", "correcta": true, "explicacion": "Exacto. Desactivar el entrenamiento no sustituye al contrato de encargado de tratamiento (art. 28 del RGPD) ni a la autorización del centro." },
+        { "texto": "Solo falla que lo haya hecho en horario laboral.", "correcta": false, "explicacion": "El problema no es el horario, sino los datos que se comparten y el canal que se usa." },
+        { "texto": "Que el informe es demasiado largo para el asistente.", "correcta": false, "explicacion": "La longitud es irrelevante para la privacidad." }
+      ]
+    },
+    {
+      "tipo": "vf",
+      "enunciado": "Los datos seudonimizados, que solo se pueden atribuir a una persona con información adicional, dejan de ser datos personales.",
+      "respuesta": false,
+      "explicacionVerdadero": "No. El considerando 26 del RGPD indica que los datos seudonimizados deben considerarse información sobre una persona física identificable.",
+      "explicacionFalso": "Correcto: según el considerando 26 del RGPD, los datos seudonimizados siguen siendo personales. Solo la información anónima queda fuera de la norma."
+    },
+    {
+      "tipo": "emparejar",
+      "enunciado": "Empareja cada fecha con lo que ocurre, a fecha de octubre de 2026.",
+      "pares": [
+        { "izquierda": "2 de febrero de 2025", "derecha": "Se aplican los capítulos I y II del Reglamento de IA (incluidas las prácticas prohibidas y el artículo 4 sobre alfabetización)", "porque": "Es la primera tanda de aplicación del Reglamento." },
+        { "izquierda": "2 de diciembre de 2027", "derecha": "Alto riesgo del anexo III", "porque": "El Reglamento (UE) 2026/1744 fijó esa fecha para los sistemas de alto riesgo clasificados por el anexo III." },
+        { "izquierda": "2 de agosto de 2028", "derecha": "Alto riesgo del anexo I, que incluye los productos sanitarios", "porque": "Es la fecha para los sistemas de IA de alto riesgo que son productos regulados por la legislación del anexo I, como el MDR." },
+        { "izquierda": "Julio de 2026", "derecha": "Entra en vigor el Reglamento que retrasa los requisitos de alto riesgo (Ómnibus digital)", "porque": "Se publicó en el DOUE el 24 de julio de 2026 y entró en vigor tres días después." }
+      ]
+    },
+    {
+      "tipo": "unica",
+      "enunciado": "Un sistema de apoyo al diagnóstico lleva marcado CE como producto sanitario. ¿Qué se puede concluir?",
+      "opciones": [
+        { "texto": "Que está demostrado que mejora los resultados de los pacientes.", "correcta": false, "explicacion": "El marcado CE certifica que cumple unos requisitos, no que se haya demostrado un beneficio para los pacientes en tu servicio." },
+        { "texto": "Que ha pasado un procedimiento de conformidad como producto sanitario, pero sigue siendo necesario evaluar su evidencia y validarlo en tu contexto.", "correcta": true, "explicacion": "Es lo que dice el Manual de la OMC: la validación local y la evaluación del impacto en resultados son parte de la buena práctica." },
+        { "texto": "Que ya no necesita supervisión humana.", "correcta": false, "explicacion": "Al contrario: el Reglamento de IA exige supervisión humana por personas con competencia, formación y autoridad (art. 26)." },
+        { "texto": "Que puedes usarlo para cualquier finalidad.", "correcta": false, "explicacion": "Debe usarse conforme a las instrucciones y a su finalidad prevista." }
+      ]
+    },
+    {
+      "tipo": "ordenar",
+      "enunciado": "Ordena tus pasos cuando un sistema de IA de tu hospital te recomienda algo que no encaja con tu paciente.",
+      "pasos": [
+        { "texto": "Valoro al paciente con mi exploración y mi juicio clínico.", "porque": "La decisión sigue siendo humana y contextualizada: primer principio del Manual de la OMC." },
+        { "texto": "Decido según mi valoración, aunque contradiga la herramienta.", "porque": "La supervisión humana significativa incluye poder rechazar la recomendación." },
+        { "texto": "Dejo constancia en la historia de mi valoración y de la discrepancia.", "porque": "Es la trazabilidad que pide el Manual (principio 10)." },
+        { "texto": "Comunico la incidencia a quien gestiona la herramienta.", "porque": "Permite que el centro detecte si la herramienta falla y, en su caso, la retire." }
+      ]
+    }
+  ]
+}

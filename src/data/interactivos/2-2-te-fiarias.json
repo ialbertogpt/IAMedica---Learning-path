@@ -1,0 +1,17 @@
+{
+  "titulo": "¿Te fiarías? Cinco herramientas ficticias",
+  "instrucciones": "Cada tarjeta describe una herramienta de IA ficticia y la evidencia que presenta su fabricante. Decide qué harías.",
+  "categorias": [
+    { "id": "piloto", "nombre": "Razonable para un piloto controlado", "descripcion": "la evidencia es sólida, aunque hay que comprobar localmente" },
+    { "id": "mas-datos", "nombre": "Pido más datos antes de decidir", "descripcion": "hay promesa, pero faltan piezas clave" },
+    { "id": "no", "nombre": "No lo usaría para decidir", "descripcion": "la evidencia no sostiene el uso clínico" }
+  ],
+  "items": [
+    { "texto": "«RadioTorax»: apoyo a la lectura de radiografías de tórax. Validado con datos nuevos en 12 hospitales de 3 países, con un estudio prospectivo en tu comunidad, comparación con radiólogos, evaluación independiente y marcado como producto sanitario.", "categoria": "piloto", "explicacion": "Reúne lo que se pide: validación externa, estudio prospectivo, comparación con la práctica y evaluación independiente. Aun así, un piloto local con métricas y criterios de retirada es lo prudente." },
+    { "texto": "«LatidoApp»: detecta fibrilación auricular con una «precisión del 98 %» en un estudio del propio fabricante con 50 voluntarios jóvenes y sanos.", "categoria": "mas-datos", "explicacion": "Con voluntarios jóvenes y sanos es fácil acertar: no se parece a tus pacientes ni a la prevalencia real. Pide un estudio con pacientes parecidos a los tuyos y los valores predictivos." },
+    { "texto": "«DoctorBot»: un chatbot médico que «ha aprobado el MIR». El fabricante no publica con qué se ha evaluado ni cómo.", "categoria": "no", "explicacion": "Aprobar un examen no equivale a ayudar en consulta (lo viste en 1.8), y sin información sobre la evaluación no hay nada que valorar." },
+    { "texto": "«AlertaDelirio»: avisa del riesgo de delirium con un AUC de 0,80 en validación externa en dos hospitales. No aporta el VPP ni resultados en pacientes, y su interfaz generaría unas 20 alertas al día por planta.", "categoria": "mas-datos", "explicacion": "La discriminación es razonable, pero faltan el VPP, el impacto en pacientes y un plan para la carga de alertas. Es el escenario de la alarma de sepsis: pide los datos que faltan." },
+    { "texto": "«ClasificaRiesgo»: muestra «riesgo alto» o «riesgo bajo» sin explicar con qué datos se entrenó, en qué población se validó ni cómo se calculó.", "categoria": "no", "explicacion": "Una caja negra sin información sobre datos, población ni validación impide cualquier juicio. Sin eso, no hay forma de saber si se parece a tus pacientes." }
+  ],
+  "cierre": "La decisión rara vez es «sí» o «no» a la tecnología: es «¿qué evidencia tengo y qué me falta?». Lo ideal es que esa pregunta salga a la luz antes de implantar, no después."
+}

@@ -1,0 +1,228 @@
+---
+id: "2-2"
+titulo: Leer con lupa un estudio de IA médica
+parte: 2
+minutos: 90
+objetivos:
+  - Explicar por qué un modelo debe evaluarse con datos que no ha visto y qué aporta la validación externa
+  - Interpretar el valor predictivo positivo y la calibración de un modelo, y por qué el AUC no basta
+  - Reconocer las guías de comunicación (TRIPOD+AI, CONSORT-AI, STARD-AI, DECIDE-AI, CHART) y qué estudio corresponde a cada una
+  - Detectar en el resumen de un estudio las señales de alarma más frecuentes
+gancho: "Una empresa te enseña un estudio con un AUC de 0,97 y te propone implantar su modelo en tu planta. Tienes tres minutos para decidir si merece la pena seguir hablando. En este subcapítulo aprenderás a hacer lo que haces con cualquier artículo clínico, pero con las preguntas propias de la IA: con qué datos, en quién, qué se mide y quién lo cuenta."
+recursos:
+  - a-calibracion-2019
+  - a-tripod-ai
+  - a-obermeyer-2019
+paraSaberMas:
+  - a-consort-ai
+  - a-stard-ai
+  - a-decide-ai
+  - a-chart-2025
+  - a-semi-rce-2025
+test: "2-2"
+fechaRevision: "2026-10-31"
+aFecha: octubre de 2026
+fuentes:
+  - texto: "Collins GS, et al. TRIPOD+AI statement: updated guidance for reporting clinical prediction models that use regression or machine learning methods. BMJ 2024;385:e078378"
+    pmid: "38626948"
+    doi: 10.1136/bmj-2023-078378
+  - texto: "Liu X, et al. Reporting guidelines for clinical trial reports for interventions involving artificial intelligence: the CONSORT-AI extension. Lancet Digit Health 2020;2:e537-48"
+    pmid: "33328048"
+  - texto: "Sounderajah V, et al. The STARD-AI reporting guideline for diagnostic accuracy studies using artificial intelligence. Nat Med 2025"
+    pmid: "40954311"
+  - texto: "Vasey B, et al. Reporting guideline for the early-stage clinical evaluation of decision support systems driven by artificial intelligence: DECIDE-AI. BMJ 2022;377:e070904"
+    pmid: "35584845"
+  - texto: "CHART Collaborative. Reporting guideline for chatbot health advice studies: the CHART statement. BMJ Med 2025"
+    pmid: "40761518"
+  - texto: "Van Calster B, et al. Calibration: the Achilles heel of predictive analytics. BMC Med 2019;17:230"
+    pmid: "31842878"
+    doi: 10.1186/s12916-019-1466-7
+  - texto: "Obermeyer Z, et al. Dissecting racial bias in an algorithm used to manage the health of populations. Science 2019;366:447-53"
+    pmid: "31649194"
+  - texto: "Wong A, et al. External validation of a widely implemented proprietary sepsis prediction model. JAMA Intern Med 2021;181:1065-70"
+    pmid: "34152373"
+---
+
+<Sesion n={1} titulo="¿Con qué datos y en quién?" minutos={22}>
+
+### Lo primero: de dónde salen los datos
+
+Un <T id="modelo">modelo</T> es tan bueno como sus <T id="datos-entrenamiento">datos de entrenamiento</T> (los casos con los que aprendió) y los datos con los que se evalúa. Antes de mirar ninguna cifra, haz tres preguntas:
+
+1. **¿Con qué datos se entrenó?** ¿De uno o de muchos hospitales? ¿De qué años?
+2. **¿Con qué datos se evaluó?** Han de ser **casos que el modelo no ha visto**.
+3. **¿Se parecen esos pacientes a los míos?** Edad, comorbilidad, entorno, país.
+
+<Analogia>
+Es la **validez externa de un ensayo clínico**: un fármaco estudiado en adultos jóvenes sin comorbilidad dice poco sobre tu paciente de 86 años con cinco enfermedades.
+</Analogia>
+
+### Evaluar con lo ya visto es hacer trampa
+
+Si un modelo se evalúa con los mismos casos con los que se entrenó, mide su **memoria**, no su capacidad de generalizar. Ya lo viste con el <T id="sobreajuste">sobreajuste</T> en 1.3. Y hay una trampa más sutil, la <T id="fuga-de-datos">fuga de datos</T>: el mismo paciente aparece en el grupo de <T id="entrenamiento">entrenamiento</T> y en el de prueba (por ejemplo, con dos ingresos distintos), o una variable delata el resultado.
+
+<Analogia>
+Es **el residente que ha visto las preguntas del examen antes de hacerlo**: nota brillante, aprendizaje dudoso.
+</Analogia>
+
+### Cuatro formas de evaluar, de menos a más exigente
+
+Lo decisivo es si el modelo funciona **fuera de donde se creó**. Eso es la <T id="validacion-externa">validación externa</T>.
+
+| Evaluación | Qué hace | Qué demuestra |
+|---|---|---|
+| **Con los datos de entrenamiento** | Evalúa con lo que ya conoce | Casi nada: mide memoria |
+| **Validación interna** | Separa parte de los datos de la misma fuente para evaluar | Que generaliza dentro de ese centro |
+| **Validación externa** | Evalúa con datos de otro hospital, región o periodo | Que generaliza fuera de donde se creó |
+| **Estudio prospectivo** | Lo usa en tiempo real con pacientes nuevos | Que funciona en la práctica |
+
+El estudio de Wong (2021) de la alarma de sepsis, que viste en 2.1, es el ejemplo clásico: lo que parecía bueno **dentro** del centro de origen no lo era **fuera**.
+
+<OjoCon>
+- **«Validación» a secas es ambiguo.** Pregunta: ¿interna o externa? ¿retrospectiva o prospectiva?
+- **Más datos no es mejores datos.** Un millón de registros de un solo hospital siguen siendo un solo hospital.
+</OjoCon>
+
+</Sesion>
+
+<Sesion n={2} titulo="El sesgo escondido: la etiqueta equivocada" minutos={22}>
+
+### Un algoritmo que predecía… dinero
+
+Un algoritmo comercial usado en EE. UU. para identificar a pacientes con necesidades complejas de salud parecía funcionar bien según algunas medidas de precisión predictiva. Pero un estudio publicado en *Science* en 2019 (Obermeyer et al.) mostró que, **a igual puntuación de riesgo, los pacientes negros estaban considerablemente más enfermos que los blancos**. Corregir la disparidad habría aumentado del 17,7 % al 46,5 % el porcentaje de pacientes negros que recibían ayuda adicional.
+
+La causa: el algoritmo predecía **costes sanitarios**, no enfermedad. Y como el acceso desigual a la atención hace que se gaste menos en los pacientes negros, el modelo los veía como «menos necesitados».
+
+<Analogia>
+Es **usar el gasto en pruebas como si fuera la gravedad**: quien más recursos consume no siempre es quien más los necesita, y quien menos accede no siempre es quien menos los necesita.
+</Analogia>
+
+### La pregunta que lo habría detectado
+
+> **¿Qué se predice exactamente? ¿Es lo mismo que me importa a mí?**
+
+La **variable que se predice** (la «etiqueta») suele ser un sustituto: costes, ingresos, un código diagnóstico. Si el sustituto está sesgado, el modelo lo estará aunque sea técnicamente impecable.
+
+### Y los mayores, ¿qué?
+
+La población que importa en geriatría suele estar **poco representada** en los estudios. Si la edad media de los participantes es de 55 años, ¿qué sabes de tus pacientes de 85? La OMS ha alertado (2022) del **<T id="edadismo">edadismo</T> en la IA en salud**, y lo verás en 2.5.
+
+Comprueba en el siguiente ejemplo cómo cambia el rendimiento de un modelo en un grupo según cuántos de sus casos hubo en el entrenamiento.
+
+<ModeloSintetico modo="grupos" titulo="Qué pasa si un grupo apenas estuvo en los datos" nota="Simulación didáctica: la relación entre la cuota de datos y el rendimiento es un supuesto, no un dato real. Lo real: los modelos pueden funcionar peor en los grupos poco representados." />
+
+<OjoCon>
+- **Un buen rendimiento «en general» puede esconder un mal rendimiento en un grupo.** Pide los resultados por subgrupos: edad, sexo, <T id="fragilidad">fragilidad</T>.
+- **Cuidado con las etiquetas sustitutas.** Costes, ingresos o codificación no siempre equivalen a gravedad.
+</OjoCon>
+
+</Sesion>
+
+<Sesion n={3} titulo="Más allá del AUC: valores predictivos y calibración" minutos={22}>
+
+### El AUC no basta
+
+El <T id="curva-roc">AUC</T> resume lo bien que un modelo **ordena** a los pacientes, del menos al más probable de tener el problema. Pero no te dice cuántas de sus alertas serán verdaderas ni si las cifras de riesgo son creíbles. Para eso hay dos cosas más.
+
+### 1. El valor predictivo positivo depende de la prevalencia
+
+Un ejemplo con números redondos. Un modelo con **<T id="sensibilidad">sensibilidad</T> del 90 %** y **<T id="especificidad">especificidad</T> del 90 %** se aplica a 1.000 pacientes en los que el problema tiene una <T id="prevalencia">prevalencia</T> del 5 %:
+
+- Hay 50 pacientes con el problema: el modelo detecta 45 y se le escapan 5.
+- Hay 950 sin él: el modelo marca como positivos a 95 (el 10 %).
+- Total de alertas: 140. Verdaderas: 45. El <T id="vpp">VPP</T> es **45/140 = 32 %**.
+
+**Dos de cada tres alertas son falsas**, con un modelo «del 90 %». Ahora imagina que ese mismo modelo se usa en una planta donde la prevalencia es del 1 %: el VPP caería a menos del 10 %.
+
+<Analogia>
+Es **el análisis de cribado** que, aplicado a toda la población, genera más falsos positivos que casos reales. No es que el análisis sea malo: es que el problema es raro.
+</Analogia>
+
+### 2. La calibración: ¿es creíble la cifra?
+
+La <T id="calibracion">calibración</T> mide si el riesgo que da el modelo coincide con la realidad: si dice «30 %», ¿lo desarrollan unos 30 de cada 100? Un modelo puede tener un AUC excelente y estar muy mal calibrado, y entonces la cifra **engaña** al clínico y al paciente. Van Calster y colaboradores (2019) la llamaron *el talón de Aquiles* de la analítica predictiva: poco evaluada y con riesgo de ser dañina para decisiones clínicas.
+
+Mueve el deslizador y observa que **el AUC no cambia** aunque el modelo exagere o subestime el riesgo.
+
+<ModeloSintetico modo="calibracion" titulo="Calibración: cuando la cifra engaña aunque el AUC sea bueno" nota="Simulación didáctica con pacientes ficticios. Las matemáticas son reales; no representa un modelo concreto." />
+
+### Y la carga de alertas
+
+Con un VPP bajo, el equipo recibe muchas alertas falsas: la <T id="fatiga-de-alertas">fatiga de alertas</T> de 2.1. Pregunta **cuántas alertas por paciente y por día** generaría el modelo en tu servicio.
+
+<AvisoClinico titulo="Un ejemplo con números inventados para aprender">
+Las cifras de esta sesión (90 %, 5 %, 1.000 pacientes) son **redondas y ficticias**: sirven para calcular, no describen ningún modelo real. En el resto del curso, los datos reales aparecen con su fuente.
+</AvisoClinico>
+
+</Sesion>
+
+<Sesion n={4} titulo="La lista de verificación y tu mirada de lector" minutos={24}>
+
+### Guías de comunicación: el checklist del artículo
+
+Una <T id="guia-de-comunicacion">guía de comunicación</T> es una lista de lo que un estudio debe contar. Para la IA hay varias, según el tipo de estudio (modelo de predicción, <T id="ensayo-aleatorizado">ensayo aleatorizado</T>, precisión diagnóstica…):
+
+| Si el estudio es… | La guía es… | Qué aporta |
+|---|---|---|
+| Un **modelo de predicción** (desarrollo o evaluación) | **TRIPOD+AI** (2024) | 27 ítems; sustituye al TRIPOD de 2015 |
+| Un **ensayo aleatorizado** con IA | **CONSORT-AI** (2020) | 14 ítems nuevos sobre CONSORT 2010: cómo se usa la IA, entradas y salidas, interacción humano-IA y análisis de errores |
+| El **protocolo** de un ensayo con IA | **SPIRIT-AI** | La guía hermana de CONSORT-AI |
+| Un estudio de **precisión diagnóstica** | **STARD-AI** (2025) | 18 ítems nuevos o modificados sobre STARD 2015 |
+| Una **primera evaluación clínica**, a pequeña escala | **DECIDE-AI** (2022) | 17 ítems específicos de IA y 10 genéricos |
+| Un estudio de **chatbots** y consejos de salud | **CHART** (2025) | 12 ítems y 39 subítems |
+
+No hace falta memorizarlas. Basta con **saber que existen** y preguntar: ¿este estudio dice qué guía sigue?
+
+<Clasificador datos="2-2-guias" />
+
+### Ahora, practica
+
+Un resumen fabricado para este ejercicio tiene los fallos clásicos de un estudio de IA. Busca las **señales de alarma**.
+
+<EncuentraError datos="2-2-senales" />
+
+### ¿Te fiarías?
+
+<Clasificador datos="2-2-te-fiarias" />
+
+<PruebaloTu minutos={8}>
+Busca en PubMed el **resumen** de un estudio de IA que te interese (por ejemplo, de tu especialidad), cópialo y pídele a un asistente que lo revise con esta plantilla. Después **comprueba cada respuesta en el texto original** y anota si el asistente se ha inventado algo.
+
+<Plantilla id="p-2-2-senales-alarma" />
+</PruebaloTu>
+
+<OjoCon>
+- **Un buen AUC no basta.** Pregunta por el VPP, la calibración y la carga de alertas.
+- **Que cumpla una guía de comunicación no lo hace correcto.** La guía solo asegura que lo cuenta con claridad: tú juzgas si es sólido.
+- **El resumen no lo es todo.** Si un estudio te importa, lee el texto completo y busca una evaluación independiente.
+</OjoCon>
+
+<Resumen>
+- Un modelo debe evaluarse con **casos que no ha visto**; si no, mide su memoria. La **validación externa** es la que dice si funcionará fuera.
+- Pregunta **qué se predice exactamente**: una etiqueta sustituta (costes) puede introducir sesgos aunque el modelo sea impecable.
+- El **VPP** depende de la prevalencia: con sensibilidad y especificidad del 90 % y prevalencia del 5 %, dos de cada tres alertas son falsas.
+- La **calibración** dice si la cifra de riesgo es creíble; un AUC alto no la garantiza.
+- Existen **guías de comunicación** para cada tipo de estudio (TRIPOD+AI, CONSORT-AI, STARD-AI, DECIDE-AI, CHART).
+- Señales de alarma: evaluación con datos de entrenamiento, población distinta a la tuya, métricas incompletas, conflicto de intereses y conclusiones que van más allá de los datos.
+</Resumen>
+
+<Ficha titulo="Leer con lupa un estudio de IA">
+**Cinco preguntas**
+1. ¿Con qué datos se entrenó y con cuáles se evaluó?
+2. ¿Hubo validación externa? ¿Prospectiva?
+3. ¿Se parecen esos pacientes a los míos (edad, comorbilidad)?
+4. ¿Qué se mide: precisión o resultados en pacientes?
+5. ¿Quién lo financia y quién lo evaluó de forma independiente?
+
+**Más allá del AUC**
+- VPP: depende de la prevalencia.
+- Calibración: ¿es creíble la cifra?
+- Carga de alertas: ¿cuántas por paciente y día?
+
+**Guías de comunicación**
+- TRIPOD+AI (predicción) · CONSORT-AI (ensayos) · STARD-AI (diagnóstico) · DECIDE-AI (fase temprana) · CHART (chatbots).
+</Ficha>
+
+<TestFinal id="2-2" />
+
+</Sesion>

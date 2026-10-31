@@ -1,0 +1,53 @@
+{
+  "titulo": "Test · Leer con lupa un estudio de IA médica",
+  "preguntas": [
+    {
+      "tipo": "escenario",
+      "enunciado": "¿Qué valor predictivo positivo tiene aproximadamente este modelo?",
+      "caso": "Un modelo con sensibilidad del 90 % y especificidad del 90 % se aplica a 1.000 pacientes ficticios, en los que el problema tiene una prevalencia del 5 % (50 casos).",
+      "opciones": [
+        { "texto": "Alrededor del 90 %, porque la sensibilidad y la especificidad son del 90 %.", "correcta": false, "explicacion": "El VPP no es igual a la sensibilidad ni a la especificidad: depende también de la prevalencia." },
+        { "texto": "Alrededor del 32 %: de 140 alertas (45 verdaderas y 95 falsas), solo 45 son reales.", "correcta": true, "explicacion": "Detecta 45 de los 50 casos y marca como positivos a 95 de los 950 sin el problema (10 %). VPP = 45/140 = 32 %." },
+        { "texto": "Alrededor del 5 %, que es la prevalencia.", "correcta": false, "explicacion": "La prevalencia es la probabilidad antes de la prueba. Tras un resultado positivo, la probabilidad sube hasta el VPP." },
+        { "texto": "No se puede calcular sin el AUC.", "correcta": false, "explicacion": "El VPP se calcula con sensibilidad, especificidad y prevalencia. El AUC no hace falta." }
+      ]
+    },
+    {
+      "tipo": "vf",
+      "enunciado": "Un modelo con un AUC muy alto está necesariamente bien calibrado: si dice «riesgo del 30 %», aproximadamente el 30 % de esos pacientes lo desarrollará.",
+      "respuesta": false,
+      "explicacionVerdadero": "No. El AUC mide cómo ordena el modelo a los pacientes, no si sus cifras de riesgo son creíbles. Un modelo puede ordenar bien y exagerar o subestimar el riesgo.",
+      "explicacionFalso": "Correcto. El AUC y la calibración miden cosas distintas: puedes tener un AUC alto con un riesgo sistemáticamente exagerado, y entonces la cifra engaña."
+    },
+    {
+      "tipo": "emparejar",
+      "enunciado": "Empareja cada estudio con la guía de comunicación que le corresponde.",
+      "pares": [
+        { "izquierda": "Desarrollo de un modelo de predicción de reingreso", "derecha": "TRIPOD+AI", "porque": "Es la guía para estudios que desarrollan o evalúan modelos de predicción, con regresión o aprendizaje automático." },
+        { "izquierda": "Ensayo aleatorizado de una IA de ayuda al diagnóstico", "derecha": "CONSORT-AI", "porque": "Extiende CONSORT 2010 con 14 ítems para ensayos con intervenciones de IA." },
+        { "izquierda": "Precisión diagnóstica de una IA frente a un patrón de referencia", "derecha": "STARD-AI", "porque": "Extiende STARD 2015 con ítems sobre datos, la prueba de IA y el sesgo algorítmico." },
+        { "izquierda": "Estudio de las respuestas de un chatbot a preguntas de salud", "derecha": "CHART", "porque": "Es la guía específica para estudios de consejos de salud de chatbots." }
+      ]
+    },
+    {
+      "tipo": "ordenar",
+      "enunciado": "Ordena estas formas de evaluar un modelo, de la menos a la más exigente.",
+      "pasos": [
+        { "texto": "Evaluar con los mismos pacientes con los que se entrenó.", "porque": "No demuestra nada: mide la memoria del modelo." },
+        { "texto": "Validación interna: evaluar con datos separados del mismo centro.", "porque": "Demuestra que generaliza dentro de la misma fuente de datos." },
+        { "texto": "Validación externa: evaluar con datos de otro hospital o periodo.", "porque": "Demuestra que generaliza fuera del centro donde se creó." },
+        { "texto": "Estudio prospectivo: usarlo en tiempo real con pacientes nuevos.", "porque": "Es lo más cercano a la práctica real." }
+      ]
+    },
+    {
+      "tipo": "unica",
+      "enunciado": "En el estudio de Obermeyer et al. (Science, 2019), ¿por qué un algoritmo comercial infravaloraba las necesidades de los pacientes negros?",
+      "opciones": [
+        { "texto": "Porque se entrenó con muy pocos pacientes negros.", "correcta": false, "explicacion": "El problema principal no fue el tamaño de la muestra, sino lo que el algoritmo predecía." },
+        { "texto": "Porque predecía los costes sanitarios en lugar de la enfermedad, y por un acceso desigual a la atención se gasta menos en ellos.", "correcta": true, "explicacion": "La etiqueta (el coste) era un sustituto sesgado de la salud. A igual puntuación de riesgo, los pacientes negros estaban considerablemente más enfermos." },
+        { "texto": "Porque los médicos ignoraban sus alertas.", "correcta": false, "explicacion": "El sesgo estaba en el propio algoritmo, no en cómo se usaba." },
+        { "texto": "Porque el AUC era bajo.", "correcta": false, "explicacion": "El rendimiento era bueno según algunas medidas: precisamente por eso el sesgo pasó desapercibido." }
+      ]
+    }
+  ]
+}

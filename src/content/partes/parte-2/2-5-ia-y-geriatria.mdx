@@ -1,0 +1,290 @@
+---
+id: "2-5"
+titulo: IA y geriatría
+parte: 2
+minutos: 120
+objetivos:
+  - Describir qué se ha estudiado de la IA en fragilidad, delirium, caídas, cognición, polifarmacia y soledad, con las cifras reales
+  - Distinguir en cada área lo respaldado por los datos, lo prometedor y lo que aún no se sostiene
+  - Reconocer cómo el edadismo y la falta de mayores en los datos pueden sesgar una herramienta de IA
+  - Aplicar la decisión compartida y la supervisión humana al ofrecer una tecnología a una persona mayor
+gancho: "La geriatría es, quizá, la especialidad donde más puede aportar la IA y donde más fácil es que falle: pacientes con múltiples enfermedades, presentaciones atípicas, fragilidad, y casi siempre ausentes de los estudios. Este subcapítulo recorre lo que se ha demostrado de verdad en tu especialidad, con una mirada clínica y con la lupa que ya sabes usar."
+recursos:
+  - a-clegg-2016
+  - a-operam-2021
+  - r-oms-edadismo-2022
+paraSaberMas:
+  - a-fragilidad-ml-2023
+  - a-delirium-ml-2026
+  - a-caidas-ambiente-2025
+  - a-caidas-guia-mundial-2022
+  - a-voz-alzheimer-2026
+  - a-robots-soledad-2026
+  - a-ageismo-chu-2022
+  - a-regg-geriatria-2023
+test: "2-5"
+fechaRevision: "2026-10-31"
+aFecha: octubre de 2026
+fuentes:
+  - texto: "Clegg A, et al. Development and validation of an electronic frailty index using routine primary care electronic health record data. Age Ageing 2016;45:353-60"
+    pmid: "26944937"
+    doi: 10.1093/ageing/afw039
+  - texto: "Machine learning approaches for frailty detection, prediction and classification in elderly people: a systematic review. Int J Med Inform 2023"
+    pmid: "37586309"
+  - texto: "Machine learning application in the prediction of postoperative delirium among elderly patients: a systematic review and meta-analysis. Langenbecks Arch Surg 2026"
+    pmid: "42171796"
+  - texto: "Fall detection in elderly people: a systematic review of ambient assisted living and smart home-related technology performance. Sensors (Basel) 2025"
+    pmid: "41228764"
+  - texto: "Montero-Odasso M, et al. World guidelines for falls prevention and management for older adults: a global initiative. Age Ageing 2022;51:afac205"
+    pmid: "36178003"
+  - texto: "Artificial intelligence-related voice and speech biomarkers of Alzheimer's disease: a systematic review. J Voice 2026"
+    pmid: "42731970"
+  - texto: "The effectiveness of artificial agents on loneliness reduction in older adults: a systematic review and meta-analysis. Arch Gerontol Geriatr 2026"
+    pmid: "41124893"
+  - texto: "Blum MR, et al. Optimizing therapy to prevent avoidable hospital admissions in multimorbid older adults (OPERAM): cluster randomised controlled trial. BMJ 2021;374:n1585"
+    pmid: "34257088"
+  - texto: "Chu CH, et al. Digital ageism: challenges and opportunities in artificial intelligence for older adults. Gerontologist 2022;62:947-55"
+    pmid: "35048111"
+  - texto: "OMS. Ageism in artificial intelligence for health: WHO policy brief (2022)"
+    url: https://www.who.int/publications/i/item/9789240040793
+  - texto: "Fontecha-Gómez BJ, Betancor-Santana É. Inteligencia artificial en geriatría: impacto de ChatGPT e IA. Rev Esp Geriatr Gerontol 2023"
+    pmid: "37738926"
+---
+
+<Sesion n={1} titulo="Por qué la geriatría es distinta" minutos={20}>
+
+### Una especialidad exigente para la IA
+
+Lo que has aprendido hasta aquí se aplica a cualquier especialidad. En geriatría hay rasgos que lo hacen más delicado:
+
+- **Multimorbilidad y <T id="polifarmacia">polifarmacia</T>:** los casos «limpios» de los estudios son la excepción en tu planta.
+- **Presentaciones atípicas:** el delirium, la caída o el deterioro funcional pueden ser el único síntoma de otra enfermedad.
+- **Fragilidad:** la misma enfermedad pesa distinto en cada persona.
+- **El resultado que importa** suele ser la funcionalidad, la calidad de vida y las preferencias, más que una cifra de laboratorio.
+- **Pocos mayores en los datos:** la literatura sobre <T id="edadismo">edadismo</T> digital advierte de que los sistemas de IA se construyen con datos que reflejan los sesgos de la sociedad y de que la edad ha estado ausente del debate sobre sesgos.
+
+<Analogia>
+Es la diferencia entre **un ensayo con adultos de 55 años sin comorbilidad y la persona de 86 con cinco enfermedades** que tienes delante. Lo primero informa sobre lo segundo solo en parte.
+</Analogia>
+
+### El mapa de este subcapítulo
+
+Seis áreas, con estudios reales y su nivel. En las próximas sesiones verás cada una con detalle; aquí puedes echar un vistazo general y volver cuando quieras.
+
+<Explorador datos="2-5-mapa" />
+
+### Una regla para leerlo todo
+
+En cada área, hazte tres preguntas, las de 2.1 y 2.2:
+
+1. **¿Qué se ha medido?** ¿Un resultado técnico (acertar) o un resultado en la persona mayor (menos caídas, más autonomía)?
+2. **¿En quiénes?** ¿Se parecen a mis pacientes (edad, fragilidad, entorno)?
+3. **¿Se ha validado fuera del centro que lo creó?**
+
+<OjoCon>
+- **«Funciona en adultos» no es «funciona en mayores».** Pregunta por la edad de los participantes.
+- **Un resultado técnico no es un beneficio.** Detectar mejor no siempre significa vivir mejor.
+</OjoCon>
+
+</Sesion>
+
+<Sesion n={2} titulo="Fragilidad: del índice electrónico al aprendizaje automático" minutos={20}>
+
+### El índice electrónico de fragilidad (eFI)
+
+La <T id="fragilidad">fragilidad</T> se puede detectar con escalas que requieren tiempo y una valoración. Un equipo británico propuso otra vía: calcularla **de forma automática con los datos rutinarios** de la historia clínica de atención primaria. El resultado es el **eFI**, que se construye con el <T id="modelo">modelo</T> de déficits acumulados: la proporción de 36 déficits presentes (de un total de posibles), identificados a partir de 2.171 códigos clínicos.
+
+Se desarrolló y validó con **931.541 pacientes de 65 a 95 años** de dos bases de datos, con <T id="validacion-externa">validación externa</T> (retrospectiva). A un año, la razón de riesgos ajustada de **mortalidad** fue de 1,92 (fragilidad leve), 3,10 (moderada) y 4,52 (grave); la de **ingreso hospitalario**, 1,93, 3,04 y 4,73. Los autores comunican una discriminación de buena a moderada, pero una **<T id="calibracion">calibración</T> baja**.
+
+<Analogia>
+Es **el índice de comorbilidad de siempre, pero calculado sin que nadie lo rellene**: aprovecha lo que ya está en la historia para cribar a toda la población.
+</Analogia>
+
+Fíjate en que **no es <T id="aprendizaje-automatico">aprendizaje automático</T>**: es un recuento de déficits. Pero encaja en el mapa porque automatiza una valoración a escala poblacional y se puede evaluar con las mismas preguntas.
+
+### ¿Y el aprendizaje automático?
+
+Una revisión sistemática de **41 publicaciones** de aprendizaje automático para detectar o predecir fragilidad concluyó que es **difícil comparar los resultados**, porque hay muchas definiciones de fragilidad. Los datos proceden de sensores de la marcha o de historias clínicas; los algoritmos son los habituales; solo **un estudio** desarrolló un marco nuevo y **dos** consideraron la <T id="caja-negra">explicabilidad</T>.
+
+<Analogia>
+Es como **comparar estudios que usan distintas definiciones de fragilidad**: si el criterio cambia, los resultados no son comparables. Antes de evaluar el algoritmo, hay que saber qué mide.
+</Analogia>
+
+<AvisoClinico titulo="No es una recomendación de uso">
+Estos datos describen estudios, no indican qué herramienta usar con tus pacientes. Cualquier herramienta de fragilidad debe validarse en tu contexto, y la valoración geriátrica integral sigue siendo la referencia.
+</AvisoClinico>
+
+### Un ejercicio con la lupa
+
+El eFI tenía «calibración baja». ¿Qué significa en la práctica? Recuerda 2.2: un modelo puede ordenar bien a los pacientes y dar cifras de riesgo poco creíbles. Mueve el deslizador y piensa cuándo importa más cada cosa: **para cribar a una población** (basta con ordenar) y **para hablar de pronóstico con una familia** (la cifra importa).
+
+<ModeloSintetico modo="calibracion" titulo="Ordenar bien no es dar una cifra creíble" nota="Simulación didáctica con pacientes ficticios; no representa el eFI ni ningún modelo real." />
+
+</Sesion>
+
+<Sesion n={3} titulo="Delirium y caídas" minutos={20}>
+
+### Delirium: predecirlo es posible, con moderación
+
+Un metaanálisis de 2026 reunió **14 estudios** de aprendizaje automático para predecir **delirium posoperatorio** en mayores quirúrgicos: 49 modelos y 874.485 pacientes, con una incidencia agrupada del 9,86 %.
+
+- **AUC agrupado de 0,756** (IC 95 %: 0,740–0,772): rendimiento **moderado**.
+- **Heterogeneidad muy alta** (I² = 95,7 %): los estudios no se parecen entre sí.
+- **Validación interna 0,760 y externa 0,745:** algo peor fuera, como cabía esperar.
+
+Ojo con lo que es y lo que no es: se trata de delirium **posoperatorio en pacientes quirúrgicos**, no del delirium de una planta de medicina o de geriatría. Extrapolarlo sería repetir el error de 2.2.
+
+<Analogia>
+Es **un cribado de riesgo, no un diagnóstico**: sirve para decidir a quién mirar con más atención, no para decir quién lo tendrá. El diagnóstico sigue siendo clínico, con tu exploración.
+</Analogia>
+
+### Caídas: la tecnología, y lo que ya sabíamos
+
+Una revisión sistemática de **80 estudios** analizó los sistemas de detección de caídas en entornos de vida asistida y hogares inteligentes. Los **sensores vestibles tuvieron el peor rendimiento** y los métodos de **<T id="aprendizaje-profundo">aprendizaje profundo</T>, el mejor** en las cinco métricas técnicas (exactitud, precisión, <T id="sensibilidad">sensibilidad</T>, <T id="especificidad">especificidad</T> y F1).
+
+Son métricas **técnicas**: miden si el sistema detecta la caída, no si se evitan caídas o lesiones. Eso es lo que necesitaría un ensayo.
+
+### Lo que dice la referencia clínica
+
+Las **guías mundiales de prevención de caídas** (2022) recomiendan aconsejar a todas las personas mayores sobre prevención de caídas y actividad física, buscar de forma oportunista el riesgo de caídas en la comunidad y **ofrecer una valoración multifactorial completa** a quienes tienen alto riesgo, para diseñar intervenciones personalizadas. La tecnología puede añadirse, pero no sustituye ese enfoque.
+
+<OjoCon>
+- **Un metaanálisis con I² del 95,7 % no es una recomendación.** Es un aviso de que los estudios dicen cosas distintas.
+- **Detectar la caída no es prevenirla.** La mayor parte del beneficio viene de la valoración y de las intervenciones.
+- **Cada contexto es distinto.** El delirium posoperatorio no es el delirium de la planta.
+</OjoCon>
+
+</Sesion>
+
+<Sesion n={4} titulo="Cognición, voz y soledad" minutos={20}>
+
+### La voz como biomarcador
+
+Hablar es algo que hacemos a diario, y cambia con el deterioro cognitivo. Una revisión sistemática de **63 estudios** (18.540 participantes) analizó el uso de IA sobre la voz y el habla para detectar enfermedad de Alzheimer y deterioro cognitivo leve.
+
+- Muchos estudios comunican un **AUC superior a 0,80** al distinguir Alzheimer de controles sanos.
+- El **deterioro cognitivo leve** se distingue peor del envejecimiento normal.
+- Los autores señalan **conjuntos de datos pequeños, de un solo centro y una falta generalizada de validación externa**.
+
+Y hay un detalle que ya sabes mirar: los pacientes tenían una edad media de **73,1 años** y los controles, de **67**. Si los grupos difieren en edad, la IA podría estar aprendiendo, en parte, **la edad** y no la enfermedad.
+
+<Analogia>
+Es **el <T id="sesgo">sesgo</T> de confusión de siempre**: si los casos son mayores que los controles, parte de lo que «ve» el modelo es la edad.
+</Analogia>
+
+### Soledad: robots y agentes artificiales
+
+Un metaanálisis de **16 estudios con 781 participantes** evaluó agentes artificiales (robots sociales, apps) frente a la soledad en mayores:
+
+- Redujeron la **soledad** (SMD −0,69; IC 95 %: −0,89 a −0,40) y los **síntomas depresivos** (SMD −0,42).
+- **No hubo efecto significativo** en la calidad de vida ni en la felicidad.
+- Los robots sociales funcionaron mejor que las apps y los de forma animal, mejor que los humanoides.
+
+Son estudios pequeños y heterogéneos (I² de 64,5 %). Es una **señal prometedora**, no una intervención establecida, y plantea una pregunta ética: ¿es deseable sustituir el contacto humano por un robot, o es un complemento?
+
+### ¿Qué se puede afirmar hoy?
+
+Ponlo en práctica con ocho frases sobre las áreas que has visto. Clasifícalas según lo que respaldan los estudios.
+
+<Clasificador datos="2-5-evidencia" />
+
+</Sesion>
+
+<Sesion n={5} titulo="Polifarmacia: lo que enseña OPERAM" minutos={20}>
+
+### Un ensayo que merece su sesión
+
+**OPERAM** es un <T id="ensayo-aleatorizado">ensayo aleatorizado</T> por conglomerados: 110 grupos de plantas hospitalarias de cuatro países europeos y **2.008 mayores de 70 años** con multimorbilidad y polifarmacia. La intervención, realizada **conjuntamente por un médico y un farmacéutico**, se apoyó en un sistema informático que aplica los criterios **STOPP/START** para detectar <T id="prescripcion-inapropiada">prescripción potencialmente inapropiada</T>.
+
+Los resultados:
+
+- El **86,1 %** de los participantes del grupo de intervención tenía prescripción inapropiada, con una media de 2,75 recomendaciones STOPP/START por persona.
+- El **62,2 %** tuvo al menos una recomendación aplicada a los dos meses, sobre todo **retirada de fármacos**.
+- Pero los **ingresos hospitalarios relacionados con fármacos** fueron del **21,9 %** frente al **22,4 %** del grupo control (HR 0,95; IC 95 %: 0,77–1,17): **sin diferencia significativa**.
+
+<Analogia>
+Es **destetar bien una medicación y comprobar que el paciente no ingresa menos**. Se consiguió lo primero, pero no el efecto esperado en el resultado.
+</Analogia>
+
+### Qué enseña
+
+1. **No es un modelo de lenguaje.** Es un sistema de reglas (como los sistemas expertos de 1.2), y aun así su evaluación rigurosa muestra que **mejorar el proceso no garantiza mejorar el resultado**.
+2. **Un resultado intermedio favorable no es un beneficio probado.** Menos prescripción inapropiada no se tradujo en menos ingresos.
+3. **El apoyo informático es una ayuda a la revisión, no la sustituye.** La intervención la hacían un médico y un farmacéutico.
+
+### Y los modelos de lenguaje
+
+Los asistentes de IA pueden ayudarte a explorar una revisión de medicación (lo practicarás en 3.2), pero con una condición: **verificar cada dosis y cada criterio en la fuente** (<T id="ficha-tecnica">ficha técnica</T> en <T id="cima">CIMA</T>, <T id="stopp-start">criterios STOPP/START</T> en su publicación). En OPERAM, un sistema de reglas bien definido y aplicado por profesionales redujo la prescripción inapropiada, pero no los ingresos: conviene no esperar más de una herramienta sin evaluar.
+
+<AvisoClinico titulo="Lo que no hace este curso">
+Este curso no te dice qué fármaco retirar ni a qué dosis. Las decisiones de prescripción dependen de la valoración individual y de las fuentes vigentes (ficha técnica, criterios STOPP/START, guías). Los datos de OPERAM son los de su publicación.
+</AvisoClinico>
+
+<OjoCon>
+- **Proceso no es resultado.** Que se apliquen las recomendaciones no prueba que el paciente mejore.
+- **Evaluar importa.** OPERAM es un buen ejemplo de un ensayo que se atreve a medir resultados clínicos y de que el resultado puede decepcionar.
+</OjoCon>
+
+</Sesion>
+
+<Sesion n={6} titulo="Edadismo y decisiones compartidas" minutos={20}>
+
+### El edadismo también está en los algoritmos
+
+El **edadismo** son los estereotipos, prejuicios y discriminación por motivos de edad. La OMS publicó en 2022 una nota de política sobre el **edadismo en la IA para la salud**, que examina cuándo la IA puede agravarlo o introducirlo y presenta medidas legales, no legales y técnicas para minimizarlo. Chu y colaboradores (2022) describen un modelo conceptual de cómo se produce el **edadismo digital**: los sistemas se desarrollan con datos que reflejan sesgos de la sociedad, y la edad ha estado ausente del debate sobre sesgos en la IA.
+
+Ya lo viste con el algoritmo de costes de 2.2: un buen rendimiento en general puede esconder un mal rendimiento en un grupo. Prueba el mismo mecanismo con los mayores.
+
+<ModeloSintetico modo="grupos" titulo="Qué pasa si los mayores apenas están en los datos" nota="Simulación didáctica: la relación entre la cuota de datos y el rendimiento es un supuesto, no un dato real." />
+
+### Tres preguntas ante cualquier herramienta
+
+1. **¿Qué edad tienen los participantes de los estudios?** ¿Incluye mayores de 80, frágiles, con deterioro cognitivo?
+2. **¿Se ha evaluado por subgrupos de edad y de fragilidad?**
+3. **¿Quién ha participado en su diseño?** ¿Hubo personas mayores?
+
+### Decidir con la persona
+
+Una tecnología para un mayor se ofrece **con** él, no **para** él. Como dice el Manual de la OMC, el paciente tiene derecho a saber cuándo y para qué se usa IA en su atención y a pedir explicaciones. Practica con un caso ficticio.
+
+<Arbol datos="2-5-carmen" />
+
+<PruebaloTu minutos={10}>
+Elige una de las áreas de este subcapítulo y pregunta a un asistente por su evidencia con esta plantilla. Después, **busca en PubMed una revisión sistemática reciente** sobre el mismo tema y comprueba una por una las referencias que haya dado el asistente: ¿existen?, ¿dicen lo que afirma? Anota cuántas fallan.
+
+<Plantilla id="p-2-5-evidencia-geriatria" />
+</PruebaloTu>
+
+<Resumen>
+- En geriatría pesan la **multimorbilidad, la fragilidad y la presentación atípica**; los mayores suelen estar poco presentes en los datos, y el resultado que importa es funcional.
+- **Fragilidad:** el eFI se validó en 931.541 pacientes con asociaciones fuertes a mortalidad e ingreso, pero con calibración baja; el aprendizaje automático no es comparable entre estudios por la variedad de definiciones.
+- **Delirium y caídas:** AUC moderado y muy heterogéneo para el delirium posoperatorio; los sensores detectan caídas, pero no está demostrado que las eviten.
+- **Voz y soledad:** prometedoras pero preliminares (estudios pequeños, sin validación externa; los robots no mejoran la calidad de vida).
+- **OPERAM:** el apoyo informático redujo la prescripción inapropiada, pero no los ingresos relacionados con fármacos.
+- **Edadismo y decisiones compartidas:** pregunta por la edad de los participantes y decide **con** la persona.
+</Resumen>
+
+<Ficha titulo="IA y geriatría: lo que hay, a fecha de octubre de 2026">
+**Fragilidad**
+- eFI (931.541 pacientes): fuerte asociación con mortalidad e ingreso; calibración baja.
+- ML: definiciones distintas → no comparable.
+
+**Delirium y caídas**
+- Delirium posoperatorio (ML): AUC 0,756; heterogeneidad muy alta.
+- Sensores de caídas: métricas técnicas; vestibles, peores.
+- Guías de caídas: valoración multifactorial en alto riesgo.
+
+**Cognición y soledad**
+- Voz y Alzheimer: AUC > 0,80, pero sin validación externa.
+- Robots y soledad: SMD −0,69; sin efecto en calidad de vida.
+
+**Polifarmacia**
+- OPERAM: menos prescripción inapropiada; ingresos 21,9 % frente a 22,4 %.
+
+**Preguntas**
+- ¿Qué se midió? ¿En quiénes? ¿Validación externa? ¿Y la decisión es con la persona?
+</Ficha>
+
+<TestFinal id="2-5" />
+
+</Sesion>

@@ -1,0 +1,53 @@
+{
+  "titulo": "Test · Dónde está ya la IA en medicina",
+  "preguntas": [
+    {
+      "tipo": "ordenar",
+      "enunciado": "Ordena estos estudios de menor a mayor nivel de evidencia, según la escala del subcapítulo.",
+      "pasos": [
+        { "texto": "Un modelo entrenado y evaluado con datos históricos de un solo hospital.", "porque": "Retrospectivo en un centro (N1): demuestra que funciona donde se creó, nada más." },
+        { "texto": "Un modelo de sepsis probado con datos históricos de otro hospital (Wong et al.).", "porque": "Validación externa retrospectiva (N2): ya sale del centro de origen, pero no se usa con pacientes en tiempo real." },
+        { "texto": "Una alerta que funciona en tiempo real en cinco hospitales y se compara según la actuación del clínico (TREWS).", "porque": "Prospectivo, sin asignación al azar (N3): cercano a la práctica, pero con riesgo de confusión." },
+        { "texto": "Mujeres de un programa de cribado asignadas al azar a lectura con IA o doble lectura (MASAI).", "porque": "Ensayo aleatorizado (N4): el nivel más alto de la escala." }
+      ]
+    },
+    {
+      "tipo": "escenario",
+      "enunciado": "¿Qué respondes?",
+      "caso": "Un compañero te dice: «El ECG con IA ya está demostrado: el ensayo EAGLE probó que salva vidas».",
+      "opciones": [
+        { "texto": "Tiene razón: es un ensayo aleatorizado, el nivel más alto.", "correcta": false, "explicacion": "Es un ensayo aleatorizado, sí, pero eso no dice qué mide." },
+        { "texto": "EAGLE es un ensayo aleatorizado, pero midió que se diagnosticaba más fracción de eyección baja (2,1 % frente a 1,6 %), no la supervivencia.", "correcta": true, "explicacion": "Exacto: es un resultado intermedio. Para afirmar que salva vidas haría falta medir mortalidad o ingresos." },
+        { "texto": "No se puede fiar de ningún estudio de ECG con IA.", "correcta": false, "explicacion": "Demasiado radical: el estudio de Attia mostró una buena precisión y EAGLE, un aumento real de diagnósticos. Lo que no mostraron es el beneficio en resultados." },
+        { "texto": "EAGLE era retrospectivo, así que no vale.", "correcta": false, "explicacion": "EAGLE fue aleatorizado y pragmático, no retrospectivo." }
+      ]
+    },
+    {
+      "tipo": "vf",
+      "enunciado": "Si un sistema de alerta de sepsis está implantado en cientos de hospitales, puedes asumir que funciona bien en el tuyo.",
+      "respuesta": false,
+      "explicacionVerdadero": "No. Que algo se use mucho no demuestra que funcione. El modelo de Epic estaba en cientos de hospitales y, en la validación externa de Michigan, tuvo un AUC de 0,63.",
+      "explicacionFalso": "Correcto. La validación externa de Michigan (AUC 0,63; no identificó al 67 % de los pacientes con sepsis y alertó al 18 % de los ingresados) lo mostró: la difusión no es evidencia."
+    },
+    {
+      "tipo": "emparejar",
+      "enunciado": "Empareja cada estudio con la conclusión que sí se puede sostener.",
+      "pares": [
+        { "izquierda": "MASAI (cribado de mama, aleatorizado)", "derecha": "Más cánceres detectados con menor carga de lectura y sin más cánceres de intervalo", "porque": "Es lo que midió: detección, carga y cánceres de intervalo. No mide mortalidad." },
+        { "izquierda": "Goh et al. (LLM y médicos, aleatorizado)", "derecha": "Con el modelo, +2 puntos no significativos; el modelo solo rindió más que los médicos", "porque": "El acceso al LLM no mejoró significativamente a los médicos; el modelo solo puntuó 16 puntos más que el grupo convencional." },
+        { "izquierda": "Rentosertib (fase 2a)", "derecha": "Señal prometedora que exige ensayos mayores; no es un fármaco aprobado", "porque": "Es seguridad y una señal de eficacia en una fase temprana, no una prueba definitiva." },
+        { "izquierda": "Escribas ambientales (UCLA)", "derecha": "Ahorro de tiempo solo con uno de los dos y aviso de inexactitudes ocasionales", "porque": "Nabla redujo el tiempo de nota un 9,5 %; DAX no cambió significativamente; se refirieron inexactitudes ocasionales." }
+      ]
+    },
+    {
+      "tipo": "unica",
+      "enunciado": "Tu hospital quiere activar una alerta predictiva del proveedor. ¿Qué es lo más razonable?",
+      "opciones": [
+        { "texto": "Activarla en todo el hospital, porque el AUC del folleto es alto.", "correcta": false, "explicacion": "Un AUC alto no garantiza un buen valor predictivo ni una carga de alertas asumible." },
+        { "texto": "Pedir el estudio de validación, estimar el VPP y las alertas esperadas en tu hospital, y hacer un piloto local con criterios de retirada.", "correcta": true, "explicacion": "Es lo que pide el Manual de la OMC (2026) y lo que enseña la historia de la alerta de sepsis: validar localmente y medir el impacto." },
+        { "texto": "Esperar a que el 100 % de los hospitales de la región la use.", "correcta": false, "explicacion": "Que lo use mucha gente no es evidencia." },
+        { "texto": "Desactivar siempre cualquier alerta.", "correcta": false, "explicacion": "TREWS sugiere que, bien integrada, una alerta puede ayudar. Lo importante es evaluarla." }
+      ]
+    }
+  ]
+}

@@ -166,5 +166,93 @@
     "subcapitulo": "1-8",
     "plantilla": "Explícame qué es un agente de IA y dame un ejemplo de mi especialidad ([tu especialidad]).\n\nFormato: máximo 150 palabras.\nLímites: no inventes datos; si citas algo, indica la fuente.",
     "notas": "Envía exactamente el mismo texto a dos asistentes y compara exactitud, estilo, fuentes y claridad. Apunta para qué tarea usarías cada uno."
+  },
+  {
+    "id": "p-2-1-leer-resumen",
+    "titulo": "Desmontar el titular de un estudio de IA",
+    "tarea": "aprender",
+    "subcapitulo": "2-1",
+    "plantilla": "Te pego el resumen público (abstract) de un estudio sobre una herramienta de IA en medicina. Rellena esta tabla solo con lo que aparece en el texto; si algo no consta, escribe «no consta».\n\n1. Tipo de estudio (retrospectivo, prospectivo, ensayo aleatorizado).\n2. Población y número de participantes.\n3. Con qué se compara la IA.\n4. Qué se mide exactamente (resultado intermedio o resultado en el paciente).\n5. ¿Hubo validación externa?\n6. Limitaciones que reconocen los autores.\n\nNo añadas información que no esté en el resumen.\n\n[pega aquí el resumen]",
+    "notas": "Usa solo resúmenes públicos de PubMed, nunca datos de pacientes. Después, comprueba tú cada fila contra el resumen original: el asistente puede completar con lo que «suena razonable»."
+  },
+  {
+    "id": "p-2-2-senales-alarma",
+    "titulo": "Buscar señales de alarma en el resumen de un estudio de IA",
+    "tarea": "aprender",
+    "subcapitulo": "2-2",
+    "plantilla": "Te pego el resumen público de un estudio sobre una herramienta de IA médica. Revisa solo lo que pone en el texto y responde con una lista de comprobación:\n\n1. ¿Con qué datos se entrenó y con cuáles se evaluó? ¿Son distintos?\n2. ¿Se validó fuera del centro de origen?\n3. ¿La población se parece a [describe tu población, p. ej. mayores de 75 años hospitalizados]?\n4. ¿Qué métricas se informan (sensibilidad, especificidad, AUC, valor predictivo, calibración) y cuáles faltan?\n5. ¿Se midió algún resultado en pacientes o solo la precisión?\n6. ¿Quién financió el estudio y hay conflictos de intereses?\n\nSi algo no consta, escribe «no consta». No supongas.\n\n[pega aquí el resumen]",
+    "notas": "Usa solo resúmenes públicos, nunca datos de pacientes. Es una ayuda para ordenar la lectura: comprueba tú cada respuesta en el texto original."
+  },
+  {
+    "id": "p-2-3-codigo-personal",
+    "titulo": "Redactar tu código personal de uso responsable de la IA",
+    "tarea": "aprender",
+    "subcapitulo": "2-3",
+    "plantilla": "Soy médico de [tu especialidad] y estudio IA en casa, con mis dispositivos personales. Ayúdame a redactar mi código personal de uso responsable de la IA en cinco reglas breves y cumplibles.\n\nDebe responder a: qué datos nunca introduzco, qué tareas hago con IA y cuáles no, cómo verifico lo que me responde, qué le cuento al paciente y cuándo dejo de usar la herramienta.\n\nCriterios: español de España, frases cortas, sin tecnicismos innecesarios. No incluyas datos de ningún paciente.",
+    "notas": "Revisa el borrador, recorta lo que no cumplirías y quédate con cinco reglas que puedas seguir de verdad. No es asesoramiento jurídico."
+  },
+  {
+    "id": "p-2-4-ficha-herramienta",
+    "titulo": "Preparar la ficha de evaluación de una herramienta",
+    "tarea": "aprender",
+    "subcapitulo": "2-4",
+    "plantilla": "Quiero evaluar la herramienta [nombre de la herramienta] para usarla con mis dispositivos personales. Prepara una ficha con estos apartados:\n\n1. Para qué sirve, en una frase.\n2. Con qué datos funciona y dónde se procesan.\n3. Qué hace bien y qué hace mal.\n4. Si está disponible en España y si funciona en español.\n5. Plan gratuito y planes de pago.\n6. Cuándo NO debería usarla.\n\nReglas: no inventes datos. Si no lo sabes o no estás seguro, escribe «no consta, comprobar en la web oficial». Indica la fecha de tu información.",
+    "notas": "Nunca incluyas datos de pacientes. Comprueba cada afirmación (sobre todo precios y disponibilidad) en la web oficial: los asistentes se equivocan a menudo en esto."
+  },
+  {
+    "id": "p-2-5-evidencia-geriatria",
+    "titulo": "Contrastar lo que dice un asistente sobre IA en geriatría",
+    "tarea": "aprender",
+    "subcapitulo": "2-5",
+    "plantilla": "¿Qué evidencia hay de que [aplicación de IA, p. ej. detección de caídas con sensores] mejora los resultados en personas mayores?\n\nDime: los tipos de estudio que existen, qué resultados miden (técnicos o en el paciente), qué limitaciones tienen y qué sigue sin saberse. Indica el nombre y el año de cada estudio que cites.\n\nReglas: no inventes referencias. Si no estás seguro de que un estudio exista, dilo. Responde en 200 palabras como máximo.",
+    "notas": "Después, busca en PubMed una revisión sistemática reciente sobre ese tema y comprueba una por una las referencias que ha dado el asistente. Anota cuántas existen, cuántas dicen lo que afirma y qué ha omitido."
+  },
+  {
+    "id": "p-3-0-caso-ficticio",
+    "titulo": "Crear un informe de alta ficticio para practicar la anonimización",
+    "tarea": "casos-clinicos",
+    "subcapitulo": "3-0",
+    "plantilla": "Inventa un informe de alta de geriatría completamente ficticio, de unas 150 palabras, de una mujer de unos 85 años con una caída y un episodio de delirium.\n\nIncluye datos identificativos inventados, de forma realista y variada: nombre y apellidos, DNI, número de historia clínica, teléfono, dirección, fecha de nacimiento, fechas de ingreso y alta, el nombre de un familiar y el de un médico, y una profesión o un dato singular que, combinado con otros, pudiera identificar a la persona.\n\nNo uses datos de ninguna persona real. Después del informe, no añadas ninguna explicación.",
+    "notas": "Sirve para practicar a anonimizar sin riesgo: todo el contenido lo inventa el asistente. Luego marca tú los identificadores y quítalos, y comprueba el resultado con la checklist. No uses nunca un informe real para este ejercicio."
+  },
+  {
+    "id": "p-3-1-estructura-caso",
+    "titulo": "Presentar un caso estructurado",
+    "tarea": "casos-clinicos",
+    "subcapitulo": "3-1",
+    "plantilla": "Voy a presentarte un caso clínico anonimizado, como en una sesión clínica.\n\nPaciente y contexto: [edad, sexo, convivencia, situación funcional; sin identificadores].\nMotivo y evolución: [qué ocurre y desde cuándo, con tiempos relativos].\nMedicación: [lista completa con dosis].\nExploración y pruebas: [constantes y resultados con unidades].\n\nPregunta: dame un diagnóstico diferencial razonado.\n\nReglas: no des por hecha ninguna causa. Si te falta un dato importante, dímelo antes de responder.",
+    "notas": "Revisa que no queda ningún identificador (3.0). Si quieres añadir tu hipótesis, hazlo en un mensaje posterior, al final y pidiendo que la refute."
+  },
+  {
+    "id": "p-3-1-diferencial",
+    "titulo": "Diagnóstico diferencial razonado",
+    "tarea": "casos-clinicos",
+    "subcapitulo": "3-1",
+    "plantilla": "Con el caso anterior, dame un diagnóstico diferencial razonado.\n\nPara cada opción indica: (1) qué datos del caso la apoyan, (2) qué datos o resultados la refutarían, y (3) qué prueba o dato discrimina mejor entre esa opción y las demás.\n\nOrdena de más a menos probable e indica cuáles son 'no debo perder'. Señala explícitamente lo que no puedes saber con los datos que te he dado. No inventes datos ni referencias.",
+    "notas": "El «no debo perder» y lo que la IA no puede saber son tan importantes como el orden."
+  },
+  {
+    "id": "p-3-1-refuta",
+    "titulo": "Pedir que refute tu hipótesis",
+    "tarea": "casos-clinicos",
+    "subcapitulo": "3-1",
+    "plantilla": "Mi hipótesis de trabajo es: [tu hipótesis].\n\nNo me des la razón. Busca los argumentos más fuertes en contra de mi hipótesis: qué datos del caso no encajan, qué alternativas la explicarían igual de bien y qué me estoy pudiendo estar saltando. Después dime qué dato cambiaría tu opinión.",
+    "notas": "Úsala después del diferencial neutro, no antes. Es la mejor vacuna contra la complacencia."
+  },
+  {
+    "id": "p-3-1-autocritica",
+    "titulo": "Que la IA critique su propia respuesta",
+    "tarea": "casos-clinicos",
+    "subcapitulo": "3-1",
+    "plantilla": "Revisa tu respuesta anterior como lo haría un adjunto exigente.\n\n1. ¿Qué afirmaciones son menos seguras o podrían ser erróneas?\n2. ¿Qué dato o causa has dejado fuera?\n3. ¿Qué has dado por supuesto sin que yo te lo dijera?\n4. Señala qué debería comprobar yo en una fuente (ficha técnica, guía o artículo) antes de fiarme.",
+    "notas": "La autocrítica de la IA no es una verificación: sirve para saber dónde mirar. Comprueba tú las fuentes."
+  },
+  {
+    "id": "p-3-1-seguimiento",
+    "titulo": "Plan de seguimiento y criterios de alarma",
+    "tarea": "casos-clinicos",
+    "subcapitulo": "3-1",
+    "plantilla": "Con el caso anterior, propón un esquema de seguimiento para discutir con el equipo: qué parámetros vigilar y con qué frecuencia, qué cambios obligarían a replantear el diagnóstico y qué signos de alarma habría que explicar a la familia.\n\nReglas: no des dosis. Indica qué guía o fuente debería consultar para cada punto y marca lo que no sea seguro. Máximo 200 palabras.",
+    "notas": "Pide siempre la fuente a consultar, y consúltala. No incluyas datos identificativos."
   }
 ]

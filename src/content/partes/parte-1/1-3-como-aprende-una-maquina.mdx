@@ -155,7 +155,7 @@ Un modelo que funciona en el hospital donde se creó puede fallar en otro. Hay q
 Es **validar una escala en otra población antes de usarla** en la tuya. No basta con que funcione donde la crearon.
 </Analogia>
 
-Un ejemplo real: el modelo de alerta de sepsis de Epic estaba implantado en cientos de hospitales de EE. UU. Cuando un grupo de la Universidad de Michigan lo validó con 38.455 ingresos, obtuvo un AUC de 0,63. El modelo identificó solo 183 de los 2.552 pacientes con sepsis, y generó alertas en el 18 % de todos los ingresados.
+Un ejemplo real: el modelo de alerta de sepsis de Epic estaba implantado en cientos de hospitales de EE. UU. Cuando un grupo de la Universidad de Michigan lo validó con 38.455 ingresos, obtuvo un AUC de 0,63. De los 2.552 pacientes con sepsis, el modelo no identificó a 1.709 (el 67 %), y aun así generó alertas en el 18 % de todos los ingresados.
 
 <Clasificador datos="1-3-sesgo" />
 
@@ -177,7 +177,7 @@ Las guías de publicación, como TRIPOD+AI, piden que un estudio informe de todo
 
 <OjoCon>
 - **Una sola cifra no basta.** Pide sensibilidad, especificidad, VPP y la prevalencia a la que se refiere.
-- **El AUC no dice si las probabilidades son fiables.** Eso es la calibración, que verás en 2.2.
+- **El AUC no dice si las probabilidades son fiables.** Eso es la <T id="calibracion">calibración</T>, que verás en 2.2.
 - **Los resultados del propio equipo desarrollador** suelen ser más optimistas que los de una validación independiente.
 - **Un modelo no es neutral:** hereda los sesgos de sus datos y de la variable que se eligió.
 </OjoCon>

@@ -1,0 +1,22 @@
+{
+  "titulo": "El semáforo: ¿puedo pegar esto en un asistente de IA con mi cuenta personal?",
+  "instrucciones": "Verde: sí. Ámbar: solo tras anonimizarlo bien (lo practicarás en 3.0). Rojo: no, con una cuenta personal. Los casos son ficticios.",
+  "categorias": [
+    { "id": "verde", "nombre": "Verde", "descripcion": "no contiene datos de personas" },
+    { "id": "ambar", "nombre": "Ámbar", "descripcion": "solo si lo anonimizas bien antes" },
+    { "id": "rojo", "nombre": "Rojo", "descripcion": "no, con una cuenta personal" }
+  ],
+  "items": [
+    { "texto": "El resumen público (abstract) de un artículo de PubMed.", "categoria": "verde", "explicacion": "Es un texto público que no contiene datos de personas. Es el uso más seguro: leer y analizar literatura." },
+    { "texto": "Una pregunta general: «¿cómo se interpreta el valor predictivo positivo de una prueba?».", "categoria": "verde", "explicacion": "No incluye ningún dato de paciente. Preguntar conceptos es seguro, aunque hay que comprobar la respuesta." },
+    { "texto": "Un caso inventado por ti desde cero, sin partir de ningún paciente real.", "categoria": "verde", "explicacion": "Si es realmente ficticio (no un paciente real con detalles cambiados a medias), no hay datos de nadie. Es la forma de practicar prompts con seguridad." },
+    { "texto": "Un caso real que has resumido: «varón de 82 años con infección urinaria y delirium, ingresado en la planta 3».", "categoria": "ambar", "explicacion": "Sin nombre, pero la combinación de edad, enfermedad, servicio y fechas puede identificar a alguien (considerando 26 del RGPD: cuenta cualquier medio razonable, como la singularización). Hay que quitar o generalizar esos datos antes." },
+    { "texto": "Los valores de una analítica sin nombre ni número de historia, pero con la fecha exacta del ingreso.", "categoria": "ambar", "explicacion": "Los valores aislados son poco identificativos, pero las fechas exactas permiten cruzarlos con otros datos. Sustitúyelas por «día 1», «día 3»…" },
+    { "texto": "Un informe de alta con el nombre tapado a mano, pero con el número de historia clínica y las fechas.", "categoria": "rojo", "explicacion": "El número de historia y las fechas identifican al paciente. Quitar solo el nombre es la anonimización más frecuente y la más insuficiente." },
+    { "texto": "Una captura de pantalla de la historia clínica electrónica.", "categoria": "rojo", "explicacion": "Contiene identificadores en la cabecera, además de datos de salud (categoría especial, art. 9 del RGPD). Nunca con una cuenta personal." },
+    { "texto": "El audio de una consulta real, para que una app de IA lo transcriba.", "categoria": "rojo", "explicacion": "La voz es un dato personal y el audio recoge datos de salud, además de información de otras personas. Solo con una herramienta contratada y autorizada por tu centro, y con consentimiento." },
+    { "texto": "Una lista de pacientes de tu planta con sus iniciales y el número de cama.", "categoria": "rojo", "explicacion": "Iniciales y cama identifican a los pacientes para quien conoce la planta. No es anonimización: es seudonimización, y los datos seudonimizados siguen siendo personales." },
+    { "texto": "Las valoraciones del desempeño de un residente de tu servicio, con su nombre.", "categoria": "rojo", "explicacion": "Son datos personales de otra persona, aunque no sean de salud. Tampoco los compartas con una cuenta personal." }
+  ],
+  "cierre": "Regla práctica: si dudas, es rojo. Y recuerda que desactivar el uso de tus conversaciones para entrenar no convierte una cuenta personal en un canal autorizado: lo que lo autoriza es un contrato de tu centro con el proveedor."
+}

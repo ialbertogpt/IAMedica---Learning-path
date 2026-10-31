@@ -258,6 +258,7 @@
     "minutosLectura": 15,
     "subcapitulos": [
       "2-3",
+      "2-4",
       "3-0",
       "3-1"
     ],
@@ -898,7 +899,9 @@
     "idioma": "en",
     "minutosLectura": 5,
     "subcapitulos": [
-      "1-3"
+      "1-3",
+      "2-2",
+      "2-5"
     ],
     "porQue": "Un algoritmo comercial que predecía costes en lugar de enfermedad infravaloraba la gravedad de los pacientes negros. Ejemplo claro de sesgo por elegir mal la variable.",
     "fechaVerificacion": "2026-10-30",
@@ -914,7 +917,8 @@
     "idioma": "en",
     "minutosLectura": 5,
     "subcapitulos": [
-      "1-3"
+      "1-3",
+      "2-1"
     ],
     "porQue": "La validación externa de un modelo de sepsis implantado en cientos de hospitales: el rendimiento real fue peor del esperado.",
     "fechaVerificacion": "2026-10-30",
@@ -930,7 +934,9 @@
     "idioma": "en",
     "minutosLectura": 8,
     "subcapitulos": [
-      "1-8"
+      "1-8",
+      "2-1",
+      "3-1"
     ],
     "porQue": "Con 1.298 participantes: los LLM solos identificaban bien las enfermedades, pero quienes los usaban no lo hacían mejor que el grupo control. Los exámenes no predicen el rendimiento real.",
     "fechaVerificacion": "2026-10-30",
@@ -962,7 +968,8 @@
     "idioma": "en",
     "minutosLectura": 6,
     "subcapitulos": [
-      "1-7"
+      "1-7",
+      "2-1"
     ],
     "porQue": "Ensayo aleatorizado con 238 médicos: uno de los escribas redujo el tiempo de redacción un 9,5 % y el otro no; hubo inexactitudes «ocasionales». Resumen en abierto.",
     "fechaVerificacion": "2026-10-30",
@@ -984,5 +991,629 @@
     "fechaVerificacion": "2026-10-30",
     "estado": "verificado",
     "contenido": "titulo-descripcion"
+  },
+  {
+    "id": "a-masai-2023",
+    "tipo": "articulo",
+    "titulo": "Artificial intelligence-supported screen reading versus standard double reading in the Mammography Screening with Artificial Intelligence trial (MASAI)",
+    "autor": "Lång K, et al. Lancet Oncol 2023;24:936-44",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/37541274/",
+    "idioma": "en",
+    "minutosLectura": 6,
+    "subcapitulos": [
+      "2-1"
+    ],
+    "porQue": "Ensayo aleatorizado con 80.033 mujeres: con lectura asistida por IA se detectaron tantos cánceres como con la doble lectura habitual y la carga de lectura bajó un 44,3 %. Resumen en abierto.",
+    "fechaVerificacion": "2026-10-31",
+    "estado": "verificado",
+    "contenido": "titulo-descripcion"
+  },
+  {
+    "id": "a-masai-2026",
+    "tipo": "articulo",
+    "titulo": "Interval cancer, sensitivity, and specificity comparing AI-supported mammography screening with standard double reading without AI in the MASAI study",
+    "autor": "Lång K, et al. Lancet 2026",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41620232/",
+    "idioma": "en",
+    "minutosLectura": 6,
+    "subcapitulos": [
+      "2-1"
+    ],
+    "porQue": "Resultado de seguimiento del ensayo MASAI: tasa de cánceres de intervalo no inferior, sensibilidad más alta (80,5 % frente a 73,8 %) y la misma especificidad.",
+    "fechaVerificacion": "2026-10-31",
+    "estado": "verificado",
+    "contenido": "titulo-descripcion"
+  },
+  {
+    "id": "a-esteva-2017",
+    "tipo": "articulo",
+    "titulo": "Dermatologist-level classification of skin cancer with deep neural networks",
+    "autor": "Esteva A, et al. Nature 2017;542:115-8",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/28117445/",
+    "idioma": "en",
+    "minutosLectura": 6,
+    "subcapitulos": [
+      "2-1"
+    ],
+    "porQue": "El estudio que mostró que una red neuronal podía clasificar lesiones cutáneas con un rendimiento comparable al de dermatólogos. Estudio de laboratorio, no de práctica real.",
+    "fechaVerificacion": "2026-10-31",
+    "estado": "verificado",
+    "contenido": "titulo-descripcion"
+  },
+  {
+    "id": "a-abramoff-2018",
+    "tipo": "articulo",
+    "titulo": "Pivotal trial of an autonomous AI-based diagnostic system for detection of diabetic retinopathy in primary care offices",
+    "autor": "Abràmoff MD, et al. npj Digit Med 2018;1:39",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/31304320/",
+    "idioma": "en",
+    "minutosLectura": 6,
+    "subcapitulos": [
+      "2-1"
+    ],
+    "porQue": "El ensayo que llevó a la FDA a autorizar el primer sistema de IA autónomo: 900 personas con diabetes en atención primaria; sensibilidad del 87,2 % y especificidad del 90,7 %. Acceso abierto.",
+    "fechaVerificacion": "2026-10-31",
+    "estado": "verificado",
+    "contenido": "titulo-descripcion"
+  },
+  {
+    "id": "a-campanella-2019",
+    "tipo": "articulo",
+    "titulo": "Clinical-grade computational pathology using weakly supervised deep learning on whole slide images",
+    "autor": "Campanella G, et al. Nat Med 2019;25:1301-9",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/31308507/",
+    "idioma": "en",
+    "minutosLectura": 6,
+    "subcapitulos": [
+      "2-1"
+    ],
+    "porQue": "Anatomía patológica digital a gran escala: 44.732 preparaciones de 15.187 pacientes y AUC superiores a 0,98 en tres tipos de cáncer. Evidencia retrospectiva.",
+    "fechaVerificacion": "2026-10-31",
+    "estado": "verificado",
+    "contenido": "titulo-descripcion"
+  },
+  {
+    "id": "a-attia-2019",
+    "tipo": "articulo",
+    "titulo": "Screening for cardiac contractile dysfunction using an artificial intelligence-enabled electrocardiogram",
+    "autor": "Attia ZI, et al. Nat Med 2019;25:70-4",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/30617318/",
+    "idioma": "en",
+    "minutosLectura": 5,
+    "subcapitulos": [
+      "2-1"
+    ],
+    "porQue": "Un ECG de 12 derivaciones con IA para detectar disfunción ventricular asintomática: AUC de 0,93, sensibilidad del 86,3 % y especificidad del 85,7 %.",
+    "fechaVerificacion": "2026-10-31",
+    "estado": "verificado",
+    "contenido": "titulo-descripcion"
+  },
+  {
+    "id": "a-eagle-2021",
+    "tipo": "articulo",
+    "titulo": "Artificial intelligence-enabled electrocardiograms for identification of patients with low ejection fraction: a pragmatic, randomized clinical trial",
+    "autor": "Yao X, et al. Nat Med 2021;27:815-9",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/33958795/",
+    "idioma": "en",
+    "minutosLectura": 6,
+    "subcapitulos": [
+      "2-1"
+    ],
+    "porQue": "El paso de la precisión al impacto: ensayo aleatorizado en 120 equipos de atención primaria; la IA aumentó el diagnóstico de fracción de eyección baja (1,6 % → 2,1 %).",
+    "fechaVerificacion": "2026-10-31",
+    "estado": "verificado",
+    "contenido": "titulo-descripcion"
+  },
+  {
+    "id": "a-trews-2022",
+    "tipo": "articulo",
+    "titulo": "Prospective, multi-site study of patient outcomes after implementation of the TREWS machine learning-based early warning system for sepsis",
+    "autor": "Adams R, et al. Nat Med 2022;28:1455-60",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/35864252/",
+    "idioma": "en",
+    "minutosLectura": 6,
+    "subcapitulos": [
+      "2-1"
+    ],
+    "porQue": "Estudio prospectivo multicéntrico de un sistema de alerta de sepsis: la mortalidad fue menor cuando el clínico confirmaba la alerta en menos de 3 horas. Es observacional.",
+    "fechaVerificacion": "2026-10-31",
+    "estado": "verificado",
+    "contenido": "titulo-descripcion"
+  },
+  {
+    "id": "a-sepsis-2026",
+    "tipo": "articulo",
+    "titulo": "Multicenter Prospective Validation of an Updated Proprietary Sepsis Prediction Model",
+    "autor": "JAMA Netw Open 2026",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41758510/",
+    "idioma": "en",
+    "minutosLectura": 6,
+    "subcapitulos": [
+      "2-1"
+    ],
+    "porQue": "La versión actualizada del modelo de sepsis ya evaluado en 2021: mejor discriminación, pero con un valor predictivo positivo bajo y mucha carga de alertas.",
+    "fechaVerificacion": "2026-10-31",
+    "estado": "verificado",
+    "contenido": "titulo-descripcion"
+  },
+  {
+    "id": "a-goh-2024",
+    "tipo": "articulo",
+    "titulo": "Large Language Model Influence on Diagnostic Reasoning: A Randomized Clinical Trial",
+    "autor": "Goh E, et al. JAMA Netw Open 2024;7:e2440969",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/39466245/",
+    "idioma": "en",
+    "minutosLectura": 6,
+    "subcapitulos": [
+      "2-1",
+      "3-1"
+    ],
+    "porQue": "Ensayo con 50 médicos: tener acceso a un LLM no mejoró de forma significativa su razonamiento diagnóstico, aunque el LLM solo puntuó más que ambos grupos. Acceso abierto.",
+    "fechaVerificacion": "2026-10-31",
+    "estado": "verificado",
+    "contenido": "titulo-descripcion"
+  },
+  {
+    "id": "a-jumper-2021",
+    "tipo": "articulo",
+    "titulo": "Highly accurate protein structure prediction with AlphaFold",
+    "autor": "Jumper J, et al. Nature 2021;596:583-9",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/34265844/",
+    "idioma": "en",
+    "minutosLectura": 8,
+    "subcapitulos": [
+      "2-1"
+    ],
+    "porQue": "El artículo de AlphaFold, reconocido con el Nobel de Química 2024.",
+    "fechaVerificacion": "2026-10-31",
+    "estado": "verificado",
+    "contenido": "titulo-descripcion"
+  },
+  {
+    "id": "a-rentosertib-2025",
+    "tipo": "articulo",
+    "titulo": "A generative AI-discovered TNIK inhibitor for idiopathic pulmonary fibrosis: a randomized phase 2a trial",
+    "autor": "Xu Z, et al. Nat Med 2025",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/40461817/",
+    "idioma": "en",
+    "minutosLectura": 6,
+    "subcapitulos": [
+      "2-1"
+    ],
+    "porQue": "Un fármaco descubierto con IA generativa llega a un ensayo aleatorizado de fase 2a: seguro y bien tolerado; hace falta confirmarlo en ensayos más grandes y largos.",
+    "fechaVerificacion": "2026-10-31",
+    "estado": "verificado",
+    "contenido": "titulo-descripcion"
+  },
+  {
+    "id": "a-tripod-ai",
+    "tipo": "articulo",
+    "titulo": "TRIPOD+AI statement: updated guidance for reporting clinical prediction models that use regression or machine learning methods",
+    "autor": "Collins GS, et al. BMJ 2024;385:e078378",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/38626948/",
+    "idioma": "en",
+    "minutosLectura": 10,
+    "subcapitulos": [
+      "2-2"
+    ],
+    "porQue": "La guía de referencia para describir modelos de predicción clínica con aprendizaje automático. Acceso abierto: sirve de lista de comprobación al leer un estudio.",
+    "fechaVerificacion": "2026-10-31",
+    "estado": "verificado",
+    "contenido": "titulo-descripcion"
+  },
+  {
+    "id": "a-consort-ai",
+    "tipo": "articulo",
+    "titulo": "Reporting guidelines for clinical trial reports for interventions involving artificial intelligence: the CONSORT-AI extension",
+    "autor": "Liu X, et al. Lancet Digit Health 2020;2:e537-48",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/33328048/",
+    "idioma": "en",
+    "minutosLectura": 8,
+    "subcapitulos": [
+      "2-2"
+    ],
+    "porQue": "Extensión de CONSORT para ensayos con intervenciones de IA: añade qué comunicar sobre los datos de entrada, el uso por parte del clínico y los errores.",
+    "fechaVerificacion": "2026-10-31",
+    "estado": "verificado",
+    "contenido": "titulo-descripcion"
+  },
+  {
+    "id": "a-stard-ai",
+    "tipo": "articulo",
+    "titulo": "The STARD-AI reporting guideline for diagnostic accuracy studies using artificial intelligence",
+    "autor": "Sounderajah V, et al. Nat Med 2025",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/40954311/",
+    "idioma": "en",
+    "minutosLectura": 8,
+    "subcapitulos": [
+      "2-2"
+    ],
+    "porQue": "Guía para estudios de precisión diagnóstica con IA (extensión de STARD).",
+    "fechaVerificacion": "2026-10-31",
+    "estado": "verificado",
+    "contenido": "titulo-descripcion"
+  },
+  {
+    "id": "a-decide-ai",
+    "tipo": "articulo",
+    "titulo": "Reporting guideline for the early-stage clinical evaluation of decision support systems driven by artificial intelligence: DECIDE-AI",
+    "autor": "Vasey B, et al. BMJ 2022;377:e070904",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/35584845/",
+    "idioma": "en",
+    "minutosLectura": 8,
+    "subcapitulos": [
+      "2-2"
+    ],
+    "porQue": "Para estudios de evaluación temprana en el entorno clínico: qué comunicar sobre el uso real por parte de los clínicos.",
+    "fechaVerificacion": "2026-10-31",
+    "estado": "verificado",
+    "contenido": "titulo-descripcion"
+  },
+  {
+    "id": "a-chart-2025",
+    "tipo": "articulo",
+    "titulo": "Reporting guideline for chatbot health advice studies: the Chatbot Assessment Reporting Tool (CHART) statement",
+    "autor": "CHART Collaborative. BMJ Med 2025",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/40761518/",
+    "idioma": "en",
+    "minutosLectura": 8,
+    "subcapitulos": [
+      "2-2"
+    ],
+    "porQue": "Guía para estudios que evalúan chatbots que dan consejo de salud. Útil para leer con ojo crítico los estudios de LLM en medicina.",
+    "fechaVerificacion": "2026-10-31",
+    "estado": "verificado",
+    "contenido": "titulo-descripcion"
+  },
+  {
+    "id": "a-calibracion-2019",
+    "tipo": "articulo",
+    "titulo": "Calibration: the Achilles heel of predictive analytics",
+    "autor": "Van Calster B, et al. BMC Med 2019;17:230",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/31842878/",
+    "idioma": "en",
+    "minutosLectura": 8,
+    "subcapitulos": [
+      "2-2"
+    ],
+    "porQue": "Por qué un modelo con buen AUC puede dar probabilidades poco fiables, y qué hacer. Acceso abierto.",
+    "fechaVerificacion": "2026-10-31",
+    "estado": "verificado",
+    "contenido": "titulo-descripcion"
+  },
+  {
+    "id": "a-semi-rce-2025",
+    "tipo": "articulo",
+    "titulo": "Inteligencia artificial en la práctica clínica: calidad y evidencia",
+    "autor": "Puchades R, Ramos-Ruperto L. Rev Clin Esp 2025;225",
+    "url": "https://revclinesp.es/es-inteligencia-artificial-practica-clinica-calidad-articulo-S0014256524001735",
+    "idioma": "es-ES",
+    "minutosLectura": 10,
+    "subcapitulos": [
+      "2-2"
+    ],
+    "porQue": "Artículo especial del Grupo de Medicina Digital de la SEMI sobre cómo valorar la calidad y la evidencia de las herramientas de IA clínica. En español.",
+    "fechaVerificacion": "2026-10-31",
+    "estado": "verificado",
+    "contenido": "titulo-descripcion",
+    "notas": "La web es accesible; el texto completo puede requerir suscripción."
+  },
+  {
+    "id": "r-aiact-explorer-omnibus",
+    "tipo": "web",
+    "titulo": "Digital Omnibus on AI · explorador del Reglamento de IA",
+    "autor": "artificialintelligenceact.eu (Future of Life Institute)",
+    "url": "https://artificialintelligenceact.eu/ai-act-explorer/digital-omnibus/",
+    "idioma": "en",
+    "minutosLectura": 15,
+    "subcapitulos": [
+      "2-3"
+    ],
+    "porQue": "El texto del Reglamento (UE) 2026/1744 que modifica el calendario del Reglamento de IA. Es una web de seguimiento no oficial; el texto legal está en EUR-Lex.",
+    "fechaVerificacion": "2026-10-31",
+    "estado": "verificado",
+    "contenido": "titulo-descripcion"
+  },
+  {
+    "id": "r-aesia",
+    "tipo": "web",
+    "titulo": "Agencia Española de Supervisión de Inteligencia Artificial (AESIA)",
+    "autor": "Gobierno de España",
+    "url": "https://aesia.digital.gob.es/es",
+    "idioma": "es-ES",
+    "minutosLectura": 5,
+    "subcapitulos": [
+      "2-3"
+    ],
+    "porQue": "La autoridad española de supervisión de la IA y sus guías de uso responsable.",
+    "fechaVerificacion": "2026-10-31",
+    "estado": "verificado",
+    "contenido": "titulo-descripcion"
+  },
+  {
+    "id": "r-boe-lopdgdd",
+    "tipo": "web",
+    "titulo": "Ley Orgánica 3/2018, de Protección de Datos Personales y garantía de los derechos digitales",
+    "autor": "BOE",
+    "url": "https://www.boe.es/buscar/doc.php?id=BOE-A-2018-16673",
+    "idioma": "es-ES",
+    "minutosLectura": 15,
+    "subcapitulos": [
+      "2-3"
+    ],
+    "porQue": "La ley española que desarrolla el RGPD. Para esta sesión basta con saber que trata los datos de salud como categoría especial.",
+    "fechaVerificacion": "2026-10-31",
+    "estado": "verificado",
+    "contenido": "titulo-descripcion"
+  },
+  {
+    "id": "v-seram-regulacion",
+    "tipo": "video",
+    "titulo": "Café SERAM con el Dr. Ángel Morales: la regulación legal de la inteligencia artificial en radiología",
+    "autor": "SERAM",
+    "url": "https://www.youtube.com/watch?v=UL7OjVRWy5Y",
+    "youtubeId": "UL7OjVRWy5Y",
+    "idioma": "es-ES",
+    "subtitulos": "español (automáticos)",
+    "duracion": "18:00",
+    "publicado": "2024-12-17",
+    "subcapitulos": [
+      "2-3"
+    ],
+    "porQue": "Conversación sobre la regulación de la IA en radiología. De 2024: anterior a los aplazamientos del Ómnibus Digital de 2026, así que las fechas han cambiado.",
+    "fechaVerificacion": "2026-10-31",
+    "estado": "con-reservas",
+    "contenido": "titulo-descripcion",
+    "notas": "Anterior al Reglamento (UE) 2026/1744: las fechas de aplicación que cite pueden estar desfasadas."
+  },
+  {
+    "id": "a-operam-2021",
+    "tipo": "articulo",
+    "titulo": "Optimizing Therapy to Prevent Avoidable Hospital Admissions in Multimorbid Older Adults (OPERAM): cluster randomised controlled trial",
+    "autor": "Blum MR, et al. BMJ 2021;374:n1585",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/34257088/",
+    "idioma": "en",
+    "minutosLectura": 8,
+    "subcapitulos": [
+      "2-5"
+    ],
+    "porQue": "Un ensayo con 2.008 mayores: una revisión de medicación asistida por software (STOPP/START) redujo la prescripción inapropiada pero no los ingresos relacionados con fármacos. Acceso abierto.",
+    "fechaVerificacion": "2026-10-31",
+    "estado": "verificado",
+    "contenido": "titulo-descripcion"
+  },
+  {
+    "id": "a-clegg-2016",
+    "tipo": "articulo",
+    "titulo": "Development and validation of an electronic frailty index using routine primary care electronic health record data",
+    "autor": "Clegg A, et al. Age Ageing 2016;45:353-60",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/26944937/",
+    "idioma": "en",
+    "minutosLectura": 8,
+    "subcapitulos": [
+      "2-5"
+    ],
+    "porQue": "El índice electrónico de fragilidad (eFI), que calcula la fragilidad a partir de la historia clínica electrónica. Es un modelo de déficits acumulados, no de aprendizaje profundo.",
+    "fechaVerificacion": "2026-10-31",
+    "estado": "verificado",
+    "contenido": "titulo-descripcion"
+  },
+  {
+    "id": "a-fragilidad-ml-2023",
+    "tipo": "articulo",
+    "titulo": "Machine learning approaches for frailty detection, prediction and classification in elderly people: A systematic review",
+    "autor": "Int J Med Inform 2023",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/37586309/",
+    "idioma": "en",
+    "minutosLectura": 8,
+    "subcapitulos": [
+      "2-5"
+    ],
+    "porQue": "Revisión sistemática de 41 estudios: modelos muy variados, definiciones de fragilidad distintas, pocos con explicabilidad.",
+    "fechaVerificacion": "2026-10-31",
+    "estado": "verificado",
+    "contenido": "titulo-descripcion"
+  },
+  {
+    "id": "a-delirium-ml-2026",
+    "tipo": "articulo",
+    "titulo": "Machine learning application in the prediction of postoperative delirium among elderly patients: a systematic review and meta-analysis",
+    "autor": "Langenbecks Arch Surg 2026",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/42171796/",
+    "idioma": "en",
+    "minutosLectura": 8,
+    "subcapitulos": [
+      "2-5"
+    ],
+    "porQue": "Metaanálisis: rendimiento moderado de los modelos de delirium postoperatorio, peor en validación externa que en interna y con gran heterogeneidad.",
+    "fechaVerificacion": "2026-10-31",
+    "estado": "verificado",
+    "contenido": "titulo-descripcion"
+  },
+  {
+    "id": "a-caidas-ambiente-2025",
+    "tipo": "articulo",
+    "titulo": "Fall Detection in Elderly People: A Systematic Review of Ambient Assisted Living and Smart Home-Related Technology Performance",
+    "autor": "Sensors (Basel) 2025",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41228764/",
+    "idioma": "en",
+    "minutosLectura": 8,
+    "subcapitulos": [
+      "2-5"
+    ],
+    "porQue": "Revisión de 80 estudios de detección de caídas: en conjunto, los dispositivos portátiles rindieron peor y el aprendizaje profundo, mejor. Son estudios técnicos, no de resultados clínicos.",
+    "fechaVerificacion": "2026-10-31",
+    "estado": "verificado",
+    "contenido": "titulo-descripcion"
+  },
+  {
+    "id": "a-voz-alzheimer-2026",
+    "tipo": "articulo",
+    "titulo": "Artificial Intelligence-Related Voice and Speech Biomarkers of Alzheimer's Disease: A Systematic Review",
+    "autor": "J Voice 2026",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/42731970/",
+    "idioma": "en",
+    "minutosLectura": 8,
+    "subcapitulos": [
+      "2-5"
+    ],
+    "porQue": "Revisión sobre biomarcadores de voz y habla con IA en la enfermedad de Alzheimer: un área prometedora, aún en investigación.",
+    "fechaVerificacion": "2026-10-31",
+    "estado": "verificado",
+    "contenido": "titulo-descripcion",
+    "notas": "Solo se ha leído el título y el resumen."
+  },
+  {
+    "id": "a-robots-soledad-2026",
+    "tipo": "articulo",
+    "titulo": "The effectiveness of artificial agents on loneliness reduction in older adults: a systematic review and meta-analysis",
+    "autor": "Arch Gerontol Geriatr 2026",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41124893/",
+    "idioma": "en",
+    "minutosLectura": 8,
+    "subcapitulos": [
+      "2-5"
+    ],
+    "porQue": "Metaanálisis de 16 estudios y 781 personas: los agentes artificiales parecen reducir la soledad (SMD −0,69), con heterogeneidad notable.",
+    "fechaVerificacion": "2026-10-31",
+    "estado": "verificado",
+    "contenido": "titulo-descripcion"
+  },
+  {
+    "id": "a-ageismo-chu-2022",
+    "tipo": "articulo",
+    "titulo": "Digital Ageism: Challenges and Opportunities in Artificial Intelligence for Older Adults",
+    "autor": "Chu CH, et al. Gerontologist 2022;62:947-55",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/35048111/",
+    "idioma": "en",
+    "minutosLectura": 8,
+    "subcapitulos": [
+      "2-5"
+    ],
+    "porQue": "Un artículo de referencia sobre cómo el edadismo se cuela en los sistemas de IA: modelo conceptual de las vías por las que ocurre.",
+    "fechaVerificacion": "2026-10-31",
+    "estado": "verificado",
+    "contenido": "titulo-descripcion"
+  },
+  {
+    "id": "r-oms-edadismo-2022",
+    "tipo": "documento",
+    "titulo": "Ageism in artificial intelligence for health: WHO policy brief",
+    "autor": "Organización Mundial de la Salud (OMS), 2022",
+    "url": "https://www.who.int/publications/i/item/9789240040793",
+    "idioma": "en",
+    "minutosLectura": 10,
+    "subcapitulos": [
+      "2-5"
+    ],
+    "porQue": "Resumen de política de la OMS sobre edadismo en la IA para la salud y recomendaciones para evitarlo.",
+    "fechaVerificacion": "2026-10-31",
+    "estado": "verificado",
+    "contenido": "titulo-descripcion"
+  },
+  {
+    "id": "a-regg-geriatria-2023",
+    "tipo": "articulo",
+    "titulo": "Inteligencia artificial en geriatría: impacto de ChatGPT e IA",
+    "autor": "Fontecha-Gómez BJ, Betancor-Santana É. Rev Esp Geriatr Gerontol 2023",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/37738926/",
+    "idioma": "es-ES",
+    "minutosLectura": 4,
+    "subcapitulos": [
+      "2-5"
+    ],
+    "porQue": "Editorial de la revista de la SEGG, en español, sobre el impacto de la IA y de los modelos de lenguaje en geriatría.",
+    "fechaVerificacion": "2026-10-31",
+    "estado": "verificado",
+    "contenido": "titulo-descripcion",
+    "notas": "Solo se ha leído el título; el texto puede requerir suscripción."
+  },
+  {
+    "id": "r-ley-ia-espana-2026",
+    "tipo": "web",
+    "titulo": "El Gobierno aprueba el proyecto de ley que garantizará una supervisión humana y un uso confiable de la IA",
+    "autor": "Ministerio para la Transformación Digital y de la Función Pública",
+    "url": "https://digital.gob.es/comunicacion/notas-prensa/mtdfp/2026/05/el-gobierno-aprueba-el-proyecto-de-ley-que-garantizara-una-super",
+    "idioma": "es-ES",
+    "minutosLectura": 5,
+    "subcapitulos": [
+      "2-3"
+    ],
+    "porQue": "Nota de prensa oficial sobre el proyecto de Ley Orgánica para el buen uso y la gobernanza de la IA, que adapta el Reglamento europeo a España.",
+    "fechaVerificacion": "2026-10-31",
+    "estado": "verificado",
+    "contenido": "titulo-descripcion",
+    "notas": "Se ha leído solo el inicio de la nota (apertura y declaraciones del ministro). El estado de la tramitación parlamentaria puede cambiar: consulta el expediente en el Congreso."
+  },
+  {
+    "id": "a-caidas-guia-mundial-2022",
+    "tipo": "articulo",
+    "titulo": "World guidelines for falls prevention and management for older adults: a global initiative",
+    "autor": "Montero-Odasso M, et al. Age Ageing 2022;51:afac205",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/36178003/",
+    "idioma": "en",
+    "minutosLectura": 10,
+    "subcapitulos": [
+      "2-5"
+    ],
+    "porQue": "Las guías mundiales de prevención de caídas: la referencia clínica para valorar cualquier tecnología que prometa evitarlas.",
+    "fechaVerificacion": "2026-10-31",
+    "estado": "verificado",
+    "contenido": "titulo-descripcion",
+    "notas": "Se ha leído el resumen de PubMed; el texto completo es de acceso abierto."
+  },
+  {
+    "id": "v-redsanitaria-privacidad",
+    "tipo": "video",
+    "titulo": "Privacidad, RGPD y datos de pacientes con IA: qué NO subir | Curso para médicos #9",
+    "autor": "Red_SanitarIA (Dr. Ignacio Alcalá)",
+    "url": "https://www.youtube.com/watch?v=vcJa3bQ-LWM",
+    "youtubeId": "vcJa3bQ-LWM",
+    "idioma": "es-ES",
+    "subtitulos": "español (automáticos)",
+    "duracion": "23:58",
+    "publicado": "2026-07-21",
+    "subcapitulos": [
+      "3-0"
+    ],
+    "porQue": "Un médico explica sin jerga qué se puede y qué no se puede subir a una IA en la nube, cómo anonimizar y cómo usar datos sintéticos. Es el capítulo 9 de un curso sobre NotebookLM.",
+    "fechaVerificacion": "2026-10-31",
+    "estado": "con-reservas",
+    "contenido": "capitulos",
+    "notas": "Canal pequeño (78 visualizaciones). Contenido comprobado por la descripción y los capítulos, no visto. Se propone el fragmento 6:42–12:55 (qué sí y qué no subir, anonimizar de verdad, datos sintéticos). El autor advierte que no es un dictamen legal. Es opcional."
+  },
+  {
+    "id": "a-hiponatremia-2014",
+    "tipo": "articulo",
+    "titulo": "Clinical practice guideline on diagnosis and treatment of hyponatraemia",
+    "autor": "Spasovski G, et al. Nephrol Dial Transplant 2014;29(Suppl 2):i1-i39",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/24569496/",
+    "idioma": "en",
+    "minutosLectura": 30,
+    "subcapitulos": [
+      "3-1"
+    ],
+    "porQue": "La guía europea conjunta (ESICM, ESE y ERBP) sobre hiponatremia: un ejemplo de fuente de referencia con la que contrastar la respuesta de una IA.",
+    "fechaVerificacion": "2026-10-31",
+    "estado": "verificado",
+    "contenido": "titulo-descripcion",
+    "notas": "Se ha leído el resumen de PubMed. La guía completa es extensa."
+  },
+  {
+    "id": "a-hiponatremia-2024",
+    "tipo": "articulo",
+    "titulo": "Hyponatraemia-treatment standard 2024",
+    "autor": "Nephrol Dial Transplant 2024",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/39009016/",
+    "idioma": "en",
+    "minutosLectura": 10,
+    "subcapitulos": [
+      "3-1"
+    ],
+    "porQue": "Revisión reciente del tratamiento de la hiponatremia: prefiere la corrección gradual con vigilancia antes que una normalización rápida del sodio.",
+    "fechaVerificacion": "2026-10-31",
+    "estado": "verificado",
+    "contenido": "titulo-descripcion",
+    "notas": "Se ha leído el resumen de PubMed."
   }
 ]

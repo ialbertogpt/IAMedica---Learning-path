@@ -1,0 +1,298 @@
+---
+id: "2-1"
+titulo: Dónde está ya la IA en medicina
+parte: 2
+minutos: 120
+objetivos:
+  - Clasificar un estudio de IA médica según su nivel de evidencia, desde el retrospectivo hasta el ensayo aleatorizado
+  - Describir con cifras reales qué ha demostrado la IA en imagen, patología, cardiología, hospitalización y documentación
+  - Distinguir un resultado intermedio de un beneficio para el paciente
+  - Decidir qué evidencia pedir antes de incorporar una herramienta de IA en tu práctica
+gancho: "Los titulares dicen que la IA «ya supera a los médicos». Es verdad en algunas tareas muy concretas y falso en la mayoría. Este subcapítulo recorre lo que la IA ha demostrado de verdad en medicina, con sus cifras, y te enseña a ponerle a cada estudio la etiqueta que le corresponde."
+recursos:
+  - a-masai-2023
+  - a-wong-2021
+  - v-civio-sanidad
+paraSaberMas:
+  - a-trews-2022
+  - a-eagle-2021
+  - a-goh-2024
+  - v-dotcsv-alphafold
+test: "2-1"
+fechaRevision: "2026-10-31"
+aFecha: octubre de 2026
+fuentes:
+  - texto: "Lång K, et al. AI-supported screen reading versus standard double reading in MASAI. Lancet Oncol 2023;24:936-44"
+    pmid: "37541274"
+  - texto: "Hernström V, et al. Screening performance and characteristics of breast cancer detected in MASAI. Lancet Digit Health 2025"
+    pmid: "39904652"
+  - texto: "Gommers J, et al. Interval cancer, sensitivity, and specificity comparing AI-supported mammography screening with standard double reading in MASAI. Lancet 2026;407:505-14"
+    pmid: "41620232"
+  - texto: "Esteva A, et al. Dermatologist-level classification of skin cancer with deep neural networks. Nature 2017;542:115-8"
+    pmid: "28117445"
+  - texto: "Winkler JK, et al. Association between surgical skin markings in dermoscopic images and diagnostic performance of a deep learning CNN for melanoma recognition. JAMA Dermatol 2019"
+    pmid: "31411641"
+  - texto: "Abràmoff MD, et al. Pivotal trial of an autonomous AI-based diagnostic system for diabetic retinopathy in primary care. npj Digit Med 2018"
+    pmid: "31304320"
+  - texto: "FDA. Registro De Novo DEN180001 (IDx-DR), decisión del 11/04/2018"
+    url: https://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfpmn/denovo.cfm?ID=DEN180001
+  - texto: "Campanella G, et al. Clinical-grade computational pathology using weakly supervised deep learning on whole slide images. Nat Med 2019;25:1301-9"
+    pmid: "31308507"
+  - texto: "Attia ZI, et al. Screening for cardiac contractile dysfunction using an AI-enabled ECG. Nat Med 2019;25:70-4"
+    pmid: "30617318"
+  - texto: "Yao X, et al. ECG AI-guided screening for low ejection fraction (EAGLE): pragmatic cluster randomized trial. Nat Med 2021;27:815-9"
+    pmid: "33958795"
+  - texto: "Wong A, et al. External validation of a widely implemented proprietary sepsis prediction model. JAMA Intern Med 2021;181:1065-70"
+    pmid: "34152373"
+  - texto: "Adams R, et al. Prospective, multi-site study of patient outcomes after implementation of TREWS. Nat Med 2022;28:1455-60"
+    pmid: "35864252"
+  - texto: "Multicenter prospective validation of an updated proprietary sepsis prediction model. JAMA Netw Open 2026"
+    pmid: "41758510"
+  - texto: "Ambient AI scribes in clinical practice: a randomized trial. NEJM AI 2025 (UCLA)"
+    pmid: "41497288"
+  - texto: "Goh E, et al. Large language model influence on diagnostic reasoning: a randomized clinical trial. JAMA Netw Open 2024;7:e2440969"
+    pmid: "39466245"
+  - texto: "Bean AM, et al. Reliability of LLMs as medical assistants for the general public. Nat Med 2026"
+    pmid: "41663592"
+  - texto: "Jumper J, et al. Highly accurate protein structure prediction with AlphaFold. Nature 2021;596:583-9"
+    pmid: "34265844"
+  - texto: "The Nobel Prize in Chemistry 2024, nota de prensa"
+    url: https://www.nobelprize.org/prizes/chemistry/2024/press-release/
+  - texto: "Xu Z, et al. A generative AI-discovered TNIK inhibitor for idiopathic pulmonary fibrosis: a randomized phase 2a trial. Nat Med 2025"
+    pmid: "40461817"
+---
+
+<Sesion n={1} titulo="Una regla para pesar la evidencia" minutos={20}>
+
+### «La IA supera a los médicos»
+
+Has leído la frase mil veces. Para saber si es verdad en un caso concreto, hay que preguntar **cómo se ha medido**. No es lo mismo que un <T id="modelo">modelo</T> acierte con imágenes antiguas de un hospital que ayude a mejorar el diagnóstico de pacientes reales.
+
+En medicina ya lo hacemos con los tratamientos: un estudio retrospectivo no pesa lo mismo que un <T id="ensayo-aleatorizado">ensayo aleatorizado</T>. Con la IA, igual.
+
+### Una escala de cuatro peldaños
+
+Para este curso usamos una **escala didáctica propia** (no es un estándar oficial) con cuatro niveles:
+
+1. **N1 · Retrospectivo en un centro.** El modelo funciona con datos históricos del lugar donde se creó.
+2. **N2 · Con <T id="validacion-externa">validación externa</T>.** Funciona con datos de otros centros, aunque sean históricos.
+3. **N3 · Prospectivo.** Se prueba en tiempo real con pacientes (<T id="validacion-prospectiva">validación prospectiva</T>), sin asignación al azar.
+4. **N4 · Ensayo aleatorizado.** Se compara con la práctica habitual asignando al azar.
+
+<Analogia>
+Es la **jerarquía de la evidencia de siempre**, adaptada: de la serie de casos de un solo hospital al ensayo clínico. Subir de nivel cuesta años, y por eso muy pocas herramientas de IA llegan arriba.
+</Analogia>
+
+### Y por encima, una pregunta
+
+Incluso un N4 puede medir algo **intermedio**: «se detectan más casos» no es lo mismo que «viven más» o «ingresan menos». Fíjate siempre en **qué se mide**.
+
+### El mapa que vas a recorrer
+
+Este mapa reúne los estudios de las próximas sesiones, con su nivel. Ábrelo, filtra por especialidad y vuelve a él cuando quieras: en las sesiones siguientes verás cada caso con detalle.
+
+<Explorador datos="2-1-mapa" />
+
+</Sesion>
+
+<Sesion n={2} titulo="Imagen: mamografía, piel y retina" minutos={20}>
+
+### Mamografía: el mejor ejemplo hasta hoy
+
+El estudio **MASAI** se hizo en un programa de cribado de cáncer de mama de Suecia, con mujeres asignadas al azar a lectura asistida por IA o a la **doble lectura** habitual (dos radiólogos). Es un ensayo aleatorizado (N4).
+
+- **Primera publicación (2023, 80.033 mujeres, análisis de seguridad):** 6,1 cánceres detectados por cada 1.000 con IA frente a 5,1 con la doble lectura (razón 1,2; p = 0,052, en el límite de la significación), y una **carga de lectura un 44,3 % menor**.
+- **Análisis posterior (2025, 105.934 mujeres):** 6,4 frente a 5,0 por 1.000 (razón 1,29, ya significativa), **sin un aumento significativo de falsos positivos**.
+- **Resultado más exigente (2026):** los <T id="cancer-de-intervalo">cánceres de intervalo</T> no fueron más frecuentes con IA (razón 0,88, no inferior). La <T id="sensibilidad">sensibilidad</T> fue del 80,5 % frente al 73,8 %, con la misma <T id="especificidad">especificidad</T> (98,5 %).
+
+<Analogia>
+Es **un residente muy entrenado que hace una primera lectura de todas las mamografías** y marca las que merecen una mirada más atenta, mientras el radiólogo conserva la decisión.
+</Analogia>
+
+<OjoCon>
+- **Contexto concreto.** Un programa organizado de Suecia, con un sistema concreto de IA (Transpara) y equipos concretos. No se puede extrapolar a cualquier hospital ni a cualquier <T id="producto-sanitario">software</T>.
+- **Lo que mide no es la supervivencia.** MASAI mide detección, carga de trabajo y cánceres de intervalo. Que mejore la mortalidad por cáncer de mama exigiría seguimiento mucho más largo.
+</OjoCon>
+
+### Piel: cuando funciona en el laboratorio
+
+En 2017, un equipo de Stanford mostró que una <T id="red-neuronal">red neuronal</T> clasificaba lesiones cutáneas con un rendimiento comparable al de dermatólogos. Fue un hito. Pero era un estudio con **imágenes seleccionadas** (N1): no demostraba mejor atención.
+
+Y ya viste en 1.4 que las redes pueden aprender **atajos**. En 2019 se comprobó con 130 lesiones melanocíticas que, al marcarlas con rotulador quirúrgico, una red neuronal subía su probabilidad de melanoma: la especificidad cayó del 84,1 % al 45,8 %. No «veía» solo la lesión: veía el rotulador.
+
+### Retina: el primer sistema autónomo
+
+**IDx-DR** detecta retinopatía diabética en fotografías de fondo de ojo. En un ensayo prospectivo con 900 personas con diabetes, atendidas en consultas de atención primaria, la sensibilidad fue del 87,2 % y la especificidad del 90,7 % (N3), con un 96,1 % de imágenes valorables. La FDA lo autorizó en abril de 2018 como un sistema que da un resultado de cribado **sin que un clínico interprete la imagen**.
+
+Es una tarea muy acotada (una enfermedad, una imagen estandarizada, un protocolo claro). Ahí es donde la IA más ha avanzado.
+
+</Sesion>
+
+<Sesion n={3} titulo="Patología y electrocardiograma" minutos={20}>
+
+### Patología digital: leer millones de píxeles
+
+Una preparación digitalizada ocupa gigapíxeles. Un equipo del Memorial Sloan Kettering entrenó un sistema con **44.732 preparaciones de 15.187 pacientes**, usando como etiqueta solo el diagnóstico del informe, sin que nadie marcara a mano las zonas. Alcanzó AUC superiores a 0,98 en próstata, carcinoma basocelular y metástasis de mama en ganglios.
+
+Los autores estiman que se podría **descartar del 65 al 75 % de las preparaciones** con sensibilidad del 100 %, y dedicar el tiempo del patólogo a las restantes.
+
+<Analogia>
+Es un **cribado previo**: como un análisis que, si sale normal, permite no pedir una prueba más cara. El patólogo sigue decidiendo.
+</Analogia>
+
+Es evidencia **retrospectiva** (N1). Falta saber qué pasa en otros laboratorios, escáneres y tinciones.
+
+### ECG: ver lo que el ojo no ve
+
+Un grupo de la Mayo Clinic entrenó una red con los ECG de 44.959 pacientes para detectar **fracción de eyección ≤ 35 %**. En 52.870 pacientes independientes, el AUC fue de 0,93, con sensibilidad del 86,3 % y especificidad del 85,7 %. Además, entre quienes no tenían disfunción, un cribado positivo se asociaba a un riesgo cuatro veces mayor de desarrollarla (HR 4,1).
+
+Es un buen estudio de **precisión diagnóstica**. Pero ¿ayuda a los pacientes?
+
+### Del laboratorio a la consulta: EAGLE
+
+El ensayo **EAGLE** asignó al azar a 120 equipos de atención primaria (22.641 adultos sin insuficiencia cardiaca conocida) a tener o no los resultados de la IA. Con acceso a ellos se diagnosticó más fracción de eyección baja (definida aquí como ≤ 50 %, no ≤ 35 % como en el estudio anterior): **2,1 % frente a 1,6 %** (OR 1,32; IC 95 %: 1,01–1,61).
+
+Más diagnósticos, sí. **Menos ingresos o más supervivencia, no se midió.**
+
+### Ponte a prueba: ¿qué nivel de evidencia?
+
+Clasifica estos seis estudios. Es la habilidad central del subcapítulo.
+
+<Clasificador datos="2-1-nivel" />
+
+</Sesion>
+
+<Sesion n={4} titulo="Hospitalización: la alarma de la sepsis" minutos={20}>
+
+### Una alarma implantada en cientos de hospitales
+
+Un modelo de predicción de sepsis de una gran empresa de historia clínica electrónica estaba activo en cientos de hospitales de EE. UU. Un grupo de la Universidad de Michigan lo validó **externamente**: 27.697 pacientes, 38.455 ingresos, sepsis en 2.552.
+
+- **AUC de 0,63**, muy por debajo de lo que sugería el material comercial.
+- **No identificó a 1.709 de los 2.552 pacientes con sepsis (67 %).**
+- Y aun así **alertó en el 18 % de todos los ingresados**: mucha <T id="fatiga-de-alertas">fatiga de alertas</T>.
+
+<Analogia>
+Es **una alarma de monitor que suena por todo y deja de oírse**. Si de cada diez alertas casi todas son falsas, el equipo las acaba ignorando, también las verdaderas.
+</Analogia>
+
+### Otro sistema, otro resultado, otra pregunta
+
+**TREWS** se estudió de forma prospectiva en cinco hospitales con 590.736 pacientes monitorizados. Entre 6.877 con sepsis identificados por la alerta antes de empezar antibióticos, quienes tuvieron la alerta **confirmada por un clínico en menos de 3 horas** presentaron una mortalidad hospitalaria absoluta ajustada un 3,3 % menor.
+
+Es un estudio **observacional** (N3): quizá se confirmaron antes los casos más claros. Pero muestra algo importante: **la alerta solo sirve si alguien actúa**.
+
+### Y la versión actualizada
+
+En 2026 se publicó una validación prospectiva de la versión actualizada del modelo comercial, en cuatro sistemas sanitarios (227.091 ingresos). La discriminación mejoró (AUROC por ingreso de 0,82 a 0,92), pero el <T id="vpp">valor predictivo positivo</T> fue de **solo 0,13 a 0,26**, con gran variabilidad entre centros y una alta carga de alertas.
+
+Mejorar un modelo es posible. Seguir comprobándolo, también es obligatorio.
+
+### Tú decides: ¿implantas o no?
+
+Un comercial te ofrece el sistema para tu hospital. Recorre la decisión y observa qué consecuencia tiene cada elección.
+
+<Arbol datos="2-1-implantar" />
+
+<AvisoClinico titulo="Antes de seguir">
+Los casos y las decisiones de este árbol son **ejemplos didácticos**. Los datos de los estudios son reales y están citados al pie. Ninguna alerta debe sustituir al juicio clínico.
+</AvisoClinico>
+
+</Sesion>
+
+<Sesion n={5} titulo="Documentación y razonamiento con modelos de lenguaje" minutos={20}>
+
+### Escribas ambientales: tiempo, sí; cautela, también
+
+En 1.7 viste cómo funcionan los <T id="escriba-ambiental">escribas ambientales</T>. Aquí, la evidencia. Un ensayo aleatorizado en UCLA Health asignó a **238 médicos** de consulta ambulatoria (14 especialidades) a uno de dos escribas comerciales (**DAX** o **Nabla**) o a un grupo control. Se usaron en el 33,5 % y el 29,5 % de las visitas, respectivamente.
+
+- Con **Nabla**, el tiempo dedicado a la nota bajó un **9,5 %** (IC 95 %: −17,2 a −1,8). Con **DAX**, el cambio **no fue significativo** (−1,7 %).
+- Los indicadores de burnout y de carga de tareas **apuntaron a una mejora** con ambos, pero los propios autores piden confirmarlo en ensayos más grandes y multicéntricos.
+- Los médicos refirieron inexactitudes clínicamente relevantes **«de forma ocasional»**: hay que revisar siempre la nota.
+
+<Analogia>
+Es **un residente que redacta la historia por ti**: ahorra tiempo, pero el adjunto firma, y por eso la revisa.
+</Analogia>
+
+### ¿Mejora la IA el razonamiento diagnóstico?
+
+En 2024 se publicó un ensayo aleatorizado con **50 médicos** (26 adjuntos y 24 residentes). Resolvían casos complejos con un modelo de lenguaje o solo con sus recursos habituales.
+
+- Puntuación mediana: **76 % con el modelo frente a 74 % sin él**. Una diferencia de 2 puntos, **no significativa** (p = 0,60).
+- **El modelo solo puntuó 16 puntos por encima** del grupo con recursos convencionales.
+
+Es decir: el modelo, solo, rendía más que los médicos con él. Los autores lo interpretan como una **señal de que hace falta aprender a trabajar con estas herramientas**, no solo tenerlas.
+
+<PruebaloTu minutos={8}>
+Elige un estudio de IA que te llame la atención (por ejemplo, uno de los citados al pie de esta sesión) y copia **su resumen público de PubMed**. Pide a un asistente que lo desmonte con esta plantilla y **comprueba después cada fila contra el resumen**. Anota dónde falla.
+
+<Plantilla id="p-2-1-leer-resumen" />
+</PruebaloTu>
+
+### Con el público, otro resultado
+
+Ya viste en 1.8 el estudio de *Nature Medicine* (2026): los modelos solos acertaban casi siempre, pero las personas que los usaban **no mejoraban** respecto al grupo control. La utilidad no está solo en el modelo: está **en cómo se usa**.
+
+</Sesion>
+
+<Sesion n={6} titulo="De la proteína al fármaco, y de vuelta a España" minutos={20}>
+
+### AlphaFold: la forma de las proteínas
+
+Una proteína es una cadena de aminoácidos que se pliega en una forma tridimensional de la que depende su función. Predecir esa forma a partir de la secuencia era un problema abierto durante décadas. **AlphaFold** la predice con una precisión sin precedentes. En 2024, Demis Hassabis y John Jumper compartieron por ello el **Premio Nobel de Química** (con David Baker, por el diseño de proteínas).
+
+No es una herramienta clínica. Es **ciencia básica** que llegará al paciente de forma indirecta, a través de nuevos fármacos y diagnósticos.
+
+<Analogia>
+Es **tener el plano de la cerradura** antes de diseñar la llave: no cura a nadie, pero acorta el camino hacia el fármaco.
+</Analogia>
+
+<Video id="v-dotcsv-alphafold" nota="de enero de 2021: explica el hito de AlphaFold 2 con divulgación en español. Es anterior al Nobel (2024), así que no lo menciona." />
+
+### Del algoritmo al fármaco
+
+**Rentosertib**, un inhibidor de TNIK para la fibrosis pulmonar idiopática, se identificó con <T id="ia-generativa">IA generativa</T>. En un ensayo aleatorizado de **fase 2a** (12 semanas, 71 pacientes), los eventos adversos fueron similares entre grupos y los graves relacionados con el tratamiento, pocos; los que más llevaron a suspenderlo fueron la toxicidad hepática y la diarrea. Con la dosis más alta, la capacidad vital forzada cambió **+98,4 ml frente a −20,3 ml con placebo**, con intervalos de confianza amplios.
+
+Es una **señal prometedora**, no una prueba: los autores piden ensayos más grandes y largos. **No es un fármaco aprobado.**
+
+### Y en España, ¿qué hay?
+
+Fundación Civio ha investigado qué algoritmos y sistemas de IA se usan en la sanidad pública española y con qué transparencia. Es una buena forma de aterrizar lo visto: **qué se usa, quién lo evalúa y qué información tiene el profesional**.
+
+<Video id="v-civio-sanidad" nota="periodismo de datos sobre algoritmos en la sanidad pública española (noviembre de 2025). Es una investigación periodística, no una revisión científica." />
+
+<OjoCon>
+- **Un titular no es un nivel de evidencia.** Pregunta siempre: ¿retrospectivo o prospectivo? ¿validado fuera? ¿qué se mide?
+- **Precisión no es beneficio.** Detectar más no siempre significa vivir más.
+- **Lo que funciona aquí puede no funcionar allí.** La alarma de sepsis es el ejemplo.
+- **«Tecnología aprobada» no significa «útil en tu servicio».** La autorización regulatoria exige menos que un ensayo de resultados.
+</OjoCon>
+
+<Resumen>
+- Para pesar un estudio de IA, mira su **nivel**: retrospectivo, con validación externa, prospectivo o ensayo aleatorizado. Aquí usamos una escala didáctica propia de cuatro peldaños.
+- En **mamografía** (MASAI, aleatorizado), la lectura asistida por IA detectó más cánceres con menos carga de lectura, sin más cánceres de intervalo. Es el mejor ejemplo hasta hoy.
+- **Precisión no es impacto**: el ECG con IA detecta bien la disfunción ventricular, y EAGLE solo demostró más diagnósticos.
+- La alarma de **sepsis** de Epic falló en la validación externa (AUC 0,63; no identificó al 67 % de los casos y alertó al 18 % de los ingresados). Una alerta solo sirve si alguien actúa.
+- **Escribas y <T id="llm">LLM</T>:** ahorran tiempo en algunos casos, pero el LLM no mejoró significativamente el razonamiento de los médicos y hay que revisar siempre lo que redactan.
+- **AlphaFold** y **rentosertib** son ciencia básica o fases tempranas: aún no son clínica.
+</Resumen>
+
+<Ficha titulo="Dónde está ya la IA: cómo pesar la evidencia">
+**Escala didáctica de evidencia**
+- N1 retrospectivo en un centro · N2 con validación externa · N3 prospectivo · N4 ensayo aleatorizado.
+
+**Lo que hay hoy (octubre de 2026)**
+- Mamografía: MASAI (N4). Más detección, menos lectura.
+- Retina: IDx-DR (N3). Cribado autónomo autorizado por la FDA.
+- ECG: buena precisión (N2); EAGLE (N4) solo mide más diagnósticos.
+- Sepsis: AUC 0,63 en validación externa; alerta confirmada < 3 h ↔ menor mortalidad (observacional).
+- LLM + médicos: +2 puntos, no significativo (N4).
+
+**Antes de implantar una herramienta**
+- ¿Qué nivel de evidencia? ¿Se ha validado fuera? ¿Qué mide? ¿Cuántas alertas falsas?
+- Piloto local con métricas y criterios de retirada.
+</Ficha>
+
+<TestFinal id="2-1" />
+
+</Sesion>

@@ -1,0 +1,19 @@
+{
+  "titulo": "¿Qué guía de comunicación corresponde a cada estudio?",
+  "instrucciones": "Una guía de comunicación es una lista de lo que un estudio debe contar. Asigna a cada estudio la guía que le corresponde.",
+  "categorias": [
+    { "id": "tripod", "nombre": "TRIPOD+AI", "descripcion": "modelos de predicción" },
+    { "id": "consort", "nombre": "CONSORT-AI", "descripcion": "ensayos aleatorizados" },
+    { "id": "stard", "nombre": "STARD-AI", "descripcion": "precisión diagnóstica" },
+    { "id": "decide", "nombre": "DECIDE-AI", "descripcion": "primeras pruebas en pacientes" },
+    { "id": "chart", "nombre": "CHART", "descripcion": "chatbots y consejos de salud" }
+  ],
+  "items": [
+    { "texto": "Un grupo desarrolla un modelo que predice el reingreso a 30 días y publica cómo funciona con datos nuevos.", "categoria": "tripod", "explicacion": "Es un estudio de desarrollo y evaluación de un modelo de predicción: TRIPOD+AI (27 ítems), que sustituye al TRIPOD de 2015." },
+    { "texto": "Se asignan al azar 40 consultas a trabajar con una IA de ayuda al diagnóstico o sin ella, y se comparan los resultados.", "categoria": "consort", "explicacion": "Es un ensayo aleatorizado: CONSORT-AI añade 14 ítems a los de CONSORT 2010 (cómo se usa la IA, entradas y salidas, interacción humano-IA, análisis de errores)." },
+    { "texto": "Se compara el resultado de una IA que lee retinografías con el de un patrón de referencia en 2.000 pacientes.", "categoria": "stard", "explicacion": "Es un estudio de precisión diagnóstica: STARD-AI añade 18 ítems nuevos o modificados a los de STARD 2015." },
+    { "texto": "Se usa por primera vez, en 25 pacientes, un sistema de ayuda a la decisión para estudiar su seguridad, cómo lo usan los clínicos y su rendimiento real.", "categoria": "decide", "explicacion": "Es una evaluación clínica temprana: DECIDE-AI (17 ítems específicos de IA y 10 genéricos) se creó para estudios pequeños previos a un ensayo grande." },
+    { "texto": "Se hacen 200 preguntas de salud a varios chatbots y se evalúa la calidad de sus respuestas.", "categoria": "chart", "explicacion": "Es un estudio de consejos de salud de chatbots: CHART (12 ítems y 39 subítems), publicada en 2025." }
+  ],
+  "cierre": "También existe SPIRIT-AI, la guía hermana de CONSORT-AI para los protocolos de ensayos con IA. No hace falta memorizarlas: basta con saber que existen y con preguntar si un estudio sigue la que le corresponde."
+}

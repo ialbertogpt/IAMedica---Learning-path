@@ -1,0 +1,72 @@
+{
+  "titulo": "Doña Carmen y el sensor de caídas",
+  "instrucciones": "Caso ficticio. Doña Carmen (nombre ficticio) tiene 87 años, vive sola, ha sufrido dos caídas en el último año y va a recibir el alta. Una empresa ofrece a tu hospital un sensor doméstico de detección de caídas con IA. Decide cómo actuar.",
+  "inicio": "p1",
+  "nodos": {
+    "p1": {
+      "tipo": "pregunta",
+      "texto": "La empresa dice que su sistema detecta el 98 % de las caídas. ¿Qué haces primero?",
+      "opciones": [
+        { "texto": "Lo ofrezco a Doña Carmen: un 98 % es muy bueno.", "siguiente": "r-98" },
+        { "texto": "Pregunto en qué población y con qué tipo de sensor se probó, y qué se midió exactamente.", "siguiente": "p2" },
+        { "texto": "Hablo primero con Doña Carmen sobre qué le preocupa y qué quiere.", "siguiente": "p2b" }
+      ]
+    },
+    "r-98": {
+      "tipo": "resultado",
+      "titulo": "Una cifra técnica no es un beneficio para ella",
+      "detalle": "Una sensibilidad alta no dice cuántas falsas alarmas genera, en quién se probó ni si el sistema reduce las lesiones o los ingresos. La revisión de 80 estudios sobre detección de caídas midió métricas técnicas, no resultados en las personas mayores, y los sensores vestibles fueron los de peor rendimiento.",
+      "ojo": "En geriatría, una detección más rápida solo importa si cambia lo que le ocurre a la persona.",
+      "fuente": "Sensors (Basel) 2025 (PMID 41228764); 2.1 y 2.2 de este curso."
+    },
+    "p2": {
+      "tipo": "pregunta",
+      "texto": "Resulta que se probó sobre todo con voluntarios jóvenes o adultos sanos y con métricas técnicas. ¿Qué concluyes?",
+      "opciones": [
+        { "texto": "Es suficiente: una caída es una caída.", "siguiente": "r-joven" },
+        { "texto": "No tenemos evidencia en personas como Doña Carmen: pido datos en mayores frágiles antes de recomendarlo, y hablo con ella de alternativas.", "siguiente": "p3" }
+      ]
+    },
+    "r-joven": {
+      "tipo": "resultado",
+      "titulo": "Es el sesgo de siempre: los mayores, ausentes en los datos",
+      "detalle": "Un sistema entrenado y probado con personas jóvenes puede fallar con los patrones de movimiento de una persona frágil. La OMS y la literatura sobre edadismo digital advierten de que la IA puede reflejar los sesgos de edad de los datos con los que se construye.",
+      "fuente": "Chu CH, et al. Gerontologist 2022 (PMID 35048111); OMS, Ageism in artificial intelligence for health (2022)."
+    },
+    "p2b": {
+      "tipo": "pregunta",
+      "texto": "Doña Carmen te cuenta que le inquieta pasar las noches sola y que no quiere «aparatos que me vigilen». ¿Cómo lo integras?",
+      "opciones": [
+        { "texto": "Le explico que es por su seguridad y se lo instalo igualmente.", "siguiente": "r-impone" },
+        { "texto": "Valoro con ella el riesgo, lo que ofrece y no ofrece la tecnología, y decidimos juntos, con su familia si ella quiere.", "siguiente": "p3" }
+      ]
+    },
+    "r-impone": {
+      "tipo": "resultado",
+      "titulo": "Imponer una tecnología rompe la relación de confianza",
+      "detalle": "El Manual de la OMC pide que el paciente conozca cuándo y para qué se usa IA en su atención y que pueda preguntar. Una persona que no quiere que la vigilen puede retirarse del seguimiento o no usar el dispositivo, con lo que no ayuda y sí erosiona la confianza.",
+      "fuente": "Manual de la OMC (2026): principio 7 para el médico y garantías 7 y 8 para el paciente."
+    },
+    "p3": {
+      "tipo": "pregunta",
+      "texto": "Doña Carmen está dispuesta a probarlo, con su familia al tanto. ¿Qué propones?",
+      "opciones": [
+        { "texto": "Instalarlo como un piloto acordado: aclarar quién recibe las alertas, qué datos se guardan y cuándo se revisa si sirve, junto con las medidas habituales de prevención de caídas.", "siguiente": "r-bien" },
+        { "texto": "Instalarlo y dar el tema por cerrado: la tecnología ya la protege.", "siguiente": "r-cerrado" }
+      ]
+    },
+    "r-bien": {
+      "tipo": "resultado",
+      "titulo": "Una decisión compartida y con seguimiento",
+      "detalle": "Has decidido con ella, has fijado quién responde a las alertas, qué datos se tratan y cuándo se revisa el resultado, y has mantenido las medidas ya conocidas. Así la tecnología es una ayuda y no una promesa. Si no funciona o le molesta, se retira.",
+      "ojo": "Cuando los datos de salud salen del domicilio a una empresa, la herramienta debe estar contratada y autorizada por el centro (2.3).",
+      "fuente": "Manual de la OMC (2026), principios 2, 7 y 10; RGPD, arts. 9 y 28."
+    },
+    "r-cerrado": {
+      "tipo": "resultado",
+      "titulo": "La tecnología sin plan es una falsa seguridad",
+      "detalle": "Si nadie sabe quién recibe las alertas, qué hacer con ellas o cuándo se evalúa su utilidad, el sensor puede dar una falsa sensación de protección, y Doña Carmen podría dejar de tomar precauciones que sí funcionan. Las guías mundiales de caídas recomiendan ofrecer a quien tiene alto riesgo una valoración multifactorial completa del riesgo de caídas, con intervenciones personalizadas.",
+      "fuente": "Montero-Odasso M, et al. World guidelines for falls prevention and management for older adults. Age Ageing 2022;51:afac205 (PMID 36178003)."
+    }
+  }
+}

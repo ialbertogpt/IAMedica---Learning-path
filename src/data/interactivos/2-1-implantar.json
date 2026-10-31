@@ -1,0 +1,64 @@
+{
+  "titulo": "La alarma que nadie escuchaba: ¿cómo decides implantar un sistema de alerta?",
+  "instrucciones": "Tu hospital quiere activar un sistema de alerta de sepsis que su proveedor ya usa en cientos de centros. Toma decisiones paso a paso.",
+  "inicio": "p1",
+  "nodos": {
+    "p1": {
+      "tipo": "pregunta",
+      "texto": "El comercial te enseña un folleto con un AUC alto. ¿Qué pides primero?",
+      "opciones": [
+        { "texto": "Que otros hospitales lo estén usando ya", "siguiente": "r-popular" },
+        { "texto": "El detalle del estudio del proveedor: con qué datos, en qué población y si hubo validación externa", "siguiente": "p2" },
+        { "texto": "Activarlo ya y ver qué pasa", "siguiente": "r-ya" }
+      ]
+    },
+    "r-popular": {
+      "tipo": "resultado",
+      "titulo": "Que muchos lo usen no es evidencia",
+      "detalle": "El Epic Sepsis Model estaba implantado en cientos de hospitales de EE. UU. cuando se validó externamente en Michigan Medicine: AUC 0,63; no identificó al 67 % de los pacientes con sepsis y generó alertas en el 18 % de todos los ingresados. Que algo se use mucho no demuestra que funcione.",
+      "ojo": "Es el sesgo de «lo hace todo el mundo». Pide siempre evidencia independiente.",
+      "fuente": "Wong A, et al. JAMA Intern Med 2021 (PMID 34152373)."
+    },
+    "r-ya": {
+      "tipo": "resultado",
+      "titulo": "Sin medir, no sabrás si ayuda o molesta",
+      "detalle": "Activar un sistema sin plan de evaluación impide saber si mejora algo o solo genera alertas. El Manual de la OMC (2026) pide validación local y evaluación del impacto en resultados antes de incorporar una herramienta y vigilancia continua después.",
+      "fuente": "Manual de Buenas Prácticas para la IA en Medicina (OMC, 2026), principio 3 para el médico."
+    },
+    "p2": {
+      "tipo": "pregunta",
+      "texto": "El proveedor aporta datos de validación en otros centros y el rendimiento es bueno. ¿Qué miras ahora?",
+      "opciones": [
+        { "texto": "Cuántas alertas generaría en mi hospital y qué porcentaje serían verdaderas (el VPP)", "siguiente": "p3" },
+        { "texto": "Nada más: con ese AUC basta", "siguiente": "r-auc" }
+      ]
+    },
+    "r-auc": {
+      "tipo": "resultado",
+      "titulo": "El AUC no lo dice todo",
+      "detalle": "Un buen AUC no garantiza que las alertas sean útiles. En una validación prospectiva de la versión actualizada de este tipo de modelo, el AUROC por ingreso fue de 0,82 a 0,92, pero el valor predictivo positivo fue de solo 0,13 a 0,26 y la carga de alertas, alta.",
+      "ojo": "Si de cada 100 alertas, entre 74 y 87 son falsas, el equipo termina ignorándolas: es la fatiga de alertas.",
+      "fuente": "JAMA Netw Open 2026 (PMID 41758510)."
+    },
+    "p3": {
+      "tipo": "pregunta",
+      "texto": "El VPP esperado es bajo y habría muchas alertas. ¿Cómo lo manejas?",
+      "opciones": [
+        { "texto": "Un piloto local controlado: medir alertas, VPP, tiempos y qué hacen los clínicos, y decidir con esos datos", "siguiente": "r-bien" },
+        { "texto": "Activarlo igualmente: más vale pasarse de alarma", "siguiente": "r-fatiga" }
+      ]
+    },
+    "r-bien": {
+      "tipo": "resultado",
+      "titulo": "Decisión razonable",
+      "detalle": "Un piloto con métricas locales (alertas por paciente, VPP, tiempo hasta antibiótico, opinión de los clínicos), con un responsable y criterios de retirada, es lo que piden las guías de evaluación. Con TREWS, además, la mortalidad fue menor cuando el clínico confirmaba la alerta en menos de 3 horas: importa cómo se integra en el flujo de trabajo.",
+      "fuente": "Adams R, et al. Nat Med 2022 (PMID 35864252); checklist de evaluación de la OMC (2026)."
+    },
+    "r-fatiga": {
+      "tipo": "resultado",
+      "titulo": "El riesgo de la fatiga de alertas",
+      "detalle": "Una alarma que suena demasiado se acaba ignorando, igual que la alarma de un monitor que salta sin motivo. Pasarse de alarma tiene costes: tiempo del equipo, pruebas innecesarias y desconfianza hacia el sistema.",
+      "ojo": "«Más vale pasarse» no vale cuando cada alerta consume tiempo clínico."
+    }
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "titulo": "Te ofrecen una herramienta nueva: ¿qué haces?",
+  "instrucciones": "Sigue las preguntas en orden. Sirve para una herramienta que te propone tu centro o una empresa.",
+  "inicio": "datos",
+  "nodos": {
+    "datos": {
+      "tipo": "pregunta",
+      "texto": "¿La herramienta va a recibir datos de pacientes?",
+      "opciones": [
+        { "texto": "Sí, o no lo sé", "siguiente": "contrato" },
+        { "texto": "No: solo textos públicos o casos ficticios", "siguiente": "funcion" }
+      ]
+    },
+    "contrato": {
+      "tipo": "pregunta",
+      "texto": "¿La ha contratado y autorizado tu centro (con contrato con el proveedor y conocimiento del delegado de protección de datos)?",
+      "opciones": [
+        { "texto": "Sí, está contratada y autorizada por el centro", "siguiente": "funcion" },
+        { "texto": "No, o no lo sé", "siguiente": "r-sin-contrato" }
+      ]
+    },
+    "r-sin-contrato": {
+      "tipo": "resultado",
+      "titulo": "No la uses con datos de pacientes",
+      "detalle": "Sin un contrato del centro con el proveedor (art. 28 del RGPD) y sin que lo conozca quien vela por la protección de datos, no hay base para introducir datos de pacientes, aunque la herramienta sea buena. Pregunta a tu delegado de protección de datos o limítate a casos ficticios.",
+      "fuente": "RGPD, arts. 9, 28 y 35; semáforo de datos de 2.3."
+    },
+    "funcion": {
+      "tipo": "pregunta",
+      "texto": "¿Tiene una función clínica: diagnosticar, apoyar decisiones, recomendar tratamientos, monitorizar pacientes o predecir su evolución?",
+      "opciones": [
+        { "texto": "Sí", "siguiente": "regulada" },
+        { "texto": "No: redactar, estudiar, buscar bibliografía u organizar", "siguiente": "uso" }
+      ]
+    },
+    "regulada": {
+      "tipo": "pregunta",
+      "texto": "¿Tiene marcado CE como producto sanitario y hay estudios de validación con pacientes parecidos a los tuyos?",
+      "opciones": [
+        { "texto": "Sí a las dos cosas", "siguiente": "r-piloto" },
+        { "texto": "No, o solo tengo el folleto del fabricante", "siguiente": "r-pide" }
+      ]
+    },
+    "r-pide": {
+      "tipo": "resultado",
+      "titulo": "Pide la información que falta antes de usarla con pacientes",
+      "detalle": "Una herramienta con función clínica debería estar clasificada y marcada como producto sanitario. Pide el marcado CE y su clasificación de riesgo, los estudios de validación clínica y la información sobre los datos de entrenamiento y las limitaciones. Mientras tanto, no la uses para decidir sobre pacientes.",
+      "ojo": "Un folleto comercial no es un estudio de validación (lo practicaste en 2.2).",
+      "fuente": "Manual de la OMC (2026), checklist 3.10: evaluación clínica, regulatoria y del algoritmo."
+    },
+    "r-piloto": {
+      "tipo": "resultado",
+      "titulo": "Un piloto controlado, con el checklist en la mano",
+      "detalle": "Reúne lo básico. Antes de generalizarla, revisa el resto del checklist de la OMC: interoperabilidad con la historia clínica, integración en el flujo de trabajo, formación, monitorización del rendimiento, gestión de datos, supervisión humana y riesgo de sesgos. Y haz un piloto local con métricas y criterios de retirada.",
+      "fuente": "Manual de la OMC (2026), checklist 3.10 (pp. 44-45); 2.1 de este curso."
+    },
+    "uso": {
+      "tipo": "pregunta",
+      "texto": "¿Qué harás con lo que te devuelva la herramienta?",
+      "opciones": [
+        { "texto": "Lo usaré como borrador y lo verificaré contra una fuente", "siguiente": "r-borrador" },
+        { "texto": "Lo usaré tal cual, sin comprobarlo", "siguiente": "r-verifica" }
+      ]
+    },
+    "r-borrador": {
+      "tipo": "resultado",
+      "titulo": "Un uso razonable",
+      "detalle": "Redactar, resumir, estudiar y buscar con IA es útil si el resultado es un borrador que tú verificas. Para dosis, citas y datos, comprueba siempre la fuente (ficha técnica, PubMed, la guía).",
+      "fuente": "Principios 1 y 2 del Manual de la OMC (2026)."
+    },
+    "r-verifica": {
+      "tipo": "resultado",
+      "titulo": "Verifica antes de dar nada por bueno",
+      "detalle": "Los asistentes pueden inventar datos y referencias con total seguridad y tienden a darte la razón. Un texto o una cita que no has comprobado no es una fuente. Compruébalo contra el documento original.",
+      "ojo": "El coste de comprobar es mucho menor que el de difundir un dato falso.",
+      "fuente": "Capítulo 1.5 de este curso."
+    }
+  }
+}

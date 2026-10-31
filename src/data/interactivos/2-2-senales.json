@@ -1,0 +1,24 @@
+{
+  "titulo": "Encuentra las señales de alarma en el resumen de un estudio",
+  "pregunta": "Una empresa te envía el resumen de un estudio sobre su modelo «CaidasAI», que predice caídas en pacientes mayores ingresados, y te propone implantarlo en tu planta de geriatría.",
+  "procedencia": "texto creado para este ejercicio; el producto, la empresa y el estudio son ficticios; contiene 6 señales de alarma intencionadas",
+  "hallazgo": "señales de alarma",
+  "instrucciones": "Toca las frases que, por cómo está hecho el estudio o por lo que se afirma, deberían ponerte en guardia, y pulsa «Comprobar». Algunas frases son correctas o son limitaciones declaradas con honestidad: no las marques.",
+  "parrafos": [
+    [
+      { "texto": "Estudio realizado en un único hospital universitario, con 1.200 pacientes ingresados en medicina interna entre 2021 y 2023.", "explicacion": "Un solo centro limita la generalización, pero declararlo es honesto: es una limitación, no una señal de alarma por sí misma." },
+      { "texto": "El modelo se entrenó y se evaluó con los mismos 1.200 pacientes.", "error": true, "explicacion": "Señal de alarma grave: evaluar con los datos de entrenamiento mide la memoria del modelo, no su capacidad de generalizar (sobreajuste). Hacen falta casos que el modelo no haya visto." },
+      { "texto": "El 92 % de los participantes tenía menos de 75 años.", "error": true, "explicacion": "El modelo se propone para mayores ingresados, pero casi no se estudió en ellos. Es como validar una escala geriátrica en adultos jóvenes." }
+    ],
+    [
+      { "texto": "El AUC fue de 0,97, superior a cualquier escala publicada.", "error": true, "explicacion": "Un AUC calculado con los datos de entrenamiento es optimista, y afirmar que es «superior» exige compararlo con las escalas en los mismos pacientes. Aquí no se hizo." },
+      { "texto": "Con una sensibilidad del 98 % y una especificidad del 96 %, el modelo prácticamente elimina las caídas en el hospital.", "error": true, "explicacion": "Predecir una caída no es evitarla: no se midió si hubo menos caídas. Y no se informa del valor predictivo positivo, que con una prevalencia baja puede ser mucho menor de lo que sugieren esas cifras." }
+    ],
+    [
+      { "texto": "El estudio fue financiado y redactado por la empresa que comercializa el modelo, y el primer autor es su director científico.", "error": true, "explicacion": "No invalida el estudio, pero obliga a leerlo con más cautela y a buscar una evaluación independiente. Un conflicto de intereses es una señal que hay que tener en cuenta." },
+      { "texto": "Concluimos que CaidasAI debe implantarse de inmediato en todas las plantas de geriatría.", "error": true, "explicacion": "La conclusión va mucho más allá de los datos: un solo centro, sin validación externa, sin ensayo y sin resultados en pacientes." },
+      { "texto": "Los datos están disponibles previa solicitud a los autores.", "explicacion": "Es una práctica habitual. Sería mejor que fueran públicos, pero no es una señal de alarma." }
+    ]
+  ],
+  "conclusion": "Este resumen reúne los fallos clásicos: evaluación con los datos de entrenamiento, población que no se parece a la tuya, métricas incompletas, conflicto de intereses y conclusiones que no se sostienen. Ante algo así, pide validación externa independiente y un piloto local antes de decidir."
+}

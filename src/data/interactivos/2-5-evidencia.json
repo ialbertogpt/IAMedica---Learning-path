@@ -1,0 +1,20 @@
+{
+  "titulo": "¿Qué se puede afirmar hoy? Ocho frases sobre IA en geriatría",
+  "instrucciones": "Clasifica cada afirmación según lo que respaldan los estudios del mapa. Respaldada: lo apoyan los datos. Prometedora: hay señales, pero la evidencia es preliminar. No respaldada: los datos no la sostienen o la contradicen.",
+  "categorias": [
+    { "id": "respaldada", "nombre": "Respaldada por los datos" },
+    { "id": "prometedora", "nombre": "Prometedora, aún preliminar" },
+    { "id": "no", "nombre": "No respaldada" }
+  ],
+  "items": [
+    { "texto": "El índice electrónico de fragilidad (eFI), calculado con datos rutinarios, se asocia a más mortalidad, ingresos hospitalarios e ingreso en residencia a 1, 3 y 5 años.", "categoria": "respaldada", "explicacion": "Se validó, con validación externa, en 931.541 pacientes de 65 a 95 años: la asociación es sólida. Pero asociarse a un resultado no equivale a mejorar la atención, y la calibración fue baja." },
+    { "texto": "Los robots sociales y otros agentes artificiales pueden reducir la soledad en personas mayores.", "categoria": "prometedora", "explicacion": "El metaanálisis halló una reducción (SMD −0,69), pero con 16 estudios pequeños (781 participantes) y heterogeneidad. Es una señal, no una certeza." },
+    { "texto": "Los agentes artificiales mejoran la calidad de vida de los mayores.", "categoria": "no", "explicacion": "El mismo metaanálisis no halló un efecto significativo en la calidad de vida ni en la felicidad." },
+    { "texto": "El análisis de la voz con IA puede ayudar a detectar la enfermedad de Alzheimer.", "categoria": "prometedora", "explicacion": "Muchos estudios comunican un AUC superior a 0,80 frente a controles sanos, pero con conjuntos de datos pequeños, de un solo centro y sin validación externa. Además, los controles eran más jóvenes que los pacientes (67 frente a 73,1 años)." },
+    { "texto": "La IA distingue con fiabilidad el deterioro cognitivo leve del envejecimiento normal a partir del habla.", "categoria": "no", "explicacion": "La revisión señala justo lo contrario: el deterioro cognitivo leve se distingue de forma menos fiable que la enfermedad de Alzheimer establecida." },
+    { "texto": "Los modelos de aprendizaje automático predicen el delirium posoperatorio en mayores con un rendimiento moderado (AUC agrupado de 0,756) y muy variable entre estudios.", "categoria": "prometedora", "explicacion": "El metaanálisis dio un AUC de 0,756 con una heterogeneidad muy alta (I² 95,7 %) y algo peor en validación externa (0,745 frente a 0,760). Es una ayuda posible, no una herramienta lista para implantar sin validar localmente." },
+    { "texto": "Los dispositivos vestibles son los sistemas más fiables para detectar caídas en el hogar.", "categoria": "no", "explicacion": "En la revisión de 80 estudios, los sensores vestibles obtuvieron el peor rendimiento y los métodos de aprendizaje profundo, los mejores." },
+    { "texto": "La optimización de la medicación con un sistema de apoyo basado en STOPP/START, hecha por médico y farmacéutico, redujo los ingresos hospitalarios relacionados con fármacos.", "categoria": "no", "explicacion": "En OPERAM redujo la prescripción inapropiada, pero no los ingresos relacionados con fármacos: 21,9 % frente a 22,4 % (HR 0,95; IC 95 % 0,77–1,17)." }
+  ],
+  "cierre": "Fíjate en el patrón: casi siempre hay un resultado intermedio favorable (detección, reducción de prescripción inapropiada) y un resultado en el paciente que falta o no se confirma. En geriatría, que es donde más importan la funcionalidad y la calidad de vida, esa distancia es mayor."
+}

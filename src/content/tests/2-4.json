@@ -1,0 +1,43 @@
+{
+  "titulo": "Test · Mapa de herramientas",
+  "preguntas": [
+    {
+      "tipo": "emparejar",
+      "enunciado": "Empareja cada tarea con la herramienta que conviene.",
+      "pares": [
+        { "izquierda": "Comprobar la dosis autorizada de un fármaco", "derecha": "Ficha técnica en CIMA", "porque": "Es la fuente oficial: lo que dice la ficha técnica manda." },
+        { "izquierda": "Buscar ensayos aleatorizados recientes sobre una intervención", "derecha": "PubMed", "porque": "Es la base de referencia de la literatura biomédica; permite búsquedas estructuradas." },
+        { "izquierda": "Hacer preguntas a tres guías en PDF que ya tienes", "derecha": "Herramienta que responde desde tus documentos y cita el fragmento", "porque": "Reduce el riesgo de invención al responder desde tus propias fuentes." },
+        { "izquierda": "Reformular un correo difícil", "derecha": "Asistente general", "porque": "Es redacción, la tarea en que un asistente general rinde bien." }
+      ]
+    },
+    {
+      "tipo": "vf",
+      "enunciado": "Si una herramienta de IA tiene plan gratuito y la usas con tu cuenta personal, es segura para introducir datos de tus pacientes siempre que desactives el entrenamiento.",
+      "respuesta": false,
+      "explicacionVerdadero": "No. Ningún asistente con cuenta personal es apto para datos identificables de pacientes; desactivar el entrenamiento no sustituye al contrato del centro con el proveedor.",
+      "explicacionFalso": "Correcto. Lo que autoriza el uso con datos de pacientes es un contrato del centro con el proveedor (art. 28 del RGPD), no un ajuste de privacidad de tu cuenta personal."
+    },
+    {
+      "tipo": "escenario",
+      "enunciado": "¿Qué haces primero?",
+      "caso": "Una empresa te ofrece un software que «predice la evolución clínica» de los pacientes ingresados y te enseña un folleto con un AUC de 0,95.",
+      "opciones": [
+        { "texto": "Lo pruebo ya con mis pacientes, porque el AUC es alto.", "correcta": false, "explicacion": "Un AUC en un folleto no es evidencia de que funcione con tus pacientes ni garantiza un buen valor predictivo (2.2)." },
+        { "texto": "Pregunto si es producto sanitario con marcado CE y su clasificación de riesgo, y pido los estudios de validación con pacientes parecidos a los míos.", "correcta": true, "explicacion": "Un software que predice la evolución clínica es un producto sanitario. El checklist de la OMC empieza por la evidencia, la regulación y el algoritmo." },
+        { "texto": "Lo descarto: toda IA en medicina es peligrosa.", "correcta": false, "explicacion": "Demasiado radical: algunas herramientas tienen evidencia sólida (2.1). La clave es evaluarla." },
+        { "texto": "Se lo paso a un colega para que lo pruebe él.", "correcta": false, "explicacion": "Eso no evalúa nada y traslada el riesgo a otra persona." }
+      ]
+    },
+    {
+      "tipo": "unica",
+      "enunciado": "¿Qué ejemplo ilustra mejor que la disponibilidad de una herramienta cambia y no debe darse por supuesta?",
+      "opciones": [
+        { "texto": "Que un asistente tenga plan gratuito.", "correcta": false, "explicacion": "Es una característica de precio, no de disponibilidad." },
+        { "texto": "OpenEvidence, que desde finales de abril de 2026 bloquea el acceso desde la UE y el Reino Unido.", "correcta": true, "explicacion": "Es un buen ejemplo: una herramienta muy usada en otros países puede no estar disponible aquí. No hay que intentar sortear el bloqueo con una VPN." },
+        { "texto": "Que PubMed sea gratuito.", "correcta": false, "explicacion": "Ese es un dato de coste, y además estable." },
+        { "texto": "Que jamovi funcione en tu ordenador.", "correcta": false, "explicacion": "Eso describe cómo funciona, no la disponibilidad." }
+      ]
+    }
+  ]
+}

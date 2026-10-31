@@ -8,7 +8,7 @@ Convenciones del proyecto para que todas las sesiones de trabajo sean coherentes
 - **El alumno estudia en casa, con dispositivos y cuentas personales**, y quiere mantener el curso separado de su trabajo (Servicio Madrileño de Salud). No construyas el curso sobre herramientas corporativas: como mucho, menciónalas con un «si tu centro las ofrece».
 - De momento **solo se usa en local** (`npm run build` + `npm run preview -- --host` para la tablet en la wifi de casa). No hay despliegue público.
 - **Se trabaja por fases con parada obligatoria**: al terminar cada fase, commit, informe en `informes/fase-N.md` y **esperar la aprobación del usuario**. No avances de fase sin ella.
-- Estado: Fases 0 y 1 cerradas. **El usuario autorizó el 31/10/2026 ejecutar las fases 2 a 5 en secuencia**, con revisión de coherencia al final de cada una (compilación, validación, enlaces, glosario, horas, pruebas en móvil y `REVISION_CLINICA.md`) y un informe en `informes/fase-N.md`. Fase 2 (M0 + Parte 1) cerrada el 31/10/2026.
+- Estado: Fases 0 y 1 cerradas. **El usuario autorizó el 31/10/2026 ejecutar las fases 2 a 5 en secuencia**, con revisión de coherencia al final de cada una (compilación, validación, enlaces, glosario, horas, pruebas en móvil y `REVISION_CLINICA.md`) y un informe en `informes/fase-N.md`. Fase 2 (M0 + Parte 1) y Fase 3 (Parte 2: 2.1–2.5) cerradas el 31/10/2026. Siguiente: Fase 4 (Parte 3).
 
 ## Idioma y tono
 
@@ -78,6 +78,13 @@ Para añadir un componente nuevo: créalo, añádelo a `src/components/curso/ind
 - El cuerpo del texto tiene 18 px o más. Objetivos táctiles de 44 px o más. Todo funciona con teclado: «ordenar» usa botones ↑↓ y «emparejar», desplegables.
 - Las animaciones respetan `prefers-reduced-motion`.
 - Los vídeos usan una fachada: no se conecta con YouTube hasta que el alumno pulsa. Sin cookies, sin analítica y fuentes autoalojadas.
+
+## Notas de trabajo
+
+- **Finales de línea:** `recursos.json`, `glosario.json`, `prompts.json` y `curso.json` están en CRLF; los MDX, los tests y los demás JSON, en LF. En Windows, Python reescribe en CRLF por defecto: abre y guarda con `newline=''` para no ensuciar el diff.
+- **Un término del glosario con paréntesis** en `termino` (p. ej. «Benchmark (prueba de rendimiento)») se empareja también por la palabra entre paréntesis: evita palabras comunes que den falsos positivos en `check-glosario`.
+- **`<T>` fuera de encabezados y de celdas de tabla:** `check-glosario --arreglar` los inserta donde aparece la primera vez; revisa que no queden dentro de un encabezado o de una tabla.
+- **Las cifras de un estudio** se leen en el resumen **completo** (incluida la sección de métodos). Un extractor que corta en «RESULTS» pierde el tamaño de la muestra.
 
 ## Comandos
 
