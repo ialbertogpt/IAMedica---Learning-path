@@ -20,7 +20,7 @@ const grupos = subs
     </ul>
     {grupos.map(({ s, lista }) => (
       <section class="mt-8 grid gap-3">
-        <h2 class="m-0">{s.construido ? <a href={`/${s.slug}/`}>{s.numero} · {s.titulo}</a> : <>{s.numero} · {s.titulo} <span class="text-base font-sans font-normal tenue">(en preparación)</span></>}</h2>
+        <h2 class="m-0">{s.construido ? <a href={`${import.meta.env.BASE_URL}${s.slug}/`}>{s.numero} · {s.titulo}</a> : <>{s.numero} · {s.titulo} <span class="text-base font-sans font-normal tenue">(en preparación)</span></>}</h2>
         {lista.map((r) => <Recurso id={r.id} compacto />)}
       </section>
     ))}

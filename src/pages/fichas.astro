@@ -15,7 +15,7 @@ const color = (n: number) => `var(--${partes.find((p) => p.n === n)!.color})`;
       {subs.map((s, i) => (
         <li class:list={['border-borde', i > 0 && 'border-t']} style={`--c:${color(s.parte)}`}>
           {s.construido ? (
-            <a href={`/${s.slug}/#ficha`} class="flex items-center gap-3 min-h-[56px] px-4 no-underline text-tinta hover:bg-superficie-2">
+            <a href={`${import.meta.env.BASE_URL}${s.slug}/#ficha`} class="flex items-center gap-3 min-h-[56px] px-4 no-underline text-tinta hover:bg-superficie-2">
               <span class="text-[var(--c)]"><Icono nombre={s.icono} tam={20} /></span>
               <span class="mono text-[13.5px] font-medium text-[var(--c)] w-9">{s.numero}</span>
               <span class="flex-1 min-w-0">{s.titulo}</span>

@@ -8,12 +8,12 @@ import BaseLayout from '../components/layout/BaseLayout.astro';
     <div id="buscador" class="mt-4"></div>
     <p id="sin-indice" class="retro retro-neutra" hidden>El índice de búsqueda se genera al compilar la web (<code>npm run build</code>). En el modo de desarrollo no está disponible: usa <code>npm run build</code> y después <code>npm run preview</code>.</p>
   </div>
-  <link rel="stylesheet" href="/pagefind/pagefind-ui.css" />
+  <link rel="stylesheet" href={`${import.meta.env.BASE_URL}pagefind/pagefind-ui.css`} />
 </BaseLayout>
 <script>
   const contenedor = document.getElementById('buscador')!;
   const script = document.createElement('script');
-  script.src = '/pagefind/pagefind-ui.js';
+  script.src = import.meta.env.BASE_URL + 'pagefind/pagefind-ui.js';
   script.onload = () => {
     // @ts-expect-error PagefindUI se define en el script de Pagefind
     const ui = new PagefindUI({ element: '#buscador', showSubResults: true, showImages: false, resetStyles: false, autofocus: true });

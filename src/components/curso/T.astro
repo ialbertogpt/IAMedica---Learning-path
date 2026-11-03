@@ -8,4 +8,4 @@ if (!entrada) throw new Error(`[glosario] El término «${id}» no existe en src
 const { termino, definicion, analogia } = entrada.data;
 const uid = `def-${id}-${Math.random().toString(36).slice(2, 8)}`;
 ---
-<span class="termino"><button type="button" aria-expanded="false" aria-controls={uid}><slot /></button><span id={uid} class="definicion" role="note" hidden data-pagefind-ignore><b>{termino}</b>{definicion}<span class="analogia">Analogía: {analogia}</span><a href={`/glosario/#${id}`}>Ver en el glosario</a></span></span>
+<span class="termino"><button type="button" aria-expanded="false" aria-controls={uid}><slot /></button><span id={uid} class="definicion" role="note" hidden data-pagefind-ignore><b>{termino}</b>{definicion}<span class="analogia">Analogía: {analogia}</span><a href={`${import.meta.env.BASE_URL}glosario/#${id}`}>Ver en el glosario</a></span></span>

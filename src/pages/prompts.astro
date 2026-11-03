@@ -33,7 +33,7 @@ const presentes = [...new Set(prompts.map((p) => p.data.tarea))];
         const s = subs.find((x) => x.id === p.data.subcapitulo);
         return (
           <section data-tarea={p.data.tarea} data-texto={`${p.data.titulo} ${p.data.plantilla}`.toLowerCase()} class="grid gap-2">
-            <p class="m-0 text-base tenue"><span class="chip">{TAREAS[p.data.tarea]}</span> {s && <>De <a href={`/${s.slug}/`}>{s.numero} · {s.titulo}</a>{!s.construido && ' (en preparación)'}</>}</p>
+            <p class="m-0 text-base tenue"><span class="chip">{TAREAS[p.data.tarea]}</span> {s && <>De <a href={`${import.meta.env.BASE_URL}${s.slug}/`}>{s.numero} · {s.titulo}</a>{!s.construido && ' (en preparación)'}</>}</p>
             <Plantilla id={p.data.id} />
           </section>
         );

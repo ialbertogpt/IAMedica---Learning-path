@@ -26,7 +26,7 @@ const nombre = new Map(terminos.map((t) => [t.data.id, t.data.termino]));
       <span class="font-bold">Buscar un término</span>
       <input id="filtro-glosario" type="search" autocomplete="off" placeholder="p. ej., token, confabulación, ficha técnica…" class="min-h-12 w-full rounded-lg border border-borde bg-superficie px-3 text-lg" />
     </label>
-    <p id="glosario-vacio" class="retro retro-neutra" hidden>No hay términos que coincidan. Prueba con otra palabra o usa el <a href="/buscar/">buscador general</a>.</p>
+    <p id="glosario-vacio" class="retro retro-neutra" hidden>No hay términos que coincidan. Prueba con otra palabra o usa el <a href={`${import.meta.env.BASE_URL}buscar/`}>buscador general</a>.</p>
     <dl class="mt-6 grid gap-3">
       {terminos.map((t) => (
         <div class="tarjeta scroll-mt-4" id={t.data.id} data-termino={`${t.data.termino} ${t.data.definicion} ${t.data.analogia}`.toLowerCase()}>
@@ -37,7 +37,7 @@ const nombre = new Map(terminos.map((t) => [t.data.id, t.data.termino]));
             <dd class="m-0 mt-2 text-base">Ver también: {t.data.ver.filter((v) => nombre.has(v)).map((v, i) => <>{i > 0 && ' · '}<a href={`#${v}`}>{nombre.get(v)}</a></>)}</dd>
           )}
           {usos.get(t.data.id) && (
-            <dd class="m-0 mt-1 text-base tenue">Aparece en: {usos.get(t.data.id)!.map((u, i) => <>{i > 0 && ', '}<a href={`/${u.slug}/`}>{u.numero}</a></>)}</dd>
+            <dd class="m-0 mt-1 text-base tenue">Aparece en: {usos.get(t.data.id)!.map((u, i) => <>{i > 0 && ', '}<a href={`${import.meta.env.BASE_URL}${u.slug}/`}>{u.numero}</a></>)}</dd>
           )}
         </div>
       ))}

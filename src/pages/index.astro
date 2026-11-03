@@ -72,7 +72,7 @@ const primero = subs.find((s) => s.construido)!;
           <span class="interruptor" aria-hidden="true"><span></span></span>
         </button>
       </section>
-      <p class="m-0 flex gap-2.5 px-1 text-[13px] leading-normal text-tinta-3 min-[768px]:max-[1099px]:col-span-2"><span class="mt-px"><Icono nombre="lock" tam={17} /></span><span>Tu progreso se guarda solo en este dispositivo. <a href="/progreso/">Puedes exportarlo</a> con un código para cambiar de equipo.</span></p>
+      <p class="m-0 flex gap-2.5 px-1 text-[13px] leading-normal text-tinta-3 min-[768px]:max-[1099px]:col-span-2"><span class="mt-px"><Icono nombre="lock" tam={17} /></span><span>Tu progreso se guarda solo en este dispositivo. <a href={`${import.meta.env.BASE_URL}progreso/`}>Puedes exportarlo</a> con un código para cambiar de equipo.</span></p>
     </aside>
 
     <div class="grid gap-8 min-w-0 max-[1099px]:contents">
@@ -94,11 +94,11 @@ const primero = subs.find((s) => s.construido)!;
             </div>
           </div>
           <div class="flex flex-col gap-2.5 min-[768px]:items-end">
-            <a class="boton h-12 px-5.5 text-[15px] whitespace-nowrap" href={`/${primero.slug}/`} data-c="boton"><span data-c="boton-txt">Empezar</span><Icono nombre="arrow_forward" tam={20} /></a>
+            <a class="boton h-12 px-5.5 text-[15px] whitespace-nowrap" href={`${import.meta.env.BASE_URL}${primero.slug}/`} data-c="boton"><span data-c="boton-txt">Empezar</span><Icono nombre="arrow_forward" tam={20} /></a>
             <span class="text-[13px] text-tinta-3" data-c="requisito"></span>
           </div>
         </div>
-        <p class="m-0 px-5 min-[768px]:px-7 pb-5 text-sm text-tinta-2" data-c="piloto">Versión piloto: de momento están disponibles {subs.filter((s) => s.construido).map((s, i, a) => <>{i > 0 && (i === a.length - 1 ? ' y ' : ', ')}<a href={`/${s.slug}/`}>{s.numero} · {s.titulo}</a></>)}.</p>
+        <p class="m-0 px-5 min-[768px]:px-7 pb-5 text-sm text-tinta-2" data-c="piloto">Versión piloto: de momento están disponibles {subs.filter((s) => s.construido).map((s, i, a) => <>{i > 0 && (i === a.length - 1 ? ' y ' : ', ')}<a href={`${import.meta.env.BASE_URL}${s.slug}/`}>{s.numero} · {s.titulo}</a></>)}.</p>
       </section>
 
       <!-- ── Itinerario ── -->
@@ -137,7 +137,7 @@ const primero = subs.find((s) => s.construido)!;
                   const Etiqueta = s.construido ? 'a' : 'div';
                   return (
                     <li>
-                      <Etiqueta href={s.construido ? `/${s.slug}/` : undefined} class:list={['fila-itinerario fila min-h-[52px] border-t border-borde no-underline text-tinta', i === 0 && 'border-t-0', !s.construido && 'por-construir']}
+                      <Etiqueta href={s.construido ? `${import.meta.env.BASE_URL}${s.slug}/` : undefined} class:list={['fila-itinerario fila min-h-[52px] border-t border-borde no-underline text-tinta', i === 0 && 'border-t-0', !s.construido && 'por-construir']}
                         data-fila data-id={s.id} data-expres={s.expres ? '1' : '0'} data-estado={s.construido ? 'pendiente' : 'preparacion'}
                         style={`--rail-top:${i === 0 ? '50%' : '0'}; --rail-bot:${i === g.lista.length - 1 ? '50%' : '0'}`}>
                         <span class="rail ml-3.5 min-h-[50px]"><span class="nodo"></span></span>
@@ -179,7 +179,7 @@ const primero = subs.find((s) => s.construido)!;
                   const Etiqueta = s.construido ? 'a' : 'div';
                   return (
                     <li>
-                      <Etiqueta href={s.construido ? `/${s.slug}/` : undefined} class:list={['flex items-center gap-3 min-h-[56px] no-underline text-tinta fila', !s.construido && 'por-construir']}
+                      <Etiqueta href={s.construido ? `${import.meta.env.BASE_URL}${s.slug}/` : undefined} class:list={['flex items-center gap-3 min-h-[56px] no-underline text-tinta fila', !s.construido && 'por-construir']}
                         data-fila data-id={s.id} data-expres={s.expres ? '1' : '0'} data-estado={s.construido ? 'pendiente' : 'preparacion'}
                         style={`--rail-top:${i === 0 ? '50%' : '0'}; --rail-bot:${i === g.lista.length - 1 ? '50%' : '0'}`}>
                         <span class="rail w-4"><span class="nodo"></span></span>
@@ -313,7 +313,7 @@ const primero = subs.find((s) => s.construido)!;
     c('sesion').textContent = `Sesión ${n} de ${s.sesiones.length} · ${ses.titulo}`;
     c('min').textContent = `${ses.minutos} min`;
     c('pips').innerHTML = s.sesiones.map((x) => `<div style="flex:1;height:5px;border-radius:3px;background:${h.has(x.n) ? 'var(--c)' : x.n === n ? 'color-mix(in oklch, var(--c) 55%, var(--superficie-2))' : 'color-mix(in oklch, var(--c) 16%, var(--superficie-2))'}"></div>`).join('');
-    (c('boton') as HTMLAnchorElement).href = `/${s.slug}/#sesion-${n}`;
+    (c('boton') as HTMLAnchorElement).href = `${import.meta.env.BASE_URL}${s.slug}/#sesion-${n}`;
     c('boton-txt').textContent = `Continuar sesión ${n}`;
     const pendientes = s.requiere.map((id) => subs.find((x) => x.id === id)!).filter((r) => estado(r) !== 'hecha');
     c('requisito').textContent = pendientes.length ? `Se recomienda antes ${pendientes.map((r) => `${r.numero} ${r.titulo}`).join(' y ')}` : '';
